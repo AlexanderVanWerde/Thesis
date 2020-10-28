@@ -1,0 +1,64 @@
+
+\documentclass[12pt,a4paper,twoside]{book}
+\usepackage{DocumentPreamble}
+\usepackage{DarkMode}
+
+
+
+
+% Start of the actual document
+\begin{document}
+
+% FRONT MATTER
+\ignore{
+    \frontmatter
+    \rmfamily
+
+    \input{Preamble/Titlepage.tex} \cleardoublepage 
+    \input{Preamble/Copyright.tex} \cleardoublepage
+    \setcounter{page}{0}
+    \pagenumbering{roman}
+
+
+    \input{Preamble/Preface.tex}\cleardoublepage
+    \input{Preamble/Summary.tex} \cleardoublepage
+    \printglossary[title={List of Symbols}] \cleardoublepage
+    \addcontentsline{toc}{chapter}{List of Figures}
+    \listoffigures \cleardoublepage
+    %\addcontentsline{toc}{chapter}{List of Tables}
+    %\listoftables \cleardoublepage
+    \addcontentsline{toc}{chapter}{Contents}
+    \tableofcontents \cleardoublepage
+
+    % MAIN MATTER
+    \mainmatter
+    \setcounter{page}{0}
+    \pagenumbering{arabic}
+}
+
+\ignore{
+\input{Chapters/Introduction.tex} \cleardoublepage}
+\input{Chapters/Chapter1} \cleardoublepage
+\input{Chapters/Chapter2} \cleardoublepage
+
+\ignore{
+\input{Chapters/Conclusions.tex} \cleardoublepage}
+% BACK MATTER (is dit zelfs een woord?)
+
+% BIBLIOGRAPHY
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{apalike}
+\bibliography{Bibliography/References.bib}
+\cleardoublepage
+
+% APPENDIX
+%\begin{appendices}
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+%  \input{Backmatter/Appendix.tex}
+%\end{appendices}
+
+% Back side of book
+\cleartoleftpage{} % Make sure the back page is at an even page number
+\input{Backmatter/Back.tex}
+
+\end{document}
