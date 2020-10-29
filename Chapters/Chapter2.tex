@@ -22,16 +22,19 @@ The proof of the following results proceeds precisely like the case of $\D_X$-mo
 
 A coherent $\A_X^R$-module $\M$ is said to be relative holonomic over $R$ if $\Chrel \M = \cup_w \Lambda_w \times S_w$
 for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irreducible closed subvarieties $S_w\subseteq \Spec R$.
-\subsection{Direct Image Functor for $\A_X^R$-modules}
-    In this section we state the natural generalisation of the direct image functor for $\D_X$-modules to the relative case of $\A_X^R$-modules. As with $\D$-modules this is the most natural for right-modules.  \todo{This is all general knowledge, should anything be cited? }
+\section{Direct Image Functor for $\A_X^R$-modules}
+    In this section we state the natural generalisation of the direct image functor for $\D_X$-modules to the relative case of $\A_X^R$-modules. As with $\D$-modules this is the most natural for right-modules.\todo{more introduction}
 
-    Let $\mu:Y\to X$ be some morphism of smooth algebraic varieties.  A-priori it is not even clear what $\A_X^R$-module should correspond to $\A_Y^R$ since there is no natural push forward of vector fields. This issue may be resolved by use of the transfer $(\A_Y^R,\mu^{-1}\A_X^R)$-bimodule $\A_{Y\to X}^R:= \O_Y \otimes_{\mu^{-1}\O_X}\mu^{-1}\A_X^R$.
+    \subsection{Transfer Modules and $\A_Y^R$-module Direct Image}
+    Let $\mu:Y\to X$ be some morphism of smooth algebraic varieties.  A-priori it is not even clear what $\A_X^R$-module should correspond to $\A_Y^R$ since there is no natural push forward of vector fields. This issue may be resolved by use of the transfer $(\A_Y^R,\mu^{-1}\A_X^R)$-bimodule $\A_{Y\to X}^R:= (\O_Y\times \O_R) \otimes_{\mu^{-1}(\O_X\times \O_R)}\mu^{-1}\A_X^R$.
 
     \begin{definition}
-      The direct image functor $\int_\mu$ from $\bD^{b,r}(\A_Y^R)$ to $\bD^{b,r}(\A_X^R)$ is defined to be $\bR\mu_* (\M \otimes_{\D_Y}^L \blank)$. In particular, for any $\A_Y^R$ module $\M$ one has $\A_X^R$-modules $\int_\mu^j \M = \H^j \int_\mu \M$.
+      The direct image functor $\int_\mu$ from $\bD^{b,r}(\A_Y^R)$ to $\bD^{b,r}(\A_X^R)$ is defined to be $\bR\mu_* (\blank\otimes_{\D_Y}^L \A_{Y\to X}^R)$.
+      For any $\A_Y^R$ module $\M$ the $j$-th direct image is the $\A_X^R$-modules $\int_\mu^j \M = \H^j \int_\mu \M$.
+      The subscript $\mu$ will be surpressed whenever there is no ambiguity.
     \end{definition}
 
-    To compute $\int_\mu^j \M$ a resolution for $\A_{Y\to X}$ is required.
+    To compute $\int^j \M$ a resolution for $\A_{Y\to X}$ is required.
     \begin{definition}
         Let $\M$ be a right $\A_Y^R$-module, the relative Spencer complex $\Sp_Y^\bullet(\M)$ is a complex of right $\A_Y^R$-modules, concentrated in negative degrees, with $\Sp_Y^{-k}(\M) = \M \otimes_{\O_Y} \wedge^{k}\Theta_Y$ and as differential the right-$\A_Y^R$-linear map $\delta$ given by
         \begin{align*}
@@ -43,21 +46,44 @@ for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irre
             The complex of $(\A_X,f^{-1}\A_Y)$-bimodules $\Sp^\bullet_{Y\to X}(\A_Y^R) := \Sp^\bullet_Y(\A_Y^R) \otimes_{\O_Y}\A_{Y \to X}^R$ is a resolution of $\A_{Y\to X}^R$ as a bimodule by locally free left $\A_Y^R$-modules.
         \end{lemma}
         \begin{proof}
-            This is analogous to the case of $\D_Y$-modules in \cite[p33]{sabbah2011introduction}.\todo{Should work out the appropriate exercises in the reference sometime.}
+            This will be analogous to the case of $\D_Y$-modules in \cite[p33]{sabbah2011introduction}.\todo{Work out the appropriate exercises in the reference sometime.}
+            Also see \url{http://www.math.stonybrook.edu/~cschnell/mat615/lectures/lecture17.pdf}
         \end{proof}
-        Since tensoring with locally free modules yields a exact functor it follows that $\int_\mu\M = \bR\mu_* (\M \otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))$. This means that $\int_\mu^j \M$ is the sheaf of right $\A_X^R$-modules associated to the presheaf $V \mapsto H^j(\mu^{-1}(V), \M \otimes_{\A_Y} \Sp_{Y\to X}^\bullet(\A_Y^R))$.\todo{should now be possible to describe a edge map}
-    %Denote by $\bD^{b,r}_{qc}(\A_Y^{R})$ the full subcategory of $\bD^{b,r}(\A_Y^R)$ consisting of those complexes of right $\A_Y^R$-modules whose cohomology sheaves are quasi-coherent over $\O_Y\times \O_{\Spec R}$. Similarly for $\bD^{b,r}_{coh}(\A_Y^R)$ with the cohomology being coherent $\A_Y^R$-modules.
-    %\begin{theorem}
-    %    Let $\mu:X\to Y$ be a morphism of nonsingular algebraic varieties. Then the direct image $\int$ takes $\bD^{b,r}_{qc}(\A_Y^{R})$ into $\bD^{b,r}_{qc}(\A_X^{R})$. Moreover, when $\mu$ is proper the direct image takes $\bD^{b,r}_{coh}(\A_Y^R)$ into $\bD^{b,r}_{coh}(\A_X^R)$.
-    %\end{theorem}
-    %\begin{proof}
-    %\todo{See \url{http://www.math.stonybrook.edu/~cschnell/mat615/lectures/lecture18.pdf}}
-    %\end{proof}
-\subsection{Preservation of Relative Holonomicity}
-\subsection{Kashiwara's Estimate for the Characteristic Variety}
-Let $\mu:Y\to X$ be a proper morphism of COMPLEX MANIFOLDS\todo{This requires a different proof than the algebraic case, although the complex manifold can be adjusted to the varieties case but this needs $\mu$ to be proper to get coherence results and this intermediate step is not actually necessary.}. Given a coherent $\A_X^R$-module $\M$ with relative characteristic variety $\Chrel \M$. We desire to estimate $\Chrel \int^j \M$ in terms of $\M$. Such a estimate in the non-relative case is known due to Kashiwara \cite{kashiwara1976b}.  We note that the assumption that $\mu$ is proper can be relaxed but this version will suffice for our purposes.
+        Since tensoring with locally free modules yields a exact functor this simplifies the computation of the direct image as follows.
+        \begin{corollary}
+            It holds that $\int = \bR\mu_* (\blank\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))$.
+        \end{corollary}
+        \begin{lemma}
+            Construction of global section in $\int^j \M$.
+        \end{lemma}
 
-The original proof by Kashiwara \cite{kashiwara1976b} uses the theory of microlocal differential operators. The proof we consider here is adapted from a proof by Malgrange \cite{malgrange1985images} and we follow the exposition by Sabbah \cite[p36]{sabbah2011introduction}.
+        \subsection{Functorial Properties of the Direct Image}
+        \begin{theorem}
+           Let $\mu:Z\to Y$ and $\nu:Y\to X$ be morphisms of smooth algebraic varieties. If $\mu$ is proper then $\int_{\nu\circ \mu} = \int_\nu \int_\mu$.
+        \end{theorem}
+        \begin{proof}
+          See \url{http://www.math.stonybrook.edu/~cschnell/mat615/lectures/lecture17.pdf}
+        \end{proof}
+        This theorem reduces the computation of direct images to closed embeddings and projections by writing $\mu = \pi \circ \iota$ for $\iota:Y\to Y\times X$ and $\pi:Y\times X\to X$.
+        %These cases are handled by the following theorem.
+        %\begin{theorem}
+        %   If $\iota: Y\to X$ is a closed embedding then $\int_\iota = \iota_*(\blank \otimes_{\A_{Y}} \A_{Y\to X})$.
+        %   If $\pi:Y\times X \to X$ is the projection then $\int_\pi = \bR \pi_*(\blank \otimes_{\O_{Y\times X}} \wedge^{-\bullet}\Theta_{Y\times X/X}) $.\todo{Still need to adjust $\pi$ formula for relativity}
+        %\end{theorem}
+
+
+
+    Denote by $\bD^{b,r}_{qc}(\A_Y^{R})$ the full subcategory of $\bD^{b,r}(\A_Y^R)$ consisting of those complexes of right $\A_Y^R$-modules whose cohomology sheaves are quasi-coherent over $\O_Y\times \O_{\Spec R}$. Similarly for $\bD^{b,r}_{coh}(\A_Y^R)$ with the cohomology being coherent $\A_Y^R$-modules.
+    \begin{theorem}\label{thm: ConservationQuasiCoherentAndCoherentIfProper}
+        Let $\mu:X\to Y$ be a morphism of nonsingular algebraic varieties. Then the direct image $\int$ takes $\bD^{b,r}_{qc}(\A_Y^{R})$ into $\bD^{b,r}_{qc}(\A_X^{R})$. Moreover, when $\mu$ is proper the direct image takes $\bD^{b,r}_{coh}(\A_Y^R)$ into $\bD^{b,r}_{coh}(\A_X^R)$.
+    \end{theorem}
+    \begin{proof}
+      See \url{http://www.math.stonybrook.edu/~cschnell/mat615/lectures/lecture18.pdf}
+    \end{proof}
+\subsection{Kashiwara's Estimate for the Characteristic Variety}
+Let $\mu:Y\to X$ be a proper morphism of smooth algebraic varieties. Given a coherent $\A_X^R$-module $\M$ with relative characteristic variety $\Chrel \M$. We desire to estimate $\Chrel \int^j \M$ in terms of $\M$. Such a estimate in the non-relative case is known due to Kashiwara \cite{kashiwara1976b}. %
+
+The original proof by \cite{kashiwara1976b} uses the theory of microlocal differential operators. The proof we consider here is adapted from a proof by \cite{malgrange1985images} and we follow the exposition by \cite{sabbah2011introduction}. %We note that the assumption that $\mu$ is proper can be relaxed but this version will suffice for our purposes.
 
 Consider the following cotangent diagram
 $$
@@ -68,7 +94,7 @@ $$
 $$
 where the maps $T^*\mu$ and $\widetilde{\mu}$ act on the first component.
 \begin{theorem}
-    Let $\M$ be a relative holonomic $\A_Y^R$-module. Then, for any $j\geq 0$, we have \todo{Check required assumptions, really we only need a good filtration but this is apparently nontrivial. }
+    Let $\M$ be a coherent $\A_Y^R$-module. Then, for any $j\geq 0$, we have \todo{Coherent should suffice in algebraic case I think, Sabbah needs assumptions to guarantee the existence of a global filtration in analytic case.  }
     $$\Chrel\left(\int^j \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
 \end{theorem}
 The first step is to note that a similar inclusion is easy for the $\grrel \A_Y^R$-modules. For any $\grrel \A_Y^R$-module $\mathcal{M}$ define $\int^j \mathcal{M} :=  \H^j\left(\bR \mu_* (\bL(T^*\mu)^* \mathcal{M})\right).$ Note that $(T^*\mu)^*$ produces a sheaf on $\mu^* T^* X \times \Spec R$ by the tensor product  $\blank\otimes_{f^{-1}\O_X\times \O_{\Spec R}} \grrel \A_X^R$. Hence, looking at the supports, the following result is immediate.
@@ -84,4 +110,5 @@ The following obvious isomorphisms of filtered modules allow us to view the rela
 $$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} = \grrel \M.$$
 Conversely, the second formula may be used to produce a filtered $\A_Y^R$-module from any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
 
-One can define $\int^j \Rrel \M$ similarly to the $\D$-module direct image and these are coherent $\A_X^R$-modules by the following adaptation of \todo{theorem 3.4.1 in Sabbah}
+One can define $\int^j \Rrel \M$ similarly to the $\A_Y^R$-module direct image and these are coherent $\A_X^R$-modules similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}.
+The idea is that we can use $\int^j \Rrel \M$ to compare $\int^j \M$ and $\int^j \grrel \M$ but some care is required since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
