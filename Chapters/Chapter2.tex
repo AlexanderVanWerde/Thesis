@@ -29,7 +29,7 @@ for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irre
     Let $\mu:Y\to X$ be some morphism of smooth algebraic varieties.  A-priori it is not even clear what $\A_X^R$-module should correspond to $\A_Y^R$ since there is no natural push forward of vector fields. This issue may be resolved by use of the transfer $(\A_Y^R,\mu^{-1}\A_X^R)$-bimodule $\A_{Y\to X}^R:= (\O_Y\times \O_R) \otimes_{\mu^{-1}(\O_X\times \O_R)}\mu^{-1}\A_X^R$.
 
     \begin{definition}
-      The direct image functor $\int_\mu$ from $\bD^{b,r}(\A_Y^R)$ to $\bD^{b,r}(\A_X^R)$ is defined to be $\bR\mu_* (\blank\otimes_{\D_Y}^L \A_{Y\to X}^R)$.
+      The direct image functor $\int_\mu$ from $\bD^{b,r}(\A_Y^R)$ to $\bD^{b,r}(\A_X^R)$ is defined to be $\bR\mu_* (\blank\otimes_{\A_Y^R}^L \A_{Y\to X}^R)$.
       For any $\A_Y^R$ module $\M$ the $j$-th direct image is the $\A_X^R$-modules $\int_\mu^j \M = \H^j \int_\mu \M$.
       The subscript $\mu$ will be surpressed whenever there is no ambiguity.
     \end{definition}
@@ -56,7 +56,9 @@ for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irre
         \begin{lemma}
             Construction of global section in $\int^j \M$.
         \end{lemma}
-
+        \begin{theorem}
+          Long exact sequence
+        \end{theorem}
         \subsection{Functorial Properties of the Direct Image}
         \begin{theorem}
            Let $\mu:Z\to Y$ and $\nu:Y\to X$ be morphisms of smooth algebraic varieties. If $\mu$ is proper then $\int_{\nu\circ \mu} = \int_\nu \int_\mu$.
@@ -97,7 +99,8 @@ where the maps $T^*\mu$ and $\widetilde{\mu}$ act on the first component.
     Let $\M$ be a coherent $\A_Y^R$-module. Then, for any $j\geq 0$, we have \todo{Coherent should suffice in algebraic case I think, Sabbah needs assumptions to guarantee the existence of a global filtration in analytic case.  }
     $$\Chrel\left(\int^j \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
 \end{theorem}
-The first step is to note that a similar inclusion is easy for the $\grrel \A_Y^R$-modules. For any $\grrel \A_Y^R$-module $\mathcal{M}$ define $\int^j \mathcal{M} :=  \H^j\left(\bR \mu_* (\bL(T^*\mu)^* \mathcal{M})\right).$ Note that $(T^*\mu)^*$ produces a sheaf on $\mu^* T^* X \times \Spec R$ by the tensor product  $\blank\otimes_{f^{-1}\O_X\times \O_{\Spec R}} \grrel \A_X^R$. Hence, looking at the supports, the following result is immediate.
+The first step is to note that a similar inclusion is easy for the $\grrel \A_Y^R$-modules. For any $\grrel \A_Y^R$-module $\mathcal{M}$ define $\int^j \mathcal{M} :=  \H^j\left(\bR \mu_* (\bL(T^*\mu)^* \mathcal{M})\right).$
+Note that $(T^*\mu)^*$ produces a sheaf on $\mu^* T^* X \times \Spec R$ by the tensor product  $\blank\otimes_{f^{-1}\O_X\times \O_{R}} \grrel \A_X^R$. Hence, looking at the supports, the following result is immediate.
 \begin{lemma}
     For any $\grrel\A_Y^R$-module $\mathcal{M}$ it holds that
     $$\Supp \int^j \mathcal{M}\subseteq \widetilde{\mu}\left((T^* \mu)^{-1} \Supp \mathcal{M}\right).$$
@@ -110,5 +113,13 @@ The following obvious isomorphisms of filtered modules allow us to view the rela
 $$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} = \grrel \M.$$
 Conversely, the second formula may be used to produce a filtered $\A_Y^R$-module from any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
 
-One can define $\int^j \Rrel \M$ similarly to the $\A_Y^R$-module direct image and these are coherent $\A_X^R$-modules similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}.
-The idea is that we can use $\int^j \Rrel \M$ to compare $\int^j \M$ and $\int^j \grrel \M$ but some care is required since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
+One can define $\int^j \Rrel \M$ similarly to the $\A_Y^R$-module direct image and these are coherent $\Rees\A_X^R$-modules similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}.
+%The idea is that, up to $\C[z]$-torsion $\int^j \Rrel \M$ to compare $\int^j \M$ and $\int^j \grrel \M$ but some care is required since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
+The following is immediate from $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\A_X^R$.
+\begin{lemma}
+  For sufficiently large $\ell \gg 1$ the kernel of $z^\ell$ in $\int^j \Rrel \M$ is locally stationary. The quotient of $\int^j \Rrel \M$ by it's $z$-torsion is a $\Rees \A_X^R$-coherent module.
+\end{lemma}
+This Rees module is associated with some good filtration on $\int^j \M$. (\textbf{Why? })
+\begin{corollary}
+    For all $\ell \geq 1$ it holds that $\int^j \Rrel\M / z^\ell\int^j \Rrel \M$ is a submodule of $\int^j (\Rrel \M / z^\ell \Rrel \M)$. Further, if $\ell$ is sufficiently large then $\Rrel \int^j\M / z^\ell \Rrel \int^j \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$. 
+\end{corollary}

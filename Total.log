@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.28)  29 OCT 2020 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.28)  30 OCT 2020 08:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1473,18 +1473,18 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 [3
 
 ]
-Overfull \hbox (10.35838pt too wide) in paragraph at lines 65--66
+Overfull \hbox (10.35838pt too wide) in paragraph at lines 67--68
 []\OT1/cmr/m/n/12 (-10) See []$\OT1/cmtt/m/n/12 http : / / www . math . stonybr
 ook . edu / []cschnell / mat615 / lectures / lecture17 .
  []
 
 
-Overfull \hbox (10.35838pt too wide) in paragraph at lines 81--82
+Overfull \hbox (10.35838pt too wide) in paragraph at lines 83--84
 []\OT1/cmr/m/n/12 (-10) See []$\OT1/cmtt/m/n/12 http : / / www . math . stonybr
 ook . edu / []cschnell / mat615 / lectures / lecture18 .
  []
 
-[4]) [5] [6] (./Total.bbl) [7
+[4] [5]) [6] (./Total.bbl) [7
 
 
 ] [8
@@ -1492,7 +1492,7 @@ ook . edu / []cschnell / mat615 / lectures / lecture18 .
 ] [9
 
 ] (./Backmatter/Back.tex
-<Figures/sedes.png, id=159, 402.5439pt x 683.6742pt>
+<Figures/sedes.png, id=162, 402.5439pt x 683.6742pt>
 File: Figures/sedes.png Graphic file (type png)
 <use Figures/sedes.png>
 Package pdftex.def Info: Figures/sedes.png  used on input line 34.
@@ -1510,14 +1510,14 @@ This document will not have a glossary.
 
 [10 <./Figures/sedes.png>] (./Total.aux)
 Package rerunfilecheck Info: File `Total.out' has not changed.
-(rerunfilecheck)             Checksum: 5CF7BAE68F99C48E4E134BB5ABD527AC;345.
+(rerunfilecheck)             Checksum: 61FEC92D280133DB33736A4A7EBE14E1;343.
  ) 
 Here is how much of TeX's memory you used:
- 33875 strings out of 479918
- 696570 string characters out of 5873784
- 1127277 words of memory out of 5000000
+ 33880 strings out of 479918
+ 696622 string characters out of 5873784
+ 1126277 words of memory out of 5000000
  49687 multiletter control sequences out of 15000+600000
- 565406 words of font info for 165 fonts, out of 8000000 for 9000
+ 565455 words of font info for 166 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  135i,15n,137p,1001b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Users/Alexander Van Werde/texlive/2020/texmf-dist/fonts/type1/public/amsf
@@ -1546,10 +1546,10 @@ lexander Van Werde/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
 2.pfb><c:/Users/Alexander Van Werde/texlive/2020/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb><c:/Users/Alexander Van Werde/texlive/2020/texmf-di
 st/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Total.pdf (10 pages, 334962 bytes).
+Output written on Total.pdf (10 pages, 337888 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
+ 250 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
  32416 words of extra memory for PDF output out of 35830 (max. 10000000)
 
