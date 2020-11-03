@@ -113,13 +113,19 @@ The following obvious isomorphisms of filtered modules allow us to view the rela
 $$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} = \grrel \M.$$
 Conversely, the second formula may be used to produce a filtered $\A_Y^R$-module from any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
 
-One can define $\int^j \Rrel \M$ similarly to the $\A_Y^R$-module direct image and these are coherent $\Rees\A_X^R$-modules similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}.
+One can define a direct image of graded $\Rees\A_Y^R$-modules similarly to the $\A_Y^R$-module direct image and these are coherent graded $\Rees\A_X^R$-modules similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}. \todo{Check that direct image yields graded structure}
 %The idea is that, up to $\C[z]$-torsion $\int^j \Rrel \M$ to compare $\int^j \M$ and $\int^j \grrel \M$ but some care is required since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
-The following is immediate from $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\A_X^R$.
+
 \begin{lemma}
-  For sufficiently large $\ell \gg 1$ the kernel of $z^\ell$ in $\int^j \Rrel \M$ is locally stationary. The quotient of $\int^j \Rrel \M$ by it's $z$-torsion is a $\Rees \A_X^R$-coherent module.
+  For sufficiently large $\ell \gg 1$ the kernel of $z^\ell$ in $\int^j \Rrel \M$ is locally stationary. The quotient of $\int^j \Rrel \M$ by it's $z$-torsion is the $\Rees \A_X^R$-coherent module associated to a good filtration on $\int^j \M$.
 \end{lemma}
-This Rees module is associated with some good filtration on $\int^j \M$. (\textbf{Why? })
+\begin{proof}
+    The statement that the kernel locally satbilises and that the quotient is coherent follow from $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\A_X^R$.
+
+    For it's association to $\int^j \M$ consider the short exact sequence $0\to \Rrel \M \xrightarrow{z-1} \Rrel \M \to \M \to 0$. This induces a long exact sequence
+    $$0 \to \int^0 \Rrel \M \xrightarrow{z-1} \int^0 \Rrel \M \to \int^0 \M \to \int^1 \Rrel \M \xrightarrow{z-1}\cdots. $$
+    Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\A_X^R$-module one has that $z-1$ is injective whence it follows that $\int^j \Rrel \M / (z-1)\int^j \Rrel \M \cong \int^j \M$ as desired.
+\end{proof}
 \begin{corollary}
-    For all $\ell \geq 1$ it holds that $\int^j \Rrel\M / z^\ell\int^j \Rrel \M$ is a submodule of $\int^j (\Rrel \M / z^\ell \Rrel \M)$. Further, if $\ell$ is sufficiently large then $\Rrel \int^j\M / z^\ell \Rrel \int^j \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$. 
+    For all $\ell \geq 1$ it holds that $\int^j \Rrel\M / z^\ell\int^j \Rrel \M$ is a submodule of $\int^j (\Rrel \M / z^\ell \Rrel \M)$. Further, if $\ell$ is sufficiently large then $\Rrel \int^j\M / z^\ell \Rrel \int^j \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
 \end{corollary}
