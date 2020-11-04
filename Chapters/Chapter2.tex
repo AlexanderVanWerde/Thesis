@@ -85,7 +85,7 @@ for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irre
 \subsection{Kashiwara's Estimate for the Characteristic Variety}
 Let $\mu:Y\to X$ be a proper morphism of smooth algebraic varieties. Given a coherent $\A_X^R$-module $\M$ with relative characteristic variety $\Chrel \M$. We desire to estimate $\Chrel \int^j \M$ in terms of $\M$. Such a estimate in the non-relative case is known due to Kashiwara \cite{kashiwara1976b}. %
 
-The original proof by \cite{kashiwara1976b} uses the theory of microlocal differential operators. The proof we consider here is adapted from a proof by \cite{malgrange1985images} and we follow the exposition by \cite{sabbah2011introduction}. %We note that the assumption that $\mu$ is proper can be relaxed but this version will suffice for our purposes.
+The original proof by \cite{kashiwara1976b} uses the theory of microlocal differential operators. The idea of the following proof is due to \cite{malgrange1985images} in a $K$-theoretic context and we follow the exposition by \cite{sabbah2011introduction}. %We note that the assumption that $\mu$ is proper can be relaxed but this version will suffice for our purposes.
 
 Consider the following cotangent diagram
 $$
@@ -96,9 +96,11 @@ $$
 $$
 where the maps $T^*\mu$ and $\widetilde{\mu}$ act on the first component.
 \begin{theorem}
-    Let $\M$ be a coherent $\A_Y^R$-module. Then, for any $j\geq 0$, we have \todo{Coherent should suffice in algebraic case I think, Sabbah needs assumptions to guarantee the existence of a global filtration in analytic case.  }
+    Let $\M$ be a coherent $\A_Y^R$-module. Then, for any $j\geq 0$, we have 
     $$\Chrel\left(\int^j \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
 \end{theorem}
+Note that the statement is local so, after replacing $X$ by some affine open, we may assume that $X\times \Spec R$ and $Y\times \Spec R$ are compact.
+
 The first step is to note that a similar inclusion is easy for the $\grrel \A_Y^R$-modules. For any $\grrel \A_Y^R$-module $\mathcal{M}$ define $\int^j \mathcal{M} :=  \H^j\left(\bR \mu_* (\bL(T^*\mu)^* \mathcal{M})\right).$
 Note that $(T^*\mu)^*$ produces a sheaf on $\mu^* T^* X \times \Spec R$ by the tensor product  $\blank\otimes_{f^{-1}\O_X\times \O_{R}} \grrel \A_X^R$. Hence, looking at the supports, the following result is immediate.
 \begin{lemma}
@@ -113,19 +115,31 @@ The following obvious isomorphisms of filtered modules allow us to view the rela
 $$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} = \grrel \M.$$
 Conversely, the second formula may be used to produce a filtered $\A_Y^R$-module from any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
 
-One can define a direct image of graded $\Rees\A_Y^R$-modules similarly to the $\A_Y^R$-module direct image and these are coherent graded $\Rees\A_X^R$-modules similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}. \todo{Check that direct image yields graded structure}
+One can define a direct image of $\Rees\A_Y^R$-modules similarly to the $\A_Y^R$-module direct image and this preserves are coherence and being graded similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}. \todo{Check that direct image yields graded structure}
 %The idea is that, up to $\C[z]$-torsion $\int^j \Rrel \M$ to compare $\int^j \M$ and $\int^j \grrel \M$ but some care is required since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
 
 \begin{lemma}
-  For sufficiently large $\ell \gg 1$ the kernel of $z^\ell$ in $\int^j \Rrel \M$ is locally stationary. The quotient of $\int^j \Rrel \M$ by it's $z$-torsion is the $\Rees \A_X^R$-coherent module associated to a good filtration on $\int^j \M$.
+  For sufficiently large $\ell$ the kernel of $z^\ell$ in $\int^j \Rrel \M$ stabilises. For such $\ell$ the quotient $\int^j \Rrel \M/ \ker z^\ell$ is the $\Rees \A_X^R$-coherent module associated to a good filtration on $\int^j \M$.
 \end{lemma}
 \begin{proof}
-    The statement that the kernel locally satbilises and that the quotient is coherent follow from $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\A_X^R$.
+  By $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\A_X^R$ one gets that $\ker z^\ell$ locally stabilises. This is sufficient due to $X\times \Spec R$ being compact.
 
-    For it's association to $\int^j \M$ consider the short exact sequence $0\to \Rrel \M \xrightarrow{z-1} \Rrel \M \to \M \to 0$. This induces a long exact sequence
-    $$0 \to \int^0 \Rrel \M \xrightarrow{z-1} \int^0 \Rrel \M \to \int^0 \M \to \int^1 \Rrel \M \xrightarrow{z-1}\cdots. $$
-    Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\A_X^R$-module one has that $z-1$ is injective whence it follows that $\int^j \Rrel \M / (z-1)\int^j \Rrel \M \cong \int^j \M$ as desired.
+    Now consider the short exact sequence $0\to \Rrel \M \xrightarrow{z-1} \Rrel \M \to \M \to 0$. This induces a long exact sequence
+    $$\cdots \to \int^j \Rrel \M \xrightarrow{z-1} \int^j \Rrel \M \to \int^j \M \to \int^{j+1} \Rrel \M \xrightarrow{z-1}\cdots. $$
+    Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\A_X^R$-module one has that $z-1$ is injective whence it follows that $\int^j \Rrel \M / (z-1)\int^j \Rrel \M \cong \int^j \M$. This yields the desired result using that $\int^j \Rrel \M / \ker z^\ell$ is $\C[z]$-torsion free and the isomorphism
+    $$ \frac{\int^j \Rrel \M }{(z-1)\int^j \Rrel \M } \cong \frac{\int^j \Rrel \M /\ker z^\ell }{(z-1)(\int^j \Rrel \M/\ker z^\ell) }.$$
 \end{proof}
-\begin{corollary}
-    For all $\ell \geq 1$ it holds that $\int^j \Rrel\M / z^\ell\int^j \Rrel \M$ is a submodule of $\int^j (\Rrel \M / z^\ell \Rrel \M)$. Further, if $\ell$ is sufficiently large then $\Rrel \int^j\M / z^\ell \Rrel \int^j \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
-\end{corollary}
+\todo{Implicitly, in this proof the direct image for Rees and standard is identified. Should verify that this causes no problems. }
+From now on we equip $\int^j \M$ with the good filtation inherited from the Rees module's direct image.
+\begin{lemma}
+    If $\ell$ is sufficiently large then $\Rrel \int^j\M / z^\ell \Rrel \int^j \M$ is a subquotient of $\int^j \Rrel\M / z^\ell\int^j \Rrel \M$.
+\end{lemma}
+\begin{proof}
+  The short exact sequence $0\to \Rrel\M \xrightarrow{z^\ell}\Rrel \M \to \Rrel\M / z^\ell \Rrel\M \to 0$ induces a long exact sequence
+  $$\cdots \to \int^j \Rrel \M \xrightarrow{z^\ell} \int^j \Rrel \M \to \int^j \Rrel\M/z^\ell \Rrel\M \to \int^{j+1} \Rrel \M \xrightarrow{z^\ell}\cdots. $$
+  Hence, $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$ is a submodule of $\int^j \Rrel\M/z^\ell \Rrel\M$ and it remains to show that $\Rrel \int^j \M/ z^\ell \Rrel \int^j \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
+
+  Let $\ell$ be sufficiently large so that the foregoing lemma yields a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong \Rrel\int^j \M$. The map $z^\ell$ induces a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong z^\ell \int^j \Rrel \M$. Therefore $z^\ell \int^j \Rrel \M / z^{2\ell}\int^j \Rrel\M \cong \Rrel \int^j \M / z^\ell \Rrel\int^j \M $ so that the desired quotient follows by applying $z^\ell$ to $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
+
+
+\end{proof}
