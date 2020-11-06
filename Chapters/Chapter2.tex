@@ -96,7 +96,7 @@ $$
 $$
 where the maps $T^*\mu$ and $\widetilde{\mu}$ act on the first component.
 \begin{theorem}
-    Let $\M$ be a coherent $\A_Y^R$-module. Then, for any $j\geq 0$, we have 
+    Let $\M$ be a coherent $\A_Y^R$-module. Then, for any $j\geq 0$, we have
     $$\Chrel\left(\int^j \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
 \end{theorem}
 Note that the statement is local so, after replacing $X$ by some affine open, we may assume that $X\times \Spec R$ and $Y\times \Spec R$ are compact.
@@ -111,9 +111,12 @@ Applying this to $\grrel \M$ it remains to understand the difference between $\g
 \begin{definition}
     Let $z$ be a new variable. The relative Rees sheaf of rings $\Rees\A_Y^R$ is defined as the subsheaf $\oplus_p F_p \A_Y^R z^p $ of $\A_Y^R \otimes_\C \C[z]$. Similarly, any filtered $\A_Y^R$-module $\M$ gives rise to a $\Rees\A_Y$-module $\Rrel\M := \oplus_p F_p \M z^p$.
 \end{definition}
-The following obvious isomorphisms of filtered modules allow us to view the relative Rees module as a way to interpolate between $\M$ and $\grrel\M$
-$$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} = \grrel \M.$$
-Conversely, the second formula may be used to produce a filtered $\A_Y^R$-module from any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
+The following obvious isomorphisms of filtered modules allow us to view the relative Rees module as a parametrisation of gradings with different steps.
+$$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} = \grrel \M;\qquad \frac{\Rrel\M}{z^\ell\Rrel\M} =  \grl\M.$$
+Here $\gr_{[\ell]}^{rel}$ takes a filtered object and returns the graded object $\oplus_k F_k / F_{k-\ell}$.
+In particular $\grl\M$ is a graded $\gr_{[\ell]}\A_X^Y$-module.
+The first step is to understand the interaction between direct images and $\gr_{[\ell]}^{rel} $ for large $\ell$.
+The first formula may be also be used to find the corresponding filtered $\A_Y^R$-module for any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
 
 One can define a direct image of $\Rees\A_Y^R$-modules similarly to the $\A_Y^R$-module direct image and this preserves are coherence and being graded similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}. \todo{Check that direct image yields graded structure}
 %The idea is that, up to $\C[z]$-torsion $\int^j \Rrel \M$ to compare $\int^j \M$ and $\int^j \grrel \M$ but some care is required since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
@@ -130,16 +133,28 @@ One can define a direct image of $\Rees\A_Y^R$-modules similarly to the $\A_Y^R$
     $$ \frac{\int^j \Rrel \M }{(z-1)\int^j \Rrel \M } \cong \frac{\int^j \Rrel \M /\ker z^\ell }{(z-1)(\int^j \Rrel \M/\ker z^\ell) }.$$
 \end{proof}
 \todo{Implicitly, in this proof the direct image for Rees and standard is identified. Should verify that this causes no problems. }
-From now on we equip $\int^j \M$ with the good filtation inherited from the Rees module's direct image.
+From now on we equip $\int^j \M$ with the good filtation inherited from the Rees module's direct image. By the formula relating Rees modules and $\gr_{[\ell]}^{rel}$ the direct image of Rees modules induces a direct image of $\gr_{[\ell]}\A_Y^R$-modules.
 \begin{lemma}
-    If $\ell$ is sufficiently large then $\Rrel \int^j\M / z^\ell \Rrel \int^j \M$ is a subquotient of $\int^j \Rrel\M / z^\ell\int^j \Rrel \M$.
+    If $\ell$ is sufficiently large then $\grl \int^j\M$ is a subquotient of $\int^j\grl\M$.
 \end{lemma}
 \begin{proof}
+  The goal is to establish the equivalent statement for Rees modules.
   The short exact sequence $0\to \Rrel\M \xrightarrow{z^\ell}\Rrel \M \to \Rrel\M / z^\ell \Rrel\M \to 0$ induces a long exact sequence
   $$\cdots \to \int^j \Rrel \M \xrightarrow{z^\ell} \int^j \Rrel \M \to \int^j \Rrel\M/z^\ell \Rrel\M \to \int^{j+1} \Rrel \M \xrightarrow{z^\ell}\cdots. $$
-  Hence, $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$ is a submodule of $\int^j \Rrel\M/z^\ell \Rrel\M$ and it remains to show that $\Rrel \int^j \M/ z^\ell \Rrel \int^j \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
+  Hence, $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$ is a submodule of $\int^j (\Rrel\M/z^\ell \Rrel\M)$ and it remains to show that $\Rrel \int^j \M/ z^\ell \Rrel \int^j \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
 
-  Let $\ell$ be sufficiently large so that the foregoing lemma yields a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong \Rrel\int^j \M$. The map $z^\ell$ induces a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong z^\ell \int^j \Rrel \M$. Therefore $z^\ell \int^j \Rrel \M / z^{2\ell}\int^j \Rrel\M \cong \Rrel \int^j \M / z^\ell \Rrel\int^j \M $ so that the desired quotient follows by applying $z^\ell$ to $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
-
-
+  Let $\ell$ be sufficiently large so that the foregoing lemma yields a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong \Rrel\int^j \M$. The map $z^\ell$ induces a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong z^\ell \int^j \Rrel \M$. Therefore $z^\ell \int^j \Rrel \M / z^{2\ell}\int^j \Rrel\M \cong \Rrel \int^j \M / z^\ell \Rrel\int^j \M $.
+  The desired quotient follows by applying the map $m\mapsto z^\ell m$ on $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
+\end{proof}
+The main remaining task is to relate these results to the desired case of $\ell = 1$.
+\begin{definition}
+  For any filtered $\A_Y^R$-module $\M$ and $\ell \geq 1$ the $G$-filtration on $\grl \M$ is defined by
+  $$G_j \M = \bigoplus_k \frac{F_{k+j - \ell}\M}{F_{k-\ell}\M}. $$
+\end{definition}
+\begin{lemma}
+  For any filtered $\A_Y^R$-module $\M$ and $\ell \geq 1$ one has the following isomorphism of $\gr \A_Y^R$-modules
+  $$\gr^G \grl \M \cong (\grrel\M)^\ell.$$
+\end{lemma}
+\begin{proof}
+  This is immediate by a direct computation. 
 \end{proof}
