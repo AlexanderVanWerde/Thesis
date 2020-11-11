@@ -1,5 +1,6 @@
 \chapter{The Behaviour of $\A_X^R$-Modules}
 \todo[inline]{Mention BVWZ}
+\todo[inline]{Turn things into numbered equations. Remove the word foregoing and just cite explicitly}
 The classical approximation of the roots of the $b$-polynomial due to \cite{kashiwara1976b} relies on a quotient module $\int \M / \D_X u$ being holonomic.
 This is no longer true in the multivariate case but a refined assumption, called relative holonomicity, due to \cite{maisonobe2016filtration} still holds.
 This refinement works with $\D_X\times\C[s]$-modules whence one gets characteristic varieties inside $T^*X \times \C^p$\todo{p?}.
@@ -41,7 +42,7 @@ $$f \cdot (\ell\otimes n) =\ell \otimes fn; \qquad \xi \cdot (\ell\otimes n ) = 
 for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$.
 
 \begin{lemma}\label{lem: IsomorphismTensors}
-  Let $\mathscr{M}, \N$ be right and left $\A_X^R$-modules respectively and let $\mathscr{L}$ be a left $\D_X$-module. Then one has a isomorphism of left $\A_X^R$-modules
+  Let $\mathscr{M}, \N$ be right and left $\A_X^R$-modules respectively and let $\mathscr{L}$ be a left $\D_X$-module. Then there is a isomorphism of left $\A_X^R$-modules
   $$(\M \otimes_{\O_X} \mathscr{L})\otimes_{\O_X^R} \N \cong \M \otimes_{\O_X^R} (\mathscr{L}\otimes_{\O_X} \N).   $$
 \end{lemma}
 \begin{proof}
@@ -103,7 +104,7 @@ for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$.
 
     Define the transfer Spencer complex as the complex of  $(\A_Y^R,f^{-1}\A_X)$-bimodules given by $\Sp^\bullet_{Y\to X}(\A_Y^R) := \Sp^\bullet_Y(\A_Y^R) \otimes_{\O_Y^R}\A_{Y \to X}^R$.
     The following lemma and it's proof are direct generalisation of exercise 3.4 in \cite{sabbah2011introduction} to the relative case.
-    \begin{lemma}
+    \begin{lemma}\label{lem: SpencerResolutionTransferModule}
       The transfer Spencer complex $\Sp^\bullet_{Y\to X}(\A_Y^R)$ is a resolution of $\A_{Y\to X}^R$ as a bimodule by locally free left $\A_Y^R$-modules.
     \end{lemma}
     \begin{proof}
@@ -172,42 +173,46 @@ where the maps $T^*\mu$ and $\widetilde{\mu}$ act on the first component.
     $$\Chrel\left(\int^j \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
 \end{theorem}
 Note that the statement is local so, after replacing $X$ by some affine open, we may assume that $X\times \Spec R$ and $Y\times \Spec R$ are compact.
-
-The first step is to note that a similar inclusion is easy for the $\grrel \A_Y^R$-modules. For any $\grrel \A_Y^R$-module $\mathcal{M}$ define $\int^j \mathcal{M} :=  \H^j\left(\bR \mu_* (\bL(T^*\mu)^* \mathcal{M})\right).$
-Note that $(T^*\mu)^*$ produces a sheaf on $\mu^* T^* X \times \Spec R$ by the tensor product  $\blank\otimes_{f^{-1}\O_X\times \O_{R}} \grrel \A_X^R$. Hence, looking at the supports, the following result is immediate.
+The first step is to note that a similar inclusion is easy for the $\grrel \A_Y^R$-modules. For any $\grrel \A_Y^R$-module $\mathcal{M}$ define $\int^j \mathcal{M} :=  \H^j(\bR \mu_* (\bL( \mathcal{M}\otimes^L_{\mu^{-1}\O_X^R} \grrel \A_X^R)).$
+Looking at the supports the following result is immediate.
 \begin{lemma}
     For any $\grrel\A_Y^R$-module $\mathcal{M}$ it holds that
     $$\Supp \int^j \mathcal{M}\subseteq \widetilde{\mu}\left((T^* \mu)^{-1} \Supp \mathcal{M}\right).$$
 \end{lemma}
-Applying this to $\grrel \M$ it remains to understand the difference between $\grrel\int^j \M$ and $\int^j \grrel \M$. This may be done using relative Rees modules.
 \begin{definition}
-    Let $z$ be a new variable. The relative Rees sheaf of rings $\Rees\A_Y^R$ is defined as the subsheaf $\oplus_p F_p \A_Y^R z^p $ of $\A_Y^R \otimes_\C \C[z]$. Similarly, any filtered $\A_Y^R$-module $\M$ gives rise to a $\Rees\A_Y$-module $\Rrel\M := \oplus_p F_p \M z^p$.
+    Let $z$ be a new variable. The Rees sheaf of rings $\Rees\A_Y^R$ is defined as the subsheaf $\oplus_p F_p \A_Y^R z^p $ of $\A_Y^R \otimes_\C \C[z]$. Similarly, any filtered $\A_Y^R$-module $\M$ gives rise to a $\Rees\A_Y$-module $\Rrel\M := \oplus_p F_p \M z^p$.
 \end{definition}
-The following obvious isomorphisms of filtered modules allow us to view the relative Rees module as a parametrisation of gradings with different steps.
-$$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} = \grrel \M;\qquad \frac{\Rrel\M}{z^\ell\Rrel\M} =  \grl\M.$$
-Here $\gr_{[\ell]}^{rel}$ takes a filtered object and returns the graded object $\oplus_k F_k / F_{k-\ell}$.
-In particular $\grl\M$ is a graded $\gr_{[\ell]}\A_X^Y$-module.
-The first step is to understand the interaction between direct images and $\gr_{[\ell]}^{rel} $ for large $\ell$.
-The first formula may be also be used to find the corresponding filtered $\A_Y^R$-module for any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
+Given a $\A_Y^R$-module $\M$ with a good filtration it follows that $\Rrel\M$ is a coherent $\Rees\A_Y^R$-module similarly to ...\todo{insert}.
+The following isomorphisms of filtered modules are essential. They mean that the Rees module can be viewed as a parametrisation of various relevant modules. Ultimately, this viewpoint will allows us to compare $\grrel\int^j \M$ and $\int^j \grrel \M$.
+$$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} \cong \grrel \M;\qquad \frac{\Rrel\M}{z^\ell\Rrel\M} \cong  \grl\M.$$
+The first formula may be be used to find a corresponding filtered $\A_Y^R$-module for any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
 
-One can define a direct image of $\Rees\A_Y^R$-modules similarly to the $\A_Y^R$-module direct image and this preserves are coherence and being graded similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}. \todo{Check that direct image yields graded structure}
-%The idea is that, up to $\C[z]$-torsion $\int^j \Rrel \M$ to compare $\int^j \M$ and $\int^j \grrel \M$ but some care is required since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
+The $j$th direct image of a $\Rees\A_Y^R$-module $\mathcal{M}$ is the sheaf of $\Rees\A_X^R$-modules on $X\times\Spec R$ defined by $\int^j \mathcal{M} = \H^j\bR\mu_*(\mathcal{M}\otimes^L_{\Rees \A_Y^R} \Rrel \A_{Y\to X}^R)$.
+This preserves being graded and coherence similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}. \todo{Check that direct image yields graded structure}
 
+Recall that a $\grrel\A_Y^R$-modules on $Y\times \Spec R$ could be be viewed as a sheaf on $T^*Y\times \Spec R$ and is already equipped with a direct image.
+The Rees module viewpoint agrees with the earlier definition by the following lemma.
+\begin{lemma}\label{lem: ReesAndOtherDirectImagesAgree}
+  Consider a filterd $\A_Y^R$-module $\M$. Then viewing $\int \Rrel\M / z\Rrel\M$ with it's $\grrel\A_X^R$-module structure as a sheaf on $T^*X\times \Spec R$ recovers the $\grrel\A_Y^R$-module direct image $\int \grrel\M$. Viewing  $\int \Rrel\M / (z-1)\M$ as a $\A_X^R$-module recovers $\int \M$.
+\end{lemma}
+\begin{proof}
+  Will be easier to write when producing sheaves on $T^*X\times \Spec R$ is written formally. Comes down to noting that tensoring a free resolution of $\A_{Y\to X}$ yields free resolution of something else. \todo{Write}
+\end{proof}
+The idea is to compare $\grl\int^j\M$ and $\int^j \grl\M$ when $\ell$ is large and reduce the original situation to this case. This requires some care since since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
 \begin{lemma}
-  For sufficiently large $\ell$ the kernel of $z^\ell$ in $\int^j \Rrel \M$ stabilises. For such $\ell$ the quotient $\int^j \Rrel \M/ \ker z^\ell$ is the $\Rees \A_X^R$-coherent module associated to a good filtration on $\int^j \M$.
+  Consider a $\A_Y^R$-module $\M$ with a good filtration. Then, for sufficiently large $\ell$, the kernel of $z^\ell$ in $\int^j \Rrel \M$ stabilises. For such $\ell$ the quotient $\int^j \Rrel \M/ \ker z^\ell$ is the $\Rees \A_X^R$-coherent module associated to a good filtration on $\int^j \M$.
 \end{lemma}
 \begin{proof}
   By $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\A_X^R$ one gets that $\ker z^\ell$ locally stabilises. This is sufficient due to $X\times \Spec R$ being compact.
 
     Now consider the short exact sequence $0\to \Rrel \M \xrightarrow{z-1} \Rrel \M \to \M \to 0$. This induces a long exact sequence
     $$\cdots \to \int^j \Rrel \M \xrightarrow{z-1} \int^j \Rrel \M \to \int^j \M \to \int^{j+1} \Rrel \M \xrightarrow{z-1}\cdots. $$
-    Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\A_X^R$-module one has that $z-1$ is injective whence it follows that $\int^j \Rrel \M / (z-1)\int^j \Rrel \M \cong \int^j \M$. This yields the desired result using that $\int^j \Rrel \M / \ker z^\ell$ is $\C[z]$-torsion free and the isomorphism
+    Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\A_X^R$-module it follows that $z-1$ is injective whence $\int^j \Rrel \M / (z-1)\int^j \Rrel \M \cong \int^j \M$. This yields the desired result using that $\int^j \Rrel \M / \ker z^\ell$ is $\C[z]$-torsion free and the isomorphism
     $$ \frac{\int^j \Rrel \M }{(z-1)\int^j \Rrel \M } \cong \frac{\int^j \Rrel \M /\ker z^\ell }{(z-1)(\int^j \Rrel \M/\ker z^\ell) }.$$
 \end{proof}
-\todo{Implicitly, in this proof the direct image for Rees and standard is identified. Should verify that this causes no problems. }
-From now on we equip $\int^j \M$ with the good filtation inherited from the Rees module's direct image. By the formula relating Rees modules and $\gr_{[\ell]}^{rel}$ the direct image of Rees modules induces a direct image of $\gr_{[\ell]}\A_Y^R$-modules.
-\begin{lemma}
-    If $\ell$ is sufficiently large then $\grl \int^j\M$ is a subquotient of $\int^j\grl\M$.
+From now on we equip $\int^j \M$ with the good filtation inherited from the Rees module's direct image.
+\begin{lemma}\label{lem: EllLargeSubquotent}
+    Consider a $\A_Y^R$-module $\M$ with a good filtration. Then, if $\ell$ is sufficiently large, $\grl \int^j\M$ is a subquotient of $\int^j\grl\M$.
 \end{lemma}
 \begin{proof}
   The goal is to establish the equivalent statement for Rees modules.
@@ -220,17 +225,43 @@ From now on we equip $\int^j \M$ with the good filtation inherited from the Rees
 \end{proof}
 The main remaining task is to relate these results to the desired case of $\ell = 1$.
 \begin{definition}
-  For any filtered $\A_Y^R$-module $\M$ and $\ell \geq 1$ the $G$-filtration on $\grl \M$ is defined by
-  $$G_j \M = \bigoplus_k \frac{F_{k+j - \ell}\M}{F_{k-\ell}\M}. $$
+  For any $\ell \geq 1$ the $G$-filtration on a $\Rees\A_Y^R$-module $\mathcal{M}$ is defined by the decreasing sequence of $\grl\A_Y^R$-submodules $G_j \mathcal{M} := z^{j}\mathcal{M}$.
 \end{definition}
-\begin{lemma}
-  For any filtered $\A_Y^R$-module $\M$ and $\ell \geq 1$ one has the following isomorphism of $\gr \A_Y^R$-modules
+\begin{lemma}\label{lem: GradedGGradedLYieldsGraded}
+  For any filtered $\A_Y^R$-module $\M$ and $\ell \geq 1$ there is the a isomorphism of $\gr \A_Y^R$-modules
   $$\gr^G \grl \M \cong (\grrel\M)^\ell.$$
 \end{lemma}
 \begin{proof}
-  This is immediate by a direct computation.
+  This follows from directly from the fact that $G_j\grl\M = \oplus_k F_{k-j}\M /F_{k-\ell}\M$.
 \end{proof}
-\begin{lemma}
-    One has a finite spectral sequence with $E_2$-term
-    $$E_2 = \int^j \gr^G \grl \M $$
+\begin{lemma}\label{lem: grGCommutes}
+  Consider a $\Rees\A_Y^R$-module $\mathcal{M}$. Then there is a isomorphism of complexes of $\grrel\A_X^R$-modules $\gr^G\int\mathcal{M} \cong \int\gr^G\mathcal{M}$.\todo{Technically speaking, these are mere representatives. How to phrase this?}
 \end{lemma}
+\begin{proof}
+  Writing out the direct image functors the desired result is a isomorphism $$\gr^G\int\bR\mu_*(\mathcal{M}\otimes^L_{\Rees\A_Y^R} \Rees\A_{Y\to X}^R)  \cong \bR\mu_*(\gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R).$$
+  The proof of the commutation proceeds in two steps corresponding to the two derived functors.
+
+  From \cref{lem: SpencerResolutionTransferModule} it follows that $\F^\bullet := \Rrel\Sp^\bullet_{Y\to X}(\Rees\A_Y^R)$ is a locally free resolution for $\Rrel\A_{Y\to X}^R$. \todo{Mention concrete filtrations}
+  There is a $G$-filtration on this complex given by $z^j(\mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet) = (z^j\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$.
+  By the flatness of locally free sheaves and the short exact sequence $0\to \oplus_j z^j \mathcal{M} \to \oplus_j z^{j-1}\mathcal{M} \to \gr^G \mathcal{M} \to 0$ we it follows that $\gr^G(\mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet) \cong (\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$.
+  Further, by the argument in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\A_Y^R$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R$.
+
+  Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
+  Flabby resolutions are acyclic for $\mu_*$ so the Godement resolution may be used to compute $\bR\mu_*$.
+  Moreover, since the terms of a Godement resolution are essentially direct sums of formal products of stalks, it is immediate that $z^i \mathcal{G}(\mathcal{N}^\bullet) = \mathcal{G}(z^i\mathcal{N}^\bullet)$ and that $\gr^G\mathcal{G}(\mathcal{N}^\bullet) =\mathcal{G}(\gr^G\mathcal{N}^\bullet)$ for any complex of right $\mu^{-1}\Rees\A_X^R$-modules $\mathcal{N}^\bullet$.
+  Applying $\mu_*$ to these equalities and setting $\mathcal{N}^\bullet = \mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet$ yields the desired result.
+\end{proof}
+\begin{proposition}
+  For a filtered $\A_Y^R$-module $\M$ with a good filtration it holds that  $$\op{supp} \grrel\int^j\M \subseteq \op{supp} \int^j \grrel\M.$$
+\end{proposition}
+\begin{proof}
+  Let $\ell\geq 0$ be sufficiently large so that \cref{lem: EllLargeSubquotent} holds, that is to say that $\grl\int^j \M$ is a subquotient of $\int^j \grl \M$.
+  By \cref{lem: GradedGGradedLYieldsGraded} it holds that $\gr^G\grl \int^j \M \cong (\grrel\int\M)^\ell$.
+  Since $\grl \int^j \M$ is a subquotient of $\int \grl\M$ it remains to show that the support of $\gr^G \int^j \grl\M$ is a subset of the support of $\int^j \gr \M$.
+
+  This can be established with the spectral sequence associated of the $G$-filtered complex $\int \grl \M$. Since $G$-filtration is finite on $\grl\A_X^R$-modules so the associated spectral sequence abbuts\todo{Found spectral sequence result online, add good reference.}. To be precise the associated spectral sequence with terms
+  $E^2_{pq} = \H^{p+q}\gr^G \int \grl \M$ abuts to $\gr^G\int \M$.
+  By \cref{lem: grGCommutes} and \cref{lem: GradedGGradedLYieldsGraded} it holds that $E^2_{pq} \cong (\int^{p+q}\gr \M)^\ell$. \todo{Or $E^1$? Seems to depend on preference but should actually matter somewhat for the differentials.}
+  It follows that $\op{supp}\gr^G \int^j \grl\M$ is a subset of the support of $\int^j \gr \M$ which completes the proof.
+\end{proof}
+\listoftodos
