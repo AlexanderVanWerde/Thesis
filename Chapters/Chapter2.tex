@@ -1,5 +1,5 @@
 \chapter{The Behaviour of $\A_X^R$-Modules}
-\todo[inline]{Mention BVWZ}
+\todo{Mention BVWZ}
 
 The classical approximation of the roots of the $b$-polynomial due to \cite{kashiwara1976b} relies on a quotient module $\int \M / \D_X u$ being holonomic.
 This is no longer true in the multivariate case but a refined assumption, called relative holonomicity, due to \cite{maisonobe2016filtration} still holds.
@@ -214,22 +214,26 @@ The Rees module viewpoint agrees with the earlier definition by the following le
 \begin{proof}
   We give the proof for $\int^j \grrel \M$, the proof for $\int^j \M$ is similar but easier.
 
-  Let $\mathcal{F}^\bullet$ denote a bimodule resolution for $\Rrel \A_{Y\to X}^R$ by locally free left $\Rees\A_Y^R$-modules.
-  Then $(\Rees \A_Y^R / z\Rees \A_Y^R)\otimes_{\Rees \A_Y^R}\mathcal{F}^\bullet$ is a bimodule resolution for $\grrel \A_{Y\to X}^R = \O_Y^R \otimes_{\mu^{-1}\O_X^R} \mu^{-1}\grrel\A_X^R$ by locally free left $\grrel\A_Y^R$-modules.
-  This yields a isomorphism of sheaves on $X\times \Spec R$
-  $$
-    \frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R\cong \grrel\M \otimes^L_{\grrel\A_Y^R} \grrel\A_{Y\to X}^R.
-  $$
-  Now consider the Cartesian diagram
+
+  Consider the following Cartesian square
   $$
       \begin{tikzcd}
-        \mu^*T^* X \times \Spec R \arrow{r}{\widetilde{\pi}_Y} \arrow{d}{{\widetilde{\mu}}} & Y\times \Spec R\arrow{d}{\mu} \\
-        T^*X\arrow{r}{\pi_X}  \times \Spec R & X\times \Spec R.
+        \mu^*T^* X \times \Spec R \arrow{r}{T^*\mu} \arrow{d}{{\widetilde{\mu}}} &T^*Y\times \Spec R \arrow{r}{\pi_Y} & Y\times \Spec R\arrow{d}{\mu} \\
+        T^*X\arrow{rr}{\pi_X}  \times \Spec R && X\times \Spec R.
       \end{tikzcd}
   $$
-  Since the horizontal arrows are flat the derived version of the flat base change theorem yields that \todo{Check in detail that the theorem is applicable and has this conclusion due to flatness}
-  $$\bL\pi_X^*\bR\mu_*(\grrel\M \otimes^L_{\grrel\A_Y^R} \grrel\A_{Y\to X}^R) = \bR\widetilde{\mu}_*\bL\widetilde{\pi}_Y^*(\grrel\M \otimes^L_{\grrel\A_Y^R} \grrel\A_{Y\to X}^R) $$
-  TO BE CONTINUED \todo{TBC}
+  Since $\pi_X$ is flat the derived version of the flat base change theorem yields that \todo{Check in detail that the theorem is applicable and has this conclusion due to flatness}
+  $$\bL\pi_X^*\bR\mu_*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R) = \bR\widetilde{\mu}_*\bL(T^*\mu\circ\pi_Y)^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R).$$
+  Since $\pi_X$ is flat it follows that $\H^j \bL\pi_X^*(\blank) = \pi_X^*\H^j(\blank)$\todo{$\H^j \bL\pi_X^*(\blank) = \pi_X^*\H^j(\blank)$?}. It now suffices to show that the right hand side is $\int \grrel\M$.
+
+  Since $\pi_Y$ is flat it holds that $\bL(T^*\mu \circ \pi_Y)^* = \bL (T^*\mu)^* \circ \bL \pi_Y^*$\todo{$\bL(T^*\mu \circ \pi_Y)^* = \bL (T^*\mu)^* \circ \bL \pi_Y^*$?}.
+  We show that $\bL\pi_Y^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong \grrel\M \otimes^L_{\mu^{-1}\O_X^R}\widetilde{\mu}^*\grrel\A_{X}^R$ from which the result follows immediately.
+
+  Let $\mathcal{F}^\bullet$ denote a bimodule resolution for $\Rrel \A_{Y\to X}^R$ by locally free left $\Rees\A_Y^R$-modules.
+  Then $(\Rees \A_Y^R / z\Rees \A_Y^R)\otimes_{\Rees \A_Y^R}\mathcal{F}^\bullet$ is a bimodule resolution for $\grrel \A_{Y\to X}^R$ by locally free left $\grrel\A_Y^R$-modules.
+  Now $\bL\pi_Y^*$ just means applying $\pi^{-1}(\blank)\otimes \O_{T^*Y}$ to the terms of this free resolution.
+  Due to flatness this yields a free resolution in $\pi^{*}\grrel\A_Y^R$-modules of $\pi^* \grrel\A_{Y\to X}^R$.
+  Since $\grrel \A_{Y\to X}^R = \O_Y^R \otimes_{\mu^{-1}\O_X^R} \mu^{-1}\grrel\A_X^R$ and $\pi^*\mu^* = \widetilde{\mu}^*\pi^*$ the desired equality follows. \todo{Write out more}
 \end{proof}
 It turns out that one can directly compare $\grl\int^j\M$ and $\int^j \grl\M$ when $\ell$ is large. Some care is required since since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
 \begin{lemma}\label{lem: KernelZellStabilises}
@@ -276,7 +280,7 @@ The main remaining task is to relate these results to the desired case of $\ell 
   Let $\F^\bullet$ be a bimodule resolution for $\Rrel\A_{Y\to X}^R$ by locally free left $\Rees \A_Y^R$-modules.
   There is a $G$-filtration on this complex given by $z^j(\mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet) = (z^j\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$.
   By the flatness of locally free sheaves and the short exact sequence $0\to \oplus_j z^j \mathcal{M} \to \oplus_j z^{j-1}\mathcal{M} \to \gr^G \mathcal{M} \to 0$ it follows that $\gr^G(\mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet) \cong (\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$.
-  Further, by the argument in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\A_Y^R$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R$.
+  Further, by the argument in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\A_Y^R$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R$.\todo{Check after lemma is entirely proven}
 
   Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
   Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $\bR\mu_*$.

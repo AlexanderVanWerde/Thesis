@@ -15,8 +15,13 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{caption}
-\usepackage[textsize= tiny, textwidth = 2.6cm]{todonotes}
-\setuptodonotes{noline,color=orange!40}
+%\usepackage[textsize= tiny, textwidth = 2.6cm]{todonotes}
+%\setuptodonotes{noline,color=orange!40}
+
+\usepackage[footnote,draft,silent, nomargin,author=]{fixme}
+
+\newcommand{\todo}[1]{\fxnote{#1}}
+
 
 \usepackage{url}
 \usepackage{enumitem}
