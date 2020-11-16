@@ -133,9 +133,15 @@ for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$.
     \begin{corollary}
         It holds that $\int = \bR\mu_* (\blank\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))$.
     \end{corollary}
+    A strategy one can employ in proving theorems on some space $X$ is by first solving them on a nicer space $Y$ equipped with a map $Y\to X$. This can then be related to the problem on $X$ by use of the direct image. For this purpose it is useful that any global section of $\mathcal{M}$ induces a global section of the direct image. This is usually done in the language of left modules but for us it is more natural to work with right $\A_Y^R$-modules.
     \begin{lemma}
-        Construction of global section in $\int^j \M$.
+        Let $\M$ be a right $\A_Y^R$-module. Then any global section $m\in\Gamma(Y,\M)$ induces a global section of $\int^0\M)$.
     \end{lemma}
+    \begin{proof}
+      By the Leray spectral sequence there is a functorial isomorphism
+      $$\mathbb{H}^\bullet(Y,\M\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R)) \cong \mathbb{H}^\bullet(X,\bR\mu_*(\M\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))).$$
+      In particular it follows that $\mathbb{H}^0(Y,\M \otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R)) \cong \Gamma(X,\int^0\M)$. The \v Cech spectral sequence now induces the desired global section in the direct image based on the section $m\otimes 1$ of $\M \otimes_{\A_Y^R}\Sp_{Y\to X}^0(\A_Y^R)$.
+    \end{proof}
     \begin{theorem}
       Long exact sequence
     \end{theorem}
