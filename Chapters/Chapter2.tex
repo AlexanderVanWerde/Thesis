@@ -1,4 +1,4 @@
-\chapter{The Behaviour of $\A_X^R$-Modules}
+\chapter{Relative Holonomic Modules}
 \todo{Mention BVWZ}
 
 The classical approximation of the roots of the $b$-polynomial due to \cite{kashiwara1976b} relies on a quotient module $\int \M / \D_X u$ being holonomic.
@@ -31,6 +31,7 @@ The proof of the following results proceeds precisely like the case of $\D_X$-mo
 \begin{proposition}
     Let $\M$ be a coherent $\A_X^R$-module, then the support of $\grrel \M$ in $T^*X \times \Spec R$ is independent of the chosen filtration. It is called the characteristic variety of $\M$ and denoted $\Chrel \M$.
 \end{proposition}
+%\todo{Add Chrel behaviour with respect to SES}
 
 A coherent $\A_X^R$-module $\M$ is said to be relative holonomic over $R$ if $\Chrel \M = \cup_w \Lambda_w \times S_w$
 for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irreducible closed subvarieties $S_w\subseteq \Spec R$.
@@ -306,3 +307,49 @@ The main remaining task is to relate these results to the desired case of $\ell 
   By \cref{lem: grGCommutes} and \cref{lem: GradedGGradedLYieldsGraded} it holds that $E^2_{pq} \cong (\int^{p+q}\gr \M)^\ell$. \todo{Or $E^1$? Seems to depend on preference but should actually matter somewhat for the differentials.}
   It follows that $\supp\gr^G \int^j \grl\M$ is a subset of the support of $\int \gr \M$ which completes the proof.
 \end{proof}
+
+\section{Pure modules}
+Results about Cohen-Macauley, stability of properties with regard to $\op{Ext}$ etc.
+
+\begin{lemma}
+    Consider a affine open $U$ with coordinate functions $x_1,\ldots,x_p$. Then the left $\A_U^R$-module $\M := \A_U^Rx_1^{s_1}\cdots x_p^{s_p}$ is relative holonomic with relative characteristic variety
+    $$\Chrel\M =  $$
+\end{lemma}
+\begin{proof}
+    The morphism $\A_X^R \to \M$ which sends $1$ to $x_1^{s_1}\cdots x_p^{s_p}$ 
+\end{proof}
+\section{Estimation of the Bernstein-Sato Zero Locust}
+Throughout this section we fix a affine variety $X$ and $F:X\to \C^p: x \mapsto (f_1(x), \ldots, f_p(x))$. Denote $Y\to X$ for the resolution of singularities of $f_1\cdots f_p$ and $G$ for the lift of $F$ to $Y$.
+\subsection{Global Sketch}
+Denote $Y\to X$ for the resolution of singularities of $f_1\cdots f_p$ and $G$ for lift of $F = (f_1,\ldots, f_p)$ to $Y$.
+\begin{enumerate}
+  \item It holds that $\A_X G^s$ is relative holonomic
+  \item Then also the right version $\M := \A_X G^s \otimes \Omega_Y$ is relative holonomic
+  \item By Kashiwara's esimate $\R := \int^0 \M $ will be relative holonomic and we denote $u$ for the global section corresponding to $G^s \mu^*(dx)$.
+  \item There is a surjective map $u\to f^s$
+  \item Remains to show that if $b(\lambda)$ annihilates $\M/t\M$ it follows that $B(\lambda) = \prod b(\lambda)$ annihilates $\R /t u$.
+  \begin{itemize}
+    \item Problem: the usual argument exploits that $\R/u$ is finite length.
+    \item Induction
+    \item Induction step: If $B(\lambda)$ annihilates $\N\otimes \frac{\C}{(\ell)}$ for generic $\ell$ then $B(\lambda)$ annihilates $\N$. This is subtle due to a lack of Nakayama. Argument may be similar to Budur and Robin paper 1.
+    \item Will require Cohen-Macauley similarly to Nero and Robin paper 1.
+  \end{itemize}
+  \item When the induction terminates we will be able to make a statement about $\int^0 \M \otimes \frac{\C}{\cdots}$ but we actually need a statement on annihilators of $\frac{\int^0 \M}{tu}\otimes \frac{\C[]}{\cdots}$.
+  \begin{itemize}
+    \item The $SES$
+    $$ 0 \to \ell \M \to \M \to \M \otimes \frac{\C[]}{(\ell)} \to 0$$
+    yields
+    $$0 \to \int^0  \ell \M \to \int^0 \M \to \int^0 \M \otimes \frac{\C[]}{(\ell)}\to \cdots$$
+    \item Provided $\ell$ does not contain irreducible parts of $Z(B)$ the map $\ell$ is injective upstairs by lemma 3.4.2 in paper 1 Nero & Robin so
+    $$(\int^0 \M )\otimes \frac{\C[]}{\ell} \hookrightarrow \int^0 (\M \otimes \frac{\C[]}{(\ell)}) $$
+  \end{itemize}
+  \item Philosophically $v := \nabla u$. Now
+  $$0 \to v \to \int^0 \M \to \frac{\int^0 \M}{v} \to 0 $$
+  induces
+  $$\begin{tikzcd}
+    Tor\arrow{r} & v\otimes \frac{\C[s]}{\ell}\arrow{r}\arrow{rd} & (\int^0 \M) \otimes \frac{\C[s]}{\ell}\arrow{r}\arrow[hookrightarrow]{d} & \frac{\int^0 \M}{u} \otimes \frac{\C[s]}{\ell}\arrow{r} & 0\\
+    & & \int^0 \M \otimes \frac{\C[s]}{\ell}
+  \end{tikzcd} $$
+  Hence, to get $B(\lambda)\in \op{Ann}(\frac{\int^0 \M}{u} \otimes \frac{\C[s]}{\ell})$ it suffices that $B(\lambda) \in \op{Ann}(\frac{\int^0 \M \otimes \frac{\C[s]}{\ell}}{u \otimes \frac{\C[s]}{\ell}})$.
+  \item This final statement can be established using the usual method when only a single $\lambda$ remains.
+\end{enumerate}
