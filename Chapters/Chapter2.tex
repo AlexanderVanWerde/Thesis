@@ -1,31 +1,46 @@
 \chapter{Relative Holonomic Modules}
-\todo{Mention BVWZ}
-In this chapter we fix a variety $X$ and a morphism $F:X\to \C^p: x \mapsto (f_1(x), \ldots, f_p(x))$.
-Denote $Y\to X$ for a fixed resolution of singularities of $f_1\cdots f_p$ and $G = (g_1,\ldots, g_p)$ for the lift of $F$ to $Y$. Introducing new variables $s_1,\ldots,s_p$ we abbreviate $F^s= f_1^{s_1} \cdots f_p^{s_p}$ and similarly for $G^s$.
+\section{Introduction}\label{sec: IntoductionChapterRelative}
+Fix a variety $X$ and a morphism $F:X\to \C^p: x \mapsto (f_1(x), \ldots, f_p(x))$. Denote $D$ for the divisor defined by $\prod f_i$ and let $\mu:Y\to X$ be a resolution of singularities for $(X,D)$.
+This means that $\mu$ is a projective morphism which is a isomorphism over the complement of $D$ and such that $\mu^*D = \sum_{i=1}^r \operatorname{mult}_{E_i} a_i E_i$ is in normal crossings form.
+Associated the behaviour of $\mu$ over $D$ is measured by the relative canonical divisor $K_{Y/X} = \sum_{i=1}^r k_i E_i$ which is locally defined by the Jacobian of $\mu$.
+Write $G:Y\to \C^p$ for the lift of $F$ to $Y$.
+Introducing new variables $s_1,\ldots,s_p$ we abbreviate $F^s= f_1^{s_1} \cdots f_p^{s_p}$ and similarly for $G^s$.
+
 
 The local Bernstein-Sato Ideal $B_{F,x}$ of the function germ of $F$ at some point $x\in X$ consists of all polynomials $b(s_1,\ldots, s_n)$ such that there exists some local partial differential operator $P\in \D_{X,x}\otimes \C[s_1,\ldots,s_n]$ with the following equality in the stalk at $x$
 $$b(s_1,\ldots, s_n) F^s = P\cdot F^{s+1}.$$
-The global Bernstein-Sato Ideal $B_F$ of $F$ is the intersection of all local Bernstein-Sato Ideals.
+The global Bernstein-Sato Ideal $B_F$ of $F$ is the intersection of all local Bernstein-Sato Ideals.\todo{Restate more generally with $+a$ when proof is done.}
 
-The goal of this chapter is to estimate the zero locust $Z(B_{F})$.
+This may be stated in more generally terms of $\D_X\TMinpace\left\langle s_1,\ldots,s_n, t \right\rangle$-modules.
+Here $t$ is a new variable which commutes with sections of $\D_X$ and satisfies $ts_i - s_it = 1$ for any $i=1,\ldots, n$.
+For a $\D_X\TMinpace\left\langle s_1,\ldots,s_n, t \right\rangle$-module $\M$ one defines $B_\M$ as the ideal of global section of $\Ann_{\underline{\C[s]}} \M/t\M$.
+Viewing $\D_X[s]F^s$ as a $\D_X\TMinpace\left\langle s_1,\ldots,s_n, t \right\rangle$-module using the action $tF^s = F^{s + 1}$ this agrees with the earlier definition.
+
+The goal of this chapter is to estimate the zero locust $Z(B_{F})\subseteq \C^p$.
 This zero locust generalises the roots of the Bernstein-Sato polynomial in the monovariate case.
 The classical approximation of the roots of the $b$-polynomial is due to \cite{kashiwara1976b} and this estimation was further refined by \cite{lichtin1989poles}.
-The idea in both proofs is that it is easy to explicitly compute the Bernstein-Sato polynomial for monomials.
-One can then reduce to this case by use of the resolution of singularities $Y\to X$.
+The idea in both proofs is that it is easy to explicitly compute the Bernstein-Sato polynomial for monomials and that one can reduce to this case by use of the resolution of singularities.
 The main non-trivial step in these arguments is to translate the solution upstairs to a solution on $X$.
 This makes use of the direct image of $\D_X$-modules.
 The essential insight in the refined estimate due to Lichtin is that the direct image of $\D_X$-modules is more natural for right $\D_X$-modules than left $\D_X$-modules.
 
+
 The estimate by Kashiwara has been generalised to the multivariate situation in \cite{budur2020zero}.
 The main challenge in such a multivariate generalisation is that the classical proof relies on modules of the type $\D_X f^{s}/ \D_X f^{s+1}$ being holonomic.
 This is no longer the case for the multivariate generalisation $\D_X[s_1,\ldots, s_n]f^s /\D_X[s_1,\ldots, s_n]f^{s+1}.$
-The notion of relative holonomicity, due to \cite{maisonobe2016filtration}, still holds.
+Tthe notion of relative holonomicity, due to \cite{maisonobe2016filtration}, still holds.
 
-In this chapter we generalised the refined estimate by \cite{lichtin1989poles} to the multivariate situation. The main new ingredient is a induction argument which reduces the problem to the monovariate case where relative holonomicity becomes ordinary holonomicity. This induction is similar to the arguments in \cite{budur2019zero}.
-
-\todo{Maybe also mention the example Robin put on the whiteboard? Possibly in the main body? }
-\section{Modules over $\A_X^R$}
-\subsection{Basic Definitions and Properties}
+In this chapter we generalise the refined estimate by \cite{lichtin1989poles} to the multivariate situation.
+The main new ingredient is a induction argument which reduces the problem to the monovariate case where relative holonomicity becomes ordinary holonomicity.
+This induction is similar to the arguments in \cite{budur2019zero}.
+\begin{theorem}\label{thm: EstimateBernsteinSatoZeroLocust}
+  With notation as above every irreducible component of $Z(B_F)$ of codimension $1$ is a hyperplane of the form
+  $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + c_i=0$$
+  with $c_i \in \mathbb{Z}_{\geq 0 }$.
+\end{theorem}
+\todo{Should also give a overview of the results that are already known here. }
+\section{Relative Notions}
+\subsection{Modules over $\A_X^R$}
 Let $X$ be a smooth complex irreducible algebraic variety of dimension $n$ and denote $\D_X$ for it's sheaf of rings of algebraic differential operators.
 For a regular commutative $\C$-algebra integral domain $R$ we define a sheaf of rings on $X\times \Spec R$ by
 $$\A_{X}^R = \D_X \otimes_{\underline{\C}} \O_{R}; \qquad \A_X = \A_{X}^{\C[s]}$$
@@ -50,37 +65,12 @@ The proof of the following results proceeds precisely like the case of $\D_X$-mo
     Let $\M$ be a coherent $\A_X^R$-module, then the support of $\grrel \M$ in $T^*X \times \Spec R$ is independent of the chosen filtration. It is called the characteristic variety of $\M$ and denoted $\Chrel \M$.
 \end{proposition}
 %\todo{Add Chrel behaviour with respect to SES}
-
-A coherent $\A_X^R$-module $\M$ is said to be relative holonomic over $R$ if $\Chrel \M = \cup_w \Lambda_w \times S_w$
-for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irreducible closed subvarieties $S_w\subseteq \Spec R$.
-
-\begin{lemma}
-  The sheaf $\M := \A_Y G^s$ is relatively holonomic with relative characteristic variety
-  $$\Chrel \M := \bigcup_{J\subseteq \{1,\ldots, n\}} T^\perp Y_J \times \C^p $$
-  where $Y_J = \{y\in Y: g_j(y) = 0  \text{ for all }j\in J \}$. \footnote{$T^\perp$ denotes covectors annihilating the tangent space. }
-\end{lemma}
-\begin{proof}
-  Working on a affine open $U$ we may assume that $G^s=x_1^{a_1s_1}\cdots x_k^{a_k s_k} u_{k+1}^{s_{k+1}} \cdots, u_{p}^{s_p}$ for coordinate functions $x_1,\ldots, x_p$, natural numbers $a_1,\ldots, a_k>0$ and invertible sections $u_{k+1},\ldots,u_{p}$ of $\O_Y$.
-  We claim that $\A_U G^S \cong \A_U^R/\mathcal{I}$ where $\mathcal{I}$ is the left ideal sheaf generated by the $x_i\partial_i - a_is_i$ and $\partial_{j} - s_{j}u_j^{-1}$.
-
-  Denoting $\varphi:\A_U \to \A_U G^s$ for the obvious surjection we certainly have that $\mathcal{I}$ is a subsheaf of $\ker \varphi$.
-  It remains to show that $\ker\varphi / \mathcal{I} = 0$.
-  Let $P=\sum c_{\alpha \beta} x^\alpha \partial^\beta$ represent some section in $\ker \varphi/\mathcal{I}$ where the non-zero $c_{\alpha \beta}$ do not vanish in $0$.
-  By the relations $\partial_{j} - s_{j}u_j^{-1}$ it can be assumed that the only nonzero components of the multi-indices $\beta$ lie in $1,\ldots, k$.
-  By $\A_U$-linear combinations of $x_i \partial_i - a_is_i$ it can further be enforced that the terms are either have $\alpha_i = 0$ or $\beta_i = 0$ for any $i=1,\ldots, k$. When acting on $G^s$ with the remainder the coefficients all end on different monomial coefficients to $G^s$ which means they have to be zero in order for $P$ to be in the kernel. This shows $\ker\varphi = \mathcal{I}$ as desired.
-
-  It follows that $\grrel \mathcal{A}_UG^s \cong \grrel\A_U /\grrel \mathcal{I}$. It holds that $\grrel \mathcal{I}$ is generated by $x_i \xi_i$ and $\xi_j$ whence the result follows.
-\end{proof}
-The following lemma and it's proof may be found in \cite{maisonobe2016filtration}.
-\begin{lemma}
-  Let $\M$ be a finitely generated $\A_Y^R$-module. Suppose that $\Chrel \M \subseteq \Lambda \times \Spec R$ for some, not necessarily irreducible, conic Lagrangian subvariety $\Lambda\subseteq T^*X$. Then $\M$ is relative holonomic over $R$.
-\end{lemma}
 \subsection{Basic Operations}\label{sec: BasicOperations}
 For any right $\A_{X}^R$-module $\M$ and left $\D_X$-module $\N$ the tensor product $\M \otimes_{\O_X} \N$ comes equipped with a right $\A_X^R$-module structure defined by
 $$f\cdot (m\otimes n) = mf \otimes n; \qquad \xi \cdot (m\otimes n) = m\xi \otimes n - m\otimes \xi n $$
-for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$. The same definition applies for a $\A_X^R$-module structure on $\M\otimes_{\O_X^R} \N$ whenever $\N$ is a left $\A_X^R$-module.
+for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$. Putting multiplication by $f$ on the other side of the tensor product this definition is also applicable for a right $\A_X^R$-module structure on $\M\otimes_{\O_X^R} \N$ if $\M$ is a right $\D_X$-module and $\N$ is a left $\A_X^R$-module. If both are $\A_X^R$-modules there is a right $\A_X^R$-module structure on $\M\otimes_{\O_X^R} \N$.
 
-Similarly, given a left $\D_X$-module $\mathscr{L}$ and a left $\A_X^R$-module $\N$ a left $\A_X^R$-module structure on $\mathscr{L} \otimes_{\O_X} \mathscr{L}$ is defined by
+Similarly, given a left $\D_X$-module $\mathscr{L}$ and a left $\A_X^R$-module $\N$ a left $\A_X^R$-module structure on $\mathscr{L} \otimes_{\O_X} \N$ is defined by
 $$f \cdot (\ell\otimes n) =\ell \otimes fn; \qquad \xi \cdot (\ell\otimes n ) = \xi \ell \otimes n + \ell \otimes \xi n$$
 for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$.
 
@@ -118,6 +108,36 @@ for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$.
   Similarly for any right $\A_X^R$-module $\M$ the isomorphism $\M \cong \H om_{\O_X}(\Omega_X, \Omega_X\otimes \M)$ associates to a section $m$ of $\M$ the morphism $\omega \mapsto \omega \otimes m$.
   A direct computation verifies these isomorphisms commute with the $\A_X^R$-module structure.
 \end{proof}
+
+\subsection{Relative Holonomicity}
+A coherent $\A_X^R$-module $\M$ is said to be relative holonomic over $R$ if $\Chrel \M = \cup_w \Lambda_w \times S_w$
+for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irreducible closed subvarieties $S_w\subseteq \Spec R$.
+
+\begin{lemma}
+  The sheaf $\M := \A_Y G^s$ is relatively holonomic with relative characteristic variety
+  $$\Chrel \M := \bigcup_{J\subseteq \{1,\ldots, n\}} T^\perp Y_J \times \C^p $$
+  where $Y_J = \{y\in Y: g_j(y) = 0  \text{ for all }j\in J \}$. \footnote{$T^\perp$ denotes covectors annihilating the tangent space. }
+\end{lemma}
+\begin{proof}
+  Working on a affine open $U$ we may assume that $G^s=x_1^{a_1s_1}\cdots x_k^{a_k s_k} u_{k+1}^{s_{k+1}} \cdots, u_{p}^{s_p}$ for coordinate functions $x_1,\ldots, x_p$, natural numbers $a_1,\ldots, a_k>0$ and invertible sections $u_{k+1},\ldots,u_{p}$ of $\O_Y$.
+  We claim that $\A_U G^S \cong \A_U^R/\mathcal{I}$ where $\mathcal{I}$ is the left ideal sheaf generated by the $x_i\partial_i - a_is_i$ and $\partial_{j} - s_{j}u_j^{-1}$.
+
+  Denoting $\varphi:\A_U \to \A_U G^s$ for the obvious surjection we certainly have that $\mathcal{I}$ is a subsheaf of $\ker \varphi$.
+  It remains to show that $\ker\varphi / \mathcal{I} = 0$.
+  Let $P=\sum c_{\alpha \beta} x^\alpha \partial^\beta$ represent some section in $\ker \varphi/\mathcal{I}$ where the non-zero $c_{\alpha \beta}$ do not vanish in $0$.
+  By the relations $\partial_{j} - s_{j}u_j^{-1}$ it can be assumed that the only nonzero components of the multi-indices $\beta$ lie in $1,\ldots, k$.
+  By $\A_U$-linear combinations of $x_i \partial_i - a_is_i$ it can further be enforced that the terms are either have $\alpha_i = 0$ or $\beta_i = 0$ for any $i=1,\ldots, k$. When acting on $G^s$ with the remainder the coefficients all end on different monomial coefficients to $G^s$ which means they have to be zero in order for $P$ to be in the kernel. This shows $\ker\varphi = \mathcal{I}$ as desired.
+
+  It follows that $\grrel \mathcal{A}_UG^s \cong \grrel\A_U /\grrel \mathcal{I}$. It holds that $\grrel \mathcal{I}$ is generated by $x_i \xi_i$ and $\xi_j$ whence the result follows.
+\end{proof}
+The following lemma and it's proof may be found in \cite{maisonobe2016filtration}.
+\begin{lemma}
+  Let $\M$ be a finitely generated $\A_Y^R$-module. Suppose that $\Chrel \M \subseteq \Lambda \times \Spec R$ for some, not necessarily irreducible, conic Lagrangian subvariety $\Lambda\subseteq T^*X$. Then $\M$ is relative holonomic over $R$.
+\end{lemma}
+\begin{lemma}
+  $Z(B_n) = p_2(\Ch^{rel}(\M))$
+\end{lemma}
+
 \section{Direct Image Functor for $\A_X^R$-modules}
     In this section we state the natural generalisation of the direct image functor for $\D_X$-modules to the relative case of $\A_X^R$-modules. As with $\D$-modules this is the most natural for right-modules.\todo{more introduction}
 
@@ -187,7 +207,7 @@ for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$.
         It holds that $\int = \bR\mu_* (\blank\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))$.
     \end{corollary}
     A strategy one can employ in proving theorems on some space $X$ is by first solving them on a nicer space $Y$ equipped with a map $Y\to X$. This can then be related to the problem on $X$ by use of the direct image. For this purpose it is useful that any global section of $\mathcal{M}$ induces a global section of the direct image. This is usually done in the language of left modules but for us it is more natural to work with right $\A_Y^R$-modules.
-    \begin{lemma}
+    \begin{lemma}\label{lem: GlobalSectionDirectImage}
         Let $\M$ be a right $\A_Y^R$-module. Then any global section $m\in\Gamma(Y,\M)$ induces a global section of $\int^0\M)$.
     \end{lemma}
     \begin{proof}
@@ -360,11 +380,112 @@ The main remaining task is to relate these results to the desired case of $\ell 
   It follows that $\supp\gr^G \int^j \grl\M$ is a subset of the support of $\int \gr \M$ which completes the proof.
 \end{proof}
 
-\section{Pure modules}
-Results about Cohen-Macauley, stability of properties with regard to $\op{Ext}$ etc.\todo{Add}
+\section{Non-commutative Homological Notions}
+In this section we discuss homological notions associated to the $\Ext$-functor over a ring $A$ which may not be commutative.   These notions are particularly well-behaved for relatively holonomic modules.
 
-
+\subsection{Auslander Regularity}
+Based on appendix \cite{budur2019zero} which is itself based on \cite{bjork1979rings}.
+\begin{definition}
+  Homological dimension
+\end{definition}
+\begin{definition}
+  Grade
+\end{definition}
+The following definition should be viewed in perspective of  the Auslander-Buchsbaum-Serre theorem which asserts that a commutative local ring is regular if and only if it has finite global homological dimension. This connection to the commutative notion of regularity is further clarified by propositions ...
+\begin{definition}
+  Auslander regular ring
+\end{definition}
+\begin{lemma}
+  Connection with commutative case $\gr$
+\end{lemma}
+\begin{proposition}
+  If $A$ is regular commutative
+\end{proposition}
+\begin{proposition}
+  gl.dim in terms of $j(M)$
+\end{proposition}
+\begin{proposition}
+  $j(\blank) = j(\gr)$
+\end{proposition}
+\begin{corollary}
+  For finitely generated $\A_X^R$-modules
+  $$j(\M) + \dim \Chrel \M = 2n + \dim R $$
+\end{corollary}
+\subsection{Pure Modules}
+\begin{definition}
+  Pure
+\end{definition}
+\begin{lemma}
+  Behaviour $\Ext$
+\end{lemma}
+\begin{lemma}
+  Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq \dim R$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective automorphisms on $\N$ and $\Ext^{n+l}_{\A_X^R}(\M,\A_X^R)$.
+\end{lemma}
+\subsection{Cohen-Macauley}
+\begin{definition}
+  Cohen-Macauley
+\end{definition}
+\begin{lemma}
+  Relative holonomic is CM over a open $\Spec R$.
+\end{lemma}
+\begin{proof}
+  Like lemma 3.5.2
+\end{proof}
+\begin{lemma}
+  Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-Cohen-Macaulay. If $b\in R$ is not a element of any minimal prime ideal containing $B_N$ then $\M \otimes_R R/(b)$ is a relative holonomic and $(n+k)$-Cohen-Macaulay  $\A_X^{R/(b)}$-module.
+\end{lemma}
 \section{Estimation of the Bernstein-Sato Zero Locust}
+This section contains the main result of this chapter, namely a proof of the improved estimate for the Bernstein-Sato Zero Locust which was announced in \cref{thm: EstimateBernsteinSatoZeroLocust}. The following proof is similar to the method employed by \cite{lichtin1989poles} and \cite{kashiwara1976b}.
+
+This section employs the same notation as \cref{sec: IntoductionChapterRelative}. Recall that the global Bernstein-Sato Ideal is the intersection of all local ones. This means that the global Bernstein-Sato zero locust $Z(B_F)$ is the union of all local ones so it suffices to estimate $Z(B_{F,x})$.
+In particular, it may be assumed that $X$ is affine and admits global coordinates $x_1,\ldots,x_n$.
+
+Due to these global coordinates there is a $\O_X^R$-linear isomorphism between any left $\A_X^R$-module $\N$ and it's right version $\Omega_X \otimes_{\O_X}\N$. Concretely, any section $u$ of $\N$ gives rise to the section $u^* := u dx$. Further, for any operator $P$ of $\A_X^R$ there is a adjoint $P^*$ such that
+$$(P\cdot u)^* =   u^* \cdot P^*$$
+for any section $u$ of $\N$. For a vector field $\xi := \sum_i\xi_i \partial_i$ comparison of the definitions shows that $\xi^* := \sum_i\partial_i\xi_i$ satisfies this equality and this extends to $\A_X^R$ by iterating.
+
+By this procedure the functional equation $P F^{s+1} = b F^s$ may equivalently be stated as the equation
+$$F^{s+1}dx \cdot P^* = b F^s dx $$
+in $\A_X F^s \otimes_{\O_X}\Omega_X$. This viewpoint is convenient since the $\A_X$-module direct image is more natural for right modules.
+Further, it explains how the relative canonical divisor becomes involved in the estimate of \cref{thm: EstimateBernsteinSatoZeroLocust}.
+Define $\M$ to be the submodule of $\Omega_Y\otimes_{\O_Y} \A_Y G^s$ spanned by $G^s \mu^*(dx)$.
+This may be viewed as a $\Yt$-module by the action $t G^s \mu^*(dx) = G^{s+1} \mu^*(dx)$. Similarly to
+\begin{lemma}\label{lem: BernsteinSatoPolynomialUpstairs}
+  In the notation of \cref{sec: IntoductionChapterRelative} a polynomial of the form
+  $\prod_i \prod_j(\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + c_j)$
+  with $c_j\in \Z_{\geq 0}$ belongs to the Bernstein-Sato ideal $B_\M$.
+\end{lemma}
+\begin{proof}
+  It suffices to take an open cover $\{U_\alpha \}$ of $Y$ such that this polynomial is a section of $\Ann_{\underline{\C[s]}} \M/t\M$ over $ U_\alpha \times \C^p)$ for any open $U_\alpha$ of the cover.
+  Take $U$ sufficiently small so that it admits local coordinates $z_1,\ldots,z_n$ where $z_i$ determines $E_i$ if $E_i\cap U \neq \emptyset$.
+
+  In these local coordinates $G^s = \prod_{i=1}^p z_i^{\sum_{j=1}^p M_{ij}s_j}$ and $\mu^*(dx) = u \prod_{i=1}^n z_i^{m_i} dz$ where $M_{ij} \leq \operatorname{mult}_{E_i}(g_j)$, $m_i \leq k_i$ and $u$ is a local unit. For notational convenience define $M_{ij} = 0$ for $i>p$.
+  Denote $N_i = \sum_j M_{ij}$ for any $i=1,\ldots,p$ and set $P = u^{-1} \partial_1^{N_1} \cdots \partial_p^{N_p} u$ then
+  $$u\prod_{i=1}^n z_i^{\sum_{j=1}^p M_{ij}(s_j+1) + m_i}dz \cdot P =  b u \prod_{i=1}^nz_i^{\sum_{j=1}^p M_{ij}s_j + m_i}dz $$
+  where
+  $$b = \prod_{i=1}^p(\sum_{j=1}^p M_{ij}s_j + m_i + N_i)(\sum_{j=1}^p M_{ij}s_j + m_i + N_i - 1)\cdots(\sum_{j=1}^p M_{ij}s_j + m_i).$$
+\end{proof}
+By \cref{lem: GlobalSectionDirectImage} the global section $G^s \mu^*(dx)$ of $\M$ gives rise to a global section $u$ of $\int^0\M$. Denote $\U$ for the right $\A_X^R$-module generated by $u$.
+The following lemma and it's proof are similar to the monovariate case which may be found in \cite[p246]{bjork1979rings}.
+\begin{lemma}
+  There is a surjective morphism right $\A_X^R$-modules $\U\to \A_X^RF^s \otimes_{\O_X}\Omega_X$ sending $u$ to $F^sdx$.
+\end{lemma}
+\begin{proof}
+   The resolution of singularities $Y\to X$ is a isomorphism on the complement of $\prod f_i = 0$. Hence, a isomorphism $\U = \int^0 \M \cong  \A_X^RF^s  \otimes_{\O_X}\Omega_X$ holds outside of $\prod f_i = 0$.
+
+  Pick some open set $V\subseteq X$ we must show that whenever $uP = 0$ in $\U(V)$ it follows that $(F^s dx)P = 0$.
+  Due to the isomorphism it is certainly the case that $(F^s dx) P = 0$ outside of $\prod f_i = 0$.
+  Hence, the support of the coherent sheaf of $\O_V^R$-modules $\O_V^R (F^s dx) P $ lies in $\prod f_i = 0$.
+  The Nullstellen Satz now yields that $(\prod f_i)^N (F^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
+  Note that $\prod f_i$ is a non-zero divisor of $(F^s\otimes_{\O_X} \Omega_X)(V)$. Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
+\end{proof}
+Due to  \cref{lem: BernsteinSatoPolynomialUpstairs} there is a $b$-polynomial of a desirable form in $B_{\int^0 \M}$. The remaining difficulty in the proof is to go from there to a $b$-polynomial in $B_\U$. Note that $\int^0\M$ is certainly a relative holonomic $\A_X^R$-module by Kashiwara's estimate \cref{thm: KashiwaraEstimate}.
+\begin{lemma}
+  Let $\N$ be a relative holonomic $\A_X^R$-module with the structure of a $\Xt$-module. If there exists some $B(s_1,\ldots,s_n)\in \C[s_1,\ldots,s_n]$ such that $B\N = 0$ then $t^N \N = 0$ for sufficiently large $N$.
+\end{lemma}
+Note: Check how necessary open set for CM matters 
+\newpage
+\section{Old Stuff}
 \subsection{Sketch}
 \begin{enumerate}
   \item It holds that $\A_X G^s$ is relative holonomic. Hence also $G^s \otimes \Omega_Y$ is relative holonomic. In particular the module $\M$ spanned by $G^s \otimes \mu^*(dx)$ is relative holonomic.
