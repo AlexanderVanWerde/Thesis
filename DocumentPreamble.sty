@@ -64,6 +64,7 @@
 %%       SETTINGS       %%
 \newcommand{\RelMinspace}{\mkern-5mu} % Kerning for ^rel
 \newcommand{\TMinpace}{\mkern-5mu}
+\newcommand{\IntMinspace}{\mkern -8mu}
 %%       COMMANDS       %%
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -91,13 +92,20 @@
 \newcommand{\bD}{\ensuremath{\boldsymbol{D}}}
 \newcommand{\Sp}{\ensuremath{\operatorname{Sp}}}
 \newcommand{\supp}{\ensuremath{\operatorname{supp}}}
-\newcommand{\Xt}{\A_X\TMinpace\ensuremath{\left\langle t \right\rangle}}
-\newcommand{\Yt}{\A_Y\TMinpace\ensuremath{\left\langle t \right\rangle}}
+
+\newcommand{\Xt}{\ensuremath{\A_X^R\TMinpace\left\langle t \right\rangle}}
+\newcommand{\XtR}[1]{\ensuremath{\A_X^{#1}\TMinpace\left\langle t \right\rangle}}
+\newcommand{\Yt}{\ensuremath{\A_Y^R\TMinpace\left\langle t \right\rangle}}
+\newcommand{\Int}{\ensuremath{\int^0 \IntMinspace}}
+\newcommand{\IntJ}[1]{\ensuremath{\int^#1 \IntMinspace}}
+
+\let\ab\allowbreak
 
 \newcommand{\abs}[1]{\ensuremath{\vert #1 \vert}}
 \newcommand{\norm}[1]{\ensuremath{\Vert #1 \Vert}}
 \newcommand{\floor}[1]{\ensuremath{\lfloor #1 \rfloor}}
 \newcommand{\ceil}[1]{\ensuremath{\lceil #1 \rceil}}
+
 
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Tor}{Tor}

@@ -11,11 +11,6 @@ The local Bernstein-Sato Ideal $B_{F,x}$ of the function germ of $F$ at some poi
 $$b(s_1,\ldots, s_n) F^s = P\cdot F^{s+1}.$$
 The global Bernstein-Sato Ideal $B_F$ of $F$ is the intersection of all local Bernstein-Sato Ideals.\todo{Restate more generally with $+a$ when proof is done.}
 
-This may be stated in more generally terms of $\D_X\TMinpace\left\langle s_1,\ldots,s_n, t \right\rangle$-modules.
-Here $t$ is a new variable which commutes with sections of $\D_X$ and satisfies $ts_i - s_it = 1$ for any $i=1,\ldots, n$.
-For a $\D_X\TMinpace\left\langle s_1,\ldots,s_n, t \right\rangle$-module $\M$ one defines $B_\M$ as the ideal of global section of $\Ann_{\underline{\C[s]}} \M/t\M$.
-Viewing $\D_X[s]F^s$ as a $\D_X\TMinpace\left\langle s_1,\ldots,s_n, t \right\rangle$-module using the action $tF^s = F^{s + 1}$ this agrees with the earlier definition.
-
 The goal of this chapter is to estimate the zero locust $Z(B_{F})\subseteq \C^p$.
 This zero locust generalises the roots of the Bernstein-Sato polynomial in the monovariate case.
 The classical approximation of the roots of the $b$-polynomial is due to \cite{kashiwara1976b} and this estimation was further refined by \cite{lichtin1989poles}.
@@ -134,9 +129,11 @@ The following lemma and it's proof may be found in \cite{maisonobe2016filtration
 \begin{lemma}
   Let $\M$ be a finitely generated $\A_Y^R$-module. Suppose that $\Chrel \M \subseteq \Lambda \times \Spec R$ for some, not necessarily irreducible, conic Lagrangian subvariety $\Lambda\subseteq T^*X$. Then $\M$ is relative holonomic over $R$.
 \end{lemma}
-\begin{lemma}
+The Bernstein-Sato ideal may be defined more generally for any $\A_X^R$-module $\M$ as $B_\M := \Ann_{R}\M$. To see how this generalises $B_F$ one considers $\A_X^R F^s$ as a $\Xt$-module.
+Here $t$ is a new variable which commutes with sections of $\D_X$ and satisfies $ts_i - s_it = 1$ for any $i=1,\ldots, n$.  The $\Xt$-module structure on $\A_X^R F^s$ is then defined by extending $tF^s = F^{s + 1}$. From this point of view $B_F = B_{\A_X^R F^s / t\A_X^R F^s}$.
+\begin{proposition}\label{prop: ProjectionBernsteinSatoRelativeChar}
   $Z(B_n) = p_2(\Ch^{rel}(\M))$
-\end{lemma}
+\end{proposition}
 
 \section{Direct Image Functor for $\A_X^R$-modules}
     In this section we state the natural generalisation of the direct image functor for $\D_X$-modules to the relative case of $\A_X^R$-modules. As with $\D$-modules this is the most natural for right-modules.\todo{more introduction}
@@ -155,7 +152,7 @@ The following lemma and it's proof may be found in \cite{maisonobe2016filtration
       The subscript $\mu$ will be surpressed whenever there is no ambiguity.
     \end{definition}
 
-    To compute the direct image $\int^j \M$ a resolution for the transfer bimodule $\A_{Y\to X}$ is required.
+    To compute the direct image $\IntJ{j} \M$ a resolution for the transfer bimodule $\A_{Y\to X}$ is required.
     \begin{definition}
         Let $\M$ be a right $\A_Y^R$-module, the relative Spencer complex $\Sp_Y^\bullet(\M)$ is a complex of right $\A_Y^R$-modules, concentrated in negative degrees, with $\Sp_Y^{-k}(\M) = \M \otimes_{\O_Y} \wedge^{k}\Theta_Y$ and as differential the right-$\A_Y^R$-linear map $\delta$ given by
         \begin{align*}
@@ -208,12 +205,12 @@ The following lemma and it's proof may be found in \cite{maisonobe2016filtration
     \end{corollary}
     A strategy one can employ in proving theorems on some space $X$ is by first solving them on a nicer space $Y$ equipped with a map $Y\to X$. This can then be related to the problem on $X$ by use of the direct image. For this purpose it is useful that any global section of $\mathcal{M}$ induces a global section of the direct image. This is usually done in the language of left modules but for us it is more natural to work with right $\A_Y^R$-modules.
     \begin{lemma}\label{lem: GlobalSectionDirectImage}
-        Let $\M$ be a right $\A_Y^R$-module. Then any global section $m\in\Gamma(Y,\M)$ induces a global section of $\int^0\M)$.
+        Let $\M$ be a right $\A_Y^R$-module. Then any global section $m\in\Gamma(Y,\M)$ induces a global section of $\Int\M)$.
     \end{lemma}
     \begin{proof}
       By the Leray spectral sequence there is a functorial isomorphism
       $$\mathbb{H}^\bullet(Y,\M\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R)) \cong \mathbb{H}^\bullet(X,\bR\mu_*(\M\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))).$$
-      In particular it follows that $\mathbb{H}^0(Y,\M \otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R)) \cong \Gamma(X,\int^0\M)$. The \v Cech spectral sequence now induces the desired global section in the direct image based on the section $m\otimes 1$ of $\M \otimes_{\A_Y^R}\Sp_{Y\to X}^0(\A_Y^R)$.
+      In particular it follows that $\mathbb{H}^0(Y,\M \otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R)) \cong \Gamma(X,\Int\M)$. The \v Cech spectral sequence now induces the desired global section in the direct image based on the section $m\otimes 1$ of $\M \otimes_{\A_Y^R}\Sp_{Y\to X}^0(\A_Y^R)$.
     \end{proof}
     \begin{theorem}
       Long exact sequence
@@ -242,7 +239,7 @@ The following lemma and it's proof may be found in \cite{maisonobe2016filtration
       See \url{http://www.math.stonybrook.edu/~cschnell/mat615/lectures/lecture18.pdf}
     \end{proof}
 \subsection{Kashiwara's Estimate for the Characteristic Variety}
-Let $\mu:Y\to X$ be a proper morphism of smooth algebraic varieties. Given a coherent $\A_X^R$-module $\M$ with relative characteristic variety $\Chrel \M$. We desire to estimate $\Chrel \int^j \M$ in terms of $\Chrel\M$. Such a estimate in the non-relative case is known due to Kashiwara. %
+Let $\mu:Y\to X$ be a proper morphism of smooth algebraic varieties. Given a coherent $\A_X^R$-module $\M$ with relative characteristic variety $\Chrel \M$. We desire to estimate $\Chrel \IntJ{j} \M$ in terms of $\Chrel\M$. Such a estimate in the non-relative case is known due to Kashiwara. %
 
 The original proof by \cite{kashiwara1976b} uses the theory of microlocal differential operators. The idea of the following proof is due to \cite{malgrange1985images} in a $K$-theoretic context. We follow the exposition of \cite{sabbah2011introduction} and replace it with the corresponding relative notions. %We note that the assumption that $\mu$ is proper can be relaxed but this version will suffice for our purposes.
 \\
@@ -258,7 +255,7 @@ $$
 where the maps $T^*\mu$ and $\widetilde{\mu}$ act on the first component.
 \begin{theorem}\label{thm: KashiwaraEstimate}
     Let $\M$ be a coherent $\A_Y^R$-module. Then, for any $j\geq 0$, we have
-    $$\Chrel\left(\int^j \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
+    $$\Chrel\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
 \end{theorem}
 Note that the statement is local so, after replacing $X$ by some affine open, it may be assumed that $X\times \Spec R$ and $Y\times \Spec R$ are compact.
 The first step is to note that a similar inclusion is easy for the $\grrel \A_Y^R$-modules.
@@ -269,7 +266,7 @@ Looking at the supports the following result is immediate.
     For any $\grrel\A_Y^R$-module $\mathcal{M}$ it holds that
     $$\supp \int^j \mathcal{M}\subseteq \widetilde{\mu}\left((T^* \mu)^{-1} \supp \mathcal{M}\right).$$
 \end{lemma}
-Applying this lemma to $\grrel\M$ it remains to show that $\supp\grrel\int^j\M\subseteq \supp\int^j \grrel\M$. This is proved in \cref{prop: SuppGrrelIntInclusion}. The main technical ingredient in the proof is the Rees modules associated to a filtered $\A_Y^R$-module $\M$.
+Applying this lemma to $\grrel\M$ it remains to show that $\supp\grrel\IntJ{j}\M\subseteq \supp\int^j \grrel\M$. This is proved in \cref{prop: SuppGrrelIntInclusion}. The main technical ingredient in the proof is the Rees modules associated to a filtered $\A_Y^R$-module $\M$.
 \begin{definition}
     Let $z$ be a new variable. The Rees sheaf of rings $\Rees\A_Y^R$ is defined as the subsheaf $\oplus_p F_p \A_Y^R z^p $ of $\A_Y^R \otimes_\C \C[z]$. Similarly, any filtered $\A_Y^R$-module $\M$ gives rise to a $\Rees\A_Y$-module $\Rrel\M := \oplus_p F_p \M z^p$.
 \end{definition}
@@ -288,10 +285,10 @@ Recall that a $\grrel\A_Y^R$-modules on $Y\times \Spec R$ could be be viewed as 
 The Rees module viewpoint agrees with the earlier definition by the following lemma.
 
 \begin{lemma}\label{lem: ReesAndOtherDirectImagesAgree}
-  Consider a filterd $\A_Y^R$-module $\M$. Then viewing $\int^j \Rrel\M / z\Rrel\M$ with it's $\grrel\A_X^R$-module structure as a sheaf on $T^*X\times \Spec R$ recovers the $\grrel\A_Y^R$-module direct image $\int^j \grrel\M$. Viewing  $\int^j \Rrel\M / (z-1)\M$ as a $\A_X^R$-module recovers $\int^j \M$.
+  Consider a filterd $\A_Y^R$-module $\M$. Then viewing $\int^j \Rrel\M / z\Rrel\M$ with it's $\grrel\A_X^R$-module structure as a sheaf on $T^*X\times \Spec R$ recovers the $\grrel\A_Y^R$-module direct image $\int^j \grrel\M$. Viewing  $\int^j \Rrel\M / (z-1)\M$ as a $\A_X^R$-module recovers $\IntJ{j} \M$.
 \end{lemma}
 \begin{proof}
-  We give the proof for $\int^j \grrel \M$, the proof for $\int^j \M$ is similar but easier.
+  We give the proof for $\int^j \grrel \M$, the proof for $\IntJ{j} \M$ is similar but easier.
 
 
   Consider the following Cartesian square
@@ -314,28 +311,28 @@ The Rees module viewpoint agrees with the earlier definition by the following le
   Due to flatness this yields a free resolution in $\pi^{*}\grrel\A_Y^R$-modules of $\pi^* \grrel\A_{Y\to X}^R$.
   Since $\grrel \A_{Y\to X}^R = \O_Y^R \otimes_{\mu^{-1}\O_X^R} \mu^{-1}\grrel\A_X^R$ and $\pi^*\mu^* = \widetilde{\mu}^*\pi^*$ the desired equality follows. \todo{Write out more}
 \end{proof}
-It turns out that one can directly compare $\grl\int^j\M$ and $\int^j \grl\M$ when $\ell$ is large. Some care is required since since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
+It turns out that one can directly compare $\grl\IntJ{j}\M$ and $\int^j \grl\M$ when $\ell$ is large. Some care is required since since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
 \begin{lemma}\label{lem: KernelZellStabilises}
-  Consider a $\A_Y^R$-module $\M$ with a good filtration. Then, for sufficiently large $\ell$, the kernel of $z^\ell$ in $\int^j \Rrel \M$ stabilises. For such $\ell$ the quotient $\int^j \Rrel \M/ \ker z^\ell$ is the $\Rees \A_X^R$-coherent module associated to a good filtration on $\int^j \M$.
+  Consider a $\A_Y^R$-module $\M$ with a good filtration. Then, for sufficiently large $\ell$, the kernel of $z^\ell$ in $\int^j \Rrel \M$ stabilises. For such $\ell$ the quotient $\int^j \Rrel \M/ \ker z^\ell$ is the $\Rees \A_X^R$-coherent module associated to a good filtration on $\IntJ{j} \M$.
 \end{lemma}
 \begin{proof}
   By $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\A_X^R$ it follows that $\ker z^\ell$ locally stabilises. This is sufficient since $X\times \Spec R$ is assumed to be compact.
 
     Now consider the short exact sequence $0\to \Rrel \M \xrightarrow{z-1} \Rrel \M \to \M \to 0$. This induces a long exact sequence
-    $$\cdots \to \int^j \Rrel \M \xrightarrow{z-1} \int^j \Rrel \M \to \int^j \M \to \int^{j+1} \Rrel \M \xrightarrow{z-1}\cdots. $$
-    Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\A_X^R$-module it follows that $z-1$ is injective whence $\int^j \Rrel \M / (z-1)\int^j \Rrel \M \cong \int^j \M$. This yields the desired result using that $\int^j \Rrel \M / \ker z^\ell$ is $\C[z]$-torsion free and the isomorphism
+    $$\cdots \to \int^j \Rrel \M \xrightarrow{z-1} \int^j \Rrel \M \to \IntJ{j} \M \to \int^{j+1} \Rrel \M \xrightarrow{z-1}\cdots. $$
+    Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\A_X^R$-module it follows that $z-1$ is injective whence $\int^j \Rrel \M / (z-1)\int^j \Rrel \M \cong \IntJ{j} \M$. This yields the desired result using that $\int^j \Rrel \M / \ker z^\ell$ is $\C[z]$-torsion free and the isomorphism
     $$ \frac{\int^j \Rrel \M }{(z-1)\int^j \Rrel \M } \cong \frac{\int^j \Rrel \M /\ker z^\ell }{(z-1)(\int^j \Rrel \M/\ker z^\ell) }.$$
 \end{proof}
-From now on we equip $\int^j \M$ with the good filtation inherited from the Rees module's direct image.
+From now on we equip $\IntJ{j} \M$ with the good filtation inherited from the Rees module's direct image.
 \begin{lemma}\label{lem: EllLargeSubquotent}
-    Consider a $\A_Y^R$-module $\M$ with a good filtration. Then, if $\ell$ is sufficiently large, $\grl \int^j\M$ is a subquotient of $\int^j\grl\M$.
+    Consider a $\A_Y^R$-module $\M$ with a good filtration. Then, if $\ell$ is sufficiently large, $\grl \IntJ{j}\M$ is a subquotient of $\int^j\grl\M$.
 \end{lemma}
 \begin{proof}
   The short exact sequence $0\to \Rrel\M \xrightarrow{z^\ell}\Rrel \M \to \Rrel\M / z^\ell \Rrel\M \to 0$ induces a long exact sequence
   $$\cdots \to \int^j \Rrel \M \xrightarrow{z^\ell} \int^j \Rrel \M \to \int^j \Rrel\M/z^\ell \Rrel\M \to \int^{j+1} \Rrel \M \xrightarrow{z^\ell}\cdots. $$
-  Hence, $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$ is a submodule of $\int^j (\Rrel\M/z^\ell \Rrel\M)$ and it remains to show that $\Rrel \int^j \M/ z^\ell \Rrel \int^j \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
+  Hence, $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$ is a submodule of $\int^j (\Rrel\M/z^\ell \Rrel\M)$ and it remains to show that $\Rrel \IntJ{j} \M/ z^\ell \Rrel \IntJ{j} \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
 
-  Let $\ell$ be sufficiently large so that \cref{lem: KernelZellStabilises} yields a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong \Rrel\int^j \M$. The map $z^\ell$ induces a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong z^\ell \int^j \Rrel \M$. Therefore $z^\ell \int^j \Rrel \M / z^{2\ell}\int^j \Rrel\M \cong \Rrel \int^j \M / z^\ell \Rrel\int^j \M $.
+  Let $\ell$ be sufficiently large so that \cref{lem: KernelZellStabilises} yields a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong \Rrel\int^j \M$. The map $z^\ell$ induces a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong z^\ell \int^j \Rrel \M$. Therefore $z^\ell \int^j \Rrel \M / z^{2\ell}\int^j \Rrel\M \cong \Rrel \IntJ{j} \M / z^\ell \Rrel\IntJ{j} \M $.
   The desired quotient follows by applying the map $m\mapsto z^\ell m$ on $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
 \end{proof}
 The main remaining task is to relate these results to the desired case of $\ell = 1$.
@@ -367,12 +364,12 @@ The main remaining task is to relate these results to the desired case of $\ell 
   Applying $\mu_*$ to these equalities and setting $\mathcal{N}^\bullet = \mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet$ yields the desired result.
 \end{proof}
 \begin{proposition}\label{prop: SuppGrrelIntInclusion}
-  For a filtered $\A_Y^R$-module $\M$ with a good filtration it holds that  $$\supp \grrel\int^j\M \subseteq \supp \int^j \grrel\M.$$
+  For a filtered $\A_Y^R$-module $\M$ with a good filtration it holds that  $$\supp \grrel\IntJ{j}\M \subseteq \supp \int^j \grrel\M.$$
 \end{proposition}
 \begin{proof}
-  Let $\ell\geq 0$ be sufficiently large so that \cref{lem: EllLargeSubquotent} holds, that is to say that $\grl\int^j \M$ is a subquotient of $\int^j \grl \M$.
-  By \cref{lem: GradedGGradedLYieldsGraded} it holds that $\gr^G\grl \int^j \M \cong (\grrel\int\M)^\ell$.
-  Since $\grl \int^j \M$ is a subquotient of $\int \grl\M$ it remains to show that the support of $\gr^G \int^j \grl\M$ is a subset of the support of $\int^j \gr \M$.
+  Let $\ell\geq 0$ be sufficiently large so that \cref{lem: EllLargeSubquotent} holds, that is to say that $\grl\IntJ{j} \M$ is a subquotient of $\int^j \grl \M$.
+  By \cref{lem: GradedGGradedLYieldsGraded} it holds that $\gr^G\grl \IntJ{j} \M \cong (\grrel\int\M)^\ell$.
+  Since $\grl \IntJ{j} \M$ is a subquotient of $\int \grl\M$ it remains to show that the support of $\gr^G \int^j \grl\M$ is a subset of the support of $\int^j \gr \M$.
 
   This can be established with the spectral sequence associated of the $G$-filtered complex $\int \grl \M$. Since the $G$-filtration is finite on $\grl\A_X^R$-modules the associated spectral sequence abbuts by general results\todo{Found spectral sequence result online, add good reference.}. To be precise the associated spectral sequence with terms
   $E^2_{pq} = \H^{p+q}\gr^G \int \grl \M$ abuts to $\gr^G\int \M$.
@@ -384,7 +381,7 @@ The main remaining task is to relate these results to the desired case of $\ell 
 In this section we discuss homological notions associated to the $\Ext$-functor over a ring $A$ which may not be commutative.   These notions are particularly well-behaved for relatively holonomic modules.
 
 \subsection{Auslander Regularity}
-Based on appendix \cite{budur2019zero} which is itself based on \cite{bjork1979rings}.
+Based on appendix \cite{budur2019zero} which is itself based on \cite{bjork1979rings}. $X$ is assumed to be affine
 \begin{definition}
   Homological dimension
 \end{definition}
@@ -395,9 +392,9 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
 \begin{definition}
   Auslander regular ring
 \end{definition}
-\begin{lemma}
+\begin{proposition}
   Connection with commutative case $\gr$
-\end{lemma}
+\end{proposition}
 \begin{proposition}
   If $A$ is regular commutative
 \end{proposition}
@@ -407,7 +404,7 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
 \begin{proposition}
   $j(\blank) = j(\gr)$
 \end{proposition}
-\begin{corollary}
+\begin{corollary}\label{cor: AXRBehaviourGradesJAndChrel}
   For finitely generated $\A_X^R$-modules
   $$j(\M) + \dim \Chrel \M = 2n + \dim R $$
 \end{corollary}
@@ -419,25 +416,84 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
   Behaviour $\Ext$
 \end{lemma}
 \begin{lemma}
-  Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq \dim R$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective automorphisms on $\N$ and $\Ext^{n+l}_{\A_X^R}(\M,\A_X^R)$.
+  $\Ext$ of relative holonomic remains so
+\end{lemma}
+\begin{lemma}
+  Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq \dim R$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective automorphisms on $\N$ and $\Ext^{n+k}_{\A_X^R}(\M,\A_X^R)$.
 \end{lemma}
 \subsection{Cohen-Macauley}
 \begin{definition}
   Cohen-Macauley
 \end{definition}
-\begin{lemma}
-  Relative holonomic is CM over a open $\Spec R$.
+\begin{lemma}\label{lem: GradeToCMOverOpen}
+  Relative holonomic with $j(\M)= n+k$ is $(n+k)$-CM over a open $\Spec R$ of codimension $>k$. Similarly $j(\M)> n+k$ yields zero.
 \end{lemma}
 \begin{proof}
-  Like lemma 3.5.2
+  Like lemma 3.5.2 in \cite{budur2019zero}
 \end{proof}
-\begin{lemma}
+
+\begin{lemma}\label{lem: RestrictToCM}
   Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-Cohen-Macaulay. If $b\in R$ is not a element of any minimal prime ideal containing $B_N$ then $\M \otimes_R R/(b)$ is a relative holonomic and $(n+k)$-Cohen-Macaulay  $\A_X^{R/(b)}$-module.
 \end{lemma}
+\begin{proof}
+  Like prop 3.4.3 in \cite{budur2019zero}
+\end{proof}
+
+The following lemma is a generalisations of a result by \cite{kashiwara1976b} to the relative case.
+The proof and statement are more involved than the original result by Kashiwara but follow the same line of thought.
+\begin{lemma}
+  Let $\M$ be a relative holonomic $\A_X^R$-module which comes equipped with the structure of a $\Xt$-module.
+  Suppose that $\M$ has grade $j(\M) = n+k$ with $k\geq 1$.
+  Then there exists a open $\Spec R' \subseteq \Spec R$ such that $\M' = \M \otimes_{R} R'$ is a relative holonomic $\A_X^{R'}$-module with $t^N \M' = 0$ for $N$ sufficiently large. Moreover, it may be assumed that $\Spec R \setminus \Spec R'$ has codimension strictly greater than $k$.
+\end{lemma}
+\begin{proof}
+  The proof is split in two main parts. The first part it is establises that $\Ext^{n+k}_{\A_X^{R'}}(t^i\M',\A_X^{R'})$ stabilises and that the $t^i\M'$ are $(n+k)$-Cohen-Macauley. It follows that $t^i\M'$ stabilises. The final part of the proof deduces that the stable value is zero.
+
+  Note that $\M/t\M$ is a coherent sheaves over the Noetherian sheaf of rings $\A_X^R$.
+  Hence, the kernel of the morphisms $\M/t\M \to t^i\M / t^{i+1}\M$ stabilise.
+  Let $N\geq 0$ be sufficiently large so that these kernels are constant for $i\geq N$.
+
+  By use of \cref{lem: GradeToCMOverOpen} it may be assumed that $\Spec R'$ is such that $t^i\M'$, $\M'/t^{i}\M'$, $t^i\M'/t^{i+1}\M'$ and the kernels $K_i$ of the morphisms $\M'/t\M' \to t^i \M'/ t^{i+1} \M'$ are zero or $(n+k)$-Cohen-Macauley for any $i=0,\ldots,N$.
+  Since localisation is an exact functor the stabilisation of kernels for $i\geq N$ is still valid over $\Spec R'$.
+  The first few steps in this proof are to us these stabilisation results to estabish that these modules are actually $(n+k)$-Cohen-Macaulay for arbitrary $i\geq 0$.
+
+  The short exact sequence $0\to K_i \to \M'/t\M' \to t^i \M'/t^{i+1}\M' \to 0$ induces a long exact sequence
+  $$0 \to \Ext^{n+k}_{\A_X^{R'}}(\frac{t^i\M'}{ t^{i+1}\M'},\A_X^{R'}) \to  \Ext^{n+k}_{\A_X^{R'}}(\frac{\M'}{t\M'},\A_X^{R'}) \to \Ext^{n+k}_{\A_X^{R'}}(K_i,\A_X^{R'}) \to \cdots $$
+  In particular there is a isomorphism $\Ext_{\A_X^{R'}}^{n+k+1}(t^i\M'/t^{i+1}\M') \cong \Ext_{\A_X^{R'}}^{n+k}(K_i)\ab/\img \Ext_{\A_X^{R'}}^{n+k}(\M'\ab /t\M')$.
+  For $i\leq N$ the left-hand-side of this isomorphism is known to vanish.
+  Due to the stabilisation of $K_i$ it follows that $\Ext_{\A_X^{R'}}^{n+k+1}(t^i\M'/t^{i+1}\M')\cong 0$ for any $i\geq 0$.
+  Using that the $K_i$ and $\M'/t\M'$ are $(n+k)$-Cohen-Macaulay in the higher order terms of the long exact sequence yields $\Ext^{n+k+j}_{\A_X^{R'}}(\frac{t^i\M'}{ t^{i+1}\M'},\A_X^{R'}) \cong 0$ for $j>1$. This establishes that $t^i \M'/t^{i+1}\M'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
+
+
+  The long exact sequence induced by $0\to t^{i+1} \M'\to t^{i}\M' \to t^i\M' / t^{i+1}\M' \to 0$ yields exact sequences
+  $\Ext^{n+k+j}_{\A_X^{R'}}(t^i\M'/ t^{i+1}\M',\A_X^{R'}) \to  \Ext^{n+k+j}_{\A_X^{R'}}(t^{i}\M',\A_X^{R'}) \to \Ext^{n+k +j}_{\A_X^{R'}}(t^{i+1} \M'\ab,\A_X^{R'})$
+  for any $i\geq 0$. By induction on $i$ it follows that $t^i\M'$ is $(n+k)$-Cohen-Macaulay for any $i\geq 0$.
+  Similarly the long exact sequence induced by $0\to t^{i}\M'/t^{i+1}\M' \to \M/t^{i+1}\M' \to \M'/t^{i}\M'$ and induction on $i$ yields that $\M/t^{i}\M$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
+
+
+By $t^i\M'/t^{i+1}\M'$ being $(n+k)$-Cohen-Macaulay it follows that the morphisms $\Ext^{n+k}_{\A_X^{R'}}(\ab t^i\M',\A_X^{R'}) \to  \Ext^{n+k}_{\A_X^{R'}}(t^{i+1}\M',\A_X^{R'})$ are surjective.
+Similarly, by $\M'/t^i \M'$ being $(n+k)$-Cohen-Macaulay or zero it follows that the morphisms $\Ext^{n+k}_{\A_X^{R'}}(\M',\A_X^{R'}) \to \Ext^{n+k}_{\A_X^{R'}} (t^i\M',\ab \A_X^{R'})$ are surjective.
+Note that $\Ext^{n+k}_{\A_X^R}(\M,\A_X^R)$ is a coherent sheaf over the Noetherian sheaf of rings $\A_X^{R'}$.
+Hence the kernels of $\Ext^{n+k}_{\A_X^{R'}}(\M',\A_X^{R'}) \to \Ext^{n+k}_{\A_X^{R'}} (t^i\M',\A_X^{R'})$ stabilise, by increasing $N$ it follows that the morphisms $\Ext^{n+k}_{\A_X^{R'}}(t^i\M',\A_X^{R'}) \to  \Ext^{n+k}_{\A_X^{R'}}(t^{i+1}\M',\A_X^{R'})$ are injective for $i\geq N$.
+This establishes that $\Ext^{n+k}_{\A_X^{R'}}(t^{i+1}\M',\A_X^{R'})$ is constant for $i\geq N$.
+
+By $t^i \M'$ being $(n+k)$-Cohen-Macaulay it follows that $\Ext^{n+k}_{\A_X^{R'}}(\Ext^{n+k}_{\A_X^{R'}}(t^i\M',\A_X^{R'} ),\A_X^{R'}) \cong t^i\M'$.\todo{Provide reference, maybe include and prove earlier since this is easy from double complex}
+Conclude that $t^i \M'$ stabilises for $i\geq N$.
+It remains to show that this stable value is $0$.
+
+Recall that $t^N\M'$ is relative holonomic and if it is nonzero it is $(n+k)$-Cohen-Macaulay with $k>1$.
+Let's assume that $t^N\M'$ is $(n+k)$-Cohen-Macaulay and derive a contradiction.
+By \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar} it follows that there exists some nonzero polynomial $b(s_1,\ldots,s_p) \in B_{t^N\M'}$.
+Note that one has the commutation relation
+$$tb(s_1,\ldots,s_p) = b(s_1+1,\ldots, s_p + 1)t.$$
+Since $t^{N+1}\M' = t^N\M'$ it follows by iteration that $b(s_1+n,\ldots, s_p + n)\in B_{t^N \M'}$ for any $n\geq 0$.
+This implies that $Z(B_{t^N\M'}) = 0$ which means that $t^N\M' = 0$.
+\end{proof}
 \section{Estimation of the Bernstein-Sato Zero Locust}
 This section contains the main result of this chapter, namely a proof of the improved estimate for the Bernstein-Sato Zero Locust which was announced in \cref{thm: EstimateBernsteinSatoZeroLocust}. The following proof is similar to the method employed by \cite{lichtin1989poles} and \cite{kashiwara1976b}.
 
-This section employs the same notation as \cref{sec: IntoductionChapterRelative}. Recall that the global Bernstein-Sato Ideal is the intersection of all local ones. This means that the global Bernstein-Sato zero locust $Z(B_F)$ is the union of all local ones so it suffices to estimate $Z(B_{F,x})$.
+This section employs the same notation as \cref{sec: IntoductionChapterRelative}. Recall that the global Bernstein-Sato Ideal is the intersection of all local ones.
+This means that the global Bernstein-Sato zero locust $Z(B_F)$ is the union of all local ones so it suffices to estimate $Z(B_{F,x})$.
 In particular, it may be assumed that $X$ is affine and admits global coordinates $x_1,\ldots,x_n$.
 
 Due to these global coordinates there is a $\O_X^R$-linear isomorphism between any left $\A_X^R$-module $\N$ and it's right version $\Omega_X \otimes_{\O_X}\N$. Concretely, any section $u$ of $\N$ gives rise to the section $u^* := u dx$. Further, for any operator $P$ of $\A_X^R$ there is a adjoint $P^*$ such that
@@ -446,18 +502,20 @@ for any section $u$ of $\N$. For a vector field $\xi := \sum_i\xi_i \partial_i$ 
 
 By this procedure the functional equation $P F^{s+1} = b F^s$ may equivalently be stated as the equation
 $$F^{s+1}dx \cdot P^* = b F^s dx $$
-in $\A_X F^s \otimes_{\O_X}\Omega_X$. This viewpoint is convenient since the $\A_X$-module direct image is more natural for right modules.
+in $\A_X F^s \otimes_{\O_X}\Omega_X$.
+This viewpoint is convenient since the $\A_X$-module direct image is more natural for right modules.
+This makes it easier to transfer results along the resolution of singularities.
 Further, it explains how the relative canonical divisor becomes involved in the estimate of \cref{thm: EstimateBernsteinSatoZeroLocust}.
 Define $\M$ to be the submodule of $\Omega_Y\otimes_{\O_Y} \A_Y G^s$ spanned by $G^s \mu^*(dx)$.
-This may be viewed as a $\Yt$-module by the action $t G^s \mu^*(dx) = G^{s+1} \mu^*(dx)$. Similarly to
+This may be viewed as a $\Yt$-module by the action $t G^s \mu^*(dx) = G^{s+1} \mu^*(dx)$.
 \begin{lemma}\label{lem: BernsteinSatoPolynomialUpstairs}
   In the notation of \cref{sec: IntoductionChapterRelative} a polynomial of the form
-  $\prod_i \prod_j(\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + c_j)$
-  with $c_j\in \Z_{\geq 0}$ belongs to the Bernstein-Sato ideal $B_\M$.
+  $\prod_{i=1}^p \prod_{j=0}^N(\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + j)$
+  belongs to the Bernstein-Sato ideal $B_{\M/t\M}$ if $N\in \Z_{\geq 0}$ is sufficiently large.
 \end{lemma}
 \begin{proof}
-  It suffices to take an open cover $\{U_\alpha \}$ of $Y$ such that this polynomial is a section of $\Ann_{\underline{\C[s]}} \M/t\M$ over $ U_\alpha \times \C^p)$ for any open $U_\alpha$ of the cover.
-  Take $U$ sufficiently small so that it admits local coordinates $z_1,\ldots,z_n$ where $z_i$ determines $E_i$ if $E_i\cap U \neq \emptyset$.
+  This may be checked locally.
+  Take a open $U\subseteq Y$ sufficiently small so that it admits local coordinates $z_1,\ldots,z_n$ where $z_i$ determines $E_i$ if $E_i\cap U \neq \emptyset$.
 
   In these local coordinates $G^s = \prod_{i=1}^p z_i^{\sum_{j=1}^p M_{ij}s_j}$ and $\mu^*(dx) = u \prod_{i=1}^n z_i^{m_i} dz$ where $M_{ij} \leq \operatorname{mult}_{E_i}(g_j)$, $m_i \leq k_i$ and $u$ is a local unit. For notational convenience define $M_{ij} = 0$ for $i>p$.
   Denote $N_i = \sum_j M_{ij}$ for any $i=1,\ldots,p$ and set $P = u^{-1} \partial_1^{N_1} \cdots \partial_p^{N_p} u$ then
@@ -465,13 +523,13 @@ This may be viewed as a $\Yt$-module by the action $t G^s \mu^*(dx) = G^{s+1} \m
   where
   $$b = \prod_{i=1}^p(\sum_{j=1}^p M_{ij}s_j + m_i + N_i)(\sum_{j=1}^p M_{ij}s_j + m_i + N_i - 1)\cdots(\sum_{j=1}^p M_{ij}s_j + m_i).$$
 \end{proof}
-By \cref{lem: GlobalSectionDirectImage} the global section $G^s \mu^*(dx)$ of $\M$ gives rise to a global section $u$ of $\int^0\M$. Denote $\U$ for the right $\A_X^R$-module generated by $u$.
+By \cref{lem: GlobalSectionDirectImage} the global section $G^s \mu^*(dx)$ of $\M$ gives rise to a global section $u$ of $\Int\M$. Denote $\U$ for the right $\A_X^R$-module generated by $u$.
 The following lemma and it's proof are similar to the monovariate case which may be found in \cite[p246]{bjork1979rings}.
 \begin{lemma}
   There is a surjective morphism right $\A_X^R$-modules $\U\to \A_X^RF^s \otimes_{\O_X}\Omega_X$ sending $u$ to $F^sdx$.
 \end{lemma}
 \begin{proof}
-   The resolution of singularities $Y\to X$ is a isomorphism on the complement of $\prod f_i = 0$. Hence, a isomorphism $\U = \int^0 \M \cong  \A_X^RF^s  \otimes_{\O_X}\Omega_X$ holds outside of $\prod f_i = 0$.
+   The resolution of singularities $Y\to X$ is a isomorphism on the complement of $\prod f_i = 0$. Hence, a isomorphism $\U = \Int \M \cong  \A_X^RF^s  \otimes_{\O_X}\Omega_X$ holds outside of $\prod f_i = 0$.
 
   Pick some open set $V\subseteq X$ we must show that whenever $uP = 0$ in $\U(V)$ it follows that $(F^s dx)P = 0$.
   Due to the isomorphism it is certainly the case that $(F^s dx) P = 0$ outside of $\prod f_i = 0$.
@@ -479,45 +537,43 @@ The following lemma and it's proof are similar to the monovariate case which may
   The Nullstellen Satz now yields that $(\prod f_i)^N (F^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
   Note that $\prod f_i$ is a non-zero divisor of $(F^s\otimes_{\O_X} \Omega_X)(V)$. Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
 \end{proof}
-Due to  \cref{lem: BernsteinSatoPolynomialUpstairs} there is a $b$-polynomial of a desirable form in $B_{\int^0 \M}$. The remaining difficulty in the proof is to go from there to a $b$-polynomial in $B_\U$. Note that $\int^0\M$ is certainly a relative holonomic $\A_X^R$-module by Kashiwara's estimate \cref{thm: KashiwaraEstimate}.
-\begin{lemma}
-  Let $\N$ be a relative holonomic $\A_X^R$-module with the structure of a $\Xt$-module. If there exists some $B(s_1,\ldots,s_n)\in \C[s_1,\ldots,s_n]$ such that $B\N = 0$ then $t^N \N = 0$ for sufficiently large $N$.
-\end{lemma}
-Note: Check how necessary open set for CM matters 
+Due to  \cref{lem: BernsteinSatoPolynomialUpstairs} there is a $b$-polynomial of a desirable form in $B_{\Int \M/t\Int\M}$.
+The remaining difficulty in the proof is to go from there to a $b$-polynomial in $B_{\U/t\U}$.
+
 \newpage
 \section{Old Stuff}
 \subsection{Sketch}
 \begin{enumerate}
   \item It holds that $\A_X G^s$ is relative holonomic. Hence also $G^s \otimes \Omega_Y$ is relative holonomic. In particular the module $\M$ spanned by $G^s \otimes \mu^*(dx)$ is relative holonomic.
-  \item By Kashiwara's estimate $\int^0 \M$ is relative holonomic and this contains a global section $u$.
+  \item By Kashiwara's estimate $\Int \M$ is relative holonomic and this contains a global section $u$.
   \item There is a surjection $u\to f^s$.
   \item Goal: Given $b$ which annihilates $\M/t\M$ show $B(s) = \prod b(s + k)$ annihilates $u/tu$.
   \begin{itemize}
-    \item Problem: the usual argument exploits that $\int^0 \M /u$ is finite length.
+    \item Problem: the usual argument exploits that $\Int \M /u$ is finite length.
     \item Induction step: If $B(\lambda)$ annihilates $(u/tu)\otimes \frac{\C}{(\ell)}$ for generic $\ell$ then $B(\lambda)$ annihilates $u/tu$. This is subtle due to a lack of Nakayama. Argument may be similar to Budur and Robin paper 1.
     \item Will require Cohen-Macauley similarly to Nero and Robin paper 1.
   \end{itemize}
   \item In the final step of the induction we need to deduce that $B(s)$ annihilates $u/tu \otimes \frac{\C[s]}{L}$. The standard method comes down the following observations
   \begin{itemize}
-    \item $b \int^0 \M \subseteq t\int^0\M$
-    \item $t^N\int^0\M / u = 0$ for large $N$
-    \item Hence $Bu \subseteq B\int^0\M \subseteq t^{N+1}\int^0 \M \subseteq tu$
+    \item $b \Int \M \subseteq t\Int\M$
+    \item $t^N\Int\M / u = 0$ for large $N$
+    \item Hence $Bu \subseteq B\Int\M \subseteq t^{N+1}\Int \M \subseteq tu$
   \end{itemize}
-  In the final step of the induction we get that $(\int^0\M \otimes \frac{\C[s]}{L}) / \widetilde{u}$ is holonomic from which we can deduce $t^N \int^0 \M \otimes \frac{\C[s]}{L} / \widetilde{u} = 0$. But we actually need $t^N (\int^0\M/ u) \otimes \frac{\C[s]}{L} = 0$
+  In the final step of the induction we get that $(\Int\M \otimes \frac{\C[s]}{L}) / \widetilde{u}$ is holonomic from which we can deduce $t^N \Int \M \otimes \frac{\C[s]}{L} / \widetilde{u} = 0$. But we actually need $t^N (\Int\M/ u) \otimes \frac{\C[s]}{L} = 0$
   \item To get this note
   \begin{itemize}
     \item The $SES$
     $$ 0 \to \ell \M \to \M \to \M \otimes \frac{\C[]}{(\ell)} \to 0$$
     yields
-    $$0 \to \int^0  \ell \M \to \int^0 \M \to \int^0 \M \otimes \frac{\C[]}{(\ell)}\to \cdots$$
+    $$0 \to \int^0  \ell \M \to \Int \M \to \Int \M \otimes \frac{\C[]}{(\ell)}\to \cdots$$
     \item Provided $\ell$ does not contain irreducible parts of $Z(B)$ the map $\ell$ is injective upstairs by lemma 3.4.2 in paper 1 Nero and Robin so
-    $$(\int^0 \M )\otimes \frac{\C[]}{\ell} \hookrightarrow \int^0 (\M \otimes \frac{\C[]}{(\ell)}) $$
+    $$(\Int \M )\otimes \frac{\C[]}{\ell} \hookrightarrow \int^0 (\M \otimes \frac{\C[]}{(\ell)}) $$
   \end{itemize}
   \item Now
-  $$0 \to u \to \int^0 \M \to \frac{\int^0 \M}{u} \to 0 $$
+  $$0 \to u \to \Int \M \to \frac{\Int \M}{u} \to 0 $$
   induces
   $$\begin{tikzcd}
-    Tor\arrow{r} & u\otimes \frac{\C[s]}{\ell}\arrow{r}\arrow{rd} & (\int^0 \M) \otimes \frac{\C[s]}{\ell}\arrow{r}\arrow[hookrightarrow]{d} & \frac{\int^0 \M}{u} \otimes \frac{\C[s]}{\ell}\arrow{r} & 0\\
-    & & \int^0 \M \otimes \frac{\C[s]}{\ell}
+    Tor\arrow{r} & u\otimes \frac{\C[s]}{\ell}\arrow{r}\arrow{rd} & (\Int \M) \otimes \frac{\C[s]}{\ell}\arrow{r}\arrow[hookrightarrow]{d} & \frac{\Int \M}{u} \otimes \frac{\C[s]}{\ell}\arrow{r} & 0\\
+    & & \Int \M \otimes \frac{\C[s]}{\ell}
   \end{tikzcd} $$
   \end{enumerate}
