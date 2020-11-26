@@ -511,7 +511,7 @@ This may be viewed as a $\XtR{Y}{}$-module by the action $t G^s \mu^*(dx) = G^{s
 \end{lemma}
 \begin{proof}
   This may be checked locally.
-  Take a open $U\subseteq Y$ sufficiently small so that it admits local coordinates $z_1,\ldots,z_n$ where $z_i$ determines $E_i$ if $E_i\cap U \neq \emptyset$.
+  Take a open $U\subseteq Y$ which is sufficiently small to admit local coordinates $z_1,\ldots,z_n$ where $z_i$ determines $E_i$ if $E_i\cap U \neq \emptyset$.
 
   In these local coordinates $G^s = \prod_{i=1}^p z_i^{\sum_{j=1}^p M_{ij}s_j}$ and $\mu^*(dx) = u \prod_{i=1}^n z_i^{m_i} dz$ where $M_{ij} \leq \operatorname{mult}_{E_i}(g_j)$, $m_i \leq k_i$ and $u$ is a local unit. For notational convenience define $M_{ij} = 0$ for $i>p$.
   Denote $N_i = \sum_j M_{ij}$ for any $i=1,\ldots,p$ and set $P = u^{-1} \partial_1^{N_1} \cdots \partial_p^{N_p} u$ then
@@ -536,7 +536,7 @@ The following lemma and it's proof are similar to the monovariate case which may
 Due to  \cref{lem: BernsteinSatoPolynomialUpstairs} there is a $b$-polynomial of a desirable form in $B_{\Int \M/t\Int\M}$.
 The remaining difficulty in the proof is to induce a $b$-polynomial in $B_{\U/t\U}$. This will exploit \cref{lem: StabilisationtN} whence the following result is required.
 \begin{lemma}
-  The relative holonomic $\A_X^R$-module $\Int\M/\U$ has grade $j(\Int\M/\U)\geq n+1$.
+  The relative holonomic $\A_X$-module $\Int\M/\U$ has grade $j(\Int\M/\U)\geq n+1$.
 \end{lemma}
 \begin{proof}
   Suppose that $\Int\M/\U$ has grade $n$. A contradiction will be derived by replacing $\Int\M/\U$ with a nonzero holonomic $\D_X$-module $(\Int\M/\U)\otimes_{\C[s]} R/L$ of the same grade. From the holonomicity it will follow that $(\Int\M/ \U)\otimes_{\C[s]} R/L$ has grade $n+1$ as a $\A_X^R$-module which contradicts the grade being preserved.
@@ -558,23 +558,32 @@ The remaining difficulty in the proof is to induce a $b$-polynomial in $B_{\U/t\
   $$0 \to \ell_{i+1}\Int \left(\M \otimes_{\C[s]} \frac{R}{L_{i}}\right) \to \Int \left(\M \otimes_{\C[s]} \frac{R}{L_{i}}\right) \to \Int\left(\M \otimes_{\C[s]} \frac{R}{L_{i+1}}\right) \to \cdots $$
   whence $(\Int \M \otimes_{\C[s]} R/L_{i})\otimes_{R} R/(\ell_{i+1})$ is a submodule of $\Int (\M \otimes_{\C[s]} R/L_{i+1})$.
   Combining the injectivity of $\ell_{i+1}$ on $\Int\M/\U \otimes_{\C[s]} R/L_{i}$ with the inductive hypothesis yields that $(\Int\M/\U) \otimes_{\C[s]} R/L_{i+1}$ is a subquotient of $\int^0(\M \otimes_{\C[s]} R/L_{i})\otimes_{\C[s]} R/{(\ell_{i+1})}$.
-  This shows that $(\Int\M/\U) \otimes_{\C[s]} R/L_{i+1}$ is a subquotient of $\Int (\M \otimes_{\C[s]} R/L_{i+1})$ as desired.
+  This shows that $(\Int\M/\U) \otimes_{\C[s]} R/L_{i+1}$ is a subquotient of $\Int (\M \otimes_{\C[s]} R/L_{i+1})$ as desired.\\
 
-  Denote $L := L_{p-1}$, we show that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is a holonomic $\D_X$-module.
+
+  Denote $L := L_{p-1}$ and suppose it can be deduced that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is a holonomic $\D_X$-module.
   Then by (\todo{Endomorphisms of holonomic $\D_X$-modules are $\C$-algebraic, for instance p246 in \cite{bjork1979rings}}) it follows that the Bernstein-Sato ideal of $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is nonzero.
-  This produces a contradiction by \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar} since $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is $n$-Cohen-Macaulay and $R/L$ has dimension 1.
-  From this contradiction one concludes that the assumption that $\Int\M/\U$ has grade $n$ must have been wrong whence the lemma follows.
+  Since, $R/L$ has dimension 1 this means that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ has grade $n+1$.
+  This contradicts $(\Int\M/ \U)\otimes_{\C[s]}R/L$ being $n$-Cohen-Macaulay so the assumption that $\Int\M/\U$ has grade $n$ must have been wrong whence the lemma follows.
 
-  We claim it suffices to show that $\M\otimes_{\C[s]}R/L$ is a coherent $\D_Y$-module and that $\Ch\M\otimes_{\C[s]}R/L = V\cup W $ where $V$ is isotropic and $W$ is irreducible of dimension $n+1$ and dominates the zero section $Y\subseteq T^*Y$.
-  Indeed, since the resolution map is proper, it follows that $\Int(\M \otimes_{\C[s]} R/L)$ is a coherent $\D_Y$-module and Kashiwara's estimate applies to yield that $\Ch\Int(\M \otimes_{\C[s]} R/L)= \widetilde{\mu}((T^*\mu)^{-1}(V\cup W)$.
+  For the holonomicity of $\widetilde{\mu}((T^*\mu)^{-1}(W))$ it suffices to show that $\M\otimes_{\C[s]}R/L$ is a coherent $\D_Y$-module with $\Ch\M\otimes_{\C[s]}R/L \subseteq V\cup W $ where $V$ is isotropic and $W$ is irreducible of dimension $n+1$ and dominates the zero section $Y\subseteq T^* Y$.
+
+  Since $\mu$ is proper it would certainly follow that $\Int(\M \otimes_{\C[s]} R/L)$ is a coherent $\D_Y$-module.
   Now observe that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is a subquotient of $\Int (\M \otimes_{\C[s]} R/L)$ which is supported only supported on the divisor $D$.
-  This implies that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is a coherent $\D_X$-module with $\Ch(\Int\M/ \U)\otimes_{\C[s]}R/L \subseteq (\widetilde{\mu}((T^*\mu)^{-1}(V\cup W)) \cap (T^*X\times_X D)$
-  Here $\widetilde{\mu}((T^*\mu)^{-1}(V))$ remains isotropic and forms no obstruction to the characteristic variety being Lagrangian. For instance, see \cite[proposition 4.9]{kashiwara1976b}.
-  Moreover, $\widetilde{\mu}((T^*\mu)^{-1}(W))$ will still be irreducible of dimension $n+1$ and dominates $X\subseteq T^*X$.
-  Then intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $D$ will reduce the dimension and it follows that $\dim \Ch (\Int\M/ \U)\otimes_{\C[s]}R/L \leq n$.
-  This means that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is holonomic as desired.
+  It follows that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is a coherent $\D_X$-module with $\Ch(\Int\M/ \U)\otimes_{\C[s]}R/L \subseteq \widetilde{\mu}((T^*\mu)^{-1}(V\cup W)) \cap (T^*X\times_X D)$.
 
-  That $\M\otimes_{\C[s]}R/L$ is a coherent $\D_Y$-module with this characteristic variety comes down to a local computation. 
+  This means $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is a holonomic $\D_X$-module. Indeed, by (\todo{Put somewhere in Chapter 1 \cite[proposition 4.9]{kashiwara1976b}.}) $\widetilde{\mu}((T^*\mu)^{-1}(V))$ remains isotropic and forms no obstruction to the characteristic variety being Lagrangian.
+  Moreover, $\widetilde{\mu}((T^*\mu)^{-1}(W))$ will still be irreducible of dimension $n+1$ and $X\subseteq \widetilde{\mu}((T^*\mu)^{-1}(W))$.
+  Then intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $D$ will reduce the dimension so that $\dim \Ch (\Int\M/ \U)\otimes_{\C[s]}R/L \leq n$.
+  This means that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is holonomic as desired.\\
+
+
+  That $\M\otimes_{\C[s]}R/L$ is a coherent $\D_Y$-module with this characteristic variety comes down to a local computation. Take local coordinates $z_1,\ldots,z_n$ as in the proof of \cref{lem: BernsteinSatoPolynomialUpstairs}.
+  This is to say that locally $G^s = \prod_{i=1}^p z_i^{\sum_{j=1}^p M_{ij}s_j}$ and $\mu^*(dx) = u \prod_{i=1}^n z_i^{m_i} dz$.
+  Recall that $L$ is the ideal generated by independent linear polynomials $\ell_1,\ldots,\ell_{p-1}\subseteq \C[s]$.
+  Hence, taking a quotient by $L$ reduces the number of free variables to one which is denoted $s_0$.
+  It follows that the generator of $\M\otimes_{\C[s]}R/L$ is of the form $(\prod_{i=1}^p z^{c_i s_0})(u\prod_{i=1}^nz_j^{m_j})$ over $\D_X\otimes\C[s_0,p_1^{-1},\ldots,p_k]$.
+
 
 \end{proof}
 \newpage
