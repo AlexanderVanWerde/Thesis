@@ -447,7 +447,7 @@ The proof and statement are more involved than the original result by Kashiwara 
   Then there exists a open $\Spec R' \subseteq \Spec R$ such that $\M' = \M \otimes_{R} R'$ is a relative holonomic $\A_X^{R'}$-module with $t^N \M' = 0$ for $N$ sufficiently large. Moreover, it may be assumed that $\Spec R \setminus \Spec R'$ has codimension strictly greater than $k$.
 \end{lemma}
 \begin{proof}
-  The proof is split in two main parts. The first part it is establises that $\Ext^{n+k}_{\A_X^{R'}}(t^i\M',\A_X^{R'})$ stabilises and that the $t^i\M'$ are $(n+k)$-Cohen-Macauley. It follows that $t^i\M'$ stabilises. The final part of the proof deduces that the stable value is zero.
+  The proof is split in two main parts. The first part it is establises that $\Ext^{n+k}_{\A_X^{R'}}(t^i\M',\ab\A_X^{R'})$ stabilises and that the $t^i\M'$ are $(n+k)$-Cohen-Macauley. It follows that $t^i\M'$ stabilises and the final part of the proof deduces that the stable value is zero.
 
   Note that $\M/t\M$ is a coherent sheaves over the Noetherian sheaf of rings $\A_X^R$.
   Hence, the kernel of the morphisms $\M/t\M \to t^i\M / t^{i+1}\M$ stabilise.
@@ -455,37 +455,35 @@ The proof and statement are more involved than the original result by Kashiwara 
 
   By use of \cref{lem: GradeToCMOverOpen} it may be assumed that $\Spec R'$ is such that $t^i\M'$, $\M'/t^{i}\M'$, $t^i\M'/t^{i+1}\M'$ and the kernels $K_i$ of the morphisms $\M'/t\M' \to t^i \M'/ t^{i+1} \M'$ are zero or $(n+k)$-Cohen-Macauley for any $i=0,\ldots,N$.
   Since localisation is an exact functor the stabilisation of kernels for $i\geq N$ is still valid over $\Spec R'$.
-  The first few steps in this proof are to use this stabilisation result to estabish that these modules are actually $(n+k)$-Cohen-Macaulay for arbitrary $i\geq 0$.
+  The first steps in this proof use the stabilisation to estabish that the modules are actually $(n+k)$-Cohen-Macaulay for arbitrary $i\geq 0$. For notational simplicity we abbreviate $\Ext^{k}(\M') :=\Ext^{k}_{\A_X^{R'}}(\M',\A_X^{R'})$.
 
   The surjection $\M'/t\M' \to t^i \M'/t^{i+1}$ induces a long exact sequence
-  $$0 \to \Ext^{n+k}_{\A_X^{R'}}(\frac{t^i\M'}{ t^{i+1}\M'},\A_X^{R'}) \to  \Ext^{n+k}_{\A_X^{R'}}(\frac{\M'}{t\M'},\A_X^{R'}) \to \Ext^{n+k}_{\A_X^{R'}}(K_i,\A_X^{R'}) \to \cdots $$
-  In particular there is a isomorphism $\Ext_{\A_X^{R'}}^{n+k+1}(t^i\M'/t^{i+1}\M') \cong \Ext_{\A_X^{R'}}^{n+k}(K_i)\ab/\img \Ext_{\A_X^{R'}}^{n+k}(\M'\ab /t\M')$ whose left-hand-side is known to vanish when $i\leq N$.
-  Since the righ-hand-side is constant for $i\geq N$ it follows that $\Ext_{\A_X^{R'}}^{n+k+1}(t^i\M'/t^{i+1}\M')\cong 0$ for any $i\geq 0$.
-  The higher order terms of the long exact sequence yield $\Ext^{n+k+j}_{\A_X^{R'}}(\frac{t^i\M'}{ t^{i+1}\M'},\A_X^{R'}) \cong 0$ for $j>1$.
-  This shows that $t^i \M'/t^{i+1}\M'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$. For notational simplicity we abbreviate $\Ext^{k}(\M') :=\Ext^{k}_{\A_X^{R'}}(\M',\A_X^{R'})$.
+  $$0 \to \Ext^{n+k}\left(\frac{t^i\M'}{ t^{i+1}\M'}\right) \to  \Ext^{n+k}\left(\frac{\M'}{t\M'}\right) \to \Ext^{n+k}\left(K_i\right) \to \Ext^{n+k+1}\left(\frac{t^i\M'}{ t^{i+1}\M'}\right)\to \cdots $$
+  In particular there is a isomorphism $\Ext^{n+k+1}(t^i\M'/t^{i+1}\M') \cong \Ext^{n+k}(K_i)\ab/\img \Ext^{n+k}(\M'\ab /t\M')$ whose left-hand-side is known to vanish when $i\leq N$.
+  Since the righ-hand-side is constant for $i\geq N$ it follows that $\Ext^{n+k+1}(t^i\M'/t^{i+1}\M')\cong 0$ for any $i\geq 0$.
+  The higher order terms of the long exact sequence yield $\Ext^{n+k+j}(\frac{t^i\M'}{ t^{i+1}\M'}) \cong 0$ for $j>1$.
+  This shows that $t^i \M'/t^{i+1}\M'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
 
 
   The injection $t^{i+1} \M'\to t^{i}\M'$ induces exact sequences
-  $$\Ext^{n+k+j}(\frac{t^i\M'}{ t^{i+1}\M'}) \to  \Ext^{n+k+j}(t^{i}\M') \to \Ext^{n+k +j}(t^{i+1} \M').$$
+  $$\Ext^{n+k+j}\left(\frac{t^i\M'}{ t^{i+1}\M'}\right) \to  \Ext^{n+k+j}\left(t^{i}\M'\right) \to \Ext^{n+k +j}\left(t^{i+1} \M'\right).$$
   By induction on $i$ it follows that $t^i\M'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
   Similarly the long exact sequence induced by the surjection $\M/t^{i+1}\M' \to \M'/t^{i}\M'$ yields that $\M/t^{i}\M$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
 
 
   By the Cohen-Macauley results which have been established it follows that the morphisms $\Ext^{n+k}( t^i\M') \to  \Ext^{n+k}(t^{i+1}\M')$ and $\Ext^{n+k}(\M') \to \Ext^{n+k} (t^i\M',\ab \A_X^{R'})$ are surjective.
   Note that $\Ext^{n+k}(\M)$ is a coherent sheaf over the Noetherian sheaf of rings $\A_X^{R'}$.
-  Hence the kernels of $\Ext^{n+k}(\M') \to \Ext^{n+k} (t^i\M')$ stabilise, by increasing $N$ it follows that the morphisms $\Ext^{n+k}(t^i\M') \to  \Ext^{n+k}(t^{i+1}\M')$ are injective for $i\geq N$.
-  This shows that $\Ext^{n+k}(t^{i+1}\M')$ stabilises for $i\geq N$.
+  Hence the kernels of $\Ext^{n+k}(\M') \to \Ext^{n+k} (t^i\M')$ stabilise.
+  After possibly increasing $N$ it follows that the morphisms $\Ext^{n+k}(t^i\M') \to  \Ext^{n+k}(t^{i+1}\M')$ are isomorphisms for $i\geq N$ which means that $\Ext^{n+k}(t^{i+1}\M')$ stabilises.
 
   By $t^i \M'$ being $(n+k)$-Cohen-Macaulay it follows that $\Ext^{n+k}(\Ext^{n+k}(t^i\M')) \cong t^i\M'$.\todo{Provide reference, maybe include and prove earlier since this is easy from double complex}
-  It is now establised that $t^i \M'$ stabilises for $i\geq N$ and remains to show that this stable value is $0$.
-
-  Recall that $t^N\M'$ is relative holonomic and, if it is nonzero, it is $(n+k)$-Cohen-Macaulay with $k>1$.
-  Let's assume that $t^N\M'$ is $(n+k)$-Cohen-Macaulay and derive a contradiction.
-  By \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar} it follows that there exists some nonzero polynomial $b(s_1,\ldots,s_p) \in B_{t^N\M'}$.
+  It follows that $t^i \M'$ stabilises for $i\geq N$ and remains to show that this stable value is $0$.
+  If the stable value is nonzero then it is $(n+k)$-Cohen-Macaulay with $k>1$.
+  By \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar} it follows that there exists some nonzero $b(s_1,\ldots,s_p) \in B_{t^N\M'}$.
   Note that one has the commutation relation
   $$tb(s_1,\ldots,s_p) = b(s_1+1,\ldots, s_p + 1)t.$$
   Since $t^{N+1}\M' = t^N\M'$ it follows by iteration that $b(s_1+n,\ldots, s_p + n)\in B_{t^N \M'}$ for any $n\geq 0$.
-  This implies that $Z(B_{t^N\M'}) = 0$ which means that $t^N\M' = 0$.
+  This implies that $Z(B_{t^N\M'}) = 0$ which means that $t^N\M' = 0$.\todo{Geometrically obvious but may want to add formal argument}
 \end{proof}
 \section{Estimation of the Bernstein-Sato Zero Locust}
 This section contains the main result of this chapter, namely a proof of the improved estimate for the Bernstein-Sato Zero Locust which was announced in \cref{thm: EstimateBernsteinSatoZeroLocust}. The following proof is similar to the method employed by \cite{lichtin1989poles} and \cite{kashiwara1976b}.
