@@ -408,6 +408,7 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
   For finitely generated $\A_X^R$-modules
   $$j(\M) + \dim \Chrel \M = 2n + \dim R $$
 \end{corollary}
+
 \subsection{Pure Modules}
 \begin{definition}
   Pure
@@ -418,9 +419,18 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
 \begin{lemma}
   $\Ext$ of relative holonomic remains so
 \end{lemma}
-\begin{lemma}\cref{lem: NotBernsteinInjectiveAutomorphism}
-  Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq \dim R$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective automorphisms on $\N$ and $\Ext^{n+k}_{\A_X^R}(\M,\A_X^R)$.
+\begin{lemma}\label{lem: NotBernsteinInjectiveAutomorphism}
+  Let $\M$ be a relative holonomic $\A_X^R$-module. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces a injective automorphisms on $\Ext^{n+k}_{\A_X^R}(\M,\A_X^R)$. Moreover, if $\M$ is $(n+k)$-pure for some $0\leq k \leq \dim R$
 \end{lemma}
+The following lemma is more general than we need but seems usefull. 
+\begin{lemma}\label{lem: RestrictToCM}
+  Let $\M$ be a relative holonomic $\A_X^R$-module of grade $j(\M) = (n+k)$ some $0\leq k < \dim R$. Then there exists a linear polynomial $\ell$ such that $\M \otimes_R R/(\ell)$ is a relative holonomic  $\A_X^{R/(\ell)}$-module of grade $n+k$.
+\end{lemma}
+\begin{proof}
+  Like prop 3.4.3 in \cite{budur2019zero} using that $E_{0,n+k}2 = \Tor_0^{\A_X^R}(\Ext_{\A_X^R}^{n+k},\A_{X}^{R/(b)}) \cong \Ext_{\A_X^R}^{n+k}(\M,\A_R)\otimes_{R}R/(b) \neq 0$ in the spectral sequence.
+
+  Here $\Ext_{\A_X^R}^{n+k}(\M,\A_R)\otimes_{R}R/(b) \neq 0$ is where the existence and $k<\dim R$ is needed. It's like the first part of the proof of prop 3.4.3 using that $\Ext$ is always pure and $\ell$ can be chosen appropriately.
+\end{proof}
 \subsection{Cohen-Macauley}
 \begin{definition}
   Cohen-Macauley
@@ -432,12 +442,6 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
   Like lemma 3.5.2 in \cite{budur2019zero}
 \end{proof}
 
-\begin{lemma}\label{lem: RestrictToCM}
-  Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-Cohen-Macaulay for $0\leq k \leq \dim R$. If $b\in R$ is not a element of any minimal prime ideal containing $B_N$ then $\M \otimes_R R/(b)$ is a relative holonomic and $(n+k)$-Cohen-Macaulay  $\A_X^{R/(b)}$-module.
-\end{lemma}
-\begin{proof}
-  Like prop 3.4.3 in \cite{budur2019zero}
-\end{proof}
 
 The following lemma is a generalisations of a result by \cite{kashiwara1976b} to the relative case.
 The proof and statement are more involved than the original result by Kashiwara but follow the same line of thought.
@@ -534,33 +538,35 @@ The following lemma and it's proof are similar to the monovariate case which may
   Note that $\prod f_i$ is a non-zero divisor of $(F^s\otimes_{\O_X} \Omega_X)(V)$. Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
 \end{proof}
 Due to  \cref{lem: BernsteinSatoPolynomialUpstairs} there is a $b$-polynomial of a desirable form in $B_{\Int \M/t\Int\M}$.
-The remaining difficulty in the proof is to induce a $b$-polynomial in $B_{\U/t\U}$. This will exploit \cref{lem: StabilisationtN} whence the following result is required.
-\begin{lemma}
-  The relative holonomic $\A_X$-module $\Int\M/\U$ has grade $j(\Int\M/\U)\geq n+1$.
+The remaining difficulty in the proof is to induce a $b$-polynomial in $B_{\U/t\U}$. This will exploit \cref{lem: StabilisationtN} whence we require that $j(\Int\M / \U)\geq n+1$.
+
+If this is not the case then $\Int\M/\U$ has grade $n$. A contradiction will be derived by replacing $\Int\M/\U$ with a nonzero holonomic $\D_X$-module $(\Int\M/\U)\otimes_{\C[s]} \C[s]/L$ of the same grade. Then holonomicity will imply that $(\Int\M/ \U)\otimes_{\C[s]} \C[s]/L$ has grade $n+1$ which contradicts the grade being preserved.
+\begin{lemma}\label{lem: InjectiveEll}
+  Let $\ell_1,\ldots, \ell_{k}\in \C[s]$ be independent linear polynomials and set $L_k=(\ell_1,\ldots, \ell_{k})$. For any non-zero $b\in \C[s]/L$ it holds that multiplication induces a injective automorphisms on $\M \otimes \C[s]/L$.
 \end{lemma}
 \begin{proof}
-  Suppose that $\Int\M/\U$ has grade $n$. A contradiction will be derived by replacing $\Int\M/\U$ with a nonzero holonomic $\D_X$-module $(\Int\M/\U)\otimes_{\C[s]} R/L$ of the same grade. From the holonomicity it will follow that $(\Int\M/ \U)\otimes_{\C[s]} R/L$ has grade $n+1$ as a $\A_X^R$-module which contradicts the grade being preserved.
+  Take local coordinates $z_1,\ldots,z_n$ on $Y$ as in the proof of \cref{lem: BernsteinSatoPolynomialUpstairs}.
+  This is to say that locally $G^s \mu^*(dx) = u\prod_{i=1}^{n} z_i^{\sum_{j=1}^p M_{ij}s_j + m_i} dz$.
+  Then $\M \otimes \C[s]/L$ can be understood as the  $u\prod_{i=1}^{n}z_{i}^{\sum_{}}$
+\end{proof}
+\begin{lemma}
+  Suppose that $\int^0\M/\U$ has grade $n$.
+  Then, for any ideal $L_k$ generated by independent linear polynomials $\ell_1,\ldots,\ell_{k}\in\C[s]$ it holds that $(\Int\M/\U) \otimes_{\C[s]} \C[s]/L_{k}$ is a subquotient of $\int^0(\M \otimes_{\C[s]} \C[s]/L_{k})$.
+  Moreover, $(\Int\M/\U) \otimes_{\C[s]} R/L_{k}$ has grade $n$ and is relative holonomic over $\A_X^{\C[s]/L_{k}}$.
+\end{lemma}
+\begin{proof}
+  By induction on $k$ it may be assumed that the result holds for $L_{k-1}$.
+  Using that the grade is $n$ with \cref{prop: ProjectionBernsteinSatoRelativeChar} yields that the Bernstein-Sato ideal of $\Int\M/\U \otimes_{\C[s]} \C[s]/L_{k-1}$ is the zero ideal.
+  By \cref{lem: RestrictToCM} it certainly holds that $(\Int\M/\U) \otimes_{\C[s]} \C[s]/L_{k}$ has grade $n$ and is relative holonomic over $\A_X^{\C[s]/L_{k}}$ so it remains to verify that it's a subquotient.
 
-  By \cref{lem: GradeToCMOverOpen} there exists a open $\Spec R\subseteq \C^p$ such that $(\Int\M/\U)\otimes_{\C[s]}R$ is $n$-Cohen-Macaulay and relative holonomic over $\A_X^R$.
-  In the following inductive procedure a increasing sequence of ideals $L_{i}\subseteq R$ is defined such that $R/L_{i}$ is of dimension $p - i$ and $(\Int\M/\U) \otimes_{\C[s]} R/L_{i}$ is a subquotient of $\int^0(\M \otimes_{\C[s]} R/L_{i})$.
-  Morover, in every step $(\Int\M/\U) \otimes_{\C[s]} R/L_{i}$ will be a $n$-Cohen-Macaulay and relative holonomic over $\A_X^{R/L_{i}}$.
-  Set $L_0 = 0$ and note that the inductive hypothesis holds for $i=0$.
-
-  Let $L_i$ be given for some $0\leq i < p-1$. Since $R/L_{i}$ is of dimension $p-i > 0$ there exists a linear polynomial $\ell_{i+1}\in \C[s]$ which is nonzero in $R/L_{i}$.
-  It must be shown that the inductive hypothesis still holds for $L_{i+1} = L_i + (\ell_{i+1})$.
-  Due to \cref{thm: KashiwaraEstimate} and \cref{cor: AXRBehaviourGradesJAndChrel} it must also hold that $\M \otimes_{\C[s]} R/L_{i}$ has grade $n$.
-  By \cref{prop: ProjectionBernsteinSatoRelativeChar} this means that the Bernstein-Sato ideals of $\M \otimes_{\C[s]} R/L_{i}$ and $\Int\M/\U \otimes_{\C[s]} R/L_{i}$ are the zero ideal.
-  Due to \cref{lem: NotBernsteinInjectiveAutomorphism} it follows that $\ell_{i+1}$ induces inductive automorphisms on $\M \otimes_{\C[s]} R/L_{i}$ and $\Int\M/\U \otimes_{\C[s]} R/L_{i}$.
-  By \cref{lem: RestrictToCM} it certainly holds that $(\Int\M/\U) \otimes_{\C[s]} R/L_{i+1}$ is $n$-Cohen-Macaulay and relative holonomic over $\A_X^{R/L_{i+1}}$ so it remains to verify that it's a subquotient.
-
-  The injectivity of $\ell_{i+1}$ on $\M \otimes_{\C[s]} R/L_{i}$ implies that $\ell_{i+1}\Int \M \otimes_{\C[s]} R/L_{i} = \Int \ell_{i+1}\M\otimes_{\C[s]} R/L_{i}$.
-  The short exact sequence $0\to \ell\M \otimes_{\C[s]} R/L_{i} \to \M \otimes_{\C[s]} R/L_{i} \to \M \otimes_{\C[s]} R/L_{i+1} \to 0 $ now induces a long exact sequence
-  $$0 \to \ell_{i+1}\Int \left(\M \otimes_{\C[s]} \frac{R}{L_{i}}\right) \to \Int \left(\M \otimes_{\C[s]} \frac{R}{L_{i}}\right) \to \Int\left(\M \otimes_{\C[s]} \frac{R}{L_{i+1}}\right) \to \cdots $$
-  whence $(\Int \M \otimes_{\C[s]} R/L_{i})\otimes_{R} R/(\ell_{i+1})$ is a submodule of $\Int (\M \otimes_{\C[s]} R/L_{i+1})$.
-  Combining the injectivity of $\ell_{i+1}$ on $\Int\M/\U \otimes_{\C[s]} R/L_{i}$ with the inductive hypothesis yields that $(\Int\M/\U) \otimes_{\C[s]} R/L_{i+1}$ is a subquotient of $\int^0(\M \otimes_{\C[s]} R/L_{i})\otimes_{\C[s]} R/{(\ell_{i+1})}$.
-  This shows that $(\Int\M/\U) \otimes_{\C[s]} R/L_{i+1}$ is a subquotient of $\Int (\M \otimes_{\C[s]} R/L_{i+1})$ as desired.\\
-
-
+  By \cref{lem: InjectiveEll} the automorphism induced by $\ell_{k}$ on $\M \otimes_{\C[s]} \C[s]/L_{k-1}$ is injective. This implies that $\ell_{k}\int^0 (\M \otimes_{\C[s]} \C[s]/L_{k-1}) = \int^0( \ell_{k}\M\otimes_{\C[s]} \C[s]/L_{k-1})$.
+  The short exact sequence $0\to \ell_k\M \otimes_{\C[s]} \C[s]/L_{k-1} \to \M \otimes_{\C[s]} \C[s]/L_{k-1} \to \M \otimes_{\C[s]} \C[s]/L_{k} \to 0 $ now induces a long exact sequence
+  $$0 \to \ell_{k}\Int \left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{k-1}}\right) \to \Int \left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{k-1}}\right) \to \Int\left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{k}}\right) \to \cdots $$
+  whence $(\Int \M \otimes_{\C[s]} \C[s]/L_{k-1})\otimes_{\C[s]} \C[s]/(\ell_{k})$ is a submodule of $\int^0 (\M \otimes_{\C[s]} \C[s]/L_{k})$.
+  From the inductive hypothesis it follows that $(\Int\M/\U) \otimes_{\C[s]} \C[s]/L_{k}$ is a subquotient of $\int^0(\M \otimes_{\C[s]} \C[s]/L_{k})\otimes_{\C[s]} \C[s]/{(\ell_{k})}$.
+  In combination we conclude that $(\Int\M/\U) \otimes_{\C[s]} \C[s]/L_{k}$ is a subquotient of $\int^0 (\M \otimes_{\C[s]} \C[s]/L_{k})$ as desired.
+\end{proof}
+\begin{proof}
   Denote $L := L_{p-1}$ and suppose it can be deduced that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is a holonomic $\D_X$-module.
   Then by (\todo{Endomorphisms of holonomic $\D_X$-modules are $\C$-algebraic, for instance p246 in \cite{bjork1979rings}}) it follows that the Bernstein-Sato ideal of $(\Int\M/ \U)\otimes_{\C[s]}R/L$ is nonzero.
   Since, $R/L$ has dimension 1 this means that $(\Int\M/ \U)\otimes_{\C[s]}R/L$ has grade $n+1$.
@@ -586,6 +592,9 @@ The remaining difficulty in the proof is to induce a $b$-polynomial in $B_{\U/t\
 
 
 \end{proof}
+\begin{lemma}
+  The relative holonomic $\A_X$-module $\Int\M/\U$ has grade $j(\Int\M/\U)\geq n+1$.
+\end{lemma}
 \newpage
 \section{Old Stuff}
 \subsection{Sketch}
