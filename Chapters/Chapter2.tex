@@ -63,7 +63,7 @@ The proof of the following results proceeds precisely like the case of $\D_X$-mo
 \subsection{Basic Operations}\label{sec: BasicOperations}
 For any right $\A_{X}^R$-module $\M$ and left $\D_X$-module $\N$ the tensor product $\M \otimes_{\O_X} \N$ comes equipped with a right $\A_X^R$-module structure defined by
 $$f\cdot (m\otimes n) = mf \otimes n; \qquad \xi \cdot (m\otimes n) = m\xi \otimes n - m\otimes \xi n $$
-for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$. Putting multiplication by $f$ on the other side of the tensor product this definition is also applicable for a right $\A_X^R$-module structure on $\M\otimes_{\O_X^R} \N$ if $\M$ is a right $\D_X$-module and $\N$ is a left $\A_X^R$-module. If both are $\A_X^R$-modules there is a right $\A_X^R$-module structure on $\M\otimes_{\O_X^R} \N$.
+for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$. Putting multiplication by $f$ on the other side of the tensor product this definition is also applicable for a right $\A_X^R$-module structure on $\M\otimes_{\O_X} \N$ if $\M$ is a right $\D_X$-module and $\N$ is a left $\A_X^R$-module. If both are $\A_X^R$-modules there is a right $\A_X^R$-module structure on $\M\otimes_{\O_X^R} \N$.
 
 Similarly, given a left $\D_X$-module $\mathscr{L}$ and a left $\A_X^R$-module $\N$ a left $\A_X^R$-module structure on $\mathscr{L} \otimes_{\O_X} \N$ is defined by
 $$f \cdot (\ell\otimes n) =\ell \otimes fn; \qquad \xi \cdot (\ell\otimes n ) = \xi \ell \otimes n + \ell \otimes \xi n$$
@@ -418,7 +418,7 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
 \begin{lemma}
   $\Ext$ of relative holonomic remains so
 \end{lemma}
-\begin{lemma}\cref{lem: NotBernsteinInjectiveAutomorphism}
+\begin{lemma}\label{lem: NotBernsteinInjectiveAutomorphism}
   Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq \dim R$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective automorphisms on $\N$ and $\Ext^{n+k}_{\A_X^R}(\M,\A_X^R)$.
 \end{lemma}
 \begin{lemma}\label{lem: RestrictToCM}
@@ -507,6 +507,7 @@ This makes it easier to transfer results along the resolution of singularities.
 Further, it explains how the relative canonical divisor becomes involved in the estimate of \cref{thm: EstimateBernsteinSatoZeroLocust}.
 Define $\M$ to be the submodule of $\Omega_Y\otimes_{\O_Y} \A_Y G^s$ spanned by $G^s \mu^*(dx)$.
 This may be viewed as a $\XtR{Y}{}$-module by the action $t G^s \mu^*(dx) = G^{s+1} \mu^*(dx)$.
+
 \begin{lemma}\label{lem: BernsteinSatoPolynomialUpstairs}
   In the notation of \cref{sec: IntoductionChapterRelative} a polynomial of the form
   $\prod_{i=1}^p \prod_{j=0}^N(\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + j)$
@@ -516,9 +517,11 @@ This may be viewed as a $\XtR{Y}{}$-module by the action $t G^s \mu^*(dx) = G^{s
   This may be checked locally.
   Take a open $U\subseteq Y$ which is sufficiently small to admit local coordinates $z_1,\ldots,z_n$ where $z_i$ determines $E_i$ if $E_i\cap U \neq \emptyset$.
 
-  In these local coordinates $G^s = \prod_{i=1}^p z_i^{\sum_{j=1}^p M_{ij}s_j}$ and $\mu^*(dx) = u \prod_{i=1}^n z_i^{m_i} dz$ where $M_{ij} \leq \operatorname{mult}_{E_i}(g_j)$, $m_i \leq k_i$ and $u$ is a local unit. For notational convenience define $M_{ij} = 0$ for $i>p$.
-  Denote $N_i = \sum_j M_{ij}$ for any $i=1,\ldots,p$ and set $P = u^{-1} \partial_1^{N_1} \cdots \partial_p^{N_p} u$ then
-  $$u\prod_{i=1}^n z_i^{\sum_{j=1}^p M_{ij}(s_j+1) + m_i}dz \cdot P =  b u \prod_{i=1}^nz_i^{\sum_{j=1}^p M_{ij}s_j + m_i}dz $$
+  In these local coordinates $G^s = \prod_{i=1}^p u_i^{s_j}z_i^{\sum_{j=1}^p M_{ij}s_j}$ and $\mu^*(dx) = v \prod_{i=1}^n z_i^{m_i} dz$ where $M_{ij} \leq \operatorname{mult}_{E_i}(g_j)$, $m_i \leq k_i$ and $u_i,v$ are local units.
+  For notational convenience define $M_{ij} = 0$, $u_i=1$ and $s_i=0$ for $i>p$.
+  Denote $N_i = \sum_j M_{ij}$ and $\xi_i = \partial_i - \sum_{j=1}^n s_ju_j \partial_i(u_j)$ for any $i=1,\ldots,p$.
+  Let $P = v^{-1}(\prod_{i=1}^p u_i^{-1})\xi_1^{N_1} \cdots \xi_p^{N_p} v$ then
+  $$v\prod_{i=1}^n u_i^{s_j + 1}z_i^{\sum_{j=1}^p M_{ij}(s_j+1) + m_i}dz \cdot P =  b v \prod_{i=1}^nu_i^{s_j}z_i^{\sum_{j=1}^p M_{ij}s_j + m_i}dz $$
   where
   $$b = \prod_{i=1}^p(\sum_{j=1}^p M_{ij}s_j + m_i + N_i)(\sum_{j=1}^p M_{ij}s_j + m_i + N_i - 1)\cdots(\sum_{j=1}^p M_{ij}s_j + m_i).$$
 \end{proof}
@@ -538,67 +541,85 @@ The following lemma and it's proof are similar to the monovariate case which may
   The Nullstellen Satz now yields that $(\prod f_i)^N (F^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
   Note that $\prod f_i$ is a non-zero divisor of $(F^s\otimes_{\O_X} \Omega_X)(V)$. Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
 \end{proof}
-Due to  \cref{lem: BernsteinSatoPolynomialUpstairs} there is a $b$-polynomial of a desirable form in $B_{\Int \M/t\Int\M}$.
-The remaining difficulty in the proof is to induce a $b$-polynomial in $B_{\U/t\U}$.
+Due to  \cref{lem: BernsteinSatoPolynomialUpstairs} there is a $b$-polynomial of a desirable form for $\Int \M/t\Int\M$.
+The remaining difficulty in the proof is to induce a $b$-polynomial for $\U/t\U$.
 This will exploit \cref{lem: StabilisationtN} whence we need that $\Int\M /\U$ has grade greater than or equal to $n+1$.
-
-If this is not the case then $\Int\M/\U$ has grade $n$. For any $i=0,\ldots,p$ let $L_i$ be the ideal of $\C[s]$ generated by $s_1,\ldots,s_i$. A contradiction will be derived by replacing $\Int\M/\U$ with $(\Int\M/\U)\otimes_{\C[s]} \C[s]/L_{p-1}$.
+Let $\ell_1,\ldots,\ell_{p-1}\in \C[s]$ be degree one polynomials which will be fixed later.
+For any $i=0\ldots,p-1$ let $L_i$ be a ideal of $\C[s]$ generated by $\ell_1,\ldots,\ell_i$.
+Assume that the $\ell_i$ are chosen sufficiently generically so that $Z(L_{p-1})$ has dimension 1.
 \begin{lemma}\label{lem: QuotientsRelativeHolonomic}
   If $\Int\M/U$ has grade $n$ then the quotients $(\Int\M/\U)\otimes_{\C[s]} \C[s]/L_{i}$ are relative holonomic $\A_X^{R/L_i}$-modules of grade $n$.
 \end{lemma}
 \begin{proof}
-  This follows by induction on $i=0,\ldots,p$ using \cref{prop: NotBernsteinInjectiveAutomorphism} which is applicable since grade $n$ means that the Bernstein-Sato ideals of $\Int\M/\U \otimes_{\C[s]} R/L_{i-1}$ is the zero ideal by \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{ProjectionBernsteinSatoRelativeChar}.
+  This follows by induction on $i=0,\ldots,p$ using \cref{lem: NotBernsteinInjectiveAutomorphism} which is applicable since grade $n$ means that the Bernstein-Sato ideals of $\Int\M/\U \otimes_{\C[s]} R/L_{i-1}$ is the zero ideal by \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar}.
 \end{proof}
 \begin{lemma}\label{lem: InjectiveEll}
-   For any $k=0,\ldots,p$ and non-zero $b\in \C[s]/L_k$ it holds that multiplication by $b$ induces a injective automorphisms on $\M \otimes \C[s]/L$.
+   Let $0\leq i \leq p$ and consider a polynomial $b\in\C[s]$ not in $L_i$.
+   Then, multiplication by $b$ induces a injective automorphisms on $\M \otimes \C[s]/L_i$.
 \end{lemma}
 \begin{proof}
   Take local coordinates $z_1,\ldots,z_n$ on $Y$ as in the proof of \cref{lem: BernsteinSatoPolynomialUpstairs}.
-  This is to say that locally $G^s \mu^*(dx) = u\prod_{i=1}^{n} z_i^{\sum_{j=1}^p M_{ij}s_j + m_i} dz$.
-  Then $\M \otimes \C[s]/L$ can be understood as $u\prod_{i=1}^{n}z_{i}^{\sum_{j=k+1}^{p}M_{ij}s_j + mi}dz$
+  This is to say that locally $G^s \mu^*(dx) = v \prod_{i=1}^nu_i^{s_j}z_i^{\sum_{j=1}^p M_{ij}s_j + m_i}dz$.
+  Introduce new variables $s_1', \ldots, s_{p-j}'$ such that $R/L_i \cong \C[s']$ and note that $b$ corresponds to a non-zero element of $\C[s']$.
+
+  Now, $\M \otimes \C[s]/L_i$ can be understood as the $\A_X^{\C[s']}$-module which is locally generated by a formal symbol $v\prod_{i=1}^n u_i^{\sum_{j=1}^{p-i} A_{ij}s_j' + a_i}z_i^{\sum_{j=1}^{p-i} C_{ij}s_j' + c_i}dz$ for certain $A_{ij},C_{ij},a_i c_i \in \C$.
+  The nonzero element $b$ commutes with $\A_X^{\C[s']}$ and does not kill the generator whence the injectivity follows.
+\end{proof}
+\begin{lemma}\label{lem: NewVariables}
+  It may be assumed that for any $i=1,\ldots,p$ there exists some global section $\xi_i$ of $\Theta_Y$ such that $\xi_ig_j = \mathbb{1}_{i=j}$.
+\end{lemma}
+\begin{proof}
+  By introducing new variables, the argument is like in \cite{bjork1979rings} p110. A $b$-polynomial of the new space will still be a $b$-polynomial of the original and the estimate for the $Z(B)$ is not disturbed because order of vanishing on execptional divisor all remains the same.
+\end{proof}
+From now on it is assumed that the conclusion of \cref{lem: NewVariables} holds.
+\begin{lemma}\label{lem: RestrictionIsCoherentAndChar}
+  It holds that $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ is a coherent $\D_Y$-module and it's characteristic variety is of the form $\Ch\M\otimes_{\C[s]}\C[s]/L_{p-1} = V \cup W $ where $V$ is isotropic and $W$ is a irreducible variety of dimension $n+1$ which dominates $Y$.
+\end{lemma}
+\begin{proof}
+  As in the proof of \cref{lem: InjectiveEll} $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ may be viewed as the $\A_X^{\C[s_1']}$-module which is locally generated by a formal symbol $T = v\prod_{i=1}^n u_i^{A_{i}s_1' + a_i}z_i^{C_is_1' + c_i}dz$. Collect the units in $w = v^{-1}\prod_{i=1}^n u_i^{a_i}$.
+
+  For any $i$ let $\xi_i$ be the section from \cref{lem: NewVariables}. Then,
+
+
+
 \end{proof}
 \begin{lemma}
   The relative holonomic $\A_X$-module $\Int\M/\U$ has grade $j(\Int\M/\U)\geq n+1$.
 \end{lemma}
 \begin{proof}
-  Suppose that $\Int\M/\U$ has grade $n$. This proof replace $\Int\M/\U$ by a module of the same grade which can also be viewed as a holonomic $\D_X$-module.
-  This will produce a contradiction because holonomicity implies the existence of a $b$-polynomial whereas grade $n$ mean this can not exist.
-  The idea behind the holonomicity is that
-  $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ is well-understood as a $\D_X$-module by a local computation.
-  The first task is to see how $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ relates to $(\Int\M)\otimes_{\C[s]}\C[s]/L_{p-1}$.
+  Suppose that $\Int\M/\U$ has grade $n$.
+  A contradiction will be derived by replacing $\Int\M/\U$ with a holonomic $\D_X$-module.
+  It is possible to understand the behaviour of $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ as a $\D_X$-module by a local computation.
+  The first task is to understand how $\int^0(\M\otimes_{\C[s]}\C[s]/L_{p-1})$ relates to $(\Int\M)\otimes_{\C[s]}\C[s]/L_{p-1}$.
 
-  Recall from \cref{lem: InjectiveEll} that $s_{i}$ is injective on $\M \otimes_{\C[s]} \C[s]/L_{i-1}$. This implies that $s_{i}\Int \M \otimes_{\C[s]} \C[s]/L_{i-1} = \Int s_{i}\M\otimes_{\C[s]} \C[s]/L_{i-1}$.
-  The short exact sequence $0\to \M \otimes_{\C[s]} \C[s]/L_{i-1} \xrightarrow{s_i} \M \otimes_{\C[s]} \C[s]/L_{i-1} \to \M \otimes_{\C[s]} \C[s]/L_{i} \to 0 $ now induces a long exact sequence
-  $$0 \to \int^0\left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{i-1}}\right) \xrightarrow{s_i} \int^0 \left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{i-1}}\right) \to \int^0\left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{i}}\right) \to \cdots $$
-  whence $(\Int \M\otimes_{\C[s]} \C[s]/L_{i-1})\otimes_{\C[s]} \C[s]/(s_{i})$ is a submodule of $\int^0(\M \otimes_{\C[s]} \C[s]/L_{i})$ and the quotient is isomorphic to $\ker s_{i} \subseteq \int^1(\M \otimes_{\C[s]} \C[s]/L_{i-1})$.
-
-  Applying a tensor product with $\C[s]/(s_{2})$ to the inclusion $(\Int \M) \otimes_{\C[s]}\C[s]/(s_1))\hookrightarrow \int^0(\M\otimes_{\C[s]}\C[s]/L_1)$ yields a exact sequence
-  $$\cdots \to \Tor_{\C[s]}^1\left(\ker s_1, \frac{\C[s]}{(s_2)}\right) \to \left(\Int \M\right) \otimes_{\C[s]}\C[s]/L_2 \to \int^0\left(\M\otimes_{\C[s]}\C[s]/(s_1)\right)/(s_2)$$
-  It follows that there is a inclusion
-  $$ \frac{\left(\Int \M\right) \otimes_{\C[s]}\C[s]/L_2}{\img \Tor_{\C[s]}^1\left(\ker s_1, \frac{\C[s]}{(s_2)}\right)} \hookrightarrow \left(\Int\M \otimes_{\C[s]} \frac{\C[s]}{L_2} \right).$$
-  Hence, $((\Int \M / \U) \otimes_{\C[s]} \C[s]/L_2)/(\U \cap \img \Tor_{\C[s]}^1(\ker s_1, \C[s]/(s_2)))$ is a subquotient of $(\Int\M \otimes_{\C[s]}\C[s]/L_2)$.
-
-\newpage
-
-  For the holonomicity of $\widetilde{\mu}((T^*\mu)^{-1}(W))$ it suffices to show that $\M\otimes_{\C[s]}\C[s]/L$ is a coherent $\D_Y$-module with $\Ch\M\otimes_{\C[s]}\C[s]/L \subseteq V\cup W $ where $V$ is isotropic and $W$ is irreducible of dimension $n+1$ and dominates the zero section $Y\subseteq T^* Y$.
-
-  Since $\mu$ is proper it would certainly follow that $\Int(\M \otimes_{\C[s]} \C[s]/L)$ is a coherent $\D_Y$-module.
-  Now observe that $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L$ is a subquotient of $\Int (\M \otimes_{\C[s]} \C[s]/L)$ which is supported only supported on the divisor $D$.
-  It follows that $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L$ is a coherent $\D_X$-module with $\Ch(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L \subseteq \widetilde{\mu}((T^*\mu)^{-1}(V\cup W)) \cap (T^*X\times_X D)$.
-
-  This means $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L$ is a holonomic $\D_X$-module. Indeed, by (\todo{Put somewhere in Chapter 1 \cite[proposition 4.9]{kashiwara1976b}.}) $\widetilde{\mu}((T^*\mu)^{-1}(V))$ remains isotropic and forms no obstruction to the characteristic variety being Lagrangian.
-  Moreover, $\widetilde{\mu}((T^*\mu)^{-1}(W))$ will still be irreducible of dimension $n+1$ and $X\subseteq \widetilde{\mu}((T^*\mu)^{-1}(W))$.
-  Then intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $D$ will reduce the dimension so that $\dim \Ch (\Int\M/ \U)\otimes_{\C[s]}\C[s]/L \leq n$.
-  This means that $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L$ is holonomic as desired.\\
+  Recall from \cref{lem: InjectiveEll} that $\ell_{i}$ is injective on $\M \otimes_{\C[s]} \C[s]/L_{i-1}$. This implies that $\ell_{i}\Int \M \otimes_{\C[s]} \C[s]/L_{i-1} = \int^0 \ell_{i}\M\otimes_{\C[s]} \C[s]/L_{i-1}$.
+  The short exact sequence $0\to \M \otimes_{\C[s]} \C[s]/L_{i-1} \xrightarrow{\ell_i} \M \otimes_{\C[s]} \C[s]/L_{i-1} \to \M \otimes_{\C[s]} \C[s]/L_{i} \to 0 $ now induces a long exact sequence
+  $$0 \to \int^0\left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{i-1}}\right) \xrightarrow{\ell_i} \int^0 \left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{i-1}}\right) \to \int^0\left(\M \otimes_{\C[s]} \frac{\C[s]}{L_{i}}\right) \to \cdots $$
+  whence $(\Int \M\otimes_{\C[s]} \C[s]/L_{i-1})\otimes_{\C[s]} \C[s]/(\ell_{i})$ is a submodule of $\int^0(\M \otimes_{\C[s]} \C[s]/L_{i})$. The quotient is isomorphic to the kernel $K_i$ of $\ell_i$ on $\int^1(\M \otimes_{\C[s]} \C[s]/L_{i-1})$.
 
 
-  That $\M\otimes_{\C[s]}\C[s]/L$ is a coherent $\D_Y$-module with this characteristic variety comes down to a local computation. Take local coordinates $z_1,\ldots,z_n$ as in the proof of \cref{lem: BernsteinSatoPolynomialUpstairs}.
-  This is to say that locally $G^s = \prod_{i=1}^p z_i^{\sum_{j=1}^p M_{ij}s_j}$ and $\mu^*(dx) = u \prod_{i=1}^n z_i^{m_i} dz$.
-  \C[s]ecall that $L$ is the ideal generated by independent linear polynomials $s_1,\ldots,s_{p-1}\subseteq \C[s]$.
-  Hence, taking a quotient by $L$ reduces the number of free variables to one which is denoted $s_0$.
-  It follows that the generator of $\M\otimes_{\C[s]}\C[s]/L$ is of the form $(\prod_{i=1}^p z^{c_i s_0})(u\prod_{i=1}^nz_j^{m_j})$ over $\D_X\otimes\C[s_0]$.
+  Denote $R_{i+1}$ for the ideal $(\ell_{i+1},\ldots,\ell_{p-1})$. Applying a tensor product with $\C[s]/R_{i+1}$ to the inclusion $(\Int \M/L_{i-1}) \otimes_{\C[s]}\C[s]/(\ell_i)\hookrightarrow \int^0(\M\otimes_{\C[s]}\C[s]/L_i)$ yields a exact sequence
+  $$\cdots \to \Tor_{\C[s]}^1\left(K_i, \frac{\C[s]}{R_{i+1}}\right) \to \left(\Int \M\otimes_{\C[s]}\frac{\C[s]}{L_{i-1}}\right) \otimes_{\C[s]}\frac{\C[s]}{R_{i}} \to \left(\Int\M\otimes_{\C[s]}\frac{\C[s]}{L_i}\right)\otimes_{\C[s]}\frac{\C[s]}{R_{i+1}}.$$
 
+  \begin{conjecture}
+    For appropriately chosen $\ell_i$ it holds that $\Tor_{\C[s]}^1\left(K_i, \frac{\C[s]}{R_{i+1}}\right)$ is a holonomic $\D_X$-module. (This means that it has grade $n+1$ over $\A_X^{R/L_{p-1}}$ which seems plausible from spectral sequence, similar results in Bjork)
+  \end{conjecture}
+  Write $\mathcal{L}$ for the union of all characteristic varieties of $\Tor_{\C[s]}^1(K_i, \frac{\C[s]}{R_{i+1}})$ and note that $\mathcal{L}$ is Lagrangian.
+  Since $\mu$ is proper the Kashiwara estimate is applicable and \cref{lem: RestrictionIsCoherentAndChar} yields that $\int^0(\M\otimes_{\C[s]} \C[s]/L_{p-1})$ is a coherent $\D_X$-module with characteristic variety $\widetilde{\mu}\left((T^*\mu)^{-1}(V\cup W)\right)$.
+  By downward induction on $i$\todo{Check coherence has 2 out of 3 SES property for $\D_X$-modules} it follows that $(\Int\M)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a coherent $\D_X$-module
+  and
+  $$ \Ch\left(\left(\Int\M\right)\otimes_{\C[s]}\frac{\C[s]}{L_{p-1}}\right)\subseteq \mathcal{L} \cup \widetilde{\mu}\left((T^*\mu)^{-1}(V\cup W)\right).$$
 
+  Now observe that $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a quotient of $(\Int\M) \otimes_{\C[s]} \C[s]/L_{p-1}$ with support in the divisor $D$.
+  Hence, $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L$ is a coherent $\D_X$-module with
+  $$\Ch\left( \left(\Int\M/ \U\right)\otimes_{\C[s]}\C[s]/L_{p-1}) \right)\subseteq \mathcal{L} \cup \widetilde{\mu}\left((T^*\mu)^{-1}(V\cup W)\right) \cap \left(T^*X\times_X D\right)$$
+  This means $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a holonomic $\D_X$-module.
+  Indeed, by (\todo{Put somewhere in Chapter 1 \cite[proposition 4.9]{kashiwara1976b}.}) $\widetilde{\mu}((T^*\mu)^{-1}(V))$ remains isotropic and forms no obstruction to the characteristic variety being Lagrangian.
+  Moreover, $\widetilde{\mu}((T^*\mu)^{-1}(W))$ will still be irreducible of dimension $n+1$ and dominates $X$.
+  Intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $T^*X\times_X D$ now reduces the dimension so that $\dim \Ch (\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1} \leq n$.
+  This means that $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is holonomic.
+  By (\todo{\cite{bjork1979rings} holonomic means $s$ is algebraic}) this means that it's Bernstein-Sato ideal is non-zero.
+  This contradicts \cref{lem: QuotientsRelativeHolonomic} and we conclude that the assumption the grade is $n$ must have been wrong.
 \end{proof}
 \newpage
 \section{Old Stuff}
