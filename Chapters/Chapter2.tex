@@ -421,6 +421,10 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
 \begin{lemma}\label{lem: NotBernsteinInjectiveAutomorphism}
   Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq \dim R$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective automorphisms on $\N$ and $\Ext^{n+k}_{\A_X^R}(\M,\A_X^R)$.
 \end{lemma}
+\begin{lemma}\label{lem: CMLemmaBudur}
+  $M/\ell$ conserves CM, like prop 3.4.3 in \cite{budur2019zero}
+\end{lemma}
+
 \begin{lemma}\label{lem: RestrictToCM}
   Let $\M$ be a relative holonomic $\A_X^R$-module of grade $j(\M) = (n+k)$ some $0\leq k < \dim R$.
 
@@ -659,20 +663,20 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   This means $B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a holonomic $\D_\mathcal{X}$-module.
   Indeed, by (\todo{Put somewhere in Chapter 1 \cite[proposition 4.9]{kashiwara1976b}.}) $\widetilde{\mu}((T^*\mu)^{-1}(V))$ remains isotropic and forms no obstruction to the characteristic variety being Lagrangian.
   Moreover, $\widetilde{\mu}((T^*\mu)^{-1}(W))$ is irreducible of dimension $\dim \mathcal{X}+1$ and dominates $\mathcal{X}$.
-  Intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $T^*\mathcal{X}\times_\mathcal{X} D$ now reduces the dimension so that $\dim \Ch (\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1} \leq \dim \mathcal{X}$.
+  Intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $T^*\mathcal{X}\times_\mathcal{X} D$ now reduces the dimension so that $\dim \Ch B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1} \leq \dim \mathcal{X}$.
   This means that $B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is holonomic.
   By (\todo{\cite{bjork1979rings} holonomic means $s$ is algebraic}) this means that it's Bernstein-Sato ideal is non-zero.
   But then also the Bernstein-Sato ideal of $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is non-zero.
   This contradicts \cref{lem: QuotientsRelativeHolonomic} and we conclude that the assumption the grade is $\dim \mathcal{X}$ must have been wrong.\\
 
-  It remains to show that the $\ell_i$ can be chosen so that $\Tor_{\scaleto{\A_\mathcal{X}^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\mathcal{X}^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_\mathcal{X}^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $\dim \mathcal{X}+1$.
-  By a taking a $\A_{\mathcal{X}}^{\C[s]/L_{i}}$-free resolution of $K_i$ it follows that
+  It remains to show that the $\ell_j$ can be chosen so that $\Tor_{\scaleto{\A_\mathcal{X}^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\mathcal{X}^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_\mathcal{X}^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $\dim \mathcal{X}+1$.
+  By a taking a $\A_{\mathcal{X}}^{\C[s]/L_{i}}$-free resolution of $K_i$ one finds that
   $$\bR \Hom_{\scaleto{\A_\mathcal{X}^{ \C[s]/L_{p-1} }}{8pt} }(K_i\otimes^L_{\scaleto{ \A_\mathcal{X}^{\C[s]/L{i}} }{8pt} } \A_\mathcal{X}^{\C[s]/L_{p-1} },\A_\mathcal{X}^{ \C[s]/L_{p-1}} ) \cong \bR \Hom_{ \scaleto{\A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\mathcal{X}^{\C[s]/L_{i}}) \otimes^L_{\scaleto{ \A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} } \A_\mathcal{X}^{\C[s]/L_{p-1}}.$$
   We compare the Grothendieck spectral sequences of both sides.
 
   The spectral sequence on the left-hand-side has terms
   $$E_{pq}^2 = \Ext_{\scaleto{\A_\mathcal{X}^{\C[s]/L_{p-1}}}{8pt} }^p(\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}}),\A_\mathcal{X}^{\C[s]/L_{p-1}}).$$
-  Since $\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}}$ is a relative holonomic $\A_X^{\C[s]/L_{p-1}}$-module these terms are only nonzero for $p=\dim \mathcal{X}$ or $p = \dim \mathcal{X}+1$.
+  Since $\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_X^{\C[s]/L_{p-1}}$-module these terms are only nonzero for $p=\dim \mathcal{X}$ or $p = \dim \mathcal{X}+1$.
   In particular, the spectral sequence degenerates at $E^2$.
   Note that the statement that $\Tor_{\scaleto{\A_\mathcal{X}^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\mathcal{X}^{\C[s]/L_{p-1}})$ has grade greater than or equal to $\dim \mathcal{X}+1$ is equivalent to $E^2_{\dim\mathcal{X},-1} = 0$.
   %This term is $\dim\mathcal{X}$-pure.
@@ -680,7 +684,35 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
 
   The spectral sequence on the right-hand-side has terms
   $$E^2_{pq} = \Tor^{-q}_{\scaleto{ \A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} }(\Ext^p_{ \scaleto{\A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\mathcal{X}^{\C[s]/L_{i}}), \A_\mathcal{X}^{\C[s]/L_{p-1}}).$$
-  Note that
+  The claim follows if we can ensure that that the terms with $p-q = \dim \mathcal{X} -1$ have grade at least $\dim \mathcal{X} + 1$. Since grades can only increase when restricting to a open and localisation is a exact functor this statement holds on $\mathcal{X}\times\C^p$ if and only if holds on $\mathcal{X}\times\Spec R$ for some open subset $\Spec R\subseteq \C^p$. \todo{Maybe add more explanation?}
+
+  The $\ell_i$ and the open $\Spec R$ are constructed inductively by induction on $i$. In every step it is ensured that $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_i, \A_\mathcal{X}^{R/L_i})$ is $(n+j)$-Cohen-Macaulay over $\A_X^{R/L_i}$ or zero for every $j\geq 0$, $Z(L_i)\cap \Spec R \neq 0$
+  and that $\ell_i$
+  induces a injection on $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_k, \A_\mathcal{X}^{R/L_k}) \otimes_{\scaleto{\A_\mathcal{X}^{R/L_{k}}}{8pt}} \A_{R/L_{i-1}}$
+  for every $j\geq 1$ and $k<i$.
+
+  Take some arbitrary $\ell_1$ for the base-case and use \cref{lem: GradeToCMOverOpen} to find a open $\Spec R \subseteq \C^p$ such that $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{1}}}{8pt} }(K_1, \A_\mathcal{X}^{R/L_1})$  is $(n+j)$-Cohen-Macaulay for every $j\geq 0$.
+  This only requires removing components of codimension greater than or equal to $1$ of $\Spec \C[s]/L_1$ so $Z(L_1)\cap \Spec R = \Spec R/L_1$ is non-empty.
+  The final property is vacuous for $i=1$.
+
+  Now assume that $i>1$ and that $\ell_1,\ldots, \ell_{i-1}$ are already constructed.
+  First let's ensure that $\ell_i$
+  induces a injection on $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_k, \A_\mathcal{X}^{R/L_k}) \otimes_{\scaleto{\A_\mathcal{X}^{R/L_{k}}}{8pt}} \A_{R/L_{i-1}}$
+  for every $j\geq 0$ and $k<i$.
+  By iterative application of \cref{lem: CMLemmaBudur} it holds that $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_k, \A_\mathcal{X}^{R/L_k}) \otimes_{\scaleto{\A_\mathcal{X}^{R/L_{k}}}{8pt}} \A_{R/L_{i-1}}$
+  is $(n+j)$-Cohen-Macaulay over $\A_\mathcal{X}^{L_{i-1}}$.
+  Take $\ell_i$ so that the induduced element of $R/L_{i-1}$ is non-constant and does not vanish on any irreducible component of the Bernstein-Sato zero locust of $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_k, \A_\mathcal{X}^{R/L_k}) \otimes_{\scaleto{\A_\mathcal{X}^{R/L_{k}}}{8pt}} \A_{R/L_{i-1}}$.
+  Then, by \cref{prop: NotBernsteinInjectiveAutomorphism} the desired injectivity follows.
+  As before, \cref{lem: GradeToCMOverOpen} can be used to to find a open $\Spec R' \subseteq \Spec R$ such that $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{1}}}{8pt} }(K_1, \A_\mathcal{X}^{R/L_1})$  is $(n+j)$-Cohen-Macaulay for every $j\geq 1$ and  $Z(L_1)\cap \Spec R' = \Spec R'/L_1$ is non-empty.
+  Note that $\Spec R$ by $\Spec R'$ will conserve the induction hypothesis.
+  This concludes the inductive construction of the $\ell_i$.
+
+  We can now show that $E^2_{pq}$ has grade at least $\dim \mathcal{X}+1$ whenever $p-q = \dim \mathcal{X}-1$.
+  Certainly, $E_{\dim \mathcal{X}-1,0}$ by \cref{lem: AXRBehaviourGradesJAndChrel}.
+  It remains to show that $\Tor^{j}_{\scaleto{ \A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} }(\Ext^{\dim\mathcal{X}-j-1}_{ \scaleto{\A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\mathcal{X}^{\C[s]/L_{i}}), \A_\mathcal{X}^{\C[s]/L_{p-1}})$
+  has grade at least $\dim \mathcal{X}+1$ for any $j\geq 1$.
+
+  By the injectivity of $\ell_i$ on 
 \end{proof}
 
 The following lemma and it's proof are similar to the monovariate case which may be found in \cite[p246]{bjork1979rings}.
