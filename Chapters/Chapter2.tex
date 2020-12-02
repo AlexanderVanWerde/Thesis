@@ -552,9 +552,9 @@ To solve this one introduces new coordinates such that there are vector fields $
 Note that there are finitely many codimension $1$ components in $Z(B_F)$.
 Hence, there exist $p$ independent linear polynomials $\sum_{i=1}^p d_{ij}s_i$ such that for any $j$ there is no hyperplane parallel to $\sum_{i=1}^p d_{ij}s_i = 0$ in $Z(B_F)$.
 Moreover, it may be assumed that the $d_{ij}$ are nonnegative integers.
-Introduce new coordinates $z_{n+1}, \ldots,z_{n+p}$ and set $\mathcal{X}:= X\times \C^p$ and $\mathcal{Y} := Y\times \C^p$.
+Introduce new coordinates $z_{n+1}, \ldots,z_{n+p}$ and set $\X:= X\times \C^p$ and $\Y := Y\times \C^p$.
 For any $j=1,\ldots, p$ set $\widetilde{f}_j = f_j\prod_{i=1}^p z_{n+i}^{d_{ij}}$.
-Note that the induced map $\mathcal{Y} \to \mathcal{X}$ is a resolution of singularities for $\prod \widetilde{f}_i$ and that $\widetilde{g}_j = g_j\prod_{i=1}^p z_{n+i}^{d_{ij}}$ is the pullback of $\widetilde{f}_i$.
+Note that the induced map $\Y \to \X$ is a resolution of singularities for $\prod \widetilde{f}_i$ and that $\widetilde{g}_j = g_j\prod_{i=1}^p z_{n+i}^{d_{ij}}$ is the pullback of $\widetilde{f}_i$.
 
 For any $i=1,\ldots,p$ it holds that
 $$\widetilde{G}^s \mu^*(dx)\cdot \partial_{n+i} = \sum_{j=1}^p d_{ij}s_j x_j^{-1} \widetilde{G}^s \mu^*(dx).$$
@@ -565,18 +565,18 @@ This solves the coherence isssue.
   If $b\in B_{\widetilde{F},x}$ for any $x\in X\times \{0\}^p$ then $b \in B_F$.
 \end{lemma}
 \begin{proof}
-  Take local coordinates $x_1,\ldots, x_{n+p}$ near $x$ and let $P$ be in the stalk of $\A_{\mathcal{X}}$ at $x$ such that $b \widetilde{F}^s = P \widetilde{F}^{s+1}$.
+  Take local coordinates $x_1,\ldots, x_{n+p}$ near $x$ and let $P$ be in the stalk of $\A_{\X}$ at $x$ such that $b \widetilde{F}^s = P \widetilde{F}^{s+1}$.
   Similarly to the above there is a $\C$-basis $\xi_1,\ldots,\xi_p$ for the span of $\partial_{n+1}, \ldots, \partial_{n+p}$ so that $\mathcal{S}_j := x_{n+j}\xi_j$ satisfies $\mathcal{S}_j \cdot \widetilde{F}^s = s_{j}\widetilde{F}^s$.
   Expand $P$ as a polynomials in $\xi_1,\ldots,\xi_p$
   $$P = \sum_{\alpha} P_\alpha \xi_{1}^{\alpha_1}\cdots \xi_{p}^{\alpha_p}$$
-  where the coefficients $P_\alpha$ live in a stalk of $\O_{\mathcal{X}}\otimes_{\O_X}\D_X$.
+  where the coefficients $P_\alpha$ live in a stalk of $\O_{\X}\otimes_{\O_\X}\D_\X$.
 
   Let $N$ be greater than the maximal value of $\abs{\alpha}$ then
   $$(x_{n+1}\cdots x_{n+p})^N b \widetilde{F}^s = \left(\sum_{\alpha} \prod_{i=1}^p (s_i + 1)^{\alpha_i} \sum_\beta Q_{\alpha\beta} \partial_1^{\beta_1}\cdots \partial_n^{\beta_n} \right)\widetilde{F}^{s+1}$$
-  where the $P_\alpha$ were expanded as polynomials in $\partial_1,\ldots,\partial_n$ with coefficients $Q_{\alpha\beta}$ from $\O_{\mathcal{X}}$.
+  where the $P_\alpha$ were expanded as polynomials in $\partial_1,\ldots,\partial_n$ with coefficients $Q_{\alpha\beta}$ from $\O_{\X}$.
   Observe that $\partial_1,\ldots, \partial_n$ act on the formal symbol $\widetilde{F}^{s+1}$ the same as they act on the formal symbol $F^{s+1}$.
 
-  Now consider this functional equation on the analytification of $\mathcal{X}$ and expand the $Q_{\alpha\beta}$ as power series at $x$.
+  Now consider this functional equation on the analytification of $\X$ and expand the $Q_{\alpha\beta}$ as power series at $x$.
   Identifying powers of $x_{n+1}\cdots x_{n+p}$ on both sides a functional equation with analytical coefficients for $F^s$ follows.
   This establishes that $b \in B_{F,x}$ for any $x\in X$ provided analytical and algebraic Bernstein-Sato ideals are equal.\todo{Is this true?}
 \end{proof}
@@ -584,17 +584,17 @@ Note that replacing $F$ by $\widetilde{F}$ leaves \cref{thm: EstimateBernsteinSa
 These are not in $Z(B_F)$ by assumption so, by \cref{lem: ReplacementIsAllowed}, it remains to prove the theorem for $\widetilde{F}$.
 For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
 \begin{lemma}\label{lem: CharVarEstimateW}
-  The $\D_\mathcal{Y}$-module $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ is coherent and it's characteristic variety satisfies $\Ch\M\otimes_{\C[s]}\C[s]/L_{p-1} \subseteq V \cup W $ where $V$ is isotropic and $W$ is a irreducible variety of dimension $\dim \mathcal{Y} +1$ which dominates $\mathcal{Y}$.
+  The $\D_\Y$-module $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ is coherent and it's characteristic variety satisfies $\Ch\M\otimes_{\C[s]}\C[s]/L_{p-1} \subseteq V \cup W $ where $V$ is isotropic and $W$ is a irreducible variety of dimension $\dim \Y +1$ which dominates $\Y$.
 \end{lemma}
 \begin{proof}
-  Recall that we ensured that $\M$ is a coherent $\D_\mathcal{Y}$-module.
-  Hence, also $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ will be a coherent $\D_\mathcal{Y}$-module.
+  Recall that we ensured that $\M$ is a coherent $\D_\Y$-module.
+  Hence, also $\M\otimes_{\C[s]}\C[s]/L_{p-1}$ will be a coherent $\D_\Y$-module.
 
-  Take local coordinates $z_1,\ldots,z_n,z_{n+1},\ldots,z_{n+p}$ on $\mathcal{Y}$ as in the proof of \cref{lem: BernsteinSatoPolynomialUpstairs}.
+  Take local coordinates $z_1,\ldots,z_n,z_{n+1},\ldots,z_{n+p}$ on $\Y$ as in the proof of \cref{lem: BernsteinSatoPolynomialUpstairs}.
   This is to say that locally
   $$G^s \mu^*(dx) = v \prod_{i=1}^nu_i^{s_j}z_i^{\sum_{j=1}^p M_{ij}s_j + m_i}\prod_{i=1}^n z_{n+i}^{\sum_{j=1}^p d_{ij}s_j} dz.$$
   Let $s_0$ denote a new variable so that $\C[s]/L_{p-1}\cong \C[s_0]$.
-  Then $\M\otimes_{\C[s_0]}R/L_{p-1}$ may be viewed as the $\D_\mathcal{Y}$-module which is locally generated by a formal symbol
+  Then $\M\otimes_{\C[s_0]}R/L_{p-1}$ may be viewed as the $\D_\Y$-module which is locally generated by a formal symbol
   $$[G^s \mu^*(dx)] =v \prod_{i=1}^{2n} u_i^{A_i s_0 + a_i}z_i^{B_i s_0 + b_i} dz $$
   where $A_i,B_i,a_i,b_i$ are complex numbers and we set $u_{n+i}=1$.
   Moreover, since the linear functions $\sum_{j=1}^p d_{ij}s_j$ on the final terms in $G^s\mu^*(dx)$ formed a basis for the linear polynomials there will be at least one $B_{i+n}$ which is nonzero.
@@ -603,30 +603,30 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   $$[G^s \mu^*(dx)]\cdot w^{-1}\partial_j w =((B_j s_0 + b_j)z_j^{-1} + \sum_{i=1}^{n} A_i s_0 u_i^{-1}\partial_j(u_i) )[G^s \mu^*(dx)].$$
   Recall that the $s_1,\ldots,s_n$ could be produced by acting with a vector field.
   Since $s_0$ is found with affine relations it follows that there exists some differential operator $\mathcal{S}_0$ of degree $1$ such that $s_0 [G^s \mu^*(dx)] = [G^s \mu^*(dx)]\cdot \mathcal{S}_0$.
-  Now we get a well-defined surjection $\D_\mathcal{Y}/I \to \M\otimes_{\C[s]}\C[s]/L_{p-1}$ where $I$ denotes the right ideal generated by $w^{-1}\partial_j wz_j - b_j - \mathcal{S} h_i$ with $h_j = B_j + z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i)$ for $j=1,\ldots, n+p$.
+  Now we get a well-defined surjection $\D_\Y/I \to \M\otimes_{\C[s]}\C[s]/L_{p-1}$ where $I$ denotes the right ideal generated by $w^{-1}\partial_j wz_j - b_j - \mathcal{S} h_i$ with $h_j = B_j + z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i)$ for $j=1,\ldots, n+p$.
 
   Note that $ z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i) = 0$ for $j>n$.
   Hence, the $h_{n+j}$ are complex scalars and they are not all zero since there exists a nonzero $B_{n+j}$.
   After renumbering we now have that $h_1 \in \C^\times$.
-  Denoting $\zeta_j, \sigma_0$ for the elements of $\gr \D_\mathcal{X}$ which correspond to $\partial_j, \mathcal{S}_0$ respectively it holds that $\gr I$ contains $z_j \zeta_j - h_j \sigma_0$ for any $j=1,\ldots, n+p$.
+  Denoting $\zeta_j, \sigma_0$ for the elements of $\gr \D_\X$ which correspond to $\partial_j, \mathcal{S}_0$ respectively it holds that $\gr I$ contains $z_j \zeta_j - h_j \sigma_0$ for any $j=1,\ldots, n+p$.
   Then also $h_1z_j \zeta_j - h_jz_1 \zeta_1$ is in $\gr I$ for any $j=2,\ldots, n+p$.
   This yields the desired bound for the characteristic variety.
 \end{proof}
 \begin{lemma}\label{lem: QuotientsRelativeHolonomic}
-  If the $\A_\mathcal{X}$-module $\Int\M/U$ has grade $\dim \mathcal{X}$ then the quotients $(\Int\M/\U)\otimes_{\C[s]} \C[s]/L_{i}$ are relative holonomic $\A_\mathcal{X}^{R/L_i}$-modules of grade $\dim\mathcal{X}$.
+  If the $\A_\X$-module $\Int\M/U$ has grade $\dim \X$ then the quotients $(\Int\M/\U)\otimes_{\C[s]} \C[s]/L_{i}$ are relative holonomic $\A_\X^{R/L_i}$-modules of grade $\dim\X$.
 \end{lemma}
 \begin{proof}
-  This follows by induction on $i=0,\ldots,p$ using \cref{lem: NotBernsteinInjectiveAutomorphism} which is applicable since grade $\dim \mathcal{X}$ means that the Bernstein-Sato ideals of $\Int\M/\U \otimes_{\C[s]} \C[s]/L_{i-1}$ is the zero ideal by \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar}.
+  This follows by induction on $i=0,\ldots,p$ using \cref{lem: NotBernsteinInjectiveAutomorphism} which is applicable since grade $\dim \X$ means that the Bernstein-Sato ideals of $\Int\M/\U \otimes_{\C[s]} \C[s]/L_{i-1}$ is the zero ideal by \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar}.
 \end{proof}
 \begin{lemma}\label{lem: InjectiveEll}
   Any polynomial $b\in \C[s]$ which is not in $L_i$ induces a injective automorphisms on $\M \otimes_{\C[s]}\C[s]/L_i$.
 \end{lemma}
 \begin{lemma}\label{lem: GradeNPlusOne}
-  The relative holonomic $\A_\mathcal{X}$-module $\Int\M/\U$ has grade $j(\Int\M/\U)\geq \dim \mathcal{X}+1$.
+  The relative holonomic $\A_\X$-module $\Int\M/\U$ has grade $j(\Int\M/\U)\geq \dim \X+1$.
 \end{lemma}
 \begin{proof}
-  Suppose that $\Int\M/\U$ has grade $\dim \mathcal{X}$.
-  A contradiction will be derived by replacing $\Int\M/\U$ with a holonomic $\D_\mathcal{X}$-module.
+  Suppose that $\Int\M/\U$ has grade $\dim \X$.
+  A contradiction will be derived by replacing $\Int\M/\U$ with a holonomic $\D_\X$-module.
   The first task is to understand how $\int^0(\M\otimes_{\C[s]}\C[s]/L_{p-1})$ relates to $(\Int\M)\otimes_{\C[s]}\C[s]/L_{p-1}$.
 
   Recall from \cref{lem: InjectiveEll} that $\ell_{i}$ is injective on $\M \otimes_{\C[s]} \C[s]/L_{i-1}$. This implies that
@@ -640,93 +640,114 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   Denote $R_{i+1}$ for the ideal $(\ell_{i+1},\ldots,\ell_{p-1})$. Applying a tensor product with $\C[s]/R_{i+1}$ to the inclusion $(\Int \M/L_{i-1}) \otimes_{\C[s]}\C[s]/(\ell_i)\hookrightarrow \int^0(\M\otimes_{\C[s]}\C[s]/L_i)$ yields a exact sequence
   $$\cdots \to \Tor_{\C[s]}^1\left(K_i, \frac{\C[s]}{R_{i+1}}\right) \to \left(\Int \M\otimes_{\C[s]}\frac{\C[s]}{L_{i-1}}\right) \otimes_{\C[s]}\frac{\C[s]}{R_{i}} \to \left(\Int\M\otimes_{\C[s]}\frac{\C[s]}{L_i}\right)\otimes_{\C[s]}\frac{\C[s]}{R_{i+1}}.$$
 
-  We claim that the $\ell_i$ can be chosen so that $\Tor_{\scaleto{\A_\mathcal{X}^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\mathcal{X}^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_\mathcal{X}^{R/L_{p-1}}$-module of grade greater than or equal to $\dim\mathcal{X}+1$.
+  We claim that the $\ell_i$ can be chosen so that $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_\X^{R/L_{p-1}}$-module of grade greater than or equal to $\dim\X+1$.
   Let's show how this suffices to finish the proof and prove this claim afterwards. \\
 
-  That the grade of $\Tor_{\scaleto{\A_\mathcal{X}^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\mathcal{X}^{\C[s]/L_{p-1}})$ is greater than or equal to $\dim \mathcal{X}+1$ means that the Bernstein-Sato ideal is not trivial.
+  That the grade of $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ is greater than or equal to $\dim \X+1$ means that the Bernstein-Sato ideal is not trivial.
   Equivalently, for any $i$, there exists a non-zero polynomial $b_i\in \C[s]/L_{p-1}$ which annihilates $\Tor_{\C[s]/L_{i} }^1(K_i, \C[s]/R_{i+1} ))$.
   The kernels of the automorphisms induced by $b_i^m$ form a increasing sequence inside the coherent $\A_X^{\C[s]/L_{p-1}}$-module $(\Int \M\otimes_{\C[s]}\C[s]/L_{i-1})\otimes_{\C[s]}\C[s]/R_{i}$.
   Such a increasing sequence must stabilise which means that we can pick $m_i$ sufficiently large so that $$\img \Tor_{\C[s]}^1\left(K_i, \frac{\C[s]}{R_{i+1}}\right)\bigcap b_i^{m_i}\left(\Int \M\otimes_{\C[s]}\frac{\C[s]}{L_{i-1}}\right)\otimes_{\C[s]}\frac{\C[s]}{R_{i}} = 0.$$
   Set $B = \prod_{i=0}^{p-2} b_i^{m_i}$ then we get injections
-  $$\cdots \hookrightarrow B \left(\Int \M\otimes_{\C[s]}\frac{\C[s]}{L_{i-1}}\right) \otimes_{\C[s]}\frac{\C[s]}{R_{i}} \hookrightarrow B\left(\Int\M\otimes_{\C[s]}\frac{\C[s]}{L_i}\right)\otimes_{\C[s]}\frac{\C[s]}{R_{i+1}}\hookrightarrow  $$
+  $$\cdots \hookrightarrow B \left(\Int \M\otimes_{\C[s]}\frac{\C[s]}{L_{i-1}}\right) \otimes_{\C[s]}\frac{\C[s]}{R_{i}} \hookrightarrow B\left(\Int\M\otimes_{\C[s]}\frac{\C[s]}{L_i}\right)\otimes_{\C[s]}\frac{\C[s]}{R_{i+1}}\hookrightarrow\cdots  $$
 
 
-  Since $\mu$ is proper the Kashiwara estimate is applicable and \cref{lem: RestrictionIsCoherentAndChar} yields that $\int^0(\M\otimes_{\C[s]} \C[s]/L_{p-1})$ is a coherent $\D_\mathcal{X}$-module with characteristic variety $\widetilde{\mu}\left((T^*\mu)^{-1}(V\cup W)\right)$.
-  It follows that $B(\Int\M)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a coherent $\D_\mathcal{X}$-module
+  Since $\mu$ is proper the Kashiwara estimate is applicable and \cref{lem: CharVarEstimateW} yields that $\int^0(\M\otimes_{\C[s]} \C[s]/L_{p-1})$ is a coherent $\D_\X$-module with characteristic variety $\widetilde{\mu}\left((T^*\mu)^{-1}(V\cup W)\right)$.
+  It follows that $B(\Int\M)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a coherent $\D_\X$-module
   and
   $$ \Ch B \left(\left(\Int\M\right)\otimes_{\C[s]}\frac{\C[s]}{L_{p-1}}\right)\subseteq \mathcal{L} \cup \widetilde{\mu}\left((T^*\mu)^{-1}(V\cup W)\right).$$
 
   Now observe that $B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a quotient of $B(\Int\M) \otimes_{\C[s]} \C[s]/L_{p-1}$ with support in the divisor $D$.
-  Hence, $B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L$ is a coherent $\D_\mathcal{X}$-module with
-  $$\Ch\left( B\left(\Int\M/ \U\right)\otimes_{\C[s]}\C[s]/L_{p-1}) \right)\subseteq \mathcal{L} \cup \widetilde{\mu}\left((T^*\mu)^{-1}(V\cup W)\right) \cap \left(T^*\mathcal{X}\times_\mathcal{X} D\right).$$
+  Hence, $B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L$ is a coherent $\D_\X$-module with
+  $$\Ch\left( B\left(\Int\M/ \U\right)\otimes_{\C[s]}\C[s]/L_{p-1}) \right)\subseteq \mathcal{L} \cup \widetilde{\mu}\left((T^*\mu)^{-1}(V\cup W)\right) \cap \left(T^*\X\times_\X \supp D\right).$$
 
-  This means $B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a holonomic $\D_\mathcal{X}$-module.
+  This means $B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is a holonomic $\D_\X$-module.
   Indeed, by (\todo{Put somewhere in Chapter 1 \cite[proposition 4.9]{kashiwara1976b}.}) $\widetilde{\mu}((T^*\mu)^{-1}(V))$ remains isotropic and forms no obstruction to the characteristic variety being Lagrangian.
-  Moreover, $\widetilde{\mu}((T^*\mu)^{-1}(W))$ is irreducible of dimension $\dim \mathcal{X}+1$ and dominates $\mathcal{X}$.
-  Intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $T^*\mathcal{X}\times_\mathcal{X} D$ now reduces the dimension so that $\dim \Ch B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1} \leq \dim \mathcal{X}$.
+  Moreover, $\widetilde{\mu}((T^*\mu)^{-1}(W))$ is irreducible of dimension $\dim \X+1$ and dominates $\X$.
+  Intersecting with $T^*\X\times_\X \supp D$ then yields a closed strict subset which necessarily has lower dimension.
+  Hence, it follows that $\dim \Ch B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1} \leq \dim \X$.
   This means that $B(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is holonomic.
-  By (\todo{\cite{bjork1979rings} holonomic means $s$ is algebraic}) this means that it's Bernstein-Sato ideal is non-zero.
+  By (\todo{\cite{bjork1979rings} holonomic means $s$ is algebraic}) the Bernstein-Sato ideal of holonomic modules is non-zero.
   But then also the Bernstein-Sato ideal of $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{p-1}$ is non-zero.
-  This contradicts \cref{lem: QuotientsRelativeHolonomic} and we conclude that the assumption the grade is $\dim \mathcal{X}$ must have been wrong.\\
+  This contradicts \cref{lem: QuotientsRelativeHolonomic} and we conclude that the assumption the grade is $\dim \X$ must have been wrong.\\
 
-  It remains to show that the $\ell_j$ can be chosen so that $\Tor_{\scaleto{\A_\mathcal{X}^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\mathcal{X}^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_\mathcal{X}^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $\dim \mathcal{X}+1$.
-  By a taking a $\A_{\mathcal{X}}^{\C[s]/L_{i}}$-free resolution of $K_i$ one finds that
-  $$\bR \Hom_{\scaleto{\A_\mathcal{X}^{ \C[s]/L_{p-1} }}{8pt} }(K_i\otimes^L_{\scaleto{ \A_\mathcal{X}^{\C[s]/L{i}} }{8pt} } \A_\mathcal{X}^{\C[s]/L_{p-1} },\A_\mathcal{X}^{ \C[s]/L_{p-1}} ) \cong \bR \Hom_{ \scaleto{\A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\mathcal{X}^{\C[s]/L_{i}}) \otimes^L_{\scaleto{ \A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} } \A_\mathcal{X}^{\C[s]/L_{p-1}}.$$
+  It remains to show that the $\ell_j$ can be chosen so that $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_\X^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $\dim \X+1$.
+  This means we must understand the $\Ext$-functor of a $\Tor$.
+  Hence, we consider the interaction between the derived $\Hom$-functor and the derived tensor product.
+  By a taking a $\A_{\X}^{\C[s]/L_{i}}$-free resolution of $K_i$ one finds that
+  $$\bR \Hom_{\scaleto{\A_\X^{ \C[s]/L_{p-1} }}{8pt} }(K_i\otimes^L_{\scaleto{ \A_\X^{\C[s]/L{i}} }{8pt} } \A_\X^{\C[s]/L_{p-1} },\A_\X^{ \C[s]/L_{p-1}} ) \cong \bR \Hom_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}) \otimes^L_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} } \A_\X^{\C[s]/L_{p-1}}.$$
   We compare the Grothendieck spectral sequences of both sides.
 
   The spectral sequence on the left-hand-side has terms
-  $$E_{pq}^2 = \Ext_{\scaleto{\A_\mathcal{X}^{\C[s]/L_{p-1}}}{8pt} }^p(\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}}),\A_\mathcal{X}^{\C[s]/L_{p-1}}).$$
-  Since $\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_X^{\C[s]/L_{p-1}}$-module these terms are only nonzero for $p=\dim \mathcal{X}$ or $p = \dim \mathcal{X}+1$.
+  $$E_{rq}^2 = \Ext_{\scaleto{\A_\X^{\C[s]/L_{p-1}}}{8pt} }^r(\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}}),\A_\X^{\C[s]/L_{p-1}}).$$
+  Since $\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_X^{\C[s]/L_{p-1}}$-module these terms are only nonzero for $r=\dim \X$ or $r = \dim \X+1$.
   In particular, the spectral sequence degenerates at $E^2$.
-  Note that the statement that $\Tor_{\scaleto{\A_\mathcal{X}^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\mathcal{X}^{\C[s]/L_{p-1}})$ has grade greater than or equal to $\dim \mathcal{X}+1$ is equivalent to $E^2_{\dim\mathcal{X},-1} = 0$.
-  %This term is $\dim\mathcal{X}$-pure.
-  %Hence, it suffices to ensure that all terms on the right-hand-side with $p+q = \dim\mathcal{X}-1$ have grade greater at least $n+1$.
+  Note that the statement that $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ has grade greater than or equal to $\dim \X+1$ is equivalent to $E^2_{\dim\X,-1} = 0$.
+  %This term is $\dim\X$-pure.
+  %Hence, it suffices to ensure that all terms on the right-hand-side with $p+q = \dim\X-1$ have grade greater at least $n+1$.
 
   The spectral sequence on the right-hand-side has terms
-  $$E^2_{pq} = \Tor^{-q}_{\scaleto{ \A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} }(\Ext^p_{ \scaleto{\A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\mathcal{X}^{\C[s]/L_{i}}), \A_\mathcal{X}^{\C[s]/L_{p-1}}).$$
-  The claim follows if we can ensure that that the terms with $p-q = \dim \mathcal{X} -1$ have grade at least $\dim \mathcal{X} + 1$. Since grades can only increase when restricting to a open and localisation is a exact functor this statement holds on $\mathcal{X}\times\C^p$ if and only if holds on $\mathcal{X}\times\Spec R$ for some open subset $\Spec R\subseteq \C^p$. \todo{Maybe add more explanation?}
+  $$E^2_{rq} = \Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\Ext^r_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}}).$$
+  The claim follows if we can ensure that that all terms with $r-q = \dim \X -1$ vanish on $\X\times\Spec R$ for some open subset $\Spec R\subseteq \C^p$.  %\todo{Maybe add more explanation?}
+  Indeed, then by \cref{prop: ProjectionBernsteinSatoRelativeChar} and \cref{cor: AXRBehaviourGradesJAndChrel} the terms have grade $\dim\X+1$ and it follows that the same must hold for the terms of the spectral sequence on the left hand side.
+  Since $\Ext^{\dim\X}$ is $\dim\X$-pure this means that the $E^2_{\dim\X,-1}$-term in the left-hand-side spectral sequence vanishes.
+  \\
 
-  The $\ell_i$ and the open $\Spec R$ are constructed inductively by induction on $i$. In every step it is ensured that $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_i, \A_\mathcal{X}^{R/L_i})$ is $(n+j)$-Cohen-Macaulay over $\A_X^{R/L_i}$ or zero for every $j\geq 0$, $Z(L_i)\cap \Spec R \neq 0$
-  and that $\ell_i$
-  induces a injection on $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_k, \A_\mathcal{X}^{R/L_k}) \otimes_{\scaleto{\A_\mathcal{X}^{R/L_{k}}}{8pt}} \A_{R/L_{i-1}}$
-  for every $j\geq 1$ and $k<i$.
 
-  Take some arbitrary $\ell_1$ for the base-case and use \cref{lem: GradeToCMOverOpen} to find a open $\Spec R \subseteq \C^p$ such that $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{1}}}{8pt} }(K_1, \A_\mathcal{X}^{R/L_1})$  is $(n+j)$-Cohen-Macaulay for every $j\geq 0$.
-  This only requires removing components of codimension greater than or equal to $1$ of $\Spec \C[s]/L_1$ so $Z(L_1)\cap \Spec R = \Spec R/L_1$ is non-empty.
+  The $\ell_i$ and the open $\Spec R$ are constructed by induction on $i$. For any $i,j,k$ with $k\leq i$ denote $\E_{ik}^{n+j}:= \Ext^{n+j}_{ \scaleto{\A_\X^{R/L_{k}}}{8pt} }(K_k, \A_\X^{R/L_k}) \otimes_{\scaleto{\A_\X^{R/L_{k}}}{8pt}} \A_{R/L_{i}}$.
+  In every induction step it is ensured that
+  \begin{enumerate}[label=(\roman*)]
+    \item $\E_{ii}^{n+j}$ is $(n+j)$-Cohen-Macaulay over $\A_X^{R/L_i}$ or zero for every $j\geq 0$.
+    \item $Z(L_i)\cap \Spec R \neq 0$.
+    \item $\ell_i$ induces a injection on $\E_{(i-1)k}^{n+j}$
+    for every $j\geq 0$ and $k<i$.
+  \end{enumerate}
+  By abuse of notation $L_i$ may also denote the ideal of $R$ generated by $\ell_1,\ldots,\ell_i$.
+
+  Take some arbitrary $\ell_1$ for the base-case and use \cref{lem: GradeToCMOverOpen} to find a open $\Spec R \subseteq \C^p$ such that $\E^{n+j}_{11}$  is $(n+j)$-Cohen-Macaulay for every $j\geq 0$.
+  This only requires removing a strict closed subset of $\Spec \C[s]/L_1$ so $Z(L_1)\cap \Spec R = \Spec R/L_1$ is non-empty.
   The final property is vacuous for $i=1$.
 
   Now assume that $i>1$ and that $\ell_1,\ldots, \ell_{i-1}$ are already constructed.
   First let's ensure that $\ell_i$
-  induces a injection on $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_k, \A_\mathcal{X}^{R/L_k}) \otimes_{\scaleto{\A_\mathcal{X}^{R/L_{k}}}{8pt}} \A_{R/L_{i-1}}$
-  for every $j\geq 0$ and $k<i$.
-  By iterative application of \cref{lem: CMLemmaBudur} it holds that $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_k, \A_\mathcal{X}^{R/L_k}) \otimes_{\scaleto{\A_\mathcal{X}^{R/L_{k}}}{8pt}} \A_{R/L_{i-1}}$
-  is $(n+j)$-Cohen-Macaulay over $\A_\mathcal{X}^{L_{i-1}}$.
-  Take $\ell_i$ so that the induduced element of $R/L_{i-1}$ is non-constant and does not vanish on any irreducible component of the Bernstein-Sato zero locust of $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{i}}}{8pt} }(K_k, \A_\mathcal{X}^{R/L_k}) \otimes_{\scaleto{\A_\mathcal{X}^{R/L_{k}}}{8pt}} \A_{R/L_{i-1}}$.
-  Then, by \cref{prop: NotBernsteinInjectiveAutomorphism} the desired injectivity follows.
-  As before, \cref{lem: GradeToCMOverOpen} can be used to to find a open $\Spec R' \subseteq \Spec R$ such that $\Ext^{n+j}_{ \scaleto{\A_\mathcal{X}^{R/L_{1}}}{8pt} }(K_1, \A_\mathcal{X}^{R/L_1})$  is $(n+j)$-Cohen-Macaulay for every $j\geq 1$ and  $Z(L_1)\cap \Spec R' = \Spec R'/L_1$ is non-empty.
-  Note that $\Spec R$ by $\Spec R'$ will conserve the induction hypothesis.
-  This concludes the inductive construction of the $\ell_i$.
+  induces a injection on $\E^{n+j}_{(i-1)k}$ for every $j\geq 0$ and $k<i$.
+  By iterative application of \cref{lem: CMLemmaBudur} it holds that $\E^{n+j}_{(i-1)k }$
+  is $(n+j)$-Cohen-Macaulay over $\A_\X^{L_{i-1}}$.
+  Take $\ell_i$ so that the induduced element of $R/L_{i-1}$ is non-constant and does not vanish on any irreducible component of the Bernstein-Sato zero locust of $\E^{n+j}_{(i-1)k}$ for every $j\geq 0$ and $k<i$.
+  Then, by \cref{lem: NotBernsteinInjectiveAutomorphism} the desired injectivity follows.
+  As before, \cref{lem: GradeToCMOverOpen} can be used to to find a open $\Spec R' \subseteq \Spec R$ such that $\E^{n+j}_{ii}$  is $(n+j)$-Cohen-Macaulay for every $j\geq 1$ and  $Z(L_i)\cap \Spec R' = \Spec R'/L_i$ is non-empty.
+  Note that replacing $\Spec R$ by $\Spec R'$ will conserve the induction hypothesis.
+  This concludes the inductive construction of the $\ell_i$.\\
 
-  We can now show that $E^2_{pq}$ has grade at least $\dim \mathcal{X}+1$ whenever $p-q = \dim \mathcal{X}-1$.
-  Certainly, $E_{\dim \mathcal{X}-1,0}$ by \cref{lem: AXRBehaviourGradesJAndChrel}.
-  It remains to show that $\Tor^{j}_{\scaleto{ \A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} }(\Ext^{\dim\mathcal{X}-j-1}_{ \scaleto{\A_\mathcal{X}^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\mathcal{X}^{\C[s]/L_{i}}), \A_\mathcal{X}^{\C[s]/L_{p-1}})$
-  has grade at least $\dim \mathcal{X}+1$ for any $j\geq 1$.
+  It follows that for any $i$ and $k<i$ there are isomorphisms
+  $$\mathcal{E}_{(i-1)k}^{n+j} \otimes^L_{\scaleto{\A_\X^{R/L_{i-1}}}{8pt}} \A_\X^{R/L_{p-1}} \cong  \mathcal{E}_{ik}^{n+j}  \otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}}\A_\X^{R/L_{p-1}}. $$
+  Indeed, consider the free resolution $\A_\X^{R/L_{i-1}}\to\A_\X^{R/L_{i-1}}$ is for $\A_\X^{R/L_i}$.
+  Then the injectivity of $\ell_i$ on $\E_{(i-1)k}^{n+j}$ yields that $\Tor_{\scaleto{\A_\X^{R/L_i}}{8pt}}^m(\E_{(i-1)k}^{n+j}, \A_\X^{R/L_i}) = 0$ for all $m>0$.
+  Now take a $\A_\X^{R/L_{i-1}}$-free resolution of $\mathcal{E}_{(i-1)k}^{n+j}$ and observe that applying $\blank \otimes_{\scaleto{\A_\X^{R/L_{i-1}}}{8pt}}\A_\X^{R/L_i}$ yields a $\A_X^{R/L_i}$-free resolution for $\E_{ik}^{n+j}$.
+  The desired isomorphism follows.
 
-  By the injectivity of $\ell_i$ on 
-\end{proof}
+  Iterative application of the isomorphism yields $\E_{ii}^{n+j}\otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}} \A_\X^{R/L_{p-1}} \cong \E_{(p-2)i}^{n+j}\otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}} \A_\X^{R/L_{p-1}}$.
+  This means that
+  $$\Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\Ext^r_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}})\cong \Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\E_{(p-2)i}^{n+j}, \A_\X^{\C[s]/L_{p-1}}) $$
+  The right right-hand-side of this isomorphism was already observed to vanish for any $-q > 0$ and the right hand side is precisely the $\E_{rq}^2$-term.
+  In particular this establishes that the $\E_{rq}^2$-terms with $r-q = \dim \X -1$ vanish for $q>0$.
+  The remaining terms $E_{\dim \X -1,0}$ is zero regardless since it involves $\Ext^{\dim X - 1}$ of a relative holonomic module.
+  This shows that the $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ are relative holonomic $\A_\X^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $\dim \X+1$ and concludes the proof.
+  \end{proof}
+
+
 
 The following lemma and it's proof are similar to the monovariate case which may be found in \cite[p246]{bjork1979rings}.
 \begin{lemma}
-  There is a morphism right $\A_\mathcal{X}^R$-modules $\U\to \A_\mathcal{X}^RF^s \otimes_{\O_\mathcal{X}}\Omega_\mathcal{X}$ sending $u$ to $F^sdx$.
+  There is a morphism right $\A_\X^R$-modules $\U\to \A_\X^RF^s \otimes_{\O_\X}\Omega_\X$ sending $u$ to $F^sdx$.
 \end{lemma}
 \begin{proof}
-   The resolution of singularities $\mathcal{Y}\to \mathcal{X}$ is a isomorphism on the complement of $\prod f_i = 0$. Hence, a isomorphism $\U = \Int \M \cong  \A_\mathcal{X}^RF^s  \otimes_{\O_\mathcal{X}}\Omega_\mathcal{X}$ holds outside of $\prod f_i = 0$.
+   The resolution of singularities $\Y\to \X$ is a isomorphism on the complement of $\prod f_i = 0$. Hence, a isomorphism $\U = \Int \M \cong  \A_\X^RF^s  \otimes_{\O_\X}\Omega_\X$ holds outside of $\prod f_i = 0$.
 
-  Pick some open set $V\subseteq \mathcal{X}$ we must show that whenever $uP = 0$ in $\U(V)$ it follows that $(F^s dx)P = 0$.
+  Pick some open set $V\subseteq \X$ we must show that whenever $uP = 0$ in $\U(V)$ it follows that $(F^s dx)P = 0$.
   Due to the isomorphism it is certainly the case that $(F^s dx) P = 0$ outside of $\prod f_i = 0$.
   Hence, the support of the coherent sheaf of $\O_V^R$-modules $\O_V^R (F^s dx) P $ lies in $\prod f_i = 0$.
   The Nullstellen Satz now yields that $(\prod f_i)^N (F^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
-  Note that $\prod f_i$ is a non-zero divisor of $(F^s\otimes_{\O_\mathcal{X}} \Omega_\mathcal{X})(V)$. Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
+  Note that $\prod f_i$ is a non-zero divisor of $(F^s\otimes_{\O_\X} \Omega_\X)(V)$. Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
 \end{proof}
 \newpage
 \section{Old Stuff}
