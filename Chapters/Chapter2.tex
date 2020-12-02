@@ -673,12 +673,13 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   It remains to show that the $\ell_j$ can be chosen so that $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_\X^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $\dim \X+1$.
   This means we must understand the $\Ext$-functor of a $\Tor$.
   Hence, we consider the interaction between the derived $\Hom$-functor and the derived tensor product.
+
   By a taking a $\A_{\X}^{\C[s]/L_{i}}$-free resolution of $K_i$ one finds that
   $$\bR \Hom_{\scaleto{\A_\X^{ \C[s]/L_{p-1} }}{8pt} }(K_i\otimes^L_{\scaleto{ \A_\X^{\C[s]/L{i}} }{8pt} } \A_\X^{\C[s]/L_{p-1} },\A_\X^{ \C[s]/L_{p-1}} ) \cong \bR \Hom_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}) \otimes^L_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} } \A_\X^{\C[s]/L_{p-1}}.$$
   We compare the Grothendieck spectral sequences of both sides.
 
   The spectral sequence on the left-hand-side has terms
-  $$E_{rq}^2 = \Ext_{\scaleto{\A_\X^{\C[s]/L_{p-1}}}{8pt} }^r(\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}}),\A_\X^{\C[s]/L_{p-1}}).$$
+  $$E_{rq}^2 = \Ext_{\scaleto{\A_\X^{\C[s]/L_{p-1}}}{8pt} }^r(\Tor^{-q}_{\scaleto{\A_\X^{\C[s]/L_{p-1}}}{8pt} }(K_i,\A_X^{\C[s]/L_{p-1}}),\A_\X^{\C[s]/L_{p-1}}).$$
   Since $\Tor^{-q}(K_i,\A_X^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_X^{\C[s]/L_{p-1}}$-module these terms are only nonzero for $r=\dim \X$ or $r = \dim \X+1$.
   In particular, the spectral sequence degenerates at $E^2$.
   Note that the statement that $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ has grade greater than or equal to $\dim \X+1$ is equivalent to $E^2_{\dim\X,-1} = 0$.
@@ -689,11 +690,11 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   $$E^2_{rq} = \Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\Ext^r_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}}).$$
   The claim follows if we can ensure that that all terms with $r-q = \dim \X -1$ vanish on $\X\times\Spec R$ for some open subset $\Spec R\subseteq \C^p$.  %\todo{Maybe add more explanation?}
   Indeed, then by \cref{prop: ProjectionBernsteinSatoRelativeChar} and \cref{cor: AXRBehaviourGradesJAndChrel} the terms have grade $\dim\X+1$ and it follows that the same must hold for the terms of the spectral sequence on the left hand side.
-  Since $\Ext^{\dim\X}$ is $\dim\X$-pure this means that the $E^2_{\dim\X,-1}$-term in the left-hand-side spectral sequence vanishes.
+  Since $\Ext^{\dim\X}$ of a relative holonomic module $\dim\X$-pure this means that the $E^2_{\dim\X,-1}$-term in the left-hand-side spectral sequence vanishes.
   \\
 
 
-  The $\ell_i$ and the open $\Spec R$ are constructed by induction on $i$. For any $i,j,k$ with $k\leq i$ denote $\E_{ik}^{n+j}:= \Ext^{n+j}_{ \scaleto{\A_\X^{R/L_{k}}}{8pt} }(K_k, \A_\X^{R/L_k}) \otimes_{\scaleto{\A_\X^{R/L_{k}}}{8pt}} \A_{R/L_{i}}$.
+  The $\ell_i$ and the open $\Spec R$ are constructed by induction on $i$. For any $i,j,k$ with $k\leq i$ denote $\E_{ik}^{n+j}:= \Ext^{n+j}_{ \scaleto{\A_\X^{R/L_{k}}}{8pt} }(K_k, \A_\X^{R/L_k}) \otimes_{\scaleto{\A_\X^{R/L_{k}}}{8pt}} \A_\X^{R/L_{i}}$.
   In every induction step it is ensured that
   \begin{enumerate}[label=(\roman*)]
     \item $\E_{ii}^{n+j}$ is $(n+j)$-Cohen-Macaulay over $\A_X^{R/L_i}$ or zero for every $j\geq 0$.
@@ -718,18 +719,17 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   Note that replacing $\Spec R$ by $\Spec R'$ will conserve the induction hypothesis.
   This concludes the inductive construction of the $\ell_i$.\\
 
-  It follows that for any $i$ and $k<i$ there are isomorphisms
+
+  Applying injectivity of $\ell_i$ on $\E_{(i-1)k}^{n+j}$ with free resolution $\A_\X^{R/L_{i-1}}\to\A_\X^{R/L_{i-1}}$ for $\A_\X^{R/L_i}$ yields that $\Tor_{\scaleto{\A_\X^{R/L_i}}{8pt}}^m(\E_{(i-1)k}^{n+j}, \A_\X^{R/L_i}) = 0$ for all $m>0$.
+  By taking a $\A_\X^{R/L_{i-1}}$-free resolution of $\mathcal{E}_{(i-1)k}^{n+j}$ it follows that
   $$\mathcal{E}_{(i-1)k}^{n+j} \otimes^L_{\scaleto{\A_\X^{R/L_{i-1}}}{8pt}} \A_\X^{R/L_{p-1}} \cong  \mathcal{E}_{ik}^{n+j}  \otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}}\A_\X^{R/L_{p-1}}. $$
-  Indeed, consider the free resolution $\A_\X^{R/L_{i-1}}\to\A_\X^{R/L_{i-1}}$ is for $\A_\X^{R/L_i}$.
-  Then the injectivity of $\ell_i$ on $\E_{(i-1)k}^{n+j}$ yields that $\Tor_{\scaleto{\A_\X^{R/L_i}}{8pt}}^m(\E_{(i-1)k}^{n+j}, \A_\X^{R/L_i}) = 0$ for all $m>0$.
-  Now take a $\A_\X^{R/L_{i-1}}$-free resolution of $\mathcal{E}_{(i-1)k}^{n+j}$ and observe that applying $\blank \otimes_{\scaleto{\A_\X^{R/L_{i-1}}}{8pt}}\A_\X^{R/L_i}$ yields a $\A_X^{R/L_i}$-free resolution for $\E_{ik}^{n+j}$.
-  The desired isomorphism follows.
+
 
   Iterative application of the isomorphism yields $\E_{ii}^{n+j}\otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}} \A_\X^{R/L_{p-1}} \cong \E_{(p-2)i}^{n+j}\otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}} \A_\X^{R/L_{p-1}}$.
   This means that
   $$\Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\Ext^r_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}})\cong \Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\E_{(p-2)i}^{n+j}, \A_\X^{\C[s]/L_{p-1}}) $$
-  The right right-hand-side of this isomorphism was already observed to vanish for any $-q > 0$ and the right hand side is precisely the $\E_{rq}^2$-term.
-  In particular this establishes that the $\E_{rq}^2$-terms with $r-q = \dim \X -1$ vanish for $q>0$.
+  The right right-hand-side of this isomorphism was already observed to vanish for any $-q > 0$ and the left-hand-side is precisely the $E_{rq}^2$-term of the sepctral sequence.
+  This establishes that the $E_{rq}^2$-terms with $r-q = \dim \X -1$ vanish for $q>0$.
   The remaining terms $E_{\dim \X -1,0}$ is zero regardless since it involves $\Ext^{\dim X - 1}$ of a relative holonomic module.
   This shows that the $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ are relative holonomic $\A_\X^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $\dim \X+1$ and concludes the proof.
   \end{proof}
@@ -737,7 +737,7 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
 
 
 The following lemma and it's proof are similar to the monovariate case which may be found in \cite[p246]{bjork1979rings}.
-\begin{lemma}
+\begin{lemma}\label{lem: SurjectionUF}
   There is a morphism right $\A_\X^R$-modules $\U\to \A_\X^RF^s \otimes_{\O_\X}\Omega_\X$ sending $u$ to $F^sdx$.
 \end{lemma}
 \begin{proof}
@@ -748,6 +748,21 @@ The following lemma and it's proof are similar to the monovariate case which may
   Hence, the support of the coherent sheaf of $\O_V^R$-modules $\O_V^R (F^s dx) P $ lies in $\prod f_i = 0$.
   The Nullstellen Satz now yields that $(\prod f_i)^N (F^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
   Note that $\prod f_i$ is a non-zero divisor of $(F^s\otimes_{\O_\X} \Omega_\X)(V)$. Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
+\end{proof}
+Now all ingredients are in place for the proof of \cref{thm: EstimateBernsteinSatoZeroLocust}.
+\begin{theorem}
+  With notation as in \cref{sec: IntoductionChapterRelative} every irreducible component of $Z(B_F)$ of codimension $1$ is a hyperplane of the form
+  $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + c_i=0$$
+  with $c_i \in \mathbb{Z}_{\geq 0 }$.
+\end{theorem}
+\begin{proof}
+  By \cref{lem: GradeNPlusOne} the $\A_X$-module $\M/\U$ has grade greater than or equal to $\dim\mathcal{X} + 1$. Hence \cref{lem: StabilisationtN} provides $N\geq 1$ such that $t^N\M/\U = 0$ on a open $\X\times\Spec R$ for some open $\Spec R\subseteq \C^p$ with complement of codimension strictly greater than $1$.
+
+  Let $b(s_1,\ldots,s_p)$ denote the Bernstein-Sato polynomial for $\M/t\M$ provided by \cref{lem: BernsteinSatoPolynomialUpstairs}.
+  Set $B := \prod_{i=0}^{N+1} b(s_1 + i, \ldots, s_p + i)$ then it follows that
+  $B\M \subseteq t\U$ on $\X \times \Spec R$.
+  In particular this means that $B$ is in the Bernstein-Sato ideal of $\U/t\U$.
+  By the surjection of \cref{lem: SurjectionUF} this means that $B\in B_F$ which proves the theorem. 
 \end{proof}
 \newpage
 \section{Old Stuff}
