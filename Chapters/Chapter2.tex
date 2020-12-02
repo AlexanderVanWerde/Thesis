@@ -59,6 +59,12 @@ The proof of the following results proceeds precisely like the case of $\D_X$-mo
 \begin{proposition}
     Let $\M$ be a coherent $\A_X^R$-module, then the support of $\grrel \M$ in $T^*X \times \Spec R$ is independent of the chosen filtration. It is called the characteristic variety of $\M$ and denoted $\Chrel \M$.
 \end{proposition}
+\begin{lemma}\label{lem: SESBehaviourA}
+    Consider a short exact sequence of coherent $\A_X^R$-modules
+    $$0\to \M_1 \to \M_2 \to\M_3 \to 0. $$
+    Then it holds that
+    $$\Chrel \M_2 = \Chrel \M_1 \cup \Chrel \M_3. $$
+\end{lemma}
 %\todo{Add Chrel behaviour with respect to SES}
 \subsection{Basic Operations}\label{sec: BasicOperations}
 For any right $\A_{X}^R$-module $\M$ and left $\D_X$-module $\N$ the tensor product $\M \otimes_{\O_X} \N$ comes equipped with a right $\A_X^R$-module structure defined by
@@ -408,33 +414,83 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
   For finitely generated $\A_X^R$-modules
   $$j(\M) + \dim \Chrel \M = 2n + \dim R $$
 \end{corollary}
+
 \subsection{Pure Modules}
 \begin{definition}
   Pure
 \end{definition}
-\begin{lemma}
+\begin{lemma}\label{lem: ExtGrade}
   Behaviour $\Ext$
 \end{lemma}
 \begin{lemma}
-  $\Ext$ of relative holonomic remains so
+  $\Ext$,$\Tor$ of relative holonomic remains so
 \end{lemma}
 \begin{lemma}\label{lem: NotBernsteinInjectiveAutomorphism}
-  Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq \dim R$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective automorphisms on $\N$ and $\Ext^{n+k}_{\A_X^R}(\M,\A_X^R)$.
+  Let $\M$ be a relative holonomic $\A_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq \dim R$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective automorphisms on $\M$ and $\Ext^{n+k}_{\A_X^R}(\M,\A_X^R)$. Moreover, there exists a good filtration on $\M$ such that $b$ induces a injection on $\grrel \M$.
 \end{lemma}
-\begin{lemma}\label{lem: CMLemmaBudur}
-  $M/\ell$ conserves CM, like prop 3.4.3 in \cite{budur2019zero}
-\end{lemma}
-
+The proof of the following lemma is a slight modification on the proof of proposition 3.4.3 in \cite{budur2019zero}.
 \begin{lemma}\label{lem: RestrictToCM}
-  Let $\M$ be a relative holonomic $\A_X^R$-module of grade $j(\M) = (n+k)$ some $0\leq k < \dim R$.
-
-  Then there exists a polynomial $\ell$ of degree one such that $\M \otimes_R R/(\ell)$ is a relative holonomic  $\A_X^{R/(\ell)}$-module of grade $n+k$. Moreover, if $k=0$ then $\ell$ can be arbitrary.
+  Let $\M$ be a non-zero relative holonomic $\A_X^R$-module of grade $j(\M) = n$  then, for any non-unit $b\in R$, it holds that $\M \otimes_R R/(b)$ is a non-zero relative holonomic  $\A_X^{R/(\ell)}$-module of grade $n$.
 \end{lemma}
 \begin{proof}
-  Like prop 3.4.3 in \cite{budur2019zero} using that $E_{0,n+k}2 = \Tor_0^{\A_X^R}(\Ext_{\A_X^R}^{n+k},\A_{X}^{R/(b)}) \cong \Ext_{\A_X^R}^{n+k}(\M,\A_R)\otimes_{R}R/(b) \neq 0$ in the spectral sequence.
+  Note that $\M \otimes_R R/(b)$ is certainly a coherent $\A_X^{R/(\ell)}$-module.
+  The maps $F_i\M \to \M\otimes R/(b)$ induce a filtration on $\M\otimes R/(b)$ with graded object
+  $$\gr^{rel}(\M\otimes R/(b)) \cong \bigoplus_i \frac{\img F_i\M \otimes R/(b)}{\img F_{i-1} \otimes R/(b)}. $$
+  By consideration of the exact sequences associated to the surjections $F_{i}\M \twoheadrightarrow \gr^{rel}_i\M$ one finds a surjection $(\grrel\M) \otimes_R R/(b) \twoheadrightarrow  \gr^{rel}(\M\otimes R/(b)).$
+  This implies that
+  $$\Chrel \M\otimes R/(b) \subseteq (\Id_{T^*X} \times \Delta)^{-1}(\Chrel \M)$$
+  where $\Delta:\Spec R/(b)\to \Spec R$ is the closed embedding.
+  It follows that $\M \otimes_R R/(b)$ is a relative holonomic $\A_X^{R/(b)}$-module.
 
-  Here $\Ext_{\A_X^R}^{n+k}(\M,\A_R)\otimes_{R}R/(b) \neq 0$ is where the existence and $k<\dim R$ is needed. It's like the first part of the proof of prop 3.4.3 using that $\Ext$ is always pure and $\ell$ can be chosen appropriately.
+  It remains to establish that $\M \otimes_R R/(b)$ is nonzero of grade $n$.
+  By taking a free resolution of $\M$ one has that
+  $$\bR\Hom_{\scaleto{\A_X^R}{8pt}}(\M,\A_X^R)\otimes_{\scaleto{\A_X^R}{8pt}}^L \A_X^{R/(b)} \cong \bR \Hom_{\scaleto{\A_X^{R/(b)}}{8pt}}(\M\otimes_{\scaleto{\A_X^R}{8pt}}^L \A_X^{R/(b)}, \A_X^{R/(b)}). $$
+  We compare the Grothendieck spectral sequences of both sides of this isomorphism.
+
+  The spectral sequence associated with the right-hand-side has $E^2$-sheet
+  $$E_{pq}^2 = \Ext^p_{\scaleto{\A_X^{R/(b)}}{8pt}}(\Tor^{-q}_{\scaleto{\A_X^R}{8pt}}(\M, \A_X^{R/(b)}), \A_X^{R/(b)}).$$
+  Recall from \cref{lem: ExtGrade} terms with $p>n$ have grade greater than $n$ and due to \cref{lem: AXRBehaviourGradesJAndChrel} there are no nonzero terms with $p<n$.
+  Hence, the only term with $p+q = n$ which could potentially have degree $n$ is $E_{n0}^2$.
+  If we can show that the total cohomology of degree $n$ on the left-hand-side has grade $n$ then it follows that $\Ext^n_{\scaleto{\A_X^{R/(b)}}{8pt}}(\M\otimes_{\scaleto{\A_X^R}{8pt}} \A_X^{R/(b)}), \A_X^{R/(b)}) \neq 0$.
+
+  The spectral sequence associated to the left-hand-side has $E^2$-sheet given by
+  $$E^2_{pq} =\Tor^{-q}_{\scaleto{\A_X^R}{8pt}}( \Ext^p_{\scaleto{\A_X^R}{8pt}}(\M,\A_X^R), \A_X^{R/(b)}).$$
+  Note that there are no nonzero differentials which map into $E^j_{0n}$ or for $j\geq 2$.
+  Further, the differentials out of the $E_{0n}^j$ land in $E_{-j(n+j)}^j$ which is a subquotient of $\Tor^j_{\scaleto{\A_X^R}{8pt}}(\Ext^{n+j+1}_{\scaleto{\A_X^R}{8pt}}(\M,\ab \A_X^R)\ab , \A_X^{R/(b)})$.
+  Since $\Ext^{n+j}_{\scaleto{\A_X^R}{8pt}}(\M,\A_X^R)$ is relative holonomic of degree $n+j$ \cref{cor: AXRBehaviourGradesJAndChrel} and a argument similarly to that which established that $\M \otimes_R R/(b)$ is relative holonomic yield that $E_{j(n+j+1)^j}$ has grade greater than or equal to $n+j-1$.
+  We will show that that $E^2_{0n}$ has grade $n$.
+  Then using \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{lem: SESBehaviourA} on the exact sequences
+  $$0 \to E^{j+1}_{0n}\to  E^j_{0n} \to E_{j(n+j+1)^j} $$
+  it follows that $E^j_{0n}$ has grade $n$ for every $j\geq 2$.
+  This shows that the total cohomology of degree $n$ has grade $n$ and concludes the proof.
+
+  Denote $\E^n := \Ext^{n}_{\scaleto{\A_X^R}{8pt}}(\M,\A_X^R)$, by \cref{lem: ExtGrade} it holds that $\E^n$ is a $n$-pure relative holonomic $\A_X^R$-module.
+  By \cref{lem: NotBernsteinInjectiveAutomorphism} it follows that $b$ induces injections on $\E^{n}$ and $\gr^{rel} \E^{n}$ for some appropriate filtration.
+  In particular the vertical maps in the following diagram are injective
+  $$\begin{tikzcd}
+    0 \arrow{r} & F_{i-1} \E^n\arrow{r} \arrow{d}{b}& F_i \E^{n}\arrow{r} \arrow{d}{b}& \gr^{rel}_i \E^n\arrow{r}\arrow{d}{b} & 0\\
+    0 \arrow{r} & F_{i-1} \E^n\arrow{r} & F_i \E^{n}\arrow{r} & \gr^{rel}_i \E^n\arrow{r} & 0
+  \end{tikzcd} $$
+  so the snake lemma yields a short exact sequence
+  $$\begin{tikzcd}
+    0 \arrow{r} & F_{i-1} \E^n\otimes_R R/(b)\arrow{r} & F_i \E^{n}\otimes_R R/(b)\arrow{r} & \gr^{rel}_i \E^n\arrow{r}\otimes_R R/(b) & 0.
+  \end{tikzcd} $$
+  The injectivity of $b$ on $\gr^{rel}\E^n$ implies that $b$ is also injective on $\E^n/F_i\E^n$. A similar appliccation of the snake lemma now yields a short exact sequence
+  $$\begin{tikzcd}
+    0 \arrow{r} & F_{i} \E^n\otimes_R R/(b)\arrow{r} & \E^{n}\otimes_R R/(b)\arrow{r} & (\E^n/F_i \E^n )\arrow{r}\otimes_R R/(b) & 0.
+  \end{tikzcd} $$
+  A filtration on $\E^n \otimes_R R/(b)$ is induced by the image of $F_i\E^n$. By the injectivity of the short exact sequences one now has isomorphisms
+  \begin{align*}
+    F_i(\E^n \otimes_R R/(b)) \cong F_i\E^n / (F_i \E^n \cap b\E^n) \cong F_i \E^n / b F_i \E^n \cong  (F_i\E^n) \otimes_R R/(b)
+  \end{align*}
+  combined with the surjectivity of the first short exact sequence it follows that
+  $$\gr^{rel}(\E^n \otimes_R R/(b)) \cong \gr^{rel}\E^n \otimes_R R/(b). $$
+  It follows that
+  $$\Ch^{rel}(\E^n \otimes_{\A_X^R} \A_X^{R/(b)})  = (\Id_{T^*X} \times \Delta)^{-1}(\Chrel \M)$$
+  with $\Delta: \Spec R/(b) \to \Spec R$ the closed embedding as before. Since $\M$ has grade $n$ this equality and \cref{cor: AXRBehaviourGradesJAndChrel} imply that $\Ch^{rel}(\E^n \otimes_{\A_X^R} \A_X^{R/(b)})$ has dimension $n + \dim R - 1$.
+  In particular it follows that $\E^n \otimes_{\A_X^R} \A_X^{R/(b)}$ is nonzero and has grade $n$. This concludes the proof.  
 \end{proof}
+\todo{Fix subscript/superscript on all Tor in document}
 \subsection{Cohen-Macauley}
 \begin{definition}
   Cohen-Macauley
@@ -445,7 +501,12 @@ The following definition should be viewed in perspective of  the Auslander-Buchs
 \begin{proof}
   Like lemma 3.5.2 in \cite{budur2019zero}
 \end{proof}
-
+\begin{lemma}\label{lem: CMLemmaBudur}
+  Let $\M$ be a relative holonomic and $(n+k)$-Cohen-Macaulay $\A_X^R$-module. Let $b\in R$ be so that it does not vanish on any irreducible component of $Z(B_\M)$. Then it holds that $\M\otimes_R R/(b)$ is a relative holonomic $(n+k)$-Cohen-Macaulay $\A_X^{R/(b)}$-module or zero.
+\end{lemma}
+\begin{proof}
+  This is shown in the proof of proposition 3.4.3 in \cite{budur2019zero}. This proof is similar to the proof of \cref{lem: lem: RestrictToCM} which was based on \cite{budur2019zero}.
+\end{proof}
 
 
 The following lemma is a generalisations of a result by \cite{kashiwara1976b} to the relative case.
@@ -466,7 +527,7 @@ The proof and statement are more involved than the original result by Kashiwara 
   Since localisation is an exact functor the stabilisation of kernels for $i\geq N$ is still valid over $\Spec R'$.
   The first steps in this proof use the stabilisation to estabish that the modules are actually $(n+k)$-Cohen-Macaulay for arbitrary $i\geq 0$. For notational simplicity we abbreviate $\Ext^{k}(\M') :=\Ext^{k}_{\A_X^{R'}}(\M',\A_X^{R'})$.
 
-  The surjection $\M'/t\M' \to t^i \M'/t^{i+1}$ induces a long exact sequence
+  The surjection $\M'/t\M' \twoheadrightarrow t^i \M'/t^{i+1}$ induces a long exact sequence
   $$0 \to \Ext^{n+k}\left(\frac{t^i\M'}{ t^{i+1}\M'}\right) \to  \Ext^{n+k}\left(\frac{\M'}{t\M'}\right) \to \Ext^{n+k}\left(K_i\right) \to \Ext^{n+k+1}\left(\frac{t^i\M'}{ t^{i+1}\M'}\right)\to \cdots $$
   In particular there is a isomorphism $\Ext^{n+k+1}(t^i\M'/t^{i+1}\M') \cong \Ext^{n+k}(K_i)\ab/\img \Ext^{n+k}(\M'\ab /t\M')$ whose left-hand-side is known to vanish when $i\leq N$.
   Since the righ-hand-side is constant for $i\geq N$ it follows that $\Ext^{n+k+1}(t^i\M'/t^{i+1}\M')\cong 0$ for any $i\geq 0$.
@@ -477,7 +538,7 @@ The proof and statement are more involved than the original result by Kashiwara 
   The injection $t^{i+1} \M'\to t^{i}\M'$ induces exact sequences
   $$\Ext^{n+k+j}\left(\frac{t^i\M'}{ t^{i+1}\M'}\right) \to  \Ext^{n+k+j}\left(t^{i}\M'\right) \to \Ext^{n+k +j}\left(t^{i+1} \M'\right).$$
   By induction on $i$ it follows that $t^i\M'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
-  Similarly the long exact sequence induced by the surjection $\M/t^{i+1}\M' \to \M'/t^{i}\M'$ yields that $\M/t^{i}\M$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
+  Similarly the long exact sequence induced by the surjection $\M/t^{i+1}\M' \twoheadrightarrow \M'/t^{i}\M'$ yields that $\M/t^{i}\M$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
 
 
   By the Cohen-Macauley results which have been established it follows that the morphisms $\Ext^{n+k}( t^i\M') \to  \Ext^{n+k}(t^{i+1}\M')$ and $\Ext^{n+k}(\M') \to \Ext^{n+k} (t^i\M',\ab \A_X^{R'})$ are surjective.
@@ -603,7 +664,7 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   $$[G^s \mu^*(dx)]\cdot w^{-1}\partial_j w =((B_j s_0 + b_j)z_j^{-1} + \sum_{i=1}^{n} A_i s_0 u_i^{-1}\partial_j(u_i) )[G^s \mu^*(dx)].$$
   Recall that the $s_1,\ldots,s_n$ could be produced by acting with a vector field.
   Since $s_0$ is found with affine relations it follows that there exists some differential operator $\mathcal{S}_0$ of degree $1$ such that $s_0 [G^s \mu^*(dx)] = [G^s \mu^*(dx)]\cdot \mathcal{S}_0$.
-  Now we get a well-defined surjection $\D_\Y/I \to \M\otimes_{\C[s]}\C[s]/L_{p-1}$ where $I$ denotes the right ideal generated by $w^{-1}\partial_j wz_j - b_j - \mathcal{S} h_i$ with $h_j = B_j + z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i)$ for $j=1,\ldots, n+p$.
+  Now we get a well-defined surjection $\D_\Y/I \twoheadrightarrow \M\otimes_{\C[s]}\C[s]/L_{p-1}$ where $I$ denotes the right ideal generated by $w^{-1}\partial_j wz_j - b_j - \mathcal{S} h_i$ with $h_j = B_j + z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i)$ for $j=1,\ldots, n+p$.
 
   Note that $ z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i) = 0$ for $j>n$.
   Hence, the $h_{n+j}$ are complex scalars and they are not all zero since there exists a nonzero $B_{n+j}$.
@@ -616,7 +677,7 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   If the $\A_\X$-module $\Int\M/U$ has grade $\dim \X$ then the quotients $(\Int\M/\U)\otimes_{\C[s]} \C[s]/L_{i}$ are relative holonomic $\A_\X^{R/L_i}$-modules of grade $\dim\X$.
 \end{lemma}
 \begin{proof}
-  This follows by induction on $i=0,\ldots,p$ using \cref{lem: NotBernsteinInjectiveAutomorphism} which is applicable since grade $\dim \X$ means that the Bernstein-Sato ideals of $\Int\M/\U \otimes_{\C[s]} \C[s]/L_{i-1}$ is the zero ideal by \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar}.
+  This follows by induction on $i=0,\ldots,p$ using \cref{lem: RestrictToCM} which is applicable since grade $\dim \X$ means that the Bernstein-Sato ideals of $\Int\M/\U \otimes_{\C[s]} \C[s]/L_{i-1}$ is the zero ideal by \cref{cor: AXRBehaviourGradesJAndChrel} and \cref{prop: ProjectionBernsteinSatoRelativeChar}.
 \end{proof}
 \begin{lemma}\label{lem: InjectiveEll}
   Any polynomial $b\in \C[s]$ which is not in $L_i$ induces a injective automorphisms on $\M \otimes_{\C[s]}\C[s]/L_i$.
@@ -715,7 +776,7 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
   is $(n+j)$-Cohen-Macaulay over $\A_\X^{L_{i-1}}$.
   Take $\ell_i$ so that the induduced element of $R/L_{i-1}$ is non-constant and does not vanish on any irreducible component of the Bernstein-Sato zero locust of $\E^{n+j}_{(i-1)k}$ for every $j\geq 0$ and $k<i$.
   Then, by \cref{lem: NotBernsteinInjectiveAutomorphism} the desired injectivity follows.
-  As before, \cref{lem: GradeToCMOverOpen} can be used to to find a open $\Spec R' \subseteq \Spec R$ such that $\E^{n+j}_{ii}$  is $(n+j)$-Cohen-Macaulay for every $j\geq 1$ and  $Z(L_i)\cap \Spec R' = \Spec R'/L_i$ is non-empty.
+  As before, \cref{lem: GradeToCMOverOpen} can be used to to find a open $\Spec R' \subseteq \Spec R$ such that $\E^{n+j}_{ii}$  is $(n+j)$-Cohen-Macaulay for every $j\geq 0$ and  $Z(L_i)\cap \Spec R' = \Spec R'/L_i$ is non-empty.
   Note that replacing $\Spec R$ by $\Spec R'$ will conserve the induction hypothesis.
   This concludes the inductive construction of the $\ell_i$.\\
 
@@ -727,8 +788,8 @@ For notational simplicity we simply write $F$ instead of $\widetilde{F}$.
 
   Iterative application of the isomorphism yields $\E_{ii}^{n+j}\otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}} \A_\X^{R/L_{p-1}} \cong \E_{(p-2)i}^{n+j}\otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}} \A_\X^{R/L_{p-1}}$.
   This means that
-  $$\Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\Ext^r_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}})\cong \Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\E_{(p-2)i}^{n+j}, \A_\X^{\C[s]/L_{p-1}}) $$
-  The right right-hand-side of this isomorphism was already observed to vanish for any $-q > 0$ and the left-hand-side is precisely the $E_{rq}^2$-term of the sepctral sequence.
+  $$\Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\Ext^r_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}})\cong \Tor^{-q}_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} }(\E_{(p-2)i}^{r}, \A_\X^{\C[s]/L_{p-1}}) $$
+  The right right-hand-side of this isomorphism was already observed to vanish for any $-q > 0$ and the left-hand-side is precisely the $E_{rq}^2$-term of the spectral sequence.
   This establishes that the $E_{rq}^2$-terms with $r-q = \dim \X -1$ vanish for $q>0$.
   The remaining terms $E_{\dim \X -1,0}$ is zero regardless since it involves $\Ext^{\dim X - 1}$ of a relative holonomic module.
   This shows that the $\Tor_{\scaleto{\A_\X^{\C[s]/L_i}}{7pt}}^1(K_i, \A_\X^{\C[s]/L_{p-1}})$ are relative holonomic $\A_\X^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $\dim \X+1$ and concludes the proof.
@@ -762,7 +823,7 @@ Now all ingredients are in place for the proof of \cref{thm: EstimateBernsteinSa
   Set $B := \prod_{i=0}^{N+1} b(s_1 + i, \ldots, s_p + i)$ then it follows that
   $B\M \subseteq t\U$ on $\X \times \Spec R$.
   In particular this means that $B$ is in the Bernstein-Sato ideal of $\U/t\U$.
-  By the surjection of \cref{lem: SurjectionUF} this means that $B\in B_F$ which proves the theorem. 
+  By the surjection of \cref{lem: SurjectionUF} this means that $B\in B_F$ which proves the theorem.
 \end{proof}
 \newpage
 \section{Old Stuff}
