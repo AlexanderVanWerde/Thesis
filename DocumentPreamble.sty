@@ -66,6 +66,8 @@
 \newcommand{\RelMinspace}{\mkern-5mu} % Kerning for ^rel
 \newcommand{\TMinpace}{\mkern-5mu}
 \newcommand{\IntMinspace}{\mkern -8mu}
+
+\renewcommand{\sc}[1]{\scaleto{#1}{8pt}} % Scaling in Tor/Ext
 %%       COMMANDS       %%
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -106,21 +108,24 @@
 
 \let\ab\allowbreak
 
+
 \newcommand{\abs}[1]{\ensuremath{\vert #1 \vert}}
 \newcommand{\norm}[1]{\ensuremath{\Vert #1 \Vert}}
 \newcommand{\floor}[1]{\ensuremath{\lfloor #1 \rfloor}}
 \newcommand{\ceil}[1]{\ensuremath{\lceil #1 \rceil}}
-
 
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\Ann}{Ann}
-\DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\img}{Im}
 \DeclareMathOperator{\Spec}{Spec}
 \newcommand{\op}[1]{\ensuremath{\operatorname{#1}}}
+
+\newcommand{\Ex}[2]{\Ext_{\sc{#1}}^{#2}}
+\newcommand{\Tr}[2]{\Tor_{#2}^{\sc{#1}}}
+
 
 \newcommand{\ignore}[1]{}
 %%      ENVIRONMENTS        %%
