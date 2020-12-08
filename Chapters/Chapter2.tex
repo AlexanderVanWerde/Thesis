@@ -265,7 +265,7 @@ The following result is due to \cite{maisonobe2016filtration} in the analytical 
       This ultimately reduces to computation of the direct image to a spectral sequence with
       $$E_1^{p,q} = (R^q \mu_* \F^p) \otimes_{\O_X^R} \A_X^R.$$
       The properness of $\mu$ yields that $R^q \mu_* \F^p$ is coherent as a $\O_X^R$-module.
-      In particular the $E_1^{p,q}$-terms are coherent as $\A_X^R$ which implies that the same holds for the cohomology sheaves of the direct image.
+      In particular the $E_1^{p,q}$-terms are coherent as $\A_X^R$-modules which implies that the same holds for the cohomology sheaves of the direct image.
     \end{proof}
 \subsection{Kashiwara's Estimate for the Characteristic Variety}
 Let $\mu:Y\to X$ be a proper morphism of smooth algebraic varieties. Given a coherent $\A_X^R$-module $\M$ with relative characteristic variety $\Chrel \M$. We desire to estimate $\Chrel \IntJ{j} \M$ in terms of $\Chrel\M$. Such a estimate in the non-relative case is known due to Kashiwara. %
@@ -318,8 +318,6 @@ The Rees module viewpoint agrees with the earlier definition by the following le
 \end{lemma}
 \begin{proof}
   We give the proof for $\int^j \grrel \M$, the proof for $\IntJ{j} \M$ is similar but easier.
-
-
   Consider the following Cartesian square
   $$
       \begin{tikzcd}
@@ -327,18 +325,17 @@ The Rees module viewpoint agrees with the earlier definition by the following le
         T^*X\arrow{rr}{\pi_X}  \times \Spec R && X\times \Spec R.
       \end{tikzcd}
   $$
-  Since $\pi_X$ is flat the derived version of the flat base change theorem yields that \todo{Check in detail that the theorem is applicable and has this conclusion due to flatness}
-  $$\bL\pi_X^*\bR\mu_*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R) = \bR\widetilde{\mu}_*\bL(T^*\mu\circ\pi_Y)^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R).$$
-  Since $\pi_X$ is flat it follows that $\H^j \bL\pi_X^*(\blank) = \pi_X^*\H^j(\blank)$\todo{$\H^j \bL\pi_X^*(\blank) = \pi_X^*\H^j(\blank)$?}. It now suffices to show that the right hand side is $\int \grrel\M$.
-
-  Since $\pi_Y$ is flat it holds that $\bL(T^*\mu \circ \pi_Y)^* = \bL (T^*\mu)^* \circ \bL \pi_Y^*$\todo{$\bL(T^*\mu \circ \pi_Y)^* = \bL (T^*\mu)^* \circ \bL \pi_Y^*$?}.
-  We show that $\bL\pi_Y^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong \grrel\M \otimes^L_{\mu^{-1}\O_X^R}\widetilde{\mu}^*\grrel\A_{X}^R$ from which the result follows immediately.
+  The derived version of the flat base change theorem yields that \todo{Can't find any better reference than Wikipedia, should be somewhere in SGA 6}
+  $$\bL\pi_X^*\bR\mu_*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong  \bR\widetilde{\mu}_*\bL(T^*\mu\circ\pi_Y)^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R).$$
+  Since $\pi_X$ is flat it follows that $\H^j \bL\pi_X^*(\bR\mu_* \blank) = \pi_X^*(\bR^j\mu_*\blank)$. It now suffices to show that the right hand of the isomorphism side is $\int \grrel\M$.
+  We show that $\bL\pi_Y^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong \grrel\M \otimes^L_{\mu^{-1}\O_X^R}\widetilde{\mu}^*\grrel\A_{X}^R$
+  whence the result follows since $\bL(T^*\mu \circ \pi_Y)^* = \bL (T^*\mu)^* \circ \bL \pi_Y^*$ by $\pi_Y$ being flat.
 
   Let $\mathcal{F}^\bullet$ denote a bimodule resolution for $\Rrel \A_{Y\to X}^R$ by locally free left $\Rees\A_Y^R$-modules.
   Then $(\Rees \A_Y^R / z\Rees \A_Y^R)\otimes_{\Rees \A_Y^R}\mathcal{F}^\bullet$ is a bimodule resolution for $\grrel \A_{Y\to X}^R$ by locally free left $\grrel\A_Y^R$-modules.
   Now $\bL\pi_Y^*$ just means applying $\pi^{-1}(\blank)\otimes \O_{T^*Y}$ to the terms of this free resolution.
   Due to flatness this yields a free resolution in $\pi^{*}\grrel\A_Y^R$-modules of $\pi^* \grrel\A_{Y\to X}^R$.
-  Since $\grrel \A_{Y\to X}^R = \O_Y^R \otimes_{\mu^{-1}\O_X^R} \mu^{-1}\grrel\A_X^R$ and $\pi^*\mu^* = \widetilde{\mu}^*\pi^*$ the desired equality follows. \todo{Write out more}
+  Since $\grrel \A_{Y\to X}^R = \O_Y^R \otimes_{\mu^{-1}\O_X^R} \mu^{-1}\grrel\A_X^R$ and $\pi^*\mu^* = \widetilde{\mu}^*\pi^*$ the desired equality follows.
 \end{proof}
 It turns out that one can directly compare $\grl\IntJ{j}\M$ and $\int^j \grl\M$ when $\ell$ is large. Some care is required since since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
 \begin{lemma}\label{lem: KernelZellStabilises}
@@ -385,7 +382,7 @@ The main remaining task is to relate these results to the desired case of $\ell 
   Let $\F^\bullet$ be a bimodule resolution for $\Rrel\A_{Y\to X}^R$ by locally free left $\Rees \A_Y^R$-modules.
   There is a $G$-filtration on this complex given by $z^j(\mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet) = (z^j\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$.
   By the flatness of locally free sheaves and the short exact sequence $0\to \oplus_j z^j \mathcal{M} \to \oplus_j z^{j-1}\mathcal{M} \to \gr^G \mathcal{M} \to 0$ it follows that $\gr^G(\mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet) \cong (\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$.
-  Further, by the argument in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\A_Y^R$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R$.\todo{Check after lemma is entirely proven}
+  Similarly to the arguments in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\A_Y^R$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R$.
 
   Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
   Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $\bR\mu_*$.
