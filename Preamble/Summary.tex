@@ -1,3 +1,55 @@
-\addcontentsline{toc}{chapter}{Summary}
-\chapter*{Summary}
-%summary in english
+\addcontentsline{toc}{chapter}{Introduction} %% CHANGE BACK TO SUMMARY %%
+\chapter*{Introduction} %% CHANGE BACK TO SUMMARY %%
+
+
+%%      CHANGE BACK TO SUMMARY    %%
+
+
+The purpose of this thesis is provide a improved estimate for the zero locust of Bernstein-Sato ideals.\\
+
+Historically, this problem arose when trying to extend a function to the entire complex plane.
+Let $f\in \mathbb{R}[x_1,\ldots,x_n]$ be some fixed positive polynomial and $g \in \mathcal{C}_c^\infty$ be some test function.
+Gelfand asked if it is possible to find a meromorphic extension of the function
+$$\Gamma_g(s) = \int_{\mathbb{R}^n} g f^s dx; \qquad \operatorname{Re}(s)>0 $$
+to the entire complex plane.
+A proof by Bernstein relies on the existence of a differential operator $P(x,\partial, s)$ such that
+$$P(x,\partial,s) f^{s+1} = b(s) f^s$$
+for some polynomial $b(s)\in \C[s]$.
+The polynomial of minimal degree is called the Bernstein-Sato polynomial.
+In particular, this method shows that any pole of $\Gamma_g$ is a root of $b(s)$ up a shift with a negative integer.\\
+
+Suppose that $f(0)= 0$ and consider $f$ as a function germ $f:(\C^n,0)\to (\C,0)$.
+The roots of the Bernstein-Sato polynomial measure the singularity of $f$ at $0$.
+This comes from a relation to the eigenvalues of monodromy, which is to say the behaviour of $f^{-1}(t)$ as $t\in \C^\times$ twists around zero.
+Further, the relation between roots of $b(s)$ and poles of functions like $\Gamma_g$ is the topic of a notable open problem called the monodromy conjecture.
+This shows that the roots of $b(s)$ are a natural topic of study.
+
+Estimation of the roots of the Bernstein-Sato polynomial has been done in terms of data from a resolution of singularities.
+The resolution reduces the problem to the case where $f$ is a monomial in which case the Bernstein-Sato polynomial can be computed explicitly.
+The main difficulty is to connect the easier problem to the original problem.
+This relies on the sheaf-theoretic framework of $\D_X$-modules and their direct images.
+Here $\D_X$ denotes the sheaf of differential operators on a space $X$.
+
+The original estimate due to Kashiwara establishes that the roots of $b(s)$ are negative rational numbers.
+A lower bound for the distance between the largest root and $0$ was established by Lichtin.
+This refined estimate uses a similar methodology to Kashiwara but replaced $f^s$ with the distribution $f^s dx$.
+\\
+
+In this thesis a multivariate generalization of the problem is considered.
+Let $f_1,\ldots, f_p \in \C[x_1,\ldots, x_n]$ be polynomials and define variables $s_1,\ldots, s_p$.
+It is then still known that there exists a differential operator $P(x,\partial, s)$ such that
+$$P(x,\partial,s) f_1^{s_1 + 1}\cdots f_p^{s_p + 1} = b(s)f_1^{s_1}\cdots f_p^{s_p}$$
+for some polynomial $b(s) \in \C[s_1,\ldots, s_p]$.
+The collection of all possible polynomial $b(s)$ form an ideal of $\C[s_1,\ldots,s_p]$ which is called the Bernstein-Sato ideal and is denoted $B_{F}$.
+The roots of the Bernstein-Sato ideal are then generalised by the zero locust $Z(B_F)$.
+
+Kashiwara's estimate for the roots of $b(s)$ has been generalised to a estimation of the Bernstein-Sato ideal by Budur et al.
+This thesis also generalises the refined estimate due to Lichtin.
+There are two main steps.
+Firstly, one must check that the properties of the direct images of $\D_X$-modules generalise to $\D_X\langle s_1,\ldots, s_p \rangle$-modules.
+Then, a inductive argument is used to reduce the number of $s_i$ to one.
+Homological algebra is used to control error terms of the induction process.\\
+
+The first chapter in this thesis gives a overview of various known results for $\D_X$-modules.
+This builds up to the Riemann-Hilbert correspondence which provides a broad generalisation for the the equivalence between systems of differential equations and their solutions.
+The second chapter generalises notions for $\D_X$-modules to $\D_X\langle s_1,\ldots, s_p \rangle$-modules and contains the proof for the improved estimate of $Z(B_F)$.
