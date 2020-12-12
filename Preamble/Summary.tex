@@ -18,12 +18,15 @@ for some polynomial $b(s)\in \C[s]$.
 The polynomial of minimal degree is called the Bernstein-Sato polynomial.
 In particular, this method shows that any pole of $\Gamma_g$ is a root of $b(s)$ up a shift with a negative integer.\\
 
+The relation between the roots of $b(s)$ and the poles of functions like $\Gamma_g$ is the topic of a notable open problem called the monodromy conjecture.
+Futher, the roots of $b(s)$ give some insight into the behaviour of the ill-defined function $f^{-1}$.
 Suppose that $f(0)= 0$ and consider $f$ as a function germ $f:(\C^n,0)\to (\C,0)$.
-The roots of the Bernstein-Sato polynomial measure the singularity of $f$ at $0$.
-This comes from a relation to the eigenvalues of monodromy, which is to say the behaviour of $f^{-1}(t)$ as $t\in \C^\times$ twists around zero.
-Further, the relation between roots of $b(s)$ and poles of functions like $\Gamma_g$ is the topic of a notable open problem called the monodromy conjecture.
-This shows that the roots of $b(s)$ are a natural topic of study.
+Let $t\in \C^\times$ be close to $0$ and consider the intersection $X_t := f^{-1}(t)\cap B_\varepsilon$ where $B_\varepsilon$ is some small ball centered at $0$.
+Twisting $t$ around the origin induces a diffeomorphism $M$ of $X_t$ which is called the monodromy.
+In particular, one gets linear endomorphisms $M^*$ on the vector spaces $H^j(X_t,\C)$ the eigenvalues of this action are called the eigenvalues of monodromy.
+The monodromy theorem states that the eigenvalues of monodromy are precisely the set $\exp(Z(b))$ where $Z(b)$ denotes the collection of roots of the Bernstein-Sato polynomial.
 
+This shows that the roots of the Bernstein-Sato polynomial are a worthy topic of study.
 Estimation of the roots of the Bernstein-Sato polynomial has been done in terms of data from a resolution of singularities.
 The resolution reduces the problem to the case where $f$ is a monomial in which case the Bernstein-Sato polynomial can be computed explicitly.
 The main difficulty is to connect the easier problem to the original problem.
@@ -36,20 +39,22 @@ This refined estimate uses a similar methodology to Kashiwara but replaced $f^s$
 \\
 
 In this thesis a multivariate generalization of the problem is considered.
-Let $f_1,\ldots, f_p \in \C[x_1,\ldots, x_n]$ be polynomials and define variables $s_1,\ldots, s_p$.
+Let $F:(\C^{n},0)\to (\C^p,0)$ be a function germ with coordinate functions $f_1,\ldots, f_p$ be polynomials and define variables $s_1,\ldots, s_p$.
 It is then still known that there exists a differential operator $P(x,\partial, s)$ such that
 $$P(x,\partial,s) f_1^{s_1 + 1}\cdots f_p^{s_p + 1} = b(s)f_1^{s_1}\cdots f_p^{s_p}$$
 for some polynomial $b(s) \in \C[s_1,\ldots, s_p]$.
 The collection of all possible polynomial $b(s)$ form an ideal of $\C[s_1,\ldots,s_p]$ which is called the Bernstein-Sato ideal and is denoted $B_{F}$.
-The roots of the Bernstein-Sato ideal are then generalised by the zero locust $Z(B_F)$.
+The roots of Bernstein-Sato polynomials are generalised by the zero locust $Z(B_F)$.
 
+There are generalisations of the monodromy conjecture and monodromy theorem to the multivariate situation involving $Z(B_F)$.
 Kashiwara's estimate for the roots of $b(s)$ has been generalised to a estimation of the Bernstein-Sato ideal by Budur et al.
 This thesis also generalises the refined estimate due to Lichtin.
+
 There are two main steps.
 Firstly, one must check that the properties of the direct images of $\D_X$-modules generalise to $\D_X\langle s_1,\ldots, s_p \rangle$-modules.
 Then, a inductive argument is used to reduce the number of $s_i$ to one.
 Homological algebra is used to control error terms of the induction process.\\
 
 The first chapter in this thesis gives a overview of various known results for $\D_X$-modules.
-This builds up to the Riemann-Hilbert correspondence which provides a broad generalisation for the the equivalence between systems of differential equations and their solutions.
+This builds up to the Riemann-Hilbert correspondence which is a broad generalisation of the the equivalence between systems of differential equations and their solutions.
 The second chapter generalises notions for $\D_X$-modules to $\D_X\langle s_1,\ldots, s_p \rangle$-modules and contains the proof for the improved estimate of $Z(B_F)$.
