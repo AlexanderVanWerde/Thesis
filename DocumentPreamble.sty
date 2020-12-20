@@ -67,6 +67,8 @@
 \newcommand{\RelMinspace}{\mkern-5mu} % Kerning for ^rel
 \newcommand{\TMinpace}{\mkern-5mu}
 \newcommand{\IntMinspace}{\mkern -8mu}
+\newcommand{\TorMinSpace}{\mkern -3mu}
+\newcommand{\ExtMinSpace}{\mkern -1mu}
 
 \renewcommand{\sc}[1]{\scaleto{#1}{8pt}} % Scaling in Tor/Ext
 %%       COMMANDS       %%
@@ -117,9 +119,10 @@
 \newcommand{\norm}[1]{\ensuremath{\Vert #1 \Vert}}
 \newcommand{\floor}[1]{\ensuremath{\lfloor #1 \rfloor}}
 \newcommand{\ceil}[1]{\ensuremath{\lceil #1 \rceil}}
-
-\DeclareMathOperator{\Ext}{Ext}
-\DeclareMathOperator{\Tor}{Tor}
+\newcommand{\Ext}{\ensuremath{\mathcal{E}\ExtMinSpace xt}}
+\newcommand{\Tor}{\ensuremath{\mathcal{T}\TorMinSpace or}}
+%\DeclareMathOperator{\Ext}{Ext}
+%\DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\Ann}{Ann}
 \DeclareMathOperator{\img}{Im}

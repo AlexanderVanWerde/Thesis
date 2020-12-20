@@ -1,4 +1,4 @@
-\chapter{Relative Holonomic Modules}\label{ch: Chapter2}
+R\chapter{Relative Holonomic Modules}\label{ch: ChapterRelHol}
 \section{Introduction}\label{sec: IntoductionChapterRelative}
 Fix a smooth complex variety $X$ and a morphism $F:X\to \C^p: x \mapsto (f_1(x), \ldots, f_p(x))$. Denote $D$ for the divisor defined by $\prod f_i$ and let $\mu:Y\to X$ be a resolution of singularities for $(X,D)$.
 This means that $\mu$ is a projective morphism which is a isomorphism over the complement of $D$ and such that $\mu^*D = \sum_{i=1}^r a_i E_i$ is in normal crossings form.
@@ -139,7 +139,7 @@ The following result is due to \cite{maisonobe2016filtration} in the analytical 
     $$f\cdot (g\otimes \mu^{-1}h_X) = fg \otimes \mu^{-1}h_X; \qquad \xi\cdot (g\otimes\mu^{-1}h_X) = \xi g \otimes \mu^{-1}h_X + g \otimes T\mu(\xi)\mu^{-1}h_X $$
     for any sections $f$ of $\O_Y^R$ and $\xi$ of $\Theta_Y$. Here $T\mu(\xi)$ is a local section of $\O_Y\otimes_{\mu^{-1}\O_X} \mu^{-1}\Theta_X$.
     \begin{definition}
-      The direct image functor $\int_\mu$ from $\bD^{b,r}(\A_Y^R)$ to $\bD^{b,r}(\A_X^R)$ is defined to be $\bR\mu_* (\blank\otimes_{\A_Y^R}^L \A_{Y\to X}^R)$.
+      The direct image functor $\int_\mu$ from $D^{b,r}(\A_Y^R)$ to $D^{b,r}(\A_X^R)$ is defined to be $R\mu_* (\blank\otimes_{\A_Y^R}^L \A_{Y\to X}^R)$.
       For any $\A_Y^R$ module $\M$ the $j$-th direct image is the $\A_X^R$-modules $\int_\mu^j \M = \H^j \int_\mu \M$.
       The subscript $\mu$ will be suppressed whenever there is no ambiguity.
     \end{definition}
@@ -192,7 +192,7 @@ The following result is due to \cite{maisonobe2016filtration} in the analytical 
 
     Since tensoring with locally free modules yields a exact functor this simplifies the computation of the direct image as follows.
     \begin{corollary}
-        It holds that $\int = \bR\mu_* (\blank\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))$.
+        It holds that $\int = R\mu_* (\blank\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))$.
     \end{corollary}
     \begin{proposition}
         For any short exact sequence of $\A_X^R$-modules
@@ -207,7 +207,7 @@ The following result is due to \cite{maisonobe2016filtration} in the analytical 
     \end{lemma}
     \begin{proof}
       By the Leray spectral sequence there is a functorial isomorphism
-      $$\mathbb{H}^\bullet(Y,\M\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R)) \cong \mathbb{H}^\bullet(X,\bR\mu_*(\M\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))).$$
+      $$\mathbb{H}^\bullet(Y,\M\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R)) \cong \mathbb{H}^\bullet(X,R\mu_*(\M\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))).$$
       In particular it follows that $\mathbb{H}^0(Y,\M \otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R)) \cong \Gamma(X,\Int\M)$. The \v Cech spectral sequence now induces the desired global section in the direct image based on the section $m\otimes 1$ of $\M \otimes_{\A_Y^R}\Sp_{Y\to X}^0(\A_Y^R)$.
     \end{proof}
 
@@ -220,30 +220,30 @@ The following result is due to \cite{maisonobe2016filtration} in the analytical 
     \begin{proof}
       By definition of the direct image we must compare the following functors
       \begin{align*}
-        \int_\nu \int_\mu &= \bR \nu_* (\bR \mu_* (\blank \otimes^L_{\A_Z^R} \A_{Z \to Y}^R)\otimes^L_{\A_Y^R} \A_{Y\to X}^R)\\
-        \int_{\nu \circ \mu} &= \bR(\nu \circ \mu)_*(\blank \otimes_{\A_Z^R}^L \A_{Z\to X}^R)
+        \int_\nu \int_\mu &= R \nu_* (R \mu_* (\blank \otimes^L_{\A_Z^R} \A_{Z \to Y}^R)\otimes^L_{\A_Y^R} \A_{Y\to X}^R)\\
+        \int_{\nu \circ \mu} &= R(\nu \circ \mu)_*(\blank \otimes_{\A_Z^R}^L \A_{Z\to X}^R)
       \end{align*}
-      Note that $\bR(\nu \circ \mu)_* = \bR\nu_* \circ \bR\mu_* $. A calculation expanding the definitions shows that $$\A_{Z\to X}^R \cong \A_{Z \to Y}^R \otimes^L_{\mu^{-1}\A_Y^R} f^{-1} \A_{Y\to X}^R.$$
-      The result now follows by applying the general observation that for any $\F^\bullet \in \bD^{b,r}(\mu^{-1}\A_Y^R)$ and $\G^\bullet \in \bD^{b,r}(\A_Y^R)$ there is a isomorphism
-      $$(\bR \mu_* \F^\bullet) \otimes^L_{\A_Y^R} \G^\bullet \cong \bR \mu_*(\F^\bullet \otimes^L_{\mu^{-1}\A_Y^R} \mu^{-1}\G^\bullet).$$
+      Note that $R(\nu \circ \mu)_* = R\nu_* \circ R\mu_* $. A calculation expanding the definitions shows that $$\A_{Z\to X}^R \cong \A_{Z \to Y}^R \otimes^L_{\mu^{-1}\A_Y^R} f^{-1} \A_{Y\to X}^R.$$
+      The result now follows by applying the general observation that for any $\F^\bullet \in D^{b,r}(\mu^{-1}\A_Y^R)$ and $\G^\bullet \in D^{b,r}(\A_Y^R)$ there is a isomorphism
+      $$(R \mu_* \F^\bullet) \otimes^L_{\A_Y^R} \G^\bullet \cong R \mu_*(\F^\bullet \otimes^L_{\mu^{-1}\A_Y^R} \mu^{-1}\G^\bullet).$$
     \end{proof}
     This theorem reduces the computation of direct images to closed embeddings and projections by writing $\mu = \pi \circ \iota$ for $\iota:Y\to Y\times X$ and $\pi:Y\times X\to X$.
         %These cases are handled by the following theorem.
         %\begin{theorem}
         %   If $\iota: Y\to X$ is a closed embedding then $\int_\iota = \iota_*(\blank \otimes_{\A_{Y}} \A_{Y\to X})$.
-        %   If $\pi:Y\times X \to X$ is the projection then $\int_\pi = \bR \pi_*(\blank \otimes_{\O_{Y\times X}} \wedge^{-\bullet}\Theta_{Y\times X/X}) $.\todo{Still need to adjust $\pi$ formula for relativity}
+        %   If $\pi:Y\times X \to X$ is the projection then $\int_\pi = R \pi_*(\blank \otimes_{\O_{Y\times X}} \wedge^{-\bullet}\Theta_{Y\times X/X}) $.\todo{Still need to adjust $\pi$ formula for relativity}
         %\end{theorem}
 
 
 
-    Denote by $\bD^{b,r}_{qc}(\A_Y^{R})$ the full subcategory of $\bD^{b,r}(\A_Y^R)$ consisting of those complexes of right $\A_Y^R$-modules whose cohomology sheaves are quasi-coherent over $\O_Y\times \O_{\Spec R}$. Similarly for $\bD^{b,r}_{coh}(\A_Y^R)$ with the cohomology being coherent $\A_Y^R$-modules.
+    Denote by $D^{b,r}_{qc}(\A_Y^{R})$ the full subcategory of $D^{b,r}(\A_Y^R)$ consisting of those complexes of right $\A_Y^R$-modules whose cohomology sheaves are quasi-coherent over $\O_Y\times \O_{\Spec R}$. Similarly for $D^{b,r}_{coh}(\A_Y^R)$ with the cohomology being coherent $\A_Y^R$-modules.
     \begin{theorem}\label{thm: ConservationQuasiCoherentAndCoherentIfProper}
-        Let $\mu:Y\to X$ be a morphism of smooth algebraic varieties. Then the direct image $\int$ takes $\bD^{b,r}_{qc}(\A_Y^{R})$ into $\bD^{b,r}_{qc}(\A_X^{R})$. Moreover, when $\mu$ is proper the direct image takes $\bD^{b,r}_{coh}(\A_Y^R)$ into $\bD^{b,r}_{coh}(\A_X^R)$.
+        Let $\mu:Y\to X$ be a morphism of smooth algebraic varieties. Then the direct image $\int$ takes $D^{b,r}_{qc}(\A_Y^{R})$ into $D^{b,r}_{qc}(\A_X^{R})$. Moreover, when $\mu$ is proper the direct image takes $D^{b,r}_{coh}(\A_Y^R)$ into $D^{b,r}_{coh}(\A_X^R)$.
     \end{theorem}
     \begin{proof}
       This proof boils down to a reduction to a similar theorem for $\O_X^R$-modules.
 
-      One can show that every object in $\bD^{b,r}_{coh}(\A_Y^R)$
+      One can show that every object in $D^{b,r}_{coh}(\A_Y^R)$
       can be represented by a complex with terms $\F^p \otimes_{\O_Y^R} \A_Y^R$ where $\F^p$ is a coherent $\O_Y^R$-modules.
       This ultimately reduces to computation of the direct image to a spectral sequence with
       $$E_1^{p,q} = (R^q \mu_* \F^p) \otimes_{\O_X^R} \A_X^R.$$
@@ -268,7 +268,7 @@ where the maps $T^*\mu$ and $\widetilde{\mu}$ act on the first component.
 
 %Note that the statement is local so, after replacing $X$ by some affine open, it may be assumed that $X\times \Spec R$ and $Y\times \Spec R$ are compact.
 The first step is to note that the behaviour of $\grrel \A_Y^R$-modules is easy to understand.
-The direct image functor on $\grrel \A_Y^R$-modules $\mathcal{M}$ is defined by $\int^j \mathcal{M} :=  \bR^j \widetilde{\mu}_* ( \bL(T^*\mu)^*\mathcal{M}).$
+The direct image functor on $\grrel \A_Y^R$-modules $\mathcal{M}$ is defined by $\int^j \mathcal{M} :=  R^j \widetilde{\mu}_* ( L(T^*\mu)^*\mathcal{M}).$
 Here, $(T^*\mu)^*(\blank)$ produces a sheaf on $\mu^*T^*X\times \Spec R$ by $ \blank\otimes_{\mu^{-1}\O_X^R} \grrel \A_X^R$.
 Looking at the supports the following result is immediate.
 \begin{lemma}\label{lem: GrKashiwara}
@@ -286,7 +286,7 @@ $$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} \cong \
 Here $\grl$ takes a filtered object and returns $\oplus_k F_{k}/F_{k-\ell}$.
 The first formula may be be used to find a corresponding filtered $\A_Y^R$-module for any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
 
-The $j$-th direct image of a $\Rees\A_Y^R$-module $\mathcal{M}$ is the sheaf of $\Rees\A_X^R$-modules on $X\times\Spec R$ defined by $\int^j \mathcal{M} = \bR^j\mu_*(\mathcal{M}\otimes^L_{\Rees \A_Y^R} \Rrel \A_{Y\to X}^R)$.
+The $j$-th direct image of a $\Rees\A_Y^R$-module $\mathcal{M}$ is the sheaf of $\Rees\A_X^R$-modules on $X\times\Spec R$ defined by $\int^j \mathcal{M} = R^j\mu_*(\mathcal{M}\otimes^L_{\Rees \A_Y^R} \Rrel \A_{Y\to X}^R)$.
 Here the filtration on $\A_{Y\to X}^R$ is defined by $F_i\A_{Y\to X}^R =\O_{Y}^R \otimes_{\mu^{-1}\O_X^R}\mu^{-1}F_i\A_X^R $.
 The direct image may be restricted to the category of graded Rees modules in which case it returns a graded Rees module. Coherence is preserved similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}.
 
@@ -306,14 +306,14 @@ The Rees module viewpoint agrees with the earlier definition by the following le
       \end{tikzcd}
   $$
   The derived version of the flat base change theorem is applicable, see proposition 3.1.0 in chapter 4 of \cite{berthelot2006theorie}, and yields that
-  $$\bL\pi_X^*\bR\mu_*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong  \bR\widetilde{\mu}_*\bL(T^*\mu\circ\pi_Y)^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R).$$
-  Since $\pi_X$ is flat it follows that $\H^j \bL\pi_X^*(\bR\mu_* \blank) = \pi_X^*(\bR^j\mu_*\blank)$. It now suffices to show that the right hand of the isomorphism side is $\int \grrel\M$.
-  We show that $\bL\pi_Y^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong \grrel\M \otimes^L_{\mu^{-1}\O_X^R}\widetilde{\mu}^*\grrel\A_{X}^R$
-  whence the result follows since $\bL(T^*\mu \circ \pi_Y)^* = \bL (T^*\mu)^* \circ \bL \pi_Y^*$ by $\pi_Y$ being flat.
+  $$L\pi_X^*R\mu_*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong  R\widetilde{\mu}_*L(T^*\mu\circ\pi_Y)^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R).$$
+  Since $\pi_X$ is flat it follows that $\H^j L\pi_X^*(R\mu_* \blank) = \pi_X^*(R^j\mu_*\blank)$. It now suffices to show that the right hand of the isomorphism side is $\int \grrel\M$.
+  We show that $L\pi_Y^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong \grrel\M \otimes^L_{\mu^{-1}\O_X^R}\widetilde{\mu}^*\grrel\A_{X}^R$
+  whence the result follows since $L(T^*\mu \circ \pi_Y)^* = L (T^*\mu)^* \circ L \pi_Y^*$ by $\pi_Y$ being flat.
 
   Let $\mathcal{F}^\bullet$ denote a bimodule resolution for $\Rrel \A_{Y\to X}^R$ by locally free left $\Rees\A_Y^R$-modules.
   Then $(\Rees \A_Y^R / z\Rees \A_Y^R)\otimes_{\Rees \A_Y^R}\mathcal{F}^\bullet$ is a bimodule resolution for $\grrel \A_{Y\to X}^R$ by locally free left $\grrel\A_Y^R$-modules.
-  Now $\bL\pi_Y^*$ just means applying $\pi^{-1}(\blank)\otimes \O_{T^*Y}$ to the terms of this free resolution.
+  Now $L\pi_Y^*$ just means applying $\pi^{-1}(\blank)\otimes \O_{T^*Y}$ to the terms of this free resolution.
   Due to flatness this yields a free resolution in $\pi^{*}\grrel\A_Y^R$-modules of $\pi^* \grrel\A_{Y\to X}^R$.
   Since $\grrel \A_{Y\to X}^R = \O_Y^R \otimes_{\mu^{-1}\O_X^R} \mu^{-1}\grrel\A_X^R$ and $\pi^*\mu^* = \widetilde{\mu}^*\pi^*$ the desired equality follows.
 \end{proof}
@@ -353,10 +353,10 @@ The main remaining task is to relate these results to the desired case of $\ell 
   This follows from directly from the fact that $G_j\grl\M = \oplus_k F_{k-j}\M /F_{k-\ell}\M$.
 \end{proof}
 \begin{lemma}\label{lem: grGCommutes}
-  Consider a $\Rees\A_Y^R$-module $\mathcal{M}$. Then one has a isomorphism $\gr^G\int\mathcal{M} \cong \int\gr^G\mathcal{M}$ in $\bD^{b,r}(\grrel\A_X^R)$.
+  Consider a $\Rees\A_Y^R$-module $\mathcal{M}$. Then one has a isomorphism $\gr^G\int\mathcal{M} \cong \int\gr^G\mathcal{M}$ in $D^{b,r}(\grrel\A_X^R)$.
 \end{lemma}
 \begin{proof}
-  Writing out the direct image functors the desired result is a isomorphism $$\gr^G\bR\mu_*(\mathcal{M}\otimes^L_{\Rees\A_Y^R} \Rees\A_{Y\to X}^R)  \cong \bR\mu_*(\gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R).$$
+  Writing out the direct image functors the desired result is a isomorphism $$\gr^GR\mu_*(\mathcal{M}\otimes^L_{\Rees\A_Y^R} \Rees\A_{Y\to X}^R)  \cong R\mu_*(\gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R).$$
   The proof of the commutation proceeds in two steps corresponding to the two derived functors.
 
   Let $\F^\bullet$ be a bimodule resolution for $\Rrel\A_{Y\to X}^R$ by locally free left $\Rees \A_Y^R$-modules.
@@ -365,7 +365,7 @@ The main remaining task is to relate these results to the desired case of $\ell 
   Similarly to the arguments in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\A_Y^R$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R$.
 
   Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
-  Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $\bR\mu_*$.
+  Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $R\mu_*$.
   Moreover, since the terms of a Godement resolution are essentially direct sums of formal products of stalks, it is immediate that $z^i \mathcal{G}(\mathcal{N}^\bullet) = \mathcal{G}(z^i\mathcal{N}^\bullet)$ and that $\gr^G\mathcal{G}(\mathcal{N}^\bullet) =\mathcal{G}(\gr^G\mathcal{N}^\bullet)$ for any complex of right $\mu^{-1}\Rees\A_X^R$-modules $\mathcal{N}^\bullet$.
   Applying $\mu_*$ to these equalities and setting $\mathcal{N}^\bullet = \mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet$ yields the desired result.
 \end{proof}
@@ -465,7 +465,7 @@ The proof of the following lemma is a slight modification on the proof of propos
 
   It remains to establish that $\M \otimes_R R/(b)$ is non-zero of grade $n$.
   By taking a free resolution of $\M$ one has that
-  $$\bR\Hom_{\scaleto{\A_X^R}{8pt}}(\M,\A_X^R)\otimes_{\scaleto{\A_X^R}{8pt}}^L \A_X^{R/(b)} \cong \bR \Hom_{\scaleto{\A_X^{R/(b)}}{8pt}}(\M\otimes_{\scaleto{\A_X^R}{8pt}}^L \A_X^{R/(b)}, \A_X^{R/(b)}) $$
+  $$R\Hom_{\scaleto{\A_X^R}{8pt}}(\M,\A_X^R)\otimes_{\scaleto{\A_X^R}{8pt}}^L \A_X^{R/(b)} \cong R \Hom_{\scaleto{\A_X^{R/(b)}}{8pt}}(\M\otimes_{\scaleto{\A_X^R}{8pt}}^L \A_X^{R/(b)}, \A_X^{R/(b)}) $$
   where we note that $\A_X^{R/(b)}$ is a $\A_X^{R}$-bimodule so that both tensor products are well-defined.
   We compare the Grothendieck spectral sequences of both sides of this isomorphism.
 
@@ -781,7 +781,7 @@ Assume that the $\ell_i$ are chosen sufficiently generically so that $Z(L_{p-1})
   Hence, we consider the interaction between the derived $\Hom$-functor and the derived tensor product.
 
   By a taking a $\A_{\X}^{\C[s]/L_{i}}$-free resolution of $K_i$ one finds that
-  $$\bR \Hom_{\scaleto{\A_\X^{ \C[s]/L_{p-1} }}{8pt} }(K_i\otimes^L_{\scaleto{ \A_\X^{\C[s]/L{i}} }{8pt} } \A_\X^{\C[s]/L_{p-1} },\A_\X^{ \C[s]/L_{p-1}} ) \cong \bR \Hom_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}) \otimes^L_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} } \A_\X^{\C[s]/L_{p-1}}$$
+  $$R \Hom_{\scaleto{\A_\X^{ \C[s]/L_{p-1} }}{8pt} }(K_i\otimes^L_{\scaleto{ \A_\X^{\C[s]/L{i}} }{8pt} } \A_\X^{\C[s]/L_{p-1} },\A_\X^{ \C[s]/L_{p-1}} ) \cong R \Hom_{ \scaleto{\A_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\A_\X^{\C[s]/L_{i}}) \otimes^L_{\scaleto{ \A_\X^{\C[s]/L_{i}}}{8pt} } \A_\X^{\C[s]/L_{p-1}}$$
   where we note that $\A_\X^{\C[s]/L_{p-1}}$ is a $\A_X^{\C[s]/L_{i}}$-bimodule so that both tensor products are defined.
   We compare the Grothendieck spectral sequences of both sides.
 
