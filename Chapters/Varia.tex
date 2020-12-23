@@ -1,4 +1,102 @@
 \section{Varia}
+\subsection{Basic Operations}\label{sec: BasicOperations}
+For any right $\A_{X}^R$-module $\M$ and left $\D_X$-module $\N$ the tensor product $\M \otimes_{\O_X} \N$ comes equipped with a right $\A_X^R$-module structure defined by
+$$f\cdot (m\otimes n) = mf \otimes n; \qquad \xi \cdot (m\otimes n) = m\xi \otimes n - m\otimes \xi n $$
+for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$. Putting multiplication by $f$ on the other side of the tensor product this definition is also applicable for a right $\A_X^R$-module structure on $\M\otimes_{\O_X} \N$ if $\M$ is a right $\D_X$-module and $\N$ is a left $\A_X^R$-module. If both are $\A_X^R$-modules there is a right $\A_X^R$-module structure on $\M\otimes_{\O_X^R} \N$.
+
+Similarly, given a left $\D_X$-module $\mathscr{L}$ and a left $\A_X^R$-module $\N$ a left $\A_X^R$-module structure on $\mathscr{L} \otimes_{\O_X} \N$ is defined by
+$$f \cdot (\ell\otimes n) =\ell \otimes fn; \qquad \xi \cdot (\ell\otimes n ) = \xi \ell \otimes n + \ell \otimes \xi n$$
+for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$.
+
+\begin{lemma}\label{lem: IsomorphismTensors}
+  Let $\mathscr{M}, \N$ be right and left $\A_X^R$-modules respectively and let $\mathscr{L}$ be a left $\D_X$-module. Then there is a isomorphism of left $\A_X^R$-modules
+  $$(\M \otimes_{\O_X} \mathscr{L})\otimes_{\O_X^R} \N \cong \M \otimes_{\O_X^R} (\mathscr{L}\otimes_{\O_X} \N).   $$
+\end{lemma}
+\begin{proof}
+  This is immediate by checking that the obvious bijection conserves the $\A_X^R$-module structure. Note that the only non-trivial check is the action of a section $\xi$ from $\Theta_X$.
+\end{proof}
+\begin{lemma}\label{lem: FreeLeftAModuleTensor}
+  Let $\N$ be a left $\A_X^R$-module which is locally free as a $\O_X^R$-module. Consider $\A_X^R$ as a right $\A_X^R$-module, then $\A_X^R \otimes_{\O_X^R} \N$ is locally free as a right $\A_X^R$-module.
+\end{lemma}
+\begin{proof}
+  Consider local coordinates $x_1,\ldots, x_n$ on $X$ and a local $\O_X^R$-basis $\{n_\beta\}_\beta$ for $\N$. Then $\{1\otimes n_\beta\}_{\beta}$ will be a local $\A_X^R$-basis for $\A_X^R \otimes_{\O_X^R} \N$.
+
+  To see that this generates the $\A_X^R$-module note that $\{\xi^\alpha \otimes n_\beta\}_{\alpha,\beta}$
+  is a $\O_X^R$-basis set when $\alpha$ runs over all multi-indices in $\Z_{\geq 0}^n$.
+  These sections can be recovered using the $\A_X^R$-action on the proposed generating set by induction on $\abs{\alpha}$.
+  Indeed, $\xi^\alpha \cdot (1 \otimes n_\beta)$ equals $\xi^\alpha \otimes n_\beta$ up to a element in the $\O_X^R$-span of $\{\xi^\gamma \otimes n_\beta\}_{\abs{\gamma}<\abs{\alpha}}$.
+
+  For the freedom, suppose there is a local $\A_X^R$-relation $\sum_\beta P_\beta \cdot 1\otimes n_\beta = 0$ with some $P_\beta$ non-zero. This is of the form $\sum_{\alpha, \beta} f_{\alpha,\beta} \xi^\alpha \cdot 1\otimes n_\beta = 0$ with the $f_{\alpha,\beta}$ sections of $\O_X^R$ not all equal to zero.
+  Pick some multi-index $\mu\in \Z_{\geq 0}^n$ and of maximal degree such that $f_{\mu,\beta}$ is non-zero for some $\beta$.
+  Then, rewriting $\sum_{\alpha, \beta} f_\alpha \xi^\alpha \cdot 1\otimes n_\beta = 0$ in terms of the $\O_X^R$-basis $\{\xi^\alpha \otimes n_\beta\}_{\alpha,\beta}$ one finds a non-zero coefficient at $\xi^\eta \otimes n_\beta$ for some $\beta$ which is a contradiction.
+\end{proof}
+\begin{lemma}
+  The functor $\omega_X\otimes_{\O_X}\blank$ which takes a left $\A_X^R$-modules and returns a right $\A_X^R$-module is an equivalence of categories with pseudoinverse  $\mathscr{H}om_{\O_X}(\omega_X,\blank)$.
+\end{lemma}
+\begin{proof}
+  For any right $\A_X^R$-module $\M$ the left $\A_X^R$-module structure on $\mathscr{H}om_{\O_X}(\omega_X, \M)$ is defined by
+  $$(f \cdot \varphi)(\omega)= \varphi(\omega)\cdot f; \qquad (\xi\cdot \varphi)(\omega) = \varphi(\omega \cdot \xi) - \varphi(\omega)\cdot \xi. $$
+  for any sections $f$ of $\O_X^R$ and $\xi$ in $\Theta_X$.
+
+  For any left $\A_X^R$-module $\M$ there is a natural isomorphism of $\O_X^R$-modules $\omega_X\otimes_{\O_X}\H om _{\O_X}(\omega_X, \M) \cong \M$ by sending $\omega \otimes \varphi$ to $\varphi(\omega)$.
+  Similarly for any right $\A_X^R$-module $\M$ the isomorphism $\M \cong \H om_{\O_X}(\omega_X, \omega_X\otimes \M)$ associates to a section $m$ of $\M$ the morphism $\omega \mapsto \omega \otimes m$.
+  A direct computation verifies these isomorphisms commute with the $\A_X^R$-module structure.
+\end{proof}
+
+%%%%%%%%%
+
+To compute the direct image $\IntJ{j} \M$ a resolution for the transfer bimodule $\A_{Y\to X}$ is required.
+\begin{definition}
+    Let $\M$ be a right $\A_Y^R$-module, the relative Spencer complex $\Sp_Y^\bullet(\M)$ is a complex of right $\A_Y^R$-modules, concentrated in negative degrees, with $\Sp_Y^{-k}(\M) = \M \otimes_{\O_Y} \wedge^{k}\Theta_Y$ and as differential the right $\A_Y^R$-linear map $\delta$ given by
+    \begin{align*}
+        m\otimes \xi_1 \wedge \cdots \wedge \xi_k &\mapsto \sum_{i<j}(-1)^{i+j} m \otimes [\xi_i,\xi_j]\wedge \xi_1 \wedge \cdots \wedge \hat{\xi}_i \wedge\cdots \hat{\xi}_j \wedge \cdots \wedge \xi_k\\
+        &- \sum_{i=1}^k (-1)^{i} m\xi_i \otimes \xi_1 \wedge \cdots \wedge \hat{\xi}_i\wedge \cdots \wedge \xi_k
+    \end{align*}
+\end{definition}
+The following lemma and it's proof are a generalisation of exercise 1.20 in \cite{sabbah2011introduction} to the relative case.
+\begin{lemma}\label{lem: RelativeSpencerResolvesOXR}
+  The relative Spencer complex $\Sp_Y^\bullet(\A_Y^R)$ is a locally free resolution of $\O_X^R$ as left $\A_X^R$-module.
+\end{lemma}
+\begin{proof}
+  Define a filtration on $\Sp_Y^\bullet(\A_Y^R)$ by the complexes $F_k\Sp_Y^\bullet(\A_Y^R)$ which have term $F_{k-\ell}\A_Y^R\otimes_{\O_Y}\wedge^\ell \Theta_Y$ in spot $\ell$.
+  This filtration induces the complexes $\gr_k^{rel} \Sp_X^\bullet(\A_Y^R)$ with term  $\gr_{k-\ell}^{rel}\A_Y^R\otimes_{\O_Y}\wedge^\ell \Theta_Y$ in spot $\ell$.
+
+  In local coordinates $x_1,\ldots, x_n$ one finds that $\grrel\Sp_Y^\bullet := \oplus_k \grrel_k \Sp_Y^\bullet(\A_Y^R)$ is the Koszul complex of $\O_Y^R[\xi_1,\ldots,\xi_n] = \grrel \A_Y^R$ with respect to  $\xi_1,\ldots, \xi_n$.\todo{Should I explain what a Koszul complex is?}
+  Since $\xi_1,\ldots,\xi_n$ form a regular sequence a standard result on Koszul complexes\todo{Give reference to some book} yields that $\grrel\Sp_Y^\bullet(\A_Y^R)$ is a locally free resolution of $\O_Y^R$ as $\grrel \A_Y^R$-module.
+
+  On the other hand, it is immediate that $F_0 \Sp^\bullet(\A_Y^R) = \gr_0^{rel}\Sp^\bullet(\A_Y^R)$ is  $\O_Y^R$ viewed as a complex. Hence, there is no contribution to $\gr^{rel}\Sp_Y^\bullet(\A_Y^R)$ from the terms of $k>0$.
+  That is to say that $\gr_k^{rel}\Sp_Y^\bullet(\A_Y^R)$ is quasi-isomorphic to the zero complex for $k>0$.
+  Hence, $F_0\Sp_Y^\bullet(\A_Y^R)\hookrightarrow \Sp_Y^\bullet(\A_Y^R)$ is a quasi-isomorphism by the exactness of the direct limit.
+  \todo{Would be nice to give a reference, proof may be found on stackexchange}
+  It follows that  $\Sp_Y^\bullet(\A_Y^R)$ is a resolution of $\O_X^R$.
+  That the terms of $\Sp_Y^\bullet(\A_Y^R)$ are locally free follows from \cref{lem: FreeLeftAModuleTensor} after some minor adjustments in the statement and proof.
+\end{proof}
+
+Define the transfer Spencer complex as the complex of  $(\A_Y^R,\mu^{-1}\A_X)$-bimodules given by $\Sp^\bullet_{Y\to X}(\A_Y^R) := \Sp^\bullet_Y(\A_Y^R) \otimes_{\O_Y^R}\A_{Y \to X}^R$.
+The following lemma and it's proof are direct generalisation of exercise 3.4 in \cite{sabbah2011introduction} to the relative case.
+\begin{lemma}\label{lem: SpencerResolutionTransferModule}
+  The transfer Spencer complex $\Sp^\bullet_{Y\to X}(\A_Y^R)$ is a resolution of $\A_{Y\to X}^R$ as a bimodule by locally free left $\A_Y^R$-modules.
+\end{lemma}
+\begin{proof}
+   To see that the terms of the complex are locally free recall from \cref{lem: IsomorphismTensors} the following isomorphisms of left $\A_Y^R$-modules
+    \begin{align*}
+       (\A_Y^R \otimes_{\O_Y} \wedge^\ell\Theta_Y )\otimes_{\O_Y^R}\A_{Y\to X} &
+       \cong \A_Y^R \otimes_{\O_Y^R}(  \wedge^\ell\Theta_Y \otimes_{\O_Y}\A_{Y\to X}).
+    \end{align*}
+    \todo{May be possible to remove this step from the proof and removing need for minor adjustment of previous proof. }
+  Note that $\A_{Y\to X}^R$ is a locally free $\O_Y^R$-module since it is the pullback of a locally free module on $X\times \Spec R$.
+  Combined with the fact that $\wedge^\ell \Theta$ is a locally free $\O_Y$-module this yields that $ \wedge^\ell\Theta_Y \otimes_{\O_Y}\A_{Y\to X}$ is a locally free $\O_Y^R$-module.
+  Hence \cref{lem: IsomorphismTensors} is applicable and yields that the terms of the transfer Spencer complex are locally free $\A_Y^R$-modules.
+
+  That the transfer Spencer complex is a resolution of $\A_{Y\to X}^R$ follows from \cref{lem: RelativeSpencerResolvesOXR} by using that $\A_{Y\to X}^R$ is a locally free and hence flat over $\O_Y^R$.
+\end{proof}
+
+
+Since tensoring with locally free modules yields a exact functor this simplifies the computation of the direct image as follows.
+\begin{corollary}
+    It holds that $\int = R\mu_* (\blank\otimes_{\A_Y^R} \Sp_{Y\to X}^\bullet(\A_Y^R))$.
+\end{corollary}
+
 \subsection{Relation $\Ch$ and $\Ch^\#$}
 In the notation of \cite{budur2020zero} $\Ch^\#$ yields a bound for the classical characteristic variety of cyclic $\D_X$-modules with a $\A_X^{\C[s]}$-structure where $s_1, \ldots, s_n$ act as a vector field on the generator.
 Any $P(x,\xi, s) \in \Ann_{\gr^\#\A_X^{\C[s]}} \gr^\# \M$ induces a element of $\Ann_{\gr \D_X} \gr \M$.
@@ -44,3 +142,149 @@ Using \cref{thm: InjectivesAllowDerivedFunctor} one can establish that the globa
 The cohomology of a sheaf of modules is given by the functors $H^k(X,\blank) := R^k \Gamma(X,\blank)$ and the hypercohomology of a complex of modules is given by the functors $\mathbb{H}^k(X,\blank):= \mathbb{R}^k\Gamma(X,\blank)$.
 The cohomology sheaf of a complex $\M^\bullet$ is the sheaf associated to the presheaf $U\mapsto \mathbb{H}^k(U,\M^\bullet)$ and is denoted $\H^k(\M^\bullet)$.
 The cohomology sheaves of a module $\M$ are defined similarly and also denoted $\H^k(\M)$.
+
+\subsection{Kashiwara's Estimate for the Characteristic Variety}
+Let $\mu:Y\to X$ be a proper morphism of smooth algebraic varieties. Given a coherent $\A_X^R$-module $\M$ with relative characteristic variety $\Chrel \M$. We desire to estimate $\Chrel \IntJ{j} \M$ in terms of $\Chrel\M$. Such a estimate in the non-relative case is known due to Kashiwara. %
+
+The original proof by \cite{kashiwara1976b} uses the theory of microlocal differential operators. The idea of the following proof is due to \cite{malgrange1985images} in a $K$-theoretic context. We follow the exposition of \cite{sabbah2011introduction} and replace it with the corresponding relative notions. %We note that the assumption that $\mu$ is proper can be relaxed but this version will suffice for our purposes.
+\\
+
+\noindent
+Consider the following cotangent diagram
+$$
+\begin{tikzcd}
+& \mu^* T^* X\times \Spec R \arrow[swap]{ld}{T^* \mu} \arrow{rd}{\widetilde{\mu}} & \\
+T^* Y\times \Spec R & & T^*X\times \Spec R
+\end{tikzcd}
+$$
+where the maps $T^*\mu$ and $\widetilde{\mu}$ act on the first component.
+
+%Note that the statement is local so, after replacing $X$ by some affine open, it may be assumed that $X\times \Spec R$ and $Y\times \Spec R$ are compact.
+The first step is to note that the behaviour of $\grrel \A_Y^R$-modules is easy to understand.
+The direct image functor on $\grrel \A_Y^R$-modules $\mathcal{M}$ is defined by $\int^j \mathcal{M} :=  \H^j R \widetilde{\mu}_* ( L(T^*\mu)^*\mathcal{M}).$
+Here, $(T^*\mu)^*(\blank)$ produces a sheaf on $\mu^*T^*X\times \Spec R$ by $ \blank\otimes_{\mu^{-1}\O_X^R} \grrel \A_X^R$.
+Looking at the supports the following result is immediate.
+\begin{lemma}\label{lem: GrKashiwara}
+For any $\grrel\A_Y^R$-module $\mathcal{M}$ it holds that
+$$\supp \int^j \mathcal{M}\subseteq \widetilde{\mu}\left((T^* \mu)^{-1} \supp \mathcal{M}\right).$$
+\end{lemma}
+Applying this lemma to $\grrel\M$ it remains to show that $\supp\grrel\IntJ{j}\M\subseteq \supp\int^j \grrel\M$. This is proved in \cref{prop: SuppGrrelIntInclusion}. The main technical ingredient in the proof is the Rees modules associated to a filtered $\A_Y^R$-module $\M$.
+\begin{definition}
+Let $z$ be a new variable. The Rees sheaf of rings $\Rees\A_Y^R$ is defined as the subsheaf $\oplus_p F_p \A_Y^R z^p $ of $\A_Y^R \otimes_\C \C[z]$. Similarly, any filtered $\A_Y^R$-module $\M$ gives rise to a $\Rees\A_Y$-module $\Rrel\M := \oplus_p F_p \M z^p$.
+\end{definition}
+Given a $\A_Y^R$-module $\M$ with a good filtration it follows that $\Rrel\M$ is a coherent $\Rees\A_Y^R$-module similarly to \cref{prop: CoherentAndGoodFiltration}.
+The following isomorphisms of filtered modules on $Y\times \Spec R$ are essential.
+They mean that the Rees module can be viewed as a parametrisation of various relevant modules.
+$$\frac{\Rrel\M}{(z-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{z\Rrel\M} \cong \grrel \M;\qquad \frac{\Rrel\M}{z^\ell\Rrel\M} \cong  \grl\M.$$
+Here $\grl$ takes a filtered object and returns $\oplus_k F_{k}/F_{k-\ell}$.
+The first formula may be be used to find a corresponding filtered $\A_Y^R$-module for any graded $\Rees\A_Y^R$-module without $\C[z]$-torsion.
+
+The $j$-th direct image of a $\Rees\A_Y^R$-module $\mathcal{M}$ is the sheaf of $\Rees\A_X^R$-modules on $X\times\Spec R$ defined by $\int^j \mathcal{M} = R^j\mu_*(\mathcal{M}\otimes^L_{\Rees \A_Y^R} \Rrel \A_{Y\to X}^R)$.
+Here the filtration on $\A_{Y\to X}^R$ is defined by $F_i\A_{Y\to X}^R =\O_{Y}^R \otimes_{\mu^{-1}\O_X^R}\mu^{-1}F_i\A_X^R $.
+The direct image may be restricted to the category of graded Rees modules in which case it returns a graded Rees module. Coherence is preserved similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}.
+
+Recall that a $\grrel\A_Y^R$-modules on $Y\times \Spec R$ could be be viewed as a sheaf on $T^*Y\times \Spec R$ and is already equipped with a direct image.
+The Rees module viewpoint agrees with the earlier definition by the following lemma.
+
+\begin{lemma}\label{lem: ReesAndOtherDirectImagesAgree}
+Consider a filtered $\A_Y^R$-module $\M$. Then viewing $\int^j \Rrel\M / z\Rrel\M$ with it's $\grrel\A_X^R$-module structure as a sheaf on $T^*X\times \Spec R$ recovers the $\grrel\A_Y^R$-module direct image $\int^j \grrel\M$. Viewing  $\int^j \Rrel\M / (z-1)\M$ as a $\A_X^R$-module recovers $\IntJ{j} \M$.
+\end{lemma}
+\begin{proof}
+We give the proof for $\int^j \grrel \M$, the proof for $\IntJ{j} \M$ is similar but easier.
+Consider the following Cartesian square
+$$
+  \begin{tikzcd}
+    \mu^*T^* X \times \Spec R \arrow{r}{T^*\mu} \arrow{d}{{\widetilde{\mu}}} &T^*Y\times \Spec R \arrow{r}{\pi_Y} & Y\times \Spec R\arrow{d}{\mu} \\
+    T^*X\arrow{rr}{\pi_X}  \times \Spec R && X\times \Spec R.
+  \end{tikzcd}
+$$
+The derived version of the flat base change theorem is applicable, see proposition 3.1.0 in chapter 4 of \cite{berthelot2006theorie}, and yields that
+$$L\pi_X^*R\mu_*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong  R\widetilde{\mu}_*L(T^*\mu\circ\pi_Y)^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R).$$
+Since $\pi_X$ is flat it follows that $\H^j L\pi_X^*(R\mu_* \blank) = \pi_X^*(R^j\mu_*\blank)$. It now suffices to show that the right hand of the isomorphism side is $\int \grrel\M$.
+We show that $L\pi_Y^*(\frac{\Rrel\M}{z\Rrel \M}\otimes^L_{\A_Y^R}\Rrel \A_{Y\to X}^R)\cong \grrel\M \otimes^L_{\mu^{-1}\O_X^R}\widetilde{\mu}^*\grrel\A_{X}^R$
+whence the result follows since $L(T^*\mu \circ \pi_Y)^* = L (T^*\mu)^* \circ L \pi_Y^*$ by $\pi_Y$ being flat.
+
+Let $\mathcal{F}^\bullet$ denote a bimodule resolution for $\Rrel \A_{Y\to X}^R$ by locally free left $\Rees\A_Y^R$-modules.
+Then $(\Rees \A_Y^R / z\Rees \A_Y^R)\otimes_{\Rees \A_Y^R}\mathcal{F}^\bullet$ is a bimodule resolution for $\grrel \A_{Y\to X}^R$ by locally free left $\grrel\A_Y^R$-modules.
+Now $L\pi_Y^*$ just means applying $\pi^{-1}(\blank)\otimes \O_{T^*Y}$ to the terms of this free resolution.
+Due to flatness this yields a free resolution in $\pi^{*}\grrel\A_Y^R$-modules of $\pi^* \grrel\A_{Y\to X}^R$.
+Since $\grrel \A_{Y\to X}^R = \O_Y^R \otimes_{\mu^{-1}\O_X^R} \mu^{-1}\grrel\A_X^R$ and $\pi^*\mu^* = \widetilde{\mu}^*\pi^*$ the desired equality follows.
+\end{proof}
+It turns out that one can directly compare $\grl\IntJ{j}\M$ and $\int^j \grl\M$ when $\ell$ is large. Some care is required since since $\int^j \Rrel \M$ may have $\C[z]$-torsion.
+\begin{lemma}\label{lem: KernelZellStabilises}
+Consider a $\A_Y^R$-module $\M$ with a good filtration. Then, for sufficiently large $\ell$, the kernel of $z^\ell$ in $\int^j \Rrel \M$ stabilises. For such $\ell$ the quotient $\int^j \Rrel \M/ \ker z^\ell$ is the $\Rees \A_X^R$-coherent module associated to a good filtration on $\IntJ{j} \M$.
+\end{lemma}
+\begin{proof}
+By $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\A_X^R$ it follows that $\ker z^\ell$ stabilises.
+
+Now consider the short exact sequence $0\to \Rrel \M \xrightarrow{z-1} \Rrel \M \to \M \to 0$. This induces a long exact sequence
+$$\cdots \to \int^j \Rrel \M \xrightarrow{z-1} \int^j \Rrel \M \to \IntJ{j} \M \to \int^{j+1} \Rrel \M \xrightarrow{z-1}\cdots. $$
+Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\A_X^R$-module it follows that $z-1$ is injective whence $\int^j \Rrel \M / (z-1)\int^j \Rrel \M \cong \IntJ{j} \M$. This yields the desired result using that $\int^j \Rrel \M / \ker z^\ell$ is $\C[z]$-torsion free and the isomorphism
+$$ \frac{\int^j \Rrel \M }{(z-1)\int^j \Rrel \M } \cong \frac{\int^j \Rrel \M /\ker z^\ell }{(z-1)(\int^j \Rrel \M/\ker z^\ell) }.$$
+\end{proof}
+From now on we equip $\IntJ{j} \M$ with the good filtration inherited from the Rees module's direct image.
+\begin{lemma}\label{lem: EllLargeSubquotent}
+Consider a $\A_Y^R$-module $\M$ with a good filtration. Then, if $\ell$ is sufficiently large, $\grl \IntJ{j}\M$ is a subquotient of $\int^j\grl\M$.
+\end{lemma}
+\begin{proof}
+The short exact sequence $0\to \Rrel\M \xrightarrow{z^\ell}\Rrel \M \to \Rrel\M / z^\ell \Rrel\M \to 0$ induces a long exact sequence
+$$\cdots \to \int^j \Rrel \M \xrightarrow{z^\ell} \int^j \Rrel \M \to \int^j \Rrel\M/z^\ell \Rrel\M \to \int^{j+1} \Rrel \M \xrightarrow{z^\ell}\cdots. $$
+Hence, $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$ is a submodule of $\int^j (\Rrel\M/z^\ell \Rrel\M)$ and it remains to show that $\Rrel \IntJ{j} \M/ z^\ell \Rrel \IntJ{j} \M$ is a quotient of $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
+
+Let $\ell$ be sufficiently large so that \cref{lem: KernelZellStabilises} yields a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong \Rrel\int^j \M$. The map $z^\ell$ induces a isomorphism $\int^j \Rrel \M / \ker z^\ell \cong z^\ell \int^j \Rrel \M$. Therefore $z^\ell \int^j \Rrel \M / z^{2\ell}\int^j \Rrel\M \cong \Rrel \IntJ{j} \M / z^\ell \Rrel\IntJ{j} \M $.
+The desired quotient follows by applying the map $m\mapsto z^\ell m$ on $\int^j \Rrel \M / z^\ell \int^j \Rrel \M$.
+\end{proof}
+The main remaining task is to relate these results to the desired case of $\ell = 1$.
+\begin{definition}
+For any $\ell \geq 1$ the $G$-filtration on a $\Rees\A_Y^R$-module $\mathcal{M}$ is defined by the decreasing sequence of $\grl\A_Y^R$-submodules $G_j \mathcal{M} := z^{j}\mathcal{M}$.
+\end{definition}
+\begin{lemma}\label{lem: GradedGGradedLYieldsGraded}
+For any filtered $\A_Y^R$-module $\M$ and $\ell \geq 1$ there is the a isomorphism of $\gr \A_Y^R$-modules
+$$\gr^G \grl \M \cong (\grrel\M)^\ell.$$
+\end{lemma}
+\begin{proof}
+This follows from directly from the fact that $G_j\grl\M = \oplus_k F_{k-j}\M /F_{k-\ell}\M$.
+\end{proof}
+\begin{lemma}\label{lem: grGCommutes}
+Consider a $\Rees\A_Y^R$-module $\mathcal{M}$. Then one has a isomorphism $\gr^G\int\mathcal{M} \cong \int\gr^G\mathcal{M}$ in $D^{b,r}(\grrel\A_X^R)$.
+\end{lemma}
+\begin{proof}
+Writing out the direct image functors the desired result is a isomorphism $$\gr^GR\mu_*(\mathcal{M}\otimes^L_{\Rees\A_Y^R} \Rees\A_{Y\to X}^R)  \cong R\mu_*(\gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R).$$
+The proof of the commutation proceeds in two steps corresponding to the two derived functors.
+
+Let $\F^\bullet$ be a bimodule resolution for $\Rrel\A_{Y\to X}^R$ by locally free left $\Rees \A_Y^R$-modules.
+There is a $G$-filtration on this complex given by $z^j(\mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet) = (z^j\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$.
+By the flatness of locally free sheaves and the short exact sequence $0\to \oplus_j z^j \mathcal{M} \to \oplus_j z^{j-1}\mathcal{M} \to \gr^G \mathcal{M} \to 0$ it follows that $\gr^G(\mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet) \cong (\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$.
+Similarly to the arguments in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\A_Y^R$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\A_Y^R} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X^R}\grrel\A_X^R$.
+
+Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
+Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $R\mu_*$.
+Moreover, since the terms of a Godement resolution are essentially direct sums of formal products of stalks, it is immediate that $z^i \mathcal{G}(\mathcal{N}^\bullet) = \mathcal{G}(z^i\mathcal{N}^\bullet)$ and that $\gr^G\mathcal{G}(\mathcal{N}^\bullet) =\mathcal{G}(\gr^G\mathcal{N}^\bullet)$ for any complex of right $\mu^{-1}\Rees\A_X^R$-modules $\mathcal{N}^\bullet$.
+Applying $\mu_*$ to these equalities and setting $\mathcal{N}^\bullet = \mathcal{M}\otimes_{\Rees\A_Y^R} \F^\bullet$ yields the desired result.
+\end{proof}
+\begin{proposition}\label{prop: SuppGrrelIntInclusion}
+For a filtered $\A_Y^R$-module $\M$ with a good filtration it holds that  $$\supp \grrel\IntJ{j}\M \subseteq \supp \int^j \grrel\M.$$
+\end{proposition}
+\begin{proof}
+Let $\ell\geq 0$ be sufficiently large so that \cref{lem: EllLargeSubquotent} holds, that is to say that $\grl\IntJ{j} \M$ is a subquotient of $\int^j \grl \M$.
+By \cref{lem: GradedGGradedLYieldsGraded} it holds that $\gr^G\grl \IntJ{j} \M \cong (\grrel\int\M)^\ell$.
+Since $\grl \IntJ{j} \M$ is a subquotient of $\int \grl\M$ it remains to show that the support of $\gr^G \int^j \grl\M$ is a subset of the support of $\int^j \gr \M$.
+
+This can be established with the spectral sequence associated of the $G$-filtered complex $\int \grl \M$. Since the $G$-filtration is finite on $\grl\A_X^R$-modules the associated spectral sequence abuts by general results\todo{Found spectral sequence result online, add good reference.}. To be precise the associated spectral sequence with terms
+$E^2_{pq} = \H^{p+q}\gr^G \int \grl \M$ abuts to $\gr^G\int \M$.
+By \cref{lem: grGCommutes} and \cref{lem: GradedGGradedLYieldsGraded} it holds that $E^2_{pq} \cong (\int^{p+q}\gr \M)^\ell$. \todo{Or $E^1$? Seems to depend on preference but should actually matter somewhat for the differentials.}
+It follows that $\supp\gr^G \int^j \grl\M$ is a subset of the support of $\int \gr \M$ which completes the proof.
+\end{proof}
+\begin{theorem}\label{thm: KashiwaraEstimate}
+Let $\M$ be a coherent $\A_Y^R$-module. Then, for any $j\geq 0$, we have
+$$\Chrel\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
+\end{theorem}
+\begin{proof}
+This is immediate from \cref{lem: GrKashiwara} and \cref{prop: SuppGrrelIntInclusion}.
+\end{proof}
+\begin{corollary}\label{cor: RelHolConserved}
+Let $\M$ be a relative holonomic $\A_Y^R$-module. Then, for any $j\geq 0$ the direct image $\IntJ{j}\M$ is a relative holonomic $\A_X^R$-module.
+\end{corollary}
+\begin{proof}
+This follows from \cref{thm: KashiwaraEstimate} and (\todo{isotropic is conserved \cite{kashiwara1976b}}).
+\end{proof}
