@@ -293,7 +293,7 @@ Hence, this generalises the earlier computations.
 \end{proof}
 We conclude this section by considering a few important examples of derived functors which will be used later on.
 Let $X$ a topological space and $\AA_X$ a sheaf of rings which may not be commutative.
-Denote $C^{*,l}(\AA_X)$ for the corresponding category of complexes of left $\AA_X$-modules, $C^{*,r}(\AA_X)$ for right $\AA_X$-modules and $C^{*,lr}(\AA_X)$ for bimodules.
+Denote $C^{*,\ell}(\AA_X)$ for the corresponding category of complexes of left $\AA_X$-modules, $C^{*,r}(\AA_X)$ for right $\AA_X$-modules and $C^{*,\ell r}(\AA_X)$ for bimodules.
 
 Using \cref{thm: InjectivesAllowDerivedFunctor} one can establish that the global sections functor $\Gamma(X,\blank)$ on $C^{*,*}(\AA_X)$ has a derived functor $R^+\Gamma(X,\blank)$.
 The cohomology of a sheaf of modules is given by the functors $H^k(X,\blank) := R^k \Gamma(X,\blank)$ and the hypercohomology of a complex of modules is given by the functors $\mathbb{H}^k(X,\blank):= \mathbb{R}^k\Gamma(X,\blank)$.
@@ -326,7 +326,7 @@ The total complex of $\F^{\bullet, \bullet}$ yields a flabby resolution of $\M^\
 
 A classical example of a non-exact functor is given by the tensor product.
 This may be considered as a bifunctor
-$$ \otimes_R : C^{-,l}(\AA_X)\times C^{-,r}(\AA_X)\to C^{-,lr}(\AA_X)$$
+$$ \otimes_R : C^{-,\ell}(\AA_X)\times C^{-,r}(\AA_X)\to C^{-,\ell r}(\AA_X)$$
 where
 $(\M^\bullet \otimes \N^\bullet)^n = \oplus_{i + j = n} \M^i \otimes \N^j $
 with differentials defined at $\M^i \otimes \N^j$ by
@@ -334,7 +334,7 @@ $d(m\otimes n) = dm \otimes n + (-1)^i m \otimes dn.$
 The category of $\AA_X$-modules admits locally free resolutions.
 In particular, it has enough projective objects.
 Essentially by the remark after \cref{thm: InjectivesAllowDerivedFunctor} it is then possible to construct a derived left-derived functor
-$$ \otimes_R^L : D^{-,l}(\AA_X)\times D^{-,r}(\AA_X)\to D^{-,lr}(\AA_X).$$
+$$ \otimes_R^L : D^{-,\ell}(\AA_X)\times D^{-,r}(\AA_X)\to D^{-,\ell r}(\AA_X).$$
 This yields $\Tor$-sheaves
 $\Tr{\AA_X}{k}(X^\bullet, Y^\bullet) = \H^{-k}(X^\bullet\otimes_{\AA_X}^L Y^\bullet).$
 
@@ -342,7 +342,7 @@ A similar procedure applies to the $\Hom_{\AA_X}$-bifunctor which is defined by
 $\Hom_{\AA_X}^n(\M^\bullet, \N^\bullet) \ab = \prod_{j\in Z} \Hom_{\AA_X}(\M^j , \N^{n+j}) $
 with the differentials on $\Hom_{\AA_X}^n(M^\bullet,N^\bullet)$ given by $d\varphi = d_N\circ \varphi - (-1)^n \varphi \circ d_M$.
 There is a induced derived bifunctor
-$$R\Hom_{\AA_X}^\bullet(\blank,\blank):: D^{-,l}(\AA_X)^{opp}\times D^{+,lr}(\AA_X)\to D^{r}(\AA_X).$$
+$$R\Hom_{\AA_X}^\bullet(\blank,\blank):: D^{-,\ell}(\AA_X)^{opp}\times D^{+,\ell r}(\AA_X)\to D^{r}(\AA_X).$$
 This yields the $\Ext$-sheaves
 $\Ex{\AA_X}{n}(M^\bullet,N^\bullet) = \H^n R\Hom_{\AA_X}^\bullet(M^\bullet, N^\bullet).$
 \section{$t$-structures}
@@ -415,7 +415,7 @@ Further let $\tH^i:= \tH^0 \circ T^i$.
  The perverse functor $^pF$ associated to $F$ is the induced functor on the hearts $^pF = \tH^0 \circ F \circ j_1$ where $j_1$ denotes the inclusion functor $j_1:\mathcal{C}_1\to \mathcal{C}_2$.
 \end{definition}
 \begin{proposition}\label{prop: FunctorHeart}
-  Let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a $t$-exact functor of triangulated categories. Then $F$ sends the heart $\mathcal{C}_1$ into the heart $\mathcal{C}_2$ and the induced functor $F:\mathcal{C}_1 \to \mathcal{C}_2$ is naturally isomorphic to $^pF$. 
+  Let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a $t$-exact functor of triangulated categories. Then $F$ sends the heart $\mathcal{C}_1$ into the heart $\mathcal{C}_2$ and the induced functor $F:\mathcal{C}_1 \to \mathcal{C}_2$ is naturally isomorphic to $^pF$.
 \end{proposition}
 \begin{proof}
   This result may be found in \cite[Chapter 5]{dimca2004sheaves}.

@@ -1,4 +1,5 @@
 \chapter{$\D_X$-modules and the Riemann-Hilbert Correspondence}\label{Ch: ChapterDX}
+\todo{Noetherian}
 The subject of this chapter are modules over rings of differential operators.
 Throughout $X$ can be a smooth algebraic variety or a complex manifold of dimension $n$.
 The rings of differential operators $\D_X$ will be defined formally in the next section.
@@ -99,12 +100,13 @@ In particular, for a filtration of the $\D_X$-module $\M$ the graded object $\gr
   A proof of this result may be found in \cite[Chapter 2]{hotta2007d}.
 \end{proof}
 \begin{proposition}\label{prop: StructureChVar}
-  Let $\M$ be a coherent $\D_X$-module, then $\Ch \M$ is a homogeneous and isotropic closed subset of $T^* X$.
+  Let $\M$ be a coherent $\D_X$-module, then $\Ch \M$ is a homogeneous and involutive closed subset of $T^* X$.
 \end{proposition}
 \begin{proof}
   These results may be found in \cite[Chapter 2]{kashiwara2003d}.
 \end{proof}
-\begin{proposition}
+Characteristic varieties behave well with respect to quotients and submodules.
+\begin{proposition}\label{prop: SESBehaviourChar}
   Consider a short exact sequence of coherent $\D_X$-modules
   $$0 \to \M_1 \to \M_2 \to \M_3 \to 0 $$
   then it holds that
@@ -114,6 +116,23 @@ In particular, for a filtration of the $\D_X$-module $\M$ the graded object $\gr
   A good filtration on $\M_2$ induces good filtrations on $\M_1$ and $\M_3$ and one has a short exact sequence
   $$0\to \gr \M_1 \to \gr \M_2 \to \gr \M_3 \to 0 $$
   whence the result follows.
+\end{proof}
+Let $f$ be a non-constant function of $\O_X$ and $s$ a new variable.
+For the purposes of the study of Bernstein-Sato polynomials the coherent $\D_X$-module $\D_X f^s$ is essential.
+The corresponding characteristic variety is understood and may provide some intuition for general characteristic varieties.
+\begin{proposition}\label{prop: Charfs}
+  The characteristic variety of the coherent $\D_X$-module $\D_Xf^s$ is the closure of
+  $$W_f = \{(x,sf^{-1}df(x)); \qquad f(x)\neq 0, s\in \C \}$$
+  in $T^*X$.
+\end{proposition}
+\begin{proof}
+  This proof of this result may be found in \cite{kashiwara1976b}.
+\end{proof}
+\begin{proposition}\label{prop: IsotropicAndDominate}
+  One can write $\Ch \D_X f^s = \Lambda \cup W$ for some isotropic variety $\Lambda \subseteq T^*X$ and a irreducible $(n+1)$-dimensional variety $W$ which dominates $X$.
+\end{proposition}
+\begin{proof}
+  The proof of this result may be found in \cite{kashiwara1976b}. It follows from \cref{prop: Charfs} by establishing that the part of the closure of $W_f$ above $f=0$ is isotropic.
 \end{proof}
 
 \subsection{Direct Image}
@@ -174,7 +193,7 @@ $$
 $$
 \begin{proposition}\label{prop: EstimateProper}
   Let $\M$ be a $\mu$-good $\D_Y$-module and suppose that $\mu$ is proper on the support of $\M$. Then, for any $j\geq 0$
-  $$\Ch\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
+  $$\Ch\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Ch \M) \right).$$
 \end{proposition}
 \begin{proof}
   See remark 2.5.2 in \cite[Chapter 2]{hotta2007d} for the algebraic case or \cite[Chapter 3]{sabbah2011introduction} for the analytic case.
@@ -186,7 +205,7 @@ The solutions are given by perverse sheaves.
 \subsection{Holonomic Modules}
 A particularly nice class of $\D_X$-modules are given by maximally overdetermined systems of differential equations.
 This is to say that there are many relations for $\M$ or equivalently that $\Ch\M$ is small.
-Observe that by the isotropic part of \cref{prop: StructureChVar} it follows that $\dim \Ch\M \geq n$.
+Observe that by the involutive part of \cref{prop: StructureChVar} it follows that $\dim \Ch\M \geq n$.
 \begin{definition}
   A coherent $\D_X$-module $\M$ is called holonomic if
   $\dim \Ch \M  = n.$
@@ -218,7 +237,7 @@ When $\mu$ is proper this may be established by combining \cref{prop: EstimatePr
 \begin{proof}
   This result may be found in \cite[Chapter 4]{sabbah2011introduction}.
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{lem: IsotropicDirectImage}
   Let $\mu:Y\to X$ be a proper morphism and $V\subseteq T^*Y$ an isotropic subvariety. Then $\widetilde{\mu}((T^*\mu)^{-1}(\Chrel \M) )$ is also isotropic.
 \end{lemma}
 \begin{proof}
@@ -288,7 +307,7 @@ This uses the analytification functor on coherent sheaves which is provided by t
 
   For a constructible complex $\mathcal{F}^\bullet$ in $D^b_c(X)$ the supports and cosupports are defined dually by
   $$\supp^m\mathcal{F}^\bullet = \supp \H^m \mathcal{F}^\bullet; \qquad \operatorname{cosupp}^m\mathcal{F}^\bullet = \supp^{-m}\mathbb{D}\mathcal{F}^\bullet.$$
-  The suppport of $\mathcal{F}^\bullet$ is the closure of the union of the $\supp^m\mathcal{F}^\bullet$.
+  The support of $\mathcal{F}^\bullet$ is the closure of the union of the $\supp^m\mathcal{F}^\bullet$.
   \begin{theorem}
     Let $\mathcal{F}^\bullet$ be a constructible complex on $Y$ and consider a morphism $\mu:Y\to X$ which is proper on $\supp \mathcal{F}^\bullet$. Then $Rf_*(\mathcal{F}^\bullet)$ is constructible on $X$.
   \end{theorem}
@@ -333,7 +352,7 @@ This uses the analytification functor on coherent sheaves which is provided by t
   \end{proposition}
 \subsection{Riemann-Hilbert Correspondence}
   Recall that $\Hom_{\D_X}(\M, \O_X)$ encodes the solutions of a system of differential equations.
-  More generally, the solutions complex is the functor $\operatorname{Sol}(\blank) := R \Hom_{\D_X}(\blank,\O_X)[n]$ from $D^{b,l}(\D_X)^{opp}$ to $D^{b}(\C_X)$.
+  More generally, the solutions complex is the functor $\operatorname{Sol}(\blank) := R \Hom_{\D_X}(\blank,\O_X)[n]$ from $D^{b,\ell}(\D_X)^{opp}$ to $D^{b}(\C_X)$.
   The contravariance may be fixed using the duality functor
   $$\mathbb{D} = R\Hom_{\D_X}(\blank,\D_X)\otimes_{\O_X}^L\omega_X^{-1}[n]$$
   from $D^{b,*}(\D_X)^{opp}$ to $D^{b,*}(\D_X)$.
@@ -346,14 +365,14 @@ This uses the analytification functor on coherent sheaves which is provided by t
     This result may be found in \cite[Chapter 5]{dimca2004sheaves}.
   \end{proof}
   \begin{proposition}
-    For any holonomic complex $\M^\bullet$ in $D_h^{b,l}(\D_X)$ the complexes $\Sol(\M^\bullet)$ and $\DR(\M^\bullet)$ are constructible.
+    For any holonomic complex $\M^\bullet$ in $D_h^{b,\ell}(\D_X)$ the complexes $\Sol(\M^\bullet)$ and $\DR(\M^\bullet)$ are constructible.
   \end{proposition}
   \begin{proof}
     This result may be found in \cite[Chapter 5]{dimca2004sheaves}.
   \end{proof}
   We are finally ready to state the Riemann-Hilbert correspondence on the equivalence between differential equations and their solutions.
   \begin{theorem}[Riemann-Hilbert Correspondence]
-    The de Rham functor $\DR:D_{rh}^{b,l}(\D_X) \to D_c^b(X)$ is a $t$-exact equivalence of categories and commutes with direct images.
+    The de Rham functor $\DR:D_{rh}^{b,\ell}(\D_X) \to D_c^b(X)$ is a $t$-exact equivalence of categories and commutes with direct images.
   \end{theorem}
   \begin{proof}
     This result may be found in \cite[Chapter 5]{dimca2004sheaves}.
@@ -364,4 +383,144 @@ This uses the analytification functor on coherent sheaves which is provided by t
   \begin{proof}
     Follows from the Riemann-Hilbert correspondence and \cref{prop: FunctorHeart}.
   \end{proof}
-\section{Monodromy}
+\section{Monodromy and Bernstein-Sato Polynomials}
+The goal of this section is to motivate Bernstein-Sato polynomials by their connection to monodromy.
+Further, we include Kashiwara and Lichtin's proof for the estimation of the roots of the Bernstein-Sato polynomial.
+This proof is a important framework for the generalised proof in \cref{ch: ChapterRelHol}.
+
+
+We focus on the local analytic case where $f:(\C^{n},0)\to (\C,0)$ is a non-constant germ of a holomorphic function.
+The suitable treatment of varieties and global functions $f$ will be discussed in more detail in the next chapter.
+\subsection{Monodromy}
+This subsection is based on \cite[Chapter 1]{blanco2020bernstein} and \cite{budur2015bernstein}.
+
+Pick some sufficiently small ball $B\subseteq \C^{n}$ such that $f$ yields a holomorphic function on $B$.
+Let $T\subseteq f(B)$ be a sufficiently small punctured disc centred at $0$.
+Denote $F = f^{-1}(T)\cap B$ and $X = \overline{F}$.
+It has been established by Milnor and Hamm-Le that $f:F \to T$ is a smooth fiber bundle and that the diffeomorphism type of the fiber $f^{-1}(t) \cap B $ is independent of the choice of $t\in T$.
+This fiber is denoted $F_{f,0}$ and is called the Milnor fiber.
+
+Going over a loop around the origin in $\C^\times$ induces a diffeomorphism $M$ on the Milnor fiber $F_{f,0}$.
+In particular, this action induces a endomorphism $M^*$ on the cohomology $H^j(F_{f,0},\C)$ for every $j\in Z$.
+This linear endomorphism is called the monodromy action and only depends on the singularity $(f^{-1}(0),0)$.
+In particular, this means that the eigenvalues of $M^*$ on $H^j(F_{f,0},\C)$ are invariants of the singularity.
+If $\lambda \in \C$ is a eigenvalue of $M^*$ on some $H^j(F_{f,0},\C)$ it is called a eigenvalue of monodromy.
+
+Let $s$ be a new variable.
+The Bernstein-Sato polynomial $b_{f,0}\in \C[s]$ of $f$ is defined to be the monic polynomial of minimal degree such that there exists some differential operator $P(x,\partial,s)$ in the stalk of $\D_X\otimes_{\C}\C[s]$ at $0$ with
+$$P(x,\partial,s) f^{s+1} = b_{f,0}(s) f^s.$$
+Let $Z(b_{f,0})$ denote the set of zeros of the Bernstein-Sato polynomial.
+These are connected to monodromy by the following classical theorem due to Malgrange and Kashiwara.
+\begin{theorem}
+  The set $\exp(Z(b_{f,0}))$ is equal to the set of eigenvalues of monodromy.
+\end{theorem}
+\begin{proof}
+  This theorem may be found in \cite{budur2015bernstein}.
+\end{proof}
+Monodromy is a topological notion whereas the Bernstein-Sato polynomial is defined in terms of $\D_X$-modules.
+This suggest that the Riemann-Hilbert correspondence is involved.
+Indeed, monodromy of the Milnor fiber can be encoded in a constructible complex so that the Riemann-Hilbert correspondence is applicable.
+
+Let $\widetilde{\C}^\times$ denote the universal cover of $\C^\times$ and consider the projection $p:X\times \widetilde{\C}^\times \to X$.
+Denote $\iota:f^{-1}(0)\to X$ for the inclusion map.
+Deligne's nearby cycle functor is the functor $\psi_f:= L\iota^* Rp_* Lp^*$ from $D^b_c(X)$ to $D_c^b(f^{-1}(0))$.
+The following theorem is due to Deligne.
+\begin{theorem}
+  Denote $\iota_0:\{0\}\to f^{-1}(0)$ for the inclusion map.
+  Then, there is a isomorphism
+  $$H^i(F_{f,0}, \C) \cong \mathbb{H}^i(L\iota_0^* \psi_f \C_X) $$
+  and the monodromy action on the cohomology of the Milnor fiber corresponds with the action of the covering transformations $\widetilde{\C}^\times \to \widetilde{\C}^\times$ on the nearby cycles.
+\end{theorem}
+\begin{proof}
+  This theorem may be found in \cite{budur2015bernstein}.
+\end{proof}
+To describe the $\D_X$-theoretic counterpart of this constructible complex requires the technical notion of $V$-filtrations.
+The interested reader may find these concepts in \cite{budur2015bernstein}.
+\subsection{Estimation of $Z(b_{f,0})$}
+Estimation of $Z(b_{f,0})$ is easy if $f$ is a monomial.
+For instance, if $f = x_1^{r_1}\cdots x_n^{r_n}$ then set $P = \partial_1^{r_1}\cdots \partial_n^{r_n}$ to get
+$$P f^{s+1} = \prod_{i=1}^n (r_1 s_1 + r_1)\cdots (r_1 s_1 + 1) f^{s}. $$
+The main idea employed in the proof by \cite{kashiwara1976b} is that one can reduce to this situation by resolution of singularities and $\D_X$-module direct images.
+\begin{definition}
+  Let $D$ be a divisor on $X$. A strong log resolution of $(X,D)$ consists of a projective morphism $\mu:Y\to X$ which is a isomorphism over the complement of $D$ such that $Y$ is smooth and $\mu^*D = \sum_{i=1}^r a_i E_i$ is a simple normal crossings divisor.
+\end{definition}
+Let $D$ be the divisor determined by $f$.
+By Hironaka's resolution of singularities one can find a resolution $\mu:Y\to X$ for $(X,D)$.
+Let $g = f\circ \mu$ denote the pullback of $f$ to $Y$, then $\mu^*D = \sum_{i=1}^r \operatorname{mult}_{E_i}(g) E_i$ where $\operatorname{mult}_{E_i}(g)$ denotes the order of vanishing of $g$ on the irreducible hypersurface $E_i$.
+
+Since $g$ is locally a monomial Kashiwara was able to establish the following estimate by consideration of the direct image of the $\D_Y$-module $\D_Y g^s$.
+\begin{theorem}
+  Every root of $b_{f,0}(s)$ is of the form $ -c_i/\operatorname{mult}_{E_i}(g) $ with $c_i\in \mathbb{Z}_{>0}$.
+\end{theorem}
+\begin{proof}
+  This is proved in \cite{kashiwara1976b}.
+\end{proof}
+\cite{lichtin1989poles} improved this estimate by doing similar computations for the right $\D_Y$-module $\M$ spanned by $ g^s \mu^*(dx)$ inside $\D_Yg^s\otimes_{\O_Y} \omega_Y$.
+The advantage of this approach is that $\mu^*(dx)$ involves the local behaviour of $\mu$ which can detect redundant divisors in $\mu^*D$.
+The vanishing of $\mu^*(dx)$ is measured in the relative canonical divisor $K_{Y/X} = \sum k_i E_i$.
+\begin{theorem}\label{thm: LichtinEstimate}
+  Every root of $b_{f,0}(s)$ is of the form $-(k_i + c_i)/\operatorname{mult}_{E_i}(g)$ with $c_i\in \mathbb{Z}_{>0}$.
+  In particular $Z(b_{f,0})\subseteq \mathbb{Q}_{<0}$.
+\end{theorem}
+We will now reproduce the proof for this improved estimate following Lichtin and Kashiwara.
+\\
+
+There is a $\O_X$-linear isomorphism between any left $\D_X$-module $\N$ and it's right version $ \N \otimes_{\O_X}\omega_X$.
+Concretely, any section $u$ of $\N$ gives rise to the section $u^* := u dx$.
+Further, for any operator $P$ of $\D_X$ there is a adjoint $P^*$ such that
+$$(P\cdot u)^* =   u^* \cdot P^*$$
+for any section $u$ of $\N$.
+For a vector field $\xi := \sum_i\xi_i \partial_i$ comparison of the definitions shows that $\xi^* := \sum_i\partial_i\xi_i$ satisfies this equality and this extends to $\D_X$ by iterating.
+
+By this procedure the functional equation $P f^{s+1} = b f^s$ may equivalently be stated as the equation
+$$f^{s+1}dx \cdot P^* = b f^s dx $$
+in $\D_X f^s \otimes_{\O_X}\omega_X$.
+The corresponding module $\M$ on $Y$ will be the submodule of $ \D_Y g^s \otimes_{\O_Y}\omega_Y$ spanned by $g^s \mu^*(dx)$.
+
+\begin{lemma}\label{lem: UpstairsB}
+  The polynomial $\prod_{i=1}^r \prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}(g)s + k_i + j)$ annihilates $\M / g\M$.
+\end{lemma}
+\begin{proof}
+  This may be checked locally.
+  Near a point which is on none of the $E_i$ it holds that $g$ is invertible so $\M/g\M$ is trivial.
+  Now suppose we are working near a point $y\in Y$ which is on $E_i$ if and only if $i\in I$ with $I$ non-empty.
+  Then one can pick local coordinates $y_i$ such that
+  $$ g = \prod_{i\in I} y_i^{m_i}; \qquad \mu^*(dx) =u \prod_{i\in I} y_i^{k_i}$$
+  where $u$ is a local unit.
+  Now set $P = u^{-1}(\prod_{i\in I}\partial_i^{m_i})u$ to get
+  $$g^{s+1} \mu^*(dx)\cdot P = b g^s \mu^*(dx)$$
+  where
+  $$b = \prod_{i\in I} (\mult_{E_i}s +  m_i + \mult{E_i} )\cdots (\mult_{E_i}s + m_i + 1 ). $$
+\end{proof}
+Consider the surjection $\D_Y\to \M$ induced by $1 \mapsto g^s \mu^*(dx)$.
+The associated long exact sequence includes a morphism $\int^0\D_Y \to \int^0\M$. Observe that $\int^0\D_Y = R^0 \mu_*(\A_{Y\to X}^R)$ contains a global section corresponding to $1$.
+Let $u$ be the image of this section in $\int^0\M$ and denote $\U$ for the right $\A_X$-module generated by $u$.
+\begin{lemma}
+  There is a surjective morphism of right $\D_X$-modules $\U \to \D_X f^s \otimes_{\O_X} \omega_X$ sending $u$ to $f^s dx$.
+\end{lemma}
+\begin{proof}
+   The resolution of singularities $Y\to X$ is a isomorphism on the complement of $\prod f_i = 0$. Hence, a isomorphism $\U = \Int \M \cong  \D_X f^s  \otimes_{\O_X}\omega_X$ holds outside of $\prod f_i = 0$.
+
+  Pick some open set $V\subseteq \X$ we must show that whenever $uP = 0$ in $\U(V)$ it follows that $(f^s dx)P = 0$.
+  Due to the isomorphism it is certainly the case that $(f^s dx) P = 0$ outside of $\prod f_i = 0$.
+  Hence, the support of the coherent sheaf of $\O_V$-modules $\O_V (F^s dx) P $ lies in $\prod f_i = 0$.
+  The Nullstellen Satz now yields that $(\prod f_i)^N (f^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
+  Note that $\prod f_i$ is a non-zero divisor of $(f^s\otimes_{\O_\X} \omega_\X)(V)$. Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
+\end{proof}
+By \cref{lem: UpstairsB} there is a suitable $b$-polynomial for $\Int\M$ so it remains to compare $\Int\M$ and $\U$.
+\begin{lemma}
+  The quotient $\Int\M / \U$ is a holonomic $\D_X$-module.
+\end{lemma}
+\begin{proof}
+  By \cref{prop: SESBehaviourChar} the characteristic variety of $\M$ is a subset of the characteristic variety of $\D_Yg^s \otimes_{\O_Y} \omega_Y$.
+  This has the same characteristic variety as $\D_Y g^s$ due to the $\O_Y$-linear isomorphism between $\D_Yg^s$ and $\D_Yg^s \otimes_{\O_Y} \omega_Y$
+  Hence, by \cref{prop: IsotropicAndDominate} it follows that $\Ch \M \subseteq W \cup \Lambda$ for some isotropic $\Lambda\subseteq T^*Y$ and a irreducible $(n+1)$-dimensional variety $W$ which dominates $Y$.
+
+  Observe that $\M$ is certainly $\mu$-good since it admits a global good filtration $F_i\M := F_i\D_X \cdot g^s \mu^*(dx)$.
+  Hence, \cref{prop: EstimateProper} is applicable and yields that
+  $$\Ch \Int \M \subseteq \widetilde{\mu}((T^*\mu)^{-1} \Lambda \cup W).$$
+  By \cref{lem: IsotropicDirectImage} the set $\widetilde{\mu}((T^*\mu)^{-1}\Lambda)$ is still isotropic and will not form any obstruction to $\Int\M/\U$ being holonomic.
+  Further, observe that $\widetilde{\mu}((T^*\mu)^{-1}W)$ remains a irreducible $(n+1)$-dimensional variety which dominates $X$.
+  On the other hand $\mu$ is a isomorphism outside of $\{f = 0\}$ so $\Int\M/\U$ is only supported on $\{f = 0\}$.
+  Intersecting $W$ with $\{f = 0\}$ yields a $n$-dimensional variety and the desired result follows.
+\end{proof}

@@ -129,6 +129,7 @@
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Sol}{Sol}
 \DeclareMathOperator{\DR}{DR}
+\DeclareMathOperator{\mult}{mult}
 \newcommand{\Hom}{\ensuremath{\mathcal{H}om}}
 \newcommand{\op}[1]{\ensuremath{\operatorname{#1}}}
 
@@ -148,12 +149,12 @@
 % Exercise Box: \begin{exercise} OR \begin{exercise*}
 
 \newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
 \newtheorem{lemma*}{Lemma}
-\newtheorem{conjecture}{Conjecture}
+\newtheorem{conjecture}[definition]{Conjecture}
 %%      MASTERTHESIS PACKAGE        %%
 \RequirePackage{fix-cm}
 

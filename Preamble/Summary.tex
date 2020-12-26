@@ -1,5 +1,5 @@
 \addcontentsline{toc}{chapter}{Introduction} %% CHANGE BACK TO SUMMARY %%
-\chapter*{Introduction} %% CHANGE BACK TO SUMMARY %%
+\chapter*{Introduction}\label{ch: Introduction} %% CHANGE BACK TO SUMMARY %%
 
 %%      CHANGE BACK TO SUMMARY    %%
 
@@ -12,19 +12,21 @@ Gelfand asked if it is possible to find a meromorphic extension of the function
 $$\Gamma_g(s) = \int_{\mathbb{R}^n} g f^s dx; \qquad \operatorname{Re}(s)>0 $$
 to the entire complex plane.
 A proof by Bernstein relies on the existence of a differential operator $P(x,\partial, s)$ such that
-$$P(x,\partial,s) f^{s+1} = b(s) f^s$$
-for some polynomial $b(s)\in \C[s]$.
-The polynomial of minimal degree is called the Bernstein-Sato polynomial.
-In particular, this method shows that any pole of $\Gamma_g$ is a root of $b(s)$ up a shift with a negative integer.\\
+$$P(x,\partial,s) f^{s+1} = b_f(s) f^s$$
+for some polynomial $b_f(s)\in \C[s]$.
+The monic polynomial of minimal degree is called the Bernstein-Sato polynomial.
+In particular, this method shows that any pole of $\Gamma_g$ is a root of $b_f(s)$ up a shift with a negative integer.\\
 
 The relation between the roots of $b(s)$ and the poles of functions like $\Gamma_g$ is the topic of a notable open problem called the monodromy conjecture.
-Futher, the roots of $b(s)$ give some insight into the behaviour of the ill-defined function $f^{-1}$.
+Futher, the roots of $b_f(s)$ give some insight into the behaviour of the ill-defined function $f^{-1}$ and the nature of the singularities.
 Suppose that $f(0)= 0$ and consider $f$ as a function germ $f:(\C^n,0)\to (\C,0)$.
 Let $t\in \C^\times$ be close to $0$ and consider the intersection $X_t := f^{-1}(t)\cap B_\varepsilon$ where $B_\varepsilon$ is some small ball centered at $0$.
-Twisting $t$ around the origin induces a diffeomorphism $M$ of $X_t$ which is called the monodromy.
+Twisting $t$ around the origin induces a diffeomorphism $M$ of $X_t$ which is called the geometric monodromy.
 In particular, one gets linear endomorphisms $M^*$ on the vector spaces $H^j(X_t,\C)$.
-The eigenvalues of this action are called the eigenvalues of monodromy.
-The monodromy theorem states that the eigenvalues of monodromy are precisely the set $\exp(Z(b))$ where $Z(b)$ denotes the collection of roots of the Bernstein-Sato polynomial.
+The action $M^*$ only depends on the singularity $(f^{-1}(0),0)$.
+In particular, the eigenvalues of the action are invariants of the singularity.
+These eigenvalues are called the eigenvalues of monodromy.
+A classical theorem due to Malgrange and Kashiwara estabilshes that the eigenvalues of monodromy are precisely the set $\exp(Z(b_f))$ where $Z(b_f)$ denotes the collection of roots of the Bernstein-Sato polynomial.
 
 This shows that the roots of the Bernstein-Sato polynomial are a worthy topic of study.
 Estimation of the roots of the Bernstein-Sato polynomial has been done in terms of data from a resolution of singularities.
@@ -39,7 +41,7 @@ This refined estimate uses a similar methodology to Kashiwara but replaced $f^s$
 \\
 
 In this thesis a multivariate generalization of the problem is considered.
-Let $F:(\C^{n},0)\to (\C^p,0)$ be a function germ with coordinate functions $f_1,\ldots, f_p$ be polynomials and define variables $s_1,\ldots, s_p$.
+Let $F:(\C^{n},0)\to (\C^p,0)$ be a function germ with coordinate functions $f_1,\ldots, f_p$ and define variables $s_1,\ldots, s_p$.
 It is then still known that there exists a differential operator $P(x,\partial, s)$ such that
 $$P(x,\partial,s) f_1^{s_1 + 1}\cdots f_p^{s_p + 1} = b(s)f_1^{s_1}\cdots f_p^{s_p}$$
 for some polynomial $b(s) \in \C[s_1,\ldots, s_p]$.

@@ -118,7 +118,7 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
         there is a long exact sequence in direct images
         $$0\to \int^0 \M_1 \to \int^0 \M_2 \to \int^0 \M_3 \to \int^1 \M_1 \to \cdots. $$
     \end{proposition}
-    Analogously to the case of $\D_X$-modules the direct image conserves relative holonomic modules.
+    Analogously to the case of $\D_X$-modules the direct image conserves relative holonomicity.
   \begin{definition}
       A $\D_Y$-module $\M$ is said to be $\mu$-good if $X$ admits a open cover $\{V_j\}_{j\in J}$ such that $\M$ has a good filtration on $\mu^{-1}(V_j)$ for every $j\in J$.
   \end{definition}
@@ -209,21 +209,22 @@ The proof of the following lemma is a slight modification on the proof of propos
   where we note that $\A_X^{R/(b)}$ is a $\A_X^{R}$-bimodule so that both tensor products are well-defined.
   We compare the Grothendieck spectral sequences of both sides of this isomorphism.
 
-  The spectral sequence associated with the right-hand-side has $E^2$-sheet\todo{Fix super/subscripts etc}
-  $$E_{pq}^2 = \Ex{\A_X^{R/(b)}}{p}(\Tr{\A_X^R}{-q}(\M, \A_X^{R/(b)}), \A_X^{R/(b)}).$$
+  The spectral sequence associated with the right-hand-side has $E_2$-sheet\todo{Fix super/subscripts etc}
+  $$E^{pq}_2 = \Ex{\A_X^{R/(b)}}{p}(\Tr{\A_X^R}{-q}(\M, \A_X^{R/(b)}), \A_X^{R/(b)}).$$
   Recall from \cref{lem: ExtGrade} terms with $p>n$ have grade greater than $n$ and due to \cref{lem: AXRBehaviourGradesJAndChrel} there are no non-zero terms with $p<n$.
-  Hence, the only term with $p+q = n$ which could potentially have degree $n$ is $E_{n0}^2$.
+  Hence, the only term with $p+q = n$ which could potentially have degree $n$ is $E^{n0}_2$.
   If we can show that the total cohomology of degree $n$ on the left-hand-side has grade $n$ then it follows that $\Ex{\A_X^{R/(b)}}{n}(\M\otimes_{\scaleto{\A_X^R}{8pt}} \A_X^{R/(b)}), \A_X^{R/(b)}) \neq 0$.
 
-  The spectral sequence associated to the left-hand-side has $E^2$-sheet given by
-  $$E^2_{pq} =\Tr{\A_X^R}{-q}( \Ex{\A_X^R}{p}(\M,\A_X^R), \A_X^{R/(b)}).$$
-  Note that there are no non-zero differentials which map into $E^j_{0n}$ or for $j\geq 2$.
-  Further, the differentials out of the $E_{0n}^j$ land in $E_{-j(n+j)}^j$ which is a subquotient of $\Tr{\A_X^R}{j}(\Ex{\A_X^R}{n+j+1}(\M,\ab \A_X^R)\ab , \A_X^{R/(b)})$.
-  Since $\Ex{\A_X^R}{n+j}(\M,\A_X^R)$ is relative holonomic of degree $n+j$ \cref{prop: AXRBehaviourGradesJAndChrel} and a argument similarly to that which established that $\M \otimes_R R/(b)$ is relative holonomic yield that $E_{j(n+j+1)^j}$ has grade greater than or equal to $n+j-1$.
-  We will show that that $E^2_{0n}$ has grade $n$.
+  The spectral sequence associated to the left-hand-side has $E_2$-sheet given by
+  $$E_2^{pq} =\Tr{\A_X^R}{-q}( \Ex{\A_X^R}{p}(\M,\A_X^R), \A_X^{R/(b)}).$$
+  Note that there are no non-zero differentials which map into $E_j^{0n}$ or for $j\geq 2$.
+  Further, the differentials out of the $E^{0n}_j$ land in $E^{-j(n+j)}_j$ which is a subquotient of $\Tr{\A_X^R}{j}(\Ex{\A_X^R}{n+j+1}(\M,\ab \A_X^R)\ab , \A_X^{R/(b)})$.
+  Since $\Ex{\A_X^R}{n+j}(\M,\A_X^R)$ is relative holonomic of degree $n+j$ \cref{prop: AXRBehaviourGradesJAndChrel} and a argument similarly to that which established that $\M \otimes_R R/(b)$ is relative holonomic yield that $E^{j(n+j+1)^j}_j$ has grade greater than or equal to $n+j-1$.
+  We will show that that $E_2^{0n}$ has grade $n$.
   Then using \cref{prop: AXRBehaviourGradesJAndChrel} and \cref{lem: SESBehaviourA} on the exact sequences
-  $$0 \to E^{j+1}_{0n}\to  E^j_{0n} \to E_{j(n+j+1)^j} $$
-  it follows that $E^j_{0n}$ has grade $n$ for every $j\geq 2$.
+  $$0 \to E_{j+1}^{0n}\to  E_j^{0n} \to E_{j(n+j+1)^j} $$
+\todo{Check}
+it follows that $E_j^{0n}$ has grade $n$ for every $j\geq 2$.
   This shows that the total cohomology of degree $n$ has grade $n$ and concludes the proof.
 
   Denote $\E^n := \Ex{\A_X^R}{n}(\M,\A_X^R)$, by \cref{lem: ExtGrade} it holds that $\E^n$ is a $n$-pure relative holonomic $\A_X^R$-module.
@@ -292,7 +293,7 @@ The proof and statement are more involved than the original result by Kashiwara 
   $$0 \to \E^{n+k}\left(\frac{t^i\M'}{ t^{i+1}\M'}\right) \to  \E^{n+k}\left(\frac{\M'}{t\M'}\right) \to \E^{n+k}\left(K_i\right) \to \E^{n+k+1}\left(\frac{t^i\M'}{ t^{i+1}\M'}\right)\to \cdots $$
   In particular there is a isomorphism $\E^{n+k+1}(t^i\M'/t^{i+1}\M') \cong \E^{n+k}(K_i)\ab/\img \E^{n+k}(\M'\ab /t\M')$ whose left-hand-side is known to vanish when $i\leq N$.
   Since the right-hand-side is constant for $i\geq N$ it follows that $\E^{n+k+1}(t^i\M'/t^{i+1}\M')\cong 0$ for any $i\geq 0$.
-  The higher order terms of the long exact sequence yield $\E^{n+k+j}(\frac{t^i\M'}{ t^{i+1}\M'}) \cong 0$ for $j>1$.
+  The higher order terms of the long exact sequence yield $\E^{n+k+j}(t^i\M'/ t^{i+1}\M') \cong 0$ for $j>1$.
   This shows that $t^i \M'/t^{i+1}\M'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
 
 
@@ -347,7 +348,7 @@ This is because $\mu^*(dx)$ gives a local equation for $K_{Y/X}$.
   belongs to the Bernstein-Sato ideal $B_{\M/t\M}$ if $N\geq 0$ is sufficiently large.
 \end{lemma}
 \begin{proof}
-  This may be checked locally.
+  This may be checked locally.\todo{Error with bounds}
   Take a open $U\subseteq Y$ which is sufficiently small to admit local coordinates $z_1,\ldots,z_n$ where $z_i$ determines $E_i$ if $E_i\cap U \neq \emptyset$.
 
   In these local coordinates $G^s = \prod_{i=1}^p u_i^{s_i} \prod_{i=1}^nz_i^{\sum_{j=1}^p M_{ij}s_j}$ and $\mu^*(dx) = v \prod_{i=1}^n z_i^{m_i} dz$ where $M_{ij} \leq \operatorname{mult}_{E_i}(g_j)$, $m_i \leq k_i$ and $u_i,v$ are local units.
@@ -527,18 +528,18 @@ Assume that the $\ell_i$ are chosen sufficiently generically so that $Z(L_{p-1})
   We compare the Grothendieck spectral sequences of both sides.
 
   The spectral sequence on the left-hand-side has terms
-  $$E_{rq}^2 = \Ex{\A_\X^{\C[s]/L_{p-1}}}{r}(\Tr{\A_\X^{\C[s]/L_{i}} }{-q}(K_i,\A_X^{\C[s]/L_{p-1}}),\A_\X^{\C[s]/L_{p-1}}).$$
+  $$E^{rq}_2 = \Ex{\A_\X^{\C[s]/L_{p-1}}}{r}(\Tr{\A_\X^{\C[s]/L_{i}} }{-q}(K_i,\A_X^{\C[s]/L_{p-1}}),\A_\X^{\C[s]/L_{p-1}}).$$
   Since $\Tr{\A_\X^{\C[s]/L_{i}} }{-q}(K_i,\A_X^{\C[s]/L_{p-1}})$ is a relative holonomic $\A_X^{\C[s]/L_{p-1}}$-module these terms are only non-zero for $r=m$ or $r = m+1$.
-  In particular, the spectral sequence degenerates at $E^2$.
-  Note that the statement that $\Tr{\A_\X^{\C[s]/L_i}}{1}(K_i, \A_\X^{\C[s]/L_{p-1}})$ has grade greater than or equal to $m+1$ is equivalent to $E^2_{m,-1} = 0$.
+  In particular, the spectral sequence degenerates at $E_2$.
+  Note that the statement that $\Tr{\A_\X^{\C[s]/L_i}}{1}(K_i, \A_\X^{\C[s]/L_{p-1}})$ has grade greater than or equal to $m+1$ is equivalent to $E_2^{m,-1} = 0$.
   %This term is $\dim\X$-pure.
   %Hence, it suffices to ensure that all terms on the right-hand-side with $p+q = \dim\X-1$ have grade greater at least $n+1$.
 
   The spectral sequence on the right-hand-side has terms
-  $$E^2_{rq} = \Tr{\A_\X^{\C[s]/L_{i}} }{-q}(\Ex{ \A_\X^{\C[s]/L_{i}} }{r} (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}}).$$
+  $$E_2^{rq} = \Tr{\A_\X^{\C[s]/L_{i}} }{-q}(\Ex{ \A_\X^{\C[s]/L_{i}} }{r} (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}}).$$
   The claim follows if we can ensure that that all terms with $r-q = m -1$ vanish on $\X\times\Spec R$ for some open subset $\Spec R\subseteq \C^p$.  %\todo{Maybe add more explanation?}
   Indeed, then by \cref{cor: GradeIFFBernsteinIdeal} the terms have grade $m+1$ and it follows that the same must hold for the terms of the spectral sequence on the left hand side.
-  Since $\Ext^{m}$ of a relative holonomic module is $m$-pure or zero this means that the $E^2_{m,-1}$-term in the left-hand-side spectral sequence vanishes.
+  Since $\Ext^{m}$ of a relative holonomic module is $m$-pure or zero this means that the $E_2^{m,-1}$-term in the left-hand-side spectral sequence vanishes.
   \\
 
 \newpage
@@ -576,9 +577,9 @@ Assume that the $\ell_i$ are chosen sufficiently generically so that $Z(L_{p-1})
   Iterative application of the isomorphism yields $\E_{ii}^{n+j}\otimes^L_{\scaleto{\A_\X^{R/L_{i}}}{8pt}} \A_\X^{R/L_{p-1}} \cong \E_{(p-2)i}^{n+j}\otimes^L_{\scaleto{\A_\X^{R/L_{p-2}}}{8pt}} \A_\X^{R/L_{p-1}}$.
   This means that
   $$\Tr{\A_\X^{\C[s]/L_{i}}}{-q} (\Ex{\A_\X^{\C[s]/L_{i}} }{r} (K_i,\A_\X^{\C[s]/L_{i}}), \A_\X^{\C[s]/L_{p-1}})\cong \Tr{\A_\X^{\C[s]/L_{i}} }{-q}(\E_{(p-2)i}^{r}, \A_\X^{\C[s]/L_{p-1}}) $$
-  The right right-hand-side of this isomorphism was already observed to vanish for any $-q > 0$ and the left-hand-side is precisely the $E_{rq}^2$-term of the spectral sequence.
-  This establishes that the $E_{rq}^2$-terms with $r-q = m -1$ vanish for $q>0$.
-  The remaining terms $E_{m -1,0}$ is zero regardless since it involves $\Ext^{m - 1}$ of a relative holonomic module.
+  The right right-hand-side of this isomorphism was already observed to vanish for any $-q > 0$ and the left-hand-side is precisely the $E^{rq}_2$-term of the spectral sequence.
+  This establishes that the $E^{rq}_2$-terms with $r-q = m -1$ vanish for $q>0$.
+  The remaining term $E^{m -1,0}_2$ is zero regardless since it involves $\Ext^{m - 1}$ of a relative holonomic module.
   This shows that the $\Tr{\A_\X^{\C[s]/L_i}}{1}(K_i, \A_\X^{\C[s]/L_{p-1}})$ are relative holonomic $\A_\X^{\C[s]/L_{p-1}}$-module of grade greater than or equal to $m+1$ and concludes the proof.
   \end{proof}
 
