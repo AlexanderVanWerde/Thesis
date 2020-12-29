@@ -292,51 +292,53 @@ Hence, this generalises the earlier computations.
   This result may be found in \cite[Chapter 1]{dimca2004sheaves}.
 \end{proof}
 We conclude this section by considering a few important examples of derived functors which will be used later on.
-Let $X$ a topological space and $\AA_X$ a sheaf of rings which may not be commutative.
-Denote $C^{*,\ell}(\AA_X)$ for the corresponding category of complexes of left $\AA_X$-modules, $C^{*,r}(\AA_X)$ for right $\AA_X$-modules and $C^{*,\ell r}(\AA_X)$ for bimodules.
 
+
+Let $X$ be a topological space equipped with a sheaf of rings $\AA_X$ which need-not be commutative.
+The corresponding categories of complexes of left or right modules are denoted $C^{*,\ell}(\AA_X)$ and $C^{*,r}(\AA_X)$ respectively.
+Similarly, the category of complexes of bimodules is denoted $C^{*,\ell r}(\AA_X)$.
 Using \cref{thm: InjectivesAllowDerivedFunctor} one can establish that the global sections functor $\Gamma(X,\blank)$ on $C^{*,*}(\AA_X)$ has a derived functor $R^+\Gamma(X,\blank)$.
 The cohomology of a sheaf of modules is given by the functors $H^k(X,\blank) := R^k \Gamma(X,\blank)$ and the hypercohomology of a complex of modules is given by the functors $\mathbb{H}^k(X,\blank):= \mathbb{R}^k\Gamma(X,\blank)$.
 The cohomology sheaf of a complex $\M^\bullet$ is the sheaf associated to the presheaf $U\mapsto \mathbb{H}^k(U,\M^\bullet)$ and is denoted $\H^k(\M^\bullet)$.
-%The cohomology sheaves of a module $\M$ are defined similarly and also denoted $\H^k(\M)$.
+The cohomology sheaves of a module $\M$ are defined similarly and also denoted $\H^k(\M)$.
 
-Cohomology measures the failure of sections to be global.
-Correspondingly, acyclic objects are given by sheaves which have no such failure.
-\begin{definition}
- A sheaf of $\AA_X$-modules $\F$ is called flabby if for any open $U\subseteq X$ the restriction morphism $\rho_U^X:\F(X)\to\F(U) $ is surjective.
-\end{definition}
-\begin{proposition}
- If $\F$ is flabby then $\F$ is $\Gamma(X,\blank)$-acyclic.
-\end{proposition}
-\begin{proof}
-  This result may be found in \cite[Chapter 2]{dimca2004sheaves}.
-\end{proof}
-The hypercohomology of a sheaf complex can be computed using flabby resolutions.
-Concrete flabby resolutions may be found using the Godement resolution.
-A sheaf $\M$ gives rise to a flabby sheaf $\F$ by the formal product of stalks.
-The same argument applies to the cokernel of $\M\to \F$ and iterating the argument yields a flabby resolution for $\M$.
-For a sheaf complex $\M^\bullet$ the flabby resolutions of the $\M^{j}$ produce a double complex $\F^{\bullet,\bullet}$.
-The total complex of $\F^{\bullet, \bullet}$ yields a flabby resolution of $\M^\bullet$.
+%Cohomology measures the failure of sections to be global.
+%Correspondingly, acyclic objects are given by sheaves %which have no such failure.
+%\begin{definition}
+% A sheaf of $\AA_X$-modules $\F$ is called flabby if for any open $U\subseteq X$ the restriction morphism $\rho_U^X:\F(X)\to\F(U) $ is surjective.
+%\end{definition}
+%\begin{proposition}
+% If $\F$ is flabby then $\F$ is $\Gamma(X,\blank)$-acyclic.
+%\end{proposition}
+%\begin{proof}
+%  This result may be found in \cite[Chapter 2]{dimca2004sheaves}.
+%\end{proof}
+%The hypercohomology of a sheaf complex can be computed using flabby resolutions.
+%Concrete flabby resolutions may be found using the Godement resolution.
+%A sheaf $\M$ gives rise to a flabby sheaf $\F$ by the formal product of stalks.
+%The same argument applies to the cokernel of $\M\to \F$ and iterating the argument yields a flabby resolution for $\M$.
+%For a sheaf complex $\M^\bullet$ the flabby resolutions of the $\M^{j}$ produce a double complex $\F^{\bullet,\bullet}$.
+%The total complex of $\F^{\bullet, \bullet}$ yields a flabby resolution of $\M^\bullet$.
 
-%Let $f:Y\to X$ be a continuous map between topological spaces.
-%The direct image of a sheaf $\mathcal{S}$ on $Y$ is the sheaf $f_*\mathcal{S}$ on $X$ defined by
-%$$(f_*\mathcal{F})(U) = \mathcal{F}(f^{-1}(U)). $$
-%Suppose that $Y,X$ are equipped with sheaves of rings $\AA_Y, \AA_X$ respectively and that $f_*\AA_Y$ is a $\AA_X$-algebra.
-%Then the direct image yields a functor from the category of $\AA_Y$-modules to the category of $\AA_X$-modules.
+Let $f:Y\to X$ be a continuous map between topological spaces.
+The direct image of a sheaf $\mathcal{S}$ on $Y$ is the sheaf $f_*\mathcal{S}$ on $X$ defined by
+$$(f_*\mathcal{F})(U) = \mathcal{F}(f^{-1}(U)). $$
+Suppose that $Y,X$ are equipped with sheaves of rings $\AA_Y, \AA_X$ respectively and that $f_*\AA_Y$ is a $\AA_X$-algebra.
+Then the direct image yields a functor from the category of $\AA_Y$-modules to the category of $\AA_X$-modules.
 
 A classical example of a non-exact functor is given by the tensor product.
 This may be considered as a bifunctor
-$$ \otimes_R : C^{-,\ell}(\AA_X)\times C^{-,r}(\AA_X)\to C^{-,\ell r}(\AA_X)$$
+$$ \otimes_{\AA_X} : C^{-,\ell}(\AA_X)\times C^{-,r}(\AA_X)\to C^{-,\ell r}(\AA_X)$$
 where
-$(\M^\bullet \otimes \N^\bullet)^n = \oplus_{i + j = n} \M^i \otimes \N^j $
-with differentials defined at $\M^i \otimes \N^j$ by
+$(\M^\bullet \otimes_{\AA_X} \N^\bullet)^n = \oplus_{i + j = n} \M^i \otimes_{\AA_X} \N^j $
+with differentials defined at $\M^i \otimes_{\AA_X} \N^j$ by
 $d(m\otimes n) = dm \otimes n + (-1)^i m \otimes dn.$
 The category of $\AA_X$-modules admits locally free resolutions.
 In particular, it has enough projective objects.
 Essentially by the remark after \cref{thm: InjectivesAllowDerivedFunctor} it is then possible to construct a derived left-derived functor
-$$ \otimes_R^L : D^{-,\ell}(\AA_X)\times D^{-,r}(\AA_X)\to D^{-,\ell r}(\AA_X).$$
+$$ \otimes_{\AA_X}^L : D^{-,\ell}(\AA_X)\times D^{-,r}(\AA_X)\to D^{-,\ell r}(\AA_X).$$
 This yields $\Tor$-sheaves
-$\Tr{\AA_X}{k}(X^\bullet, Y^\bullet) = \H^{-k}(X^\bullet\otimes_{\AA_X}^L Y^\bullet).$
+$\Tr{\AA_X}{k}(X^\bullet, Y^\bullet) = H^{-k}(X^\bullet\otimes_{\AA_X}^L Y^\bullet).$
 
 A similar procedure applies to the $\Hom_{\AA_X}$-bifunctor which is defined by
 $\Hom_{\AA_X}^n(\M^\bullet, \N^\bullet) \ab = \prod_{j\in Z} \Hom_{\AA_X}(\M^j , \N^{n+j}) $
@@ -344,7 +346,8 @@ with the differentials on $\Hom_{\AA_X}^n(M^\bullet,N^\bullet)$ given by $d\varp
 There is a induced derived bifunctor
 $$R\Hom_{\AA_X}^\bullet(\blank,\blank):: D^{-,\ell}(\AA_X)^{opp}\times D^{+,\ell r}(\AA_X)\to D^{r}(\AA_X).$$
 This yields the $\Ext$-sheaves
-$\Ex{\AA_X}{n}(M^\bullet,N^\bullet) = \H^n R\Hom_{\AA_X}^\bullet(M^\bullet, N^\bullet).$
+$\Ex{\AA_X}{n}(M^\bullet,N^\bullet) =  R^n\Hom_{\AA_X}^\bullet(M^\bullet, N^\bullet).$
+
 \section{$t$-structures}
 A generalisation of positive and negatively supported complexes is given by the concept of a $t$-structure.
 \begin{definition}

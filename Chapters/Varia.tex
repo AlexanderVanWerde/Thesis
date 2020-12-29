@@ -288,3 +288,41 @@ Let $\M$ be a relative holonomic $\A_Y^R$-module. Then, for any $j\geq 0$ the di
 \begin{proof}
 This follows from \cref{thm: KashiwaraEstimate} and (\todo{isotropic is conserved \cite{kashiwara1976b}}).
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+Consider a complex manifold $X$ and a holomorphic function $F:X\to \C^p:x\mapsto (f_1(x),\ldots,f_p(x))$.
+Fix some $x\in F^{-1}(0)$.
+In the case $p=1$ the connection between monodromy and local Bernstein-Sato polynomials was discussed in \cref{sec: MonodromyBS}.
+There is a suitable generalisation to the general case whence there is i.
+
+Let $D$ be the divisor defined by $\prod f_i$ and $U = X\setminus D$.
+For any $\lambda \in \C^p$ let $L_\lambda$ be the line bundle on $U$ obtained from the pullback over $F$ of the line bundle with monodromy $\lambda_i$ around the $i$-th missing coordinate hyperplane of $(\C^*)^p$.
+For any $x\in D$ let $U_x$ denote the intersection of $U$ and a small ball centered on $x$.
+The eigenvalues of monodromy are generalised by the set
+$$S_x(F) := \{\lambda \in (\C^*)^r :H^*(U_x, L_\lambda) \neq 0\}.$$
+This monodromy can again be encoded in a constructible complex $\psi_F\C_X$ called Sabbah's specialisation complex suggesting there should be a corresponding object on the side of $\D_X$-modules.
+
+Introduce new variables $s_1,\ldots,s_p$ and abbreviate $F^s= f_1^{s_1} \cdots f_p^{s_p}$.
+The local Bernstein-Sato ideal $B_{F,x}$ consists of all polynomials $b(s_1,\ldots, s_p)\in \C[s]$ such that there exists some $P\in \D_{X,x}\otimes_{\C} \C[s]$ with
+$b(s_1,\ldots, s_p) F^s = P\cdot F^{s+1}$ in the stalk at $x$.
+\begin{theorem}
+  Denote $Z(B_{F,x})$ for the zero locust of $B_{F,x}$ then $\operatorname{Exp}(Z(B_{F,x})) = S_x(F)$ where the exponential map is applied to each coordinate separately.
+\end{theorem}
+\begin{proof}
+  The inclusion $S_x(F) \subseteq \operatorname{Exp}(Z(B_{F,x}))$ was proved in \cite{budur2015bernstein} and other inclusion in \cite{budur2019zero}.
+\end{proof}
+
+The goal of this chapter is to generalise Lichtin's estimate in \cref{thm: LichtinEstimate} to the multivariate case with $Z(B_{F,x})\subseteq \C^p$.
+The main new ingredient is a induction argument which reduces the problem to the monovariate case.
+Denote $\mu:Y\to X$ for the strong log resolution of $(X,D)$ and let $G = F\circ \mu$ with coordinate functions $g_1,\ldots, g_p$.
+Write $\mu^*D = \sum a_i E_i$ and $K_{Y/X} = \sum k_i E_i$.
+\begin{theorem}\label{thm: EstimateBernsteinSatoZeroLocust}
+  Every irreducible component of $Z(B_{F,x})$ of codimension $1$ is a hyperplane of the form
+  $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + c_i=0$$
+  with $c_i \in \mathbb{Z}_{> 0 }$.
+\end{theorem}

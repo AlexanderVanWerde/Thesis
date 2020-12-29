@@ -1,47 +1,67 @@
 \chapter{Relative Holonomic Modules}\label{ch: ChapterRelHol}
 \section{Introduction}\label{sec: IntoductionChapterRelative}
-Let $X$ be a complex manifold or a smooth variety and a consider a morphism $F:X\to \C^p: x \mapsto (f_1(x), \ldots, f_p(x))$.
-Denote $D$ for the divisor defined by $\prod f_i$ and let $\mu:Y\to X$ be a resolution of singularities for $(X,D)$.
-This means that $\mu$ is a projective morphism which is a isomorphism over the complement of $D$ and such that $\mu^*D = \sum_{i=1}^r a_i E_i$ is in normal crossings form.
-The behaviour of $\mu$ over $D$ is measured by the relative canonical divisor $K_{Y/X} = \sum_{i=1}^r k_i E_i$ which is locally defined by the Jacobian of $\mu$.
-Write $G:Y\to \C^p$ for the lift of $F$ to $Y$.
-Introducing new variables $s_1,\ldots,s_p$ we abbreviate $F^s= f_1^{s_1} \cdots f_p^{s_p}$ and similarly for $G^s$.
+Let $X$ be a smooth algebraic variety and $F:X\to \C^p$ a morphism with coordinate functions $f_1,\ldots, f_p$.
+Introduce new variables $s_1,\ldots, s_p$ and abbreviate $F^s = f_1^{s_1}\cdots f_p^{s_p}$.
+The local Bernstein-Sato ideal $B_{F,x}$ of $F$ at $x\in X$ is the collection of all $b(s_1,\ldots,s_p)\in \C[s]$ such that there exists some differential operator $P\in \D_{X,x}\otimes_{\C}\C[s]$ with
+$$b(s_1,\ldots,s_p) F^s =  P\cdot F^{s + 1}$$
+in the stalk at $x$.
+The local Bernstein-Sato ideal only depends on the local singularity at $x$, in particular there are only finitely many different $B_{F,x}$.
+The global Bernstein-Sato ideal $B_F$ is the intersection of all local Bernstein-Sato ideals.
+The local Bernstein-Sato ideal is also a topic of interest when $F$ is a analytic function germ.
 
+In the case $p=1$ the ring $\C[s]$ is a principal ideal domain and the monic generator of $B_{F,x}$ recovers the Bernstein-Sato polynomial.
+Recall from \cref{sec: MonodromyBS} that the Bernstein-Sato polynomial encodes the eigenvalues of monodromy.
+A generalisation is possible for the Bernstein-Sato zero locust $Z(B_F)$.
 
-The local Bernstein-Sato Ideal $B_{F,x}$ of the function germ of $F$ at some point $x\in X$ consists of all polynomials $b(s_1,\ldots, s_n)$ such that there exists some local partial differential operator $P\in \D_{X,x}\otimes_{\C} \C[s_1,\ldots,s_n]$ with the following equality in the stalk at $x$
-$$b(s_1,\ldots, s_n) F^s = P\cdot F^{s+1}.$$
-The global Bernstein-Sato Ideal $B_F$ of $F$ is the intersection of all local Bernstein-Sato Ideals.\todo{Restate more generally with $+a$ when proof is done.}
+Let $D$ be the divisor determined by $\prod f_i$ and set $U= X\setminus D$.
+For any $\lambda \in (\C^*)p$ let $L_\lambda$ denote the line bundle on $U$ found by the pullback over $F$ of the line bundle on $(\C^*)^p$ with monodromy $\lambda_i$ around the $i$-th missing coordinate hyperplane.
+The eigenvalues of monodromy are generalised by the set
+$$S(F) = \{\lambda \in (\C^*)^p \ \vert\  \exists j\in \Z\  \exists x\in D: H^j(U_x,L_\lambda) \neq 0\} $$
+where $U_x$ is the intersection of $U$ with a arbitrarily small ball centred at $x$.
+If $F$ is a analytic function germ $X$ should be replaced by a arbitrarily small neighbourhood of $x$ and we denote the resulting set $S_x(F)$.
+\begin{theorem}
+  If $F$ is a morphism of smooth affine algebraic varieties or then $\op{Exp}(Z(B_F)) = S(F)$. If $F$ is a holomorphic germ at $x$ then $\operatorname{Exp}(Z(B_{F,x})) = S_x(F)$.
+\end{theorem}
+\begin{proof}
+  This is proved in \cite{budur2019zero}.
+\end{proof}
+\begin{theorem}
+  Every irreducible component of $Z(B_{F,x})$ of codimension $>1$ can be translated by an element of $\Z^r$ into a component of codimension one.
+\end{theorem}
+\begin{proof}
+  This result is due to \cite{maisonobe2016filtration}.
+\end{proof}
+This shows that $Z(B_{F})$ is a natural topic of study.
+%Since $Z(B_F)$ is the union of the $Z(B_{F,x})$ it is sufficient to study the local Bernstein-Sato zero loci and it may be assumed that $X$ is a affine algebraic variety.
+The rationality of the roots of the Bernstein-Sato polynomial admits the following generalisation of Kashiwara's estimate.
+Denote $\mu:Y\to X$ for the strong log resolution of $(X,D)$.
+Then $\mu^*D = \sum a_i E_i$ is in normal crossings form and we let $G = F\circ \mu$ with coordinate functions $g_1,\ldots, g_p$.
+\begin{theorem}
+  Every irreducible component of $Z(B_{F,x})$ of codimension $1$ is a hyperplane of the form
+  $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + c_i $$
+  with $c_i\in \Z_{>0}.$
+\end{theorem}
+\begin{proof}
+  The rationality of the hyperplanes was established by \cite{sabbah1987proximite} and \cite{gyoja1993bernstein}.
+  The concrete estimate for the slopes was established by \cite{budur2019zero}.
+\end{proof}
 
-The goal of this chapter is to estimate the zero locust $Z(B_{F})\subseteq \C^p$.
-This zero locust generalises the roots of the Bernstein-Sato polynomial in the monovariate case.
-The classical approximation of the roots of the $b$-polynomial is due to \cite{kashiwara1976b} and this estimation was further refined by \cite{lichtin1989poles}.
-The idea in both proofs is that it is easy to explicitly compute the Bernstein-Sato polynomial for monomials and that one can reduce to this case by use of the resolution of singularities.
-The main non-trivial step in these arguments is to translate the solution upstairs to a solution on $X$.
-This makes use of the direct image of $\D_X$-modules.
-The essential insight in the refined estimate due to Lichtin is that the direct image of $\D_X$-modules is more natural for right $\D_X$-modules than left $\D_X$-modules.
-
-
-The estimate by Kashiwara has been generalised to the multivariate situation in \cite{budur2020zero}.
-The main challenge in such a multivariate generalisation is that the classical proof relies on modules of the type $\D_X f^{s}/ \D_X f^{s+1}$ being holonomic.
-This is no longer the case for the multivariate generalisation $\D_X[s_1,\ldots, s_n]f^s /\D_X[s_1,\ldots, s_n]f^{s+1}.$
-The notion of relative holonomicity, due to \cite{maisonobe2016filtration}, still holds.
-
-In this chapter we generalise the refined estimate by \cite{lichtin1989poles} to the multivariate situation.
-The main new ingredient is a induction argument which reduces the problem to the monovariate case where relative holonomicity becomes ordinary holonomicity.
-This induction is similar to the arguments in \cite{budur2019zero}.
+The goal of this chapter is to generalise Lichtin's estimate in \cref{thm: LichtinEstimate} using the canonical divisor $K_{Y/X} = \sum k_i E_i$.
 \begin{theorem}\label{thm: EstimateBernsteinSatoZeroLocust}
-  With notation as above every irreducible component of $Z(B_F)$ of codimension $1$ is a hyperplane of the form
+  Every irreducible component of $Z(B_{F,x})$ of codimension $1$ is a hyperplane of the form
   $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + c_i=0$$
   with $c_i \in \mathbb{Z}_{> 0 }$.
 \end{theorem}
-\todo{Should also give a overview of the results that are already known here. }
+The main new ingredient in our proof is a induction argument which reduces the problem to the monovariate case.
+This induction process involves a tensor product to reduce the number of variables.
+The non-exactness of the tensor product causes error-terms in the form of the $\Tor$-functor.
+These error-terms may be controlled using homological results which are set up in \cref{sec: NonComHomological}
+
+For notational simplicity the proof will be done in the algebraic case and we discuss the neccesary modifications for the local analytic case at the end.
 \section{Relative Notions}
-Let $X$ be a smooth complex irreducible algebraic variety of dimension $n$.
-For a regular commutative $\C$-algebra integral domain $R$ we define a sheaf of rings on $X\times \Spec R$ by
-$$\A_{X}^R = \D_X \otimes_{\C} \O_{\Spec R}; \qquad \A_X = \A_{X}^{\C[s]}$$
-It will also be convenient to use the abbreviation $\O_{X}^R := \O_{X \times \Spec R}$.
-These sheaves can be viewed as a particular case of the sheaf of relative differential operators $\D_{X\times S / S}$ for some product space $X\times S$.
-Such sheaves have been studied in \cite{monteiro2016riemann}, in particular there is a suitable version of the Riemann-Hilbert correspondence.
+For any regular commutative $\C$-algebra integral domain $R$ we define a sheaf of rings on $X\times \Spec R$ by
+$$\A_{X}^R = \D_X \otimes_{\C} \O_{\Spec R}.$$
+It will also be convenient to use the abbreviations $\O_{X}^R := \O_{X \times \Spec R}$.
 
 The order filtration $F_p\D_X$ extends to a filtration $F_p\A^R_X = F_p\D_X \otimes_{\C} \O_R$ on $\A^R_X$ which is called the relative filtration.
 The associated graded objects are denoted by $\grrel$. Denote $\pi:T^*X\times \Spec R \to X\times \Spec R$ for the projection map.
@@ -52,8 +72,8 @@ Similarly to the case of $\D_X$ it holds that $\A_X^R$ is the sheaf of rings gen
 $\xi\cdot (fm) = f (\xi \cdot m)  + \xi(f)\ m  $
 for any sections $f$ of $\O_X^R$ and $\xi$ of $\Theta_X$. Similarly, giving a right $\A_X^R$-module is equivalent to giving a $\O_X$-module $\M$ with $\Theta_X$-action such that $(mf)\cdot\xi = (m\cdot\xi)f - m\ \xi(f) $ for any sections $f$ of $\O_X^R$ and $\xi$ of $\Theta_X$.
 
-The following results are analogous to those in \cref{ch: ChapterDX}.
-They can also follow from general results in \cite[Appendix III]{bjork1993analytic}.
+The following results are analogous to those in \cref{Ch: ChapterDX}.
+They follow from general results in \cite[Appendix III]{bjork1993analytic}.
 \begin{proposition}\label{prop: CoherentAndGoodFiltration}
     A quasi-coherent $\A_X^R$-module $\M$ is coherent if and only if it admits a filtration such that $\grrel \M$ is coherent over $\grrel \A_X^R$. Such a filtration is called a good filtration.
 \end{proposition}
@@ -66,24 +86,25 @@ They can also follow from general results in \cite[Appendix III]{bjork1993analyt
     then it holds that
     $$\Chrel \M_2 = \Chrel \M_1 \cup \Chrel \M_3. $$
 \end{lemma}
+
 A coherent $\A_X^R$-module $\M$ is said to be relative holonomic over $R$ if $\Chrel \M = \cup_w \Lambda_w \times S_w$
 for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irreducible closed subvarieties $S_w\subseteq \Spec R$.
-
 \begin{lemma}\label{lem: RelHolGs}
-  The sheaf of $\A_X^R$-modules $\A_Y F^s$ is relative holonomic.
+  The sheaf of $\A_X$-modules $\A_Y F^s$ is relative holonomic.
 \end{lemma}
 \begin{proof}
   This result may be found as proposition 13 in \cite{maisonobe2016filtration}. The proof applies in both the analytic and algebraic cases.
 \end{proof}
 
 \begin{lemma}\label{lem: InclusionCharVar}
-  Let $\M$ be a finitely generated $\A_Y^R$-module. Suppose that $\Chrel \M \subseteq \Lambda \times \Spec R$ for some, not necessarily irreducible, conic Lagrangian subvariety $\Lambda\subseteq T^*X$. Then $\M$ is relative holonomic over $R$.
+  Let $\M$ be a finitely generated $\A_Y^R$-module. Suppose that $\Chrel \M \subseteq \Lambda \times \Spec R$ for some, not necessarily irreducible, conic Lagrangian subvariety $\Lambda\subseteq T^*X$. Then $\M$ is relative holonomic.
 \end{lemma}
 \begin{proof}
   This result may be found in \cite{maisonobe2016filtration} in the analytical case and \cite{budur2019zero} in the algebraic case.
 \end{proof}
 The Bernstein-Sato ideal may be defined more generally for any $\A_X^R$-module $\M$ as $B_\M := \Ann_{R}\M$. To see how this generalises $B_F$ one considers $\A_X^R F^s$ as a $\Xt$-module.
-Here $t$ is a new variable which commutes with sections of $\D_X$ and satisfies $ts_i - s_it = 1$ for any $i=1,\ldots, n$.  The $\Xt$-module structure on $\A_X^R F^s$ is then defined by extending $tF^s = F^{s + 1}$. From this point of view $B_F = B_{\A_X^R F^s / t\A_X^R F^s}$.
+Here $t$ is a new variable which commutes with sections of $\D_X$ and satisfies $ts_i - s_it = 1$ for any $i=1,\ldots,
+p$.  The $\Xt$-module structure on $\A_X^R F^s$ is then defined by $tP(s)F^s = P(s+1)F^{s + 1}$ for any section $P$ of $\A_X^R$. From this point of view $B_F = B_{\A_X^R F^s / t\A_X^R F^s}$.
 
 The Bernstein-Sato ideal may be recovered from the characteristic variety.
 \begin{proposition}\label{prop: ProjectionBernsteinSatoRelativeChar}
@@ -93,20 +114,20 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
   This result may be found in \cite{maisonobe2016filtration} in the analytical case and \cite{budur2019zero} in the algebraic case.
 \end{proof}
 \section{Direct Image Functor for $\A_X^R$-modules}
-    In this section we state the natural generalisation of the direct image functor for $\D_X$-modules to the relative case of $\A_X^R$-modules. As with $\D$-modules this is the most natural for right-modules.\todo{more introduction}
+    In this section we state the natural generalisation of the direct image functor for $\D_X$-modules to the relative case of $\A_X^R$-modules. As with $\D$-modules this is the most natural for right-modules.
 
     Consider some morphism $\mu:Y\to X$ and denote $\mu^R$ for the induced map from $Y\times \Spec R$ to $X\times \Spec R$.
     A transfer $(\A_Y^R,(\mu^R)^{-1}\A_X^R)$-bimodule is defined by $\A_{Y\to X}^R:= \D_{Y\to X}\otimes_{\C} R .$ Written out, this means that $\A_{Y\to X}^R = \O_Y^R \otimes_{(\mu^R)^{-1}\O_X^R}(\mu^R)^{-1}\A_X^R$.
     \begin{definition}
       The direct image functor $\int_{\mu^R}$ from $D^{b,r}(\A_Y^R)$ to $D^{b,r}(\A_X^R)$ is defined to be $R\mu^R_* (\blank\otimes_{\A_Y^R}^L \A_{Y\to X}^R)$.
-      For any $\A_Y^R$ module $\M$ the $j$-th direct image is the $\A_X^R$-modules $\int_{\mu^R} \M = \H^j \int_{\mu^R} \M$.
+      For any $\A_Y^R$ module $\M$ the $j$-th direct image is the $\A_X^R$-modules $\int^j_{\mu^R} \M = H^j \int_{\mu^R} \M$.
       The subscript $\mu^R$ will be suppressed whenever there is no ambiguity.
     \end{definition}
     Observe that a free $\A_Y^R$-resolution for a complex $\M^\bullet$ is also a free $\D_Y$-resolution.
     Hence, the following isomorphism holds in $D^{b,r}(\D_X)$ on $Y\times \Spec R$
     $$\M^\bullet \otimes_{\A_Y^R}^L \A_{Y\to X}^R \cong \M^\bullet \otimes_{\D_Y}^L \D_{Y\to X}.$$
     Denote $p_X:X\times \Spec R \to X$ for the projection map.
-    Due to \cref{prop: GrothendieckIsomorphism} one has isomorphisms
+    Due to \cref{prop: GrothendieckIsomorphism} one has a isomorphism
     $$R(p_X)_* \circ R\mu^R_* \cong R(p_X \circ \mu^R)_* \cong R\mu^* \circ R(p_Y)_*.$$
     Combining the right-hand-sides of these isomorphisms yields the $\D_X$-module direct image.
     This is to say that the $\A_Y^R$-module direct image computes the $\D_Y$-module direct image with additional structure.
@@ -118,20 +139,49 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
         there is a long exact sequence in direct images
         $$0\to \int^0 \M_1 \to \int^0 \M_2 \to \int^0 \M_3 \to \int^1 \M_1 \to \cdots. $$
     \end{proposition}
-    Analogously to the case of $\D_X$-modules the direct image conserves relative holonomicity.
+    Analogously to the case of $\D_X$-modules the direct image has the following conservation properties.
   \begin{definition}
-      A $\D_Y$-module $\M$ is said to be $\mu$-good if $X$ admits a open cover $\{V_j\}_{j\in J}$ such that $\M$ has a good filtration on $\mu^{-1}(V_j)$ for every $j\in J$.
+      A $\A_Y^R$-module $\M$ is said to be $\mu$-good if $X$ admits a open cover $\{V_j\}_{j\in J}$ such that $\M$ has a good filtration on $\mu^{-1}(V_j)$ for every $j\in J$.
   \end{definition}
-  \begin{theorem}\label{thm: RelHolConserved}
-      Suppose that $\mu$ is proper and let $\M$ be a $\mu$-good relative holonomic $\D_Y$-module. Then $\int \M$ has relative holonomic cohomology.
+  \begin{theorem}
+      Suppose that $\mu$ is proper and let $\M$ be a $\mu$-good $\A_Y^R$-module. Then $\int \M$ has coherent cohomology.
   \end{theorem}
   \begin{proof}
-      This result may be found in \cite[Theorem 1.17]{monteiro2016riemann}.
+    The proof for $\D_X$-modules in chapter 3 of \cite{sabbah2011introduction} is still applicable provided Grauert's coherence theorem is replaced with the algebraic version. This is theorem 3.2.1 of \cite{EGAIII}.
   \end{proof}
-\section{Non-commutative Homological Notions}
-In this section we discuss homological notions associated to the $\Ext$-functor the noncommutative sheaf of rings $\A_X^R$.
+  We want to establish that direct images also conserve holonomicity.
+  A analytical version of this result is found in theorem 1.17 of \cite{monteiro2016riemann}.
+  The analytic analogue of $\A_{Y}^R$ is given by $\D_{Y\times U/U}:= \D_Y\otimes_{\O_Y}\O_{Y\times U}$ and it is clear how notions such as the relative characteristic variety may be analytified.
+
+  Since analytification is a exact functor it is compatible with good filtrations and $(\grrel\M)^{an} \cong \grrel \M^{an}$.
+  In particular $\Chrel \M^{an}$ is the analytification of $\Chrel\M$.
+  Using \cref{prop: GrothendieckIsomorphism} the exactness of analytification also implies that it commutes with the direct image.
+
+  Now consider the following cotangent diagram.
+  $$
+  \begin{tikzcd}
+      & \mu^* T^* X\times \Spec R\arrow[swap]{ld}{T^* \mu \times \operatorname{Id}_{\Spec R}} \arrow{rd}{\widetilde{\mu}\times \operatorname{Id}_{\Spec R}} & \\
+      T^* Y \times \Spec R& & T^*X\times \Spec R
+  \end{tikzcd}
+  $$
+  \begin{theorem}\label{thm: UpperBoundChrel}
+    Suppose that $\mu$ is proper and let $\M$ be a $\mu$-good $\A_Y^R$-module. Then, for any $j\geq 0$
+    $$\Chrel\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\times \operatorname{Id}_{\Spec R}\left((T^*\mu \times \operatorname{Id}_{\Spec R})^{-1}(\Chrel \M) \right).$$
+  \end{theorem}
+  \begin{proof}
+    The analytic version of this statement is provided by corollary 4.3 in \cite{schapira1994index}.
+    This implies the algebraic version due to all involved notions commuting with analytification.
+  \end{proof}
+  \begin{theorem}\label{thm: RelHolConserved}
+      Suppose that $\mu$ is proper and let $\M$ be a $\mu$-good relative holonomic $\A_Y^R$-module. Then $\int \M$ has relative holonomic cohomology.
+  \end{theorem}
+  \begin{proof}
+    Use \cref{lem: IsotropicDirectImage} on the upper bound of \cref{thm: UpperBoundChrel}. And apply \cref{lem: InclusionCharVar} for the desired result.
+  \end{proof}
+\section{Non-commutative Homological Notions}\label{sec: NonComHomological}
+In this section we discuss homological notions associated to the $\Ext$-functor over the noncommutative sheaf of rings $\A_X^R$.
 These notions are particularly well-behaved for relatively holonomic modules.
-The results are sheaf-theoretic rewording of the similar results in \cite{budur2019zero} which are themselves derived from the appendices of \cite{bjork1993analytic}.
+The results are sheaf-theoretic rewordings of the similar results in \cite{budur2019zero} which are themselves derived from the appendices of \cite{bjork1993analytic}.
 \begin{definition}
   For a non-zero coherent sheaf of $\A_X^R$-modules $\M$ the smallest integer $k\geq 0$ such that $\Ex{\A_X^R}{k}(\M,\A_X^R)\neq 0$ is called the grade of $\M$ and is denoted $j(\M)$.
 \end{definition}
@@ -156,7 +206,7 @@ The following proposition gives geometrical meaning to grades.
   A non-zero coherent sheaf of $\A_X^R$-modules $\M$ is called $j$-pure if $j(\N)=j(\M)=j$ for every non-zero submodule $\N$.
 \end{definition}
 \begin{lemma}\label{lem: ExtGrade}
-  Let $\M$ be a non-zero coherent $\A_X$-module of grade $j$. Then $\Ex{\A_X^R}{k}(\M,\A)$ has grade greater than or equal to $k$ for any $k\geq 0$ and $\Ex{\A_X^R}{j}(\M,\A_X^R)$ is a $j$-pure $\A_X^R$-module.
+  Let $\M$ be a non-zero coherent $\A_X^R$-module of grade $j$. Then $\Ex{\A_X^R}{k}(\M,\A)$ has grade greater than or equal to $k$ for any $k\geq 0$ and $\Ex{\A_X^R}{j}(\M,\A_X^R)$ is a $j$-pure $\A_X^R$-module.
 
   Moreover $\M$ is $j$-pure if and only if $\Ex{\A_X^R}{j}(\Ex{\A_X^R}{k}(\M,\A_X^R),\A_X^R)=0$ for every $k\neq j$.
 \end{lemma}
@@ -198,7 +248,7 @@ The following proposition gives geometrical meaning to grades.
 \end{proof}
 The proof of the following lemma is a slight modification on the proof of proposition 3.4.3 in \cite{budur2019zero}.
 \begin{lemma}\label{lem: RestrictToCM}
-  Let $\M$ be a non-zero relative holonomic $\A_X^R$-module of grade $j(\M) = n$  then, for any non-unit $b\in R$, it holds that $\M \otimes_R R/(b)$ is a non-zero relative holonomic  $\A_X^{R/(\ell)}$-module of grade $n$.
+  Let $\M$ be a non-zero relative holonomic $\A_X^R$-module of grade $j(\M) = n$  then, for any irreducible $b\in R$, it holds that $\M \otimes_R R/(b)$ is a non-zero relative holonomic  $\A_X^{R/(\ell)}$-module of grade $n$.
 \end{lemma}
 \begin{proof}
   Applying \cref{lem: TorRelHol} with $k=0$ yields that $\M \otimes_R R/(b)$ is a relative holonomic $\A_X^{R/(\ell)}$-module.
@@ -209,23 +259,19 @@ The proof of the following lemma is a slight modification on the proof of propos
   where we note that $\A_X^{R/(b)}$ is a $\A_X^{R}$-bimodule so that both tensor products are well-defined.
   We compare the Grothendieck spectral sequences of both sides of this isomorphism.
 
-  The spectral sequence associated with the right-hand-side has $E_2$-sheet\todo{Fix super/subscripts etc}
+  The spectral sequence associated with the right-hand-side has $E_2$-sheet
   $$E^{pq}_2 = \Ex{\A_X^{R/(b)}}{p}(\Tr{\A_X^R}{-q}(\M, \A_X^{R/(b)}), \A_X^{R/(b)}).$$
-  Recall from \cref{lem: ExtGrade} terms with $p>n$ have grade greater than $n$ and due to \cref{lem: AXRBehaviourGradesJAndChrel} there are no non-zero terms with $p<n$.
+  Recall from \cref{lem: ExtGrade} terms with $p>n$ have grade greater than $n$ and due to \cref{prop: AXRBehaviourGradesJAndChrel} there are no non-zero terms with $p<n$.
   Hence, the only term with $p+q = n$ which could potentially have degree $n$ is $E^{n0}_2$.
-  If we can show that the total cohomology of degree $n$ on the left-hand-side has grade $n$ then it follows that $\Ex{\A_X^{R/(b)}}{n}(\M\otimes_{\scaleto{\A_X^R}{8pt}} \A_X^{R/(b)}), \A_X^{R/(b)}) \neq 0$.
+  If we can show that the total cohomology of degree $n$ on the left-hand-side has grade $n$ then it follows that $\Ex{\A_X^{R/(b)}}{n}(\M\otimes_{\scaleto{\A_X^R}{8pt}} \A_X^{R/(b)}, \A_X^{R/(b)}) \neq 0$ which is the desired result.
 
   The spectral sequence associated to the left-hand-side has $E_2$-sheet given by
-  $$E_2^{pq} =\Tr{\A_X^R}{-q}( \Ex{\A_X^R}{p}(\M,\A_X^R), \A_X^{R/(b)}).$$
-  Note that there are no non-zero differentials which map into $E_j^{0n}$ or for $j\geq 2$.
-  Further, the differentials out of the $E^{0n}_j$ land in $E^{-j(n+j)}_j$ which is a subquotient of $\Tr{\A_X^R}{j}(\Ex{\A_X^R}{n+j+1}(\M,\ab \A_X^R)\ab , \A_X^{R/(b)})$.
-  Since $\Ex{\A_X^R}{n+j}(\M,\A_X^R)$ is relative holonomic of degree $n+j$ \cref{prop: AXRBehaviourGradesJAndChrel} and a argument similarly to that which established that $\M \otimes_R R/(b)$ is relative holonomic yield that $E^{j(n+j+1)^j}_j$ has grade greater than or equal to $n+j-1$.
-  We will show that that $E_2^{0n}$ has grade $n$.
-  Then using \cref{prop: AXRBehaviourGradesJAndChrel} and \cref{lem: SESBehaviourA} on the exact sequences
-  $$0 \to E_{j+1}^{0n}\to  E_j^{0n} \to E_{j(n+j+1)^j} $$
-\todo{Check}
-it follows that $E_j^{0n}$ has grade $n$ for every $j\geq 2$.
-  This shows that the total cohomology of degree $n$ has grade $n$ and concludes the proof.
+  $$E_2^{pq} =\Tr{\A_X^R}{-p}( \Ex{\A_X^R}{q}(\M,\A_X^R), \A_X^{R/(b)}).$$
+  Note that there are no non-zero differentials out of $E_j^{0n}$ for $j\geq 2$.
+  Further, the differentials into $E^{0n}_j$ stem from $E^{-j(n+j-1)}_j$ which is a subquotient of $\Tr{\A_X^R}{j}(\Ex{\A_X^R}{n+j-1}(\M,\ab \A_X^R)\ab , \A_X^{R/(b)})$.
+  Observe that $\A_X^R \xrightarrow{b} \A_X^R $ yields a free resolution for $\A_X^{R/(b)}$.
+  It follows that $E^{-j(n+j-1)}_j=0$ for $j\geq 2$ whence $E_j^{0n} = E_2^{0n}$ for all $j\geq 2$.
+  It remains to show that that $E_2^{0n}$ has grade $n$, then the the total cohomology of degree $n$ has grade $n$ and this concludes the proof.
 
   Denote $\E^n := \Ex{\A_X^R}{n}(\M,\A_X^R)$, by \cref{lem: ExtGrade} it holds that $\E^n$ is a $n$-pure relative holonomic $\A_X^R$-module.
   By \cref{lem: NotBernsteinInjectiveAutomorphism} it follows that $b$ induces injections on $\E^{n}$ and $\gr^{rel} \E^{n}$ for some appropriate filtration.
@@ -250,7 +296,8 @@ it follows that $E_j^{0n}$ has grade $n$ for every $j\geq 2$.
   $$\gr^{rel}(\E^n \otimes_R R/(b)) \cong \gr^{rel}\E^n \otimes_R R/(b). $$
   It follows that
   $$\Ch^{rel}(\E^n \otimes_{\A_X^R} \A_X^{R/(b)})  = (\Id_{T^*X} \times \Delta)^{-1}(\Chrel \M)$$
-  with $\Delta: \Spec R/(b) \to \Spec R$ the closed embedding as before. Since $\M$ has grade $n$ this equality and \cref{prop: AXRBehaviourGradesJAndChrel} imply that $\Ch^{rel}(\E^n \otimes_{\A_X^R} \A_X^{R/(b)})$ has dimension $n + \dim R - 1$.
+  with $\Delta: \Spec R/(b) \to \Spec R$ the closed embedding as before.
+  Since $\M$ has grade $n$ this equality and \cref{prop: AXRBehaviourGradesJAndChrel} imply that $\Ch^{rel}(\E^n \otimes_{\A_X^R} \A_X^{R/(b)})$ has dimension $n + \dim R - 1$.
   In particular it follows that $\E^n \otimes_{\A_X^R} \A_X^{R/(b)}$ is non-zero and has grade $n$. This concludes the proof.
 \end{proof}
 By \cref{lem: ExtGrade} the following definition gives a class of $j$-pure modules.
@@ -260,7 +307,7 @@ By \cref{lem: ExtGrade} the following definition gives a class of $j$-pure modul
 The property of being $j$-pure is not stable when restricting to a subscheme of $\Spec R$.
 For the subclass of $j$-Cohen-Macaulay modules the restriction is more well-behaved.
 \begin{lemma}\label{lem: CMLemmaBudur}
-  Let $\M$ be a relative holonomic and $(n+k)$-Cohen-Macaulay $\A_X^R$-module. Let $b\in R$ be non-vanishing on every irreducible component of $Z(B_\M)$. Then it holds that $\M\otimes_R R/(b)$ is a relative holonomic $(n+k)$-Cohen-Macaulay $\A_X^{R/(b)}$-module or zero.
+  Let $\M$ be a relative holonomic and $(n+k)$-Cohen-Macaulay $\A_X^R$-module. Let $b\in R$ be irreducible and non-vanishing on every irreducible component of $Z(B_\M)$. Then it holds that $\M\otimes_R R/(b)$ is a relative holonomic $(n+k)$-Cohen-Macaulay $\A_X^{R/(b)}$-module or zero.
 \end{lemma}
 \begin{proof}
   This is shown in the proof of proposition 3.4.3 in \cite{budur2019zero}. This proof is similar to the proof of \cref{lem: RestrictToCM} which was based on \cite{budur2019zero}.
@@ -271,15 +318,23 @@ For the subclass of $j$-Cohen-Macaulay modules the restriction is more well-beha
 \begin{proof}
   This is established in the proof of lemma 3.5.2 in \cite{budur2019zero}.
 \end{proof}
+\begin{lemma}
+  For any $(n+k)$-Cohen-Macaulay $\A_X^R$-module $\M$ it holds that  $$\Ex{\A_X^R}{n+k}(\Ex{\A_X^R}{n+k}(\M,\A_X^R),\A_X^R) \cong \M.$$
+\end{lemma}
+\begin{proof}
+  By taking a free resolution one sees that
+  $$\R\Hom_{\A_X^R}(\R\Hom_{\A_X^R}(\M, \A_X^R),\A_X^R) \cong \M.$$
+  Due to the $(n+k)$-Cohen-Macaulay assumption the only non-zero term in the Grothendieck spectral sequence of the left-hand-side is $\Ex{\A_X^R}{n+k}(\Ex{\A_X^R}{n+k}(\M,\A_X^R),\A_X^R)$ whence the desired result follows.
+\end{proof}
 The following lemma is a generalisations of a result by \cite{kashiwara1976b} to the relative case.
 The proof and statement are more involved than the original result by Kashiwara but follow the same line of thought.
 \begin{lemma}\label{lem: StabilisationtN}
-  Let $\M$ be a relative holonomic $\A_X^R$-module which comes equipped with the structure of a $\Xt$-module.
+  Let $\M$ be a relative holonomic $\A_X^R$-module which comes equipped with the structure of a $\Xt$-module and let $x\in X$.
   Suppose that $\M$ has grade $j(\M) = n+k$ with $k\geq 1$.
-  Then there exists a open $\Spec R' \subseteq \Spec R$ such that $\M' = \M \otimes_{R} R'$ is a relative holonomic $\A_X^{R'}$-module with $t^N \M' = 0$ for $N$ sufficiently large. Moreover, it may be assumed that $\Spec R \setminus \Spec R'$ has codimension strictly greater than $k$.
+  Then there exists a open $\Spec R' \subseteq \Spec R$ such that $\M' = \M \otimes_{R} R'$ is a relative holonomic $\A_X^{R'}$-module with $t^N \M_x' = 0$ for $N$ sufficiently large. Moreover, it may be assumed that $\Spec R \setminus \Spec R'$ has codimension strictly greater than $k$.
 \end{lemma}
 \begin{proof}
-  The proof is split in two main parts. The first part it is establishes that $\Ex{\A_X^{R'}}{n+k}(t^i\M',\ab\A_X^{R'})$ stabilises and that the $t^i\M'$ are $(n+k)$-Cohen-Macauley. It follows that $t^i\M'$ stabilises and the final part of the proof deduces that the stable value is zero.
+  The proof is split in two main parts. The first part establishes that $\Ex{\A_X^{R'}}{n+k}(t^i\M',\ab\A_X^{R'})$ stabilises and that the $t^i\M'$ are $(n+k)$-Cohen-Macauley. It follows that $t^i\M'$ stabilises and the final part of the proof deduces that the stable value is zero.
 
   Note that $\M/t\M$ is a coherent sheaves over the Noetherian sheaf of rings $\A_X^R$.
   Hence, the kernel of the morphisms $\M/t\M \to t^i\M / t^{i+1}\M$ stabilise.
@@ -303,12 +358,12 @@ The proof and statement are more involved than the original result by Kashiwara 
   Similarly the long exact sequence induced by the surjection $\M/t^{i+1}\M' \twoheadrightarrow \M'/t^{i}\M'$ yields that $\M/t^{i}\M$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
 
 
-  By the Cohen-Macauley results which have been established it follows that the morphisms $\E^{n+k}( t^i\M') \to  \E^{n+k}(t^{i+1}\M')$ and $\E^{n+k}(\M') \to \E^{n+k} (t^i\M',\ab \A_X^{R'})$ are surjective.
+  By the Cohen-Macauley results which have been established it follows that the morphisms $\E^{n+k}( t^i\M') \to  \E^{n+k}(t^{i+1}\M')$ and $\E^{n+k}(\M') \to \E^{n+k} (t^i\M')$ are surjective.
   Note that $\E^{n+k}(\M)$ is a coherent sheaf over the Noetherian sheaf of rings $\A_X^{R'}$.
   Hence the kernels of $\E^{n+k}(\M') \to \E^{n+k} (t^i\M')$ stabilise.
   After possibly increasing $N$ it follows that the morphisms $\E^{n+k}(t^i\M') \to  \E^{n+k}(t^{i+1}\M')$ are isomorphisms for $i\geq N$ which means that $\E^{n+k}(t^{i+1}\M')$ stabilises.
 
-  By $t^i \M'$ being $(n+k)$-Cohen-Macaulay it follows that $\E^{n+k}(\E^{n+k}(t^i\M')) \cong t^i\M'$.\todo{Provide reference, maybe include and prove earlier since this is easy from double complex}
+  By $t^i \M'$ being $(n+k)$-Cohen-Macaulay it follows that $\E^{n+k}(\E^{n+k}(t^i\M')) \cong t^i\M'$.
   It follows that $t^i \M'$ stabilises for $i\geq N$ and remains to show that this stable value is $0$.
   If the stable value is non-zero then it is $(n+k)$-Cohen-Macaulay with $k>1$.
   By \cref{cor: GradeIFFBernsteinIdeal} it follows that there exists some non-zero $b(s_1,\ldots,s_p) \in B_{t^N\M'}$.

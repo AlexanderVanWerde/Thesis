@@ -23,9 +23,11 @@ More generally, for any $\D_X$-module $\N$ the solutions in $\N$ are encoded by 
 This shows that $\D_X$-modules provide a canonical description of differential equations.
 
 The goal of this section is to summarise some of the results and definitions which are common knowledge in the field of $\D_X$-modules.
-This chapter builds up to the Riemann-Hilbert correspondence which states in very general terms that a system of differential equations is equivalent to it's solutions.
+This builds up to the Riemann-Hilbert correspondence which states in very general terms that a system of differential equations is equivalent to it's solutions.
 This result is powerful because it yields a connection between algebraic geometry and topology.
 A particular instantiation of this correspondence is the connection between Bernstein-Sato polynomials and monodromy.
+Finally, we include the estimation of the roots of Bernstein-Sato polynomials due to Kashiwara and Lichtin.
+
 Detailed treatments of the theory of $\D_X$-modules may be found in  \cite{bjork1979rings}, \cite{kashiwara2003d}, \cite{hotta2007d} or \cite{borel1987algebraic}.
 \section{$\D_X$-modules}
 As stated in the introduction $X$ may denote a smooth algebraic variety or a complex manifold.
@@ -36,7 +38,12 @@ Observe that $\D_X$ is a sheaf of non-commutative rings.
 Given local coordinates $x_1,\ldots, x_n$ on $X$ it holds that
 $$\partial_i x_j - x_j\partial_i = \delta_{ij} $$
 where $\delta$ denotes the Kronecker delta.
-
+\begin{lemma}
+  For any $x\in X$ the stalk $\D_{X,x}$ is left and right Noetherian. Moreover, in the algebraic case $\D_X$ is a left and right Noetherian sheaf of rings.
+\end{lemma}
+\begin{proof}
+  The algebraic and analytic cases may be found in chapters 1 and 4 of \cite{hotta2007d} respectively.
+\end{proof}
 Giving a left $\D_X$-module is equivalent to giving a $\O_X$-module $\M$ with $\Theta_X$-action such that
 $\xi\cdot (fm) = f (\xi \cdot m)  + \xi(f)\ m  $
 for any sections $f$ of $\O_X$ and $\xi$ of $\Theta_X$. Similarly, giving a right $\D_X$-module is equivalent to giving a $\O_X$-module $\M$ with $\Theta_X$-action such that
@@ -71,7 +78,6 @@ The following observations are immediate.
 There is a similar notion of filtrations on $\D_X$-modules $\M$.
 Without any harm let's assume that $\M$ is a left $\D_X$-module, the case for right modules is analogous.
 A filtration consists of $\O_X$-submodules $F_i\M$ of $\M$ such that $\cup_i F_i \M = \M$ and $F_i\D_X \cdot F_j\M \subseteq F_{i+j}\M$.
-
 Stepping over to the graded object has the advantage that $\gr \D_X$ is commutative by definition of the order filtration whence the classical methods of algebraic geometry are applicable.
 One can view $\gr\D_X$ as a subsheaf of $\O_{T^*X}$.
 The symplectic structure of $T^* X$ captures part of the non-commutativity.
@@ -177,7 +183,7 @@ The coherence properties of the direct image in the analytic case require the fo
   A $\D_Y$-module $\M$ is said to be $\mu$-good if there exists a open cover $\{V_j\}_{j\in J}$ of $X$ such that $\M$ admits a good filtration on $\mu^{-1}(V_j)$ for any $j\in J$.
 \end{definition}
 Note that, by \cref{prop: GoodFiltration} any coherent $\D_Y$-module on a algebraic variety is $\mu$-good.
-\begin{theorem}
+\begin{theorem}\label{thm: MuGoodCoherent}
   Let $\M$ be a $\mu$-good $\D_Y$-module and suppose that $\mu$ is proper on the support of $\M$.
   Then, $\int \M$ has coherent cohomology.
 \end{theorem}
@@ -198,7 +204,7 @@ $$
 \begin{proof}
   See remark 2.5.2 in \cite[Chapter 2]{hotta2007d} for the algebraic case or \cite[Chapter 3]{sabbah2011introduction} for the analytic case.
 \end{proof}
-\section{Riemann-Hilbert Correspondence}
+\section{Riemann-Hilbert Correspondence}\label{sec: Riemann-Hilbert}
 This section concerns the Riemann-Hilbert correspondence which states that a system of differential equations is equivalent to it's system of solutions.
 The systems of differential equations are encoded in regular holonomic $\D_X$-modules.
 The solutions are given by perverse sheaves.
@@ -307,7 +313,7 @@ This uses the analytification functor on coherent sheaves which is provided by t
 
   For a constructible complex $\mathcal{F}^\bullet$ in $D^b_c(X)$ the supports and cosupports are defined dually by
   $$\supp^m\mathcal{F}^\bullet = \supp \H^m \mathcal{F}^\bullet; \qquad \operatorname{cosupp}^m\mathcal{F}^\bullet = \supp^{-m}\mathbb{D}\mathcal{F}^\bullet.$$
-  The support of $\mathcal{F}^\bullet$ is the closure of the union of the $\supp^m\mathcal{F}^\bullet$.
+  The support $\supp \mathcal{F}^\bullet$ is the closure of the union of the $\supp^m\mathcal{F}^\bullet$.
   \begin{theorem}
     Let $\mathcal{F}^\bullet$ be a constructible complex on $Y$ and consider a morphism $\mu:Y\to X$ which is proper on $\supp \mathcal{F}^\bullet$. Then $Rf_*(\mathcal{F}^\bullet)$ is constructible on $X$.
   \end{theorem}
@@ -383,35 +389,45 @@ This uses the analytification functor on coherent sheaves which is provided by t
   \begin{proof}
     Follows from the Riemann-Hilbert correspondence and \cref{prop: FunctorHeart}.
   \end{proof}
-\section{Monodromy and Bernstein-Sato Polynomials}
+\section{Monodromy and Bernstein-Sato Polynomials}\label{sec: MonodromyBS}
 The goal of this section is to motivate Bernstein-Sato polynomials by their connection to monodromy.
 Further, we include Kashiwara and Lichtin's proof for the estimation of the roots of the Bernstein-Sato polynomial.
 This proof is a important framework for the generalised proof in \cref{ch: ChapterRelHol}.
 
-
-We focus on the local analytic case where $f:(\C^{n},0)\to (\C,0)$ is a non-constant germ of a holomorphic function.
+We focus on the local analytic case.
+The algebraic case will be discussed in detail in the next chapter.
+Let $X$ be a complex manifold and consider a holomorphic function $f:X \to \C$.
+Let $x\in X$ with $f(x) = 0$, we study the function germ $f:(X,x)\to (\C,0)$.
 \subsection{Monodromy}
-This subsection is based on \cite[Chapter 1]{blanco2020bernstein} and \cite{budur2015bernstein}.
-
-Pick some sufficiently small ball $B\subseteq \C^{n}$ such that $f$ yields a holomorphic function on $B$.
-Let $T\subseteq f(B)$ be a sufficiently small punctured disc centred at $0$.
-Denote $F = f^{-1}(T)\cap B$ and $X = \overline{F}$.
-It has been established by Milnor and Hamm-Le that $f:F \to T$ is a smooth fiber bundle and that the diffeomorphism type of the fiber $f^{-1}(t) \cap B $ is independent of the choice of $t\in T$.
-This fiber is denoted $F_{f,0}$ and is called the Milnor fiber.
-
-Going over a loop around the origin in $\C^\times$ induces a diffeomorphism $M$ on the Milnor fiber $F_{f,0}$.
-In particular, this action induces a endomorphism $M^*$ on the cohomology $H^j(F_{f,0},\C)$ for every $j\in Z$.
-This linear endomorphism is called the monodromy action and only depends on the singularity $(f^{-1}(0),0)$.
-In particular, this means that the eigenvalues of $M^*$ on $H^j(F_{f,0},\C)$ are invariants of the singularity.
-If $\lambda \in \C$ is a eigenvalue of $M^*$ on some $H^j(F_{f,0},\C)$ it is called a eigenvalue of monodromy.
-
-Let $s$ be a new variable.
-The Bernstein-Sato polynomial $b_{f,0}\in \C[s]$ of $f$ is defined to be the monic polynomial of minimal degree such that there exists some differential operator $P(x,\partial,s)$ in the stalk of $\D_X[s] = \D_X\otimes_{\C}\C[s]$ at $0$ with
-$$P(x,\partial,s) f^{s+1} = b_{f,0}(s) f^s.$$
-Let $Z(b_{f,0})$ denote the set of zeros of the Bernstein-Sato polynomial.
-These are connected to monodromy by the following classical theorem due to Malgrange and Kashiwara.
 \begin{theorem}
-  The set $\exp(Z(b_{f,0}))$ is equal to the set of eigenvalues of monodromy.
+  Let $B\subseteq X$ be a small ball and pick $t\in \C^\times$ close to zero. The diffeomorphism class of $F_{f,x} := f^{-1}(t)\cap B $  is independent of the choice of $t$.
+\end{theorem}
+\begin{proof}
+  The isolated singularity case is established in \cite{milnor1968singular} and the general case was established by Hamm-Le.
+\end{proof}
+\begin{definition}
+  The diffeomorphism class of $F_{f,x}$ is called the Milnor fiber.
+\end{definition}
+Going over a loop around the origin in $T$ induces a endomorphism $M^*$ on the cohomology $H^j(F_{f,x},\C_{F_{f,x}})$ for every $j\in \Z$.
+This is called the monodromy action and only depends on the local singularity $f^{-1}(0)\cap B$.
+In particular, this means that the eigenvalues of $M^*$ on $H^j(F_{f,x},\C_{F_{f,x}})$ are invariants of the singularity.
+If $\lambda \in \C$ is a eigenvalue of $M^*$ on some $H^j(F_{f,x},\C_{F_{f,x}})$ it is called a eigenvalue of monodromy.
+
+
+\begin{definition}
+  Let $s$ be a new variable.
+  The local Bernstein-Sato polynomial $b_{f,x}(s)\in \C[s]$ is the monic polynomial of minimal degree such that there exists some differential operator $P(x,\partial,s)$ in $\D_{X,x}\otimes_{\C}\C[s]$ with
+  $$P(x,\partial,s) f^{s+1} = b_{f,x}(s) f^s$$
+  in the stalk at $x$.
+\end{definition}
+The existence of Bernstein-Sato polynomials was originally proved by I.N. Berntein.
+The following section gives a alternative method to prove the existence.
+In fact, it will even be established that all roots of $b_{f,x}(s)$ are negative rational numbers.
+
+Let $Z(b_{f,x})$ denote the set of zeros of the Bernstein-Sato polynomial.
+These are connected to monodromy by the following classical theorem due to Malgrange and Kashiwara.
+\begin{theorem}\label{thm: EigMonodromy}
+  The set $\op{Exp}(Z(b_{f,x}))$ is equal to the set of eigenvalues of monodromy where  $\operatorname{Exp}(x) = \exp(2\pi ix).$
 \end{theorem}
 \begin{proof}
   This theorem may be found in \cite{budur2015bernstein}.
@@ -422,12 +438,14 @@ Indeed, monodromy of the Milnor fiber can be encoded in a constructible complex 
 
 Let $\widetilde{\C}^\times$ denote the universal cover of $\C^\times$ and consider the projection $p:X\times \widetilde{\C}^\times \to X$.
 Denote $\iota:f^{-1}(0)\to X$ for the inclusion map.
-Deligne's nearby cycle functor is the functor $\psi_f:= L\iota^* Rp_* Lp^*$ from $D^b_c(X)$ to $D_c^b(f^{-1}(0))$.
+\begin{definition}
+  Deligne's nearby cycle functor from $D^b_c(X)$ to $D_c^b(f^{-1}(0))$ is given by $\psi_f:= L\iota^* \circ Rp_*\circ Lp^*$.
+\end{definition}
+Denote $\iota_x:\{x\}\to f^{-1}(0)$ for the inclusion map.
 The following theorem is due to Deligne.
 \begin{theorem}
-  Denote $\iota_0:\{0\}\to f^{-1}(0)$ for the inclusion map.
-  Then, there is a isomorphism
-  $$H^i(F_{f,0}, \C) \cong \mathbb{H}^i(L\iota_0^* \psi_f \C_X) $$
+  There is a isomorphism
+  $$H^i(F_{f,x}, \C_{F_{f,x}}) \cong \mathbb{H}^i(L\iota_x^* (\psi_f \C_X)) $$
   and the monodromy action on the cohomology of the Milnor fiber corresponds with the action of the covering transformations $\widetilde{\C}^\times \to \widetilde{\C}^\times$ on the nearby cycles.
 \end{theorem}
 \begin{proof}
@@ -436,50 +454,53 @@ The following theorem is due to Deligne.
 To describe the $\D_X$-theoretic counterpart of this constructible complex requires the technical notion of $V$-filtrations.
 The interested reader may find these concepts in \cite{budur2015bernstein}.
 \subsection{Estimation of $Z(b_{f,0})$}
-Estimation of $Z(b_{f,0})$ is easy if $f$ is a monomial.
+Estimation of $Z(b_{f,x})$ is easy if $f$ is a monomial.
 For instance, if $f = x_1^{r_1}\cdots x_n^{r_n}$ then set $P = \partial_1^{r_1}\cdots \partial_n^{r_n}$ to get
-$$P f^{s+1} = \prod_{i=1}^n (r_1 s_1 + r_1)\cdots (r_1 s_1 + 1) f^{s}. $$
+$$P f^{s+1} = \prod_{i=1}^n (r_i s + r_i)\cdots (r_i s + 1) f^{s}. $$
 The main idea employed in the proof by \cite{kashiwara1976b} is that one can reduce to this situation by resolution of singularities and $\D_X$-module direct images.
 \begin{definition}
-  Let $D$ be a divisor on $X$. A strong log resolution of $(X,D)$ consists of a projective morphism $\mu:Y\to X$ which is a isomorphism over the complement of $D$ such that $Y$ is smooth and $\mu^*D = \sum_{i=1}^r a_i E_i$ is a simple normal crossings divisor.
+  Let $D$ be a divisor on $X$. A strong log resolution of $(X,D)$ consists of a projective morphism $\mu:Y\to X$ which is a isomorphism over the complement of $D$ such that $Y$ is smooth and $\mu^*D$ is a simple normal crossings divisor.
 \end{definition}
 Let $D$ be the divisor determined by $f$.
 By Hironaka's resolution of singularities one can find a resolution $\mu:Y\to X$ for $(X,D)$.
 Let $g = f\circ \mu$ denote the pullback of $f$ to $Y$, then $\mu^*D = \sum_{i=1}^r \operatorname{mult}_{E_i}(g) E_i$ where $\operatorname{mult}_{E_i}(g)$ denotes the order of vanishing of $g$ on the irreducible hypersurface $E_i$.
-
-Since $g$ is locally a monomial Kashiwara was able to establish the following estimate by consideration of the direct image of the $\D_Y$-module $\D_Y g^s$.
+Using that $g$ is locally a monomial Kashiwara was able to establish the following estimate by consideration of the direct image of the $\D_Y$-module $\D_Y g^s$.
 \begin{theorem}
-  Every root of $b_{f,0}(s)$ is of the form $ -c_i/\operatorname{mult}_{E_i}(g) $ with $c_i\in \mathbb{Z}_{>0}$.
+  Every root of $b_{f,x}(s)$ is of the form $ -c_i/\operatorname{mult}_{E_i}(g) $ with $c_i\in \mathbb{Z}_{>0}$.
+  In particular $Z(b_{f,x})\subseteq \mathbb{Q}_{<0}$.
 \end{theorem}
 \begin{proof}
   This is proved in \cite{kashiwara1976b}.
 \end{proof}
-\cite{lichtin1989poles} improved this estimate by doing similar computations for the right $\D_Y$-module $\M$ spanned by $ g^s \mu^*(dx)$ inside $\D_Yg^s\otimes_{\O_Y} \omega_Y$.
+Combining this estimate with \cref{thm: EigMonodromy} one gets the following theorem.
+\begin{theorem}
+  The eigenvalues of monodromy are roots of unity.
+\end{theorem}
+\cite{lichtin1989poles} improved the estimate by similar computations for the right $\D_Y$-module $\M$ spanned by $ g^s \mu^*(dx)$ inside $\D_Yg^s\otimes_{\O_Y} \omega_Y$.
 The advantage of this approach is that $\mu^*(dx)$ involves the local behaviour of $\mu$ which can detect redundant divisors in $\mu^*D$.
 The vanishing of $\mu^*(dx)$ is measured in the relative canonical divisor $K_{Y/X} = \sum k_i E_i$.
 \begin{theorem}\label{thm: LichtinEstimate}
-  Every root of $b_{f,0}(s)$ is of the form $-(k_i + c_i)/\operatorname{mult}_{E_i}(g)$ with $c_i\in \mathbb{Z}_{>0}$.
-  In particular $Z(b_{f,0})\subseteq \mathbb{Q}_{<0}$.
+  Every root of $b_{f,x}(s)$ is of the form $-(k_i + c_i)/\operatorname{mult}_{E_i}(g)$ with $c_i\in \mathbb{Z}_{>0}$.
 \end{theorem}
 We will now reproduce the proof for this improved estimate following Lichtin and Kashiwara.
 \\
 
 One can ensure that multiplication by $s$ stays inside $\D_X f^s$ with the following trick.
 Introduce a new coordinate $x_{n+1}$ and set $\widetilde{f}= x_{n+1}f$ on the space $X\times \C$.
-The induced map $Y\times \C \to X\times \C$ is a strong log resolution for the divisor determined by $\widetilde{f}$ and $\widetilde{g} = x_{n+1}\widetilde{f}$ is the pullback for $\widetilde{f}$.
-Observe that $x_{n+1}\partial_{n+1}$ acts like $s$ on $\widetilde{f}^s$.
+Then $x_{n+1}\partial_{n+1}$ acts like $s$ on $\widetilde{f}^s$.
+The induced map $Y\times \C \to X\times \C$ is a strong log resolution for the divisor determined by $\widetilde{f}$.
 Now suppose we can prove \cref{thm: LichtinEstimate} for $\widetilde{f}$.
 Then, the theorem also follows for $f$ due to the following result.
 \begin{lemma}
-  The Bernstein-Sato polynomial $b_{f,0}$ is a divisor of $b_{\widetilde{f},0}$.
+  The Bernstein-Sato polynomial $b_{f,x}(s)$ is a divisor of $b_{\widetilde{f},x}(s)$.
 \end{lemma}
 \begin{proof}
-  Take local coordinates $x_1,\ldots, x_{n+1}$ near $0$ and let $P$ be in the stalk of $\D_{X\times \C}$ at $x$ such that $b_{\widetilde{f},0} \widetilde{f}^s = P \widetilde{f}^{s+1}$.
+  Take local coordinates $x_1,\ldots, x_{n+1}$ and let $P$ be in the stalk $\D_{X\times \C,x}$ such that $b_{\widetilde{f},x} \widetilde{f}^s = P \widetilde{f}^{s+1}$.
   Expand $P = \sum_{j=1}^N P_j  \partial_{n+1}^{j}$
-  with coefficients $P_j$ in $\D_{X,0}$.
+  with coefficients $P_j$ in $\D_{X,x}$.
   Then
-  $$x_{n+1}^N b_{\widetilde{f},0} \widetilde{f}^s = \left(\sum_{j=1}^k (s + 1)^{j} \sum_\alpha Q_{\alpha} \partial_1^{\alpha_1}\cdots \partial_n^{\alpha_n} \right)\widetilde{f}^{s+1}$$
-  where the $P_j$ were expanded as polynomials in $\partial_1,\ldots,\partial_n$ with coefficients $Q_{\alpha}$ in $\O_{X,0}$.
+  $$x_{n+1}^N b_{\widetilde{f},x}(s) \widetilde{f}^s = \left(\sum_{j=1}^k (s + 1)^{j} \sum_\alpha Q_{\alpha} \partial_1^{\alpha_1}\cdots \partial_n^{\alpha_n} \right)\widetilde{f}^{s+1}$$
+  where the $P_j$ were expanded as polynomials in $\partial_1,\ldots,\partial_n$ with coefficients $Q_{\alpha}$ in $\O_{X,x}$.
 
   Observe that $\partial_1,\ldots, \partial_n$ act on the formal symbol $\widetilde{f}^{s+1}$ the same as they act on the formal symbol $f^{s+1}$.
   Expand the $Q_{\alpha}$ as power series in $x_1,\ldots,x_{n+1}$ and identify powers of $x_{n+1}$ on both sides for the desired functional equation.
@@ -489,9 +510,9 @@ The dimension of $X$ will still be denoted with $n$.
 
 Let $t$ be a new variable.
 The sheaf of rings $\D_X\langle s,t\rangle$ is found from $\D_X$ by adjoining $s$ and $t$ subject to $ts -st = 1$ where $s,t$ commute with $\D_X$.
-The notation with the angle brackets is to emphasise that $s$ and $t$ do not commute.
+The notation with the angle brackets is to emphasise that $s$ and $t$ do not commute with each other.
 One can view $\D_X f^s$ as a $\D_X\langle s,t\rangle$-module by the action $t P(s)f^s = P(s+1) f^{s+1}$ for any differential operator $P$ in $\D_X[s]$.
-In this notation the functional equation $P f^{s+1} = b f^s$ means that $b\in \operatorname{Ann}_{\C[s]} \D_X f^s / t \D_X f^s$.
+In this notation the functional equation for $b_{f,x}$ means that $b_{f,x}\in \operatorname{Ann}_{\C[s]} (\D_X f^s / t \D_X f^s)_x$.
 
 There is a $\O_X$-linear isomorphism between any left $\D_X$-module $\N$ and it's right version $ \N \otimes_{\O_X}\omega_X$.
 Concretely, any section $u$ of $\N$ gives rise to the section $u^* := u dx$.
@@ -509,76 +530,78 @@ Observe that $\M$ may also be equipped with a $\D_X\langle s,t\rangle$-module st
 \end{lemma}
 \begin{proof}
   This may be checked locally.
-  If the chosen point is on none of divisors $E_i$ then $g$ is invertible so that $\M/g\M$ is trivial.
+  If the chosen point is on none of divisors $E_i$ then $g$ is invertible so that $\M/t\M$ is trivial.
   Now suppose we are working near a point $y\in Y$ which is on $E_i$ if and only if $i\in I$ with $I$ non-empty.
   Then one can pick local coordinates $y_i$ such that
   $$ g = \prod_{i\in I} y_i^{m_i}; \qquad \mu^*(dx) =u \prod_{i\in I} y_i^{k_i}$$
   where $u$ is a local unit.
   Now set $P = u^{-1}(\prod_{i\in I}\partial_i^{m_i})u$ to get
   $$g^{s+1} \mu^*(dx)\cdot P = q(s) g^s \mu^*(dx)$$
-  where $b(s) = \prod_{i\in I}\prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}s +  m_i + j ). $
+  where $q(s) = \prod_{i\in I}\prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}s +  m_i + j ). $
 \end{proof}
 Observe that $s,t$ can be viewed as $\D_X$-linear injective endomorphisms on $\M$.
-The associated the long exact sequence implies that there is also a $\D_X\langle s,t\rangle$-module structure on the direct image $\Int\M$.
-By the functorial nature of the direct image it follows that the polynomial $ b(s)$ provided by \cref{lem: UpstairsB} annihilates $\Int\M/t\Int\M$.
+The associated the long exact sequence yields a $\D_X\langle s,t\rangle$-module structure on the direct image $\Int\M$ where the functorial nature of the direct image is used to ensure that $ts -st = 1$.
+Similarly, the polynomial $ b(s)$ provided by \cref{lem: UpstairsB} annihilates $\Int\M/t\Int\M$.
 
 Consider the surjection $\D_Y\to \M$ induced by $1 \mapsto g^s \mu^*(dx)$.
-The associated long exact sequence includes a morphism $\int^0\D_Y \to \int^0\M$.
-Observe that $\int^0\D_Y = R^0 \mu_*(\A_{Y\to X}^R)$ contains a global section corresponding to $1$.
+The associated long exact sequence includes a morphism $\int^0\D_Y \to \Int\M$.
+Observe that $\int^0\D_Y = R^0 \mu_*(\D_{Y\to X})$ contains a global section corresponding to the section $1$ of $\D_{Y\to X}$.
 Let $u$ be the image of this section in $\Int\M$ and denote $\U$ for the right $\D_X\langle s,t\rangle$-module generated by $u$.
 \begin{lemma}\label{lem: SurjectiveUf}
   There is a surjective morphism of right $\D_X\langle s,t\rangle$-modules $\U \to \D_X f^s \otimes_{\O_X} \omega_X$ sending $u$ to $f^s dx$.
 \end{lemma}
 \begin{proof}
-  The resolution of singularities $Y\to X$ is a isomorphism on the complement of $\prod f_i = 0$. Hence, a isomorphism $\U = \Int \M \cong  \D_X f^s  \otimes_{\O_X}\omega_X$ holds outside of $\prod f_i = 0$.
+  The resolution of singularities $Y\to X$ is a isomorphism on the complement of $\{f = 0\}$. Hence, a isomorphism $\U \cong \Int \M \cong  \D_X f^s  \otimes_{\O_X}\omega_X$ holds outside of $\{f = 0\}$.
 
-  Pick some open set $V\subseteq \X$ to show this yields a well-defined morphism of $\D_X$-modules it must be show that $(f^s dx)P = 0$ whenever $uP = 0$ in $\U(V)$.
-  Due to the isomorphism it is certainly the case that $(f^s dx) P = 0$ outside of $\prod f_i = 0$.
-  Hence, the support of the coherent sheaf of $\O_V$-modules $\O_V (F^s dx) P $ lies in $\prod f_i = 0$.
-  The Nullstellen Satz now yields that $(\prod f_i)^N (f^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
-  Note that $\prod f_i$ is a non-zero divisor of $(f^s\otimes_{\O_\X} \omega_\X)(V)$.
+  Pick some open set $V\subseteq X$. To show this yields a well-defined morphism of $\D_X$-modules it must be show that $(f^s dx)P = 0$ whenever $uP = 0$ in $\U(V)$.
+  Due to the isomorphism it is certainly the case that $(f^s dx) P = 0$ outside of $\{f = 0\}$.
+  Hence, the support of the coherent sheaf of $\O_V$-modules $\O_V (f^s dx) P $ lies in $\{f = 0\}$.
+  The Nullstellen Satz now yields that $f^N (f^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
+  Note that $f$ is a non-zero divisor of $(\D_Xf^s\otimes_{\O_X} \omega_X)(V)$.
   Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
 
-  Finally, observe that $tu = fu$ so this morphism of $\D_X$-modules also commutes with the actions by $t,s$.
+  Finally, observe that $tu = fu$ so that this morphism of $\D_X$-modules also commutes with the actions by $t,s$.
 \end{proof}
-It remains to compare $\Int\M$ and $\U$.
+Due to \cref{lem: UpstairsB} there is a suitable $b$-polynomial for $\Int \M$.
+By \cref{lem: lem: SurjectionUf} it remains to compare $\Int\M$ and $\U$.
 \begin{lemma}
   The quotient $\Int\M / \U$ is a holonomic $\D_X$-module.
 \end{lemma}
 \begin{proof}
   By \cref{prop: SESBehaviourChar} the characteristic variety of $\M$ is a subset of the characteristic variety of $\D_Yg^s \otimes_{\O_Y} \omega_Y$.
-  This has the same characteristic variety as $\D_Y g^s$ due to the $\O_Y$-linear isomorphism between $\D_Yg^s$ and $\D_Yg^s \otimes_{\O_Y} \omega_Y$
-  Hence, by \cref{prop: IsotropicAndDominate} it follows that $\Ch \M \subseteq W \cup \Lambda$ for some isotropic $\Lambda\subseteq T^*Y$ and a irreducible $(n+1)$-dimensional variety $W$ which dominates $Y$.
+  This has the same characteristic variety as $\D_Y g^s$ due to the behaviour of the $\O_Y$-linear isomorphism between $\D_Yg^s$ and $\D_Yg^s \otimes_{\O_Y} \omega_Y$.
+  By \cref{prop: IsotropicAndDominate} it follows that $\Ch \M \subseteq W \cup \Lambda$ for some isotropic $\Lambda\subseteq T^*Y$ and a irreducible $(n+1)$-dimensional variety $W$ which dominates $Y$.
 
   Observe that $\M$ is certainly $\mu$-good since it admits a global good filtration $F_i\M := F_i\D_X \cdot g^s \mu^*(dx)$.
   Hence, \cref{prop: EstimateProper} is applicable and yields that
-  $$\Ch \Int \M \subseteq \widetilde{\mu}((T^*\mu)^{-1} \Lambda \cup W).$$
-  By \cref{lem: IsotropicDirectImage} the set $\widetilde{\mu}((T^*\mu)^{-1}\Lambda)$ is still isotropic and will not form any obstruction to $\Int\M/\U$ being holonomic.
-  Further, observe that $\widetilde{\mu}((T^*\mu)^{-1}W)$ remains a irreducible $(n+1)$-dimensional variety which dominates $X$.
+  $$\Ch \Int \M \subseteq \widetilde{\mu}\left((T^*\mu)^{-1} (\Lambda \cup W)\right).$$
+  By \cref{lem: IsotropicDirectImage} the set $\widetilde{\mu}((T^*\mu)^{-1}(\Lambda))$ is still isotropic and will not form any obstruction to $\Int\M/\U$ being holonomic.
+  Further, observe that $\widetilde{\mu}((T^*\mu)^{-1}(W))$ remains a irreducible $(n+1)$-dimensional variety which dominates $X$.
   On the other hand $\mu$ is a isomorphism outside of $\{f = 0\}$ so $\Int\M/\U$ is only supported on $\{f = 0\}$.
-  Intersecting $\widetilde{\mu}((T^*\mu)^{-1}W)$ with $\{f = 0\}$ yields a $n$-dimensional variety whence the desired result follows.
+  Intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $\{f = 0\}$ yields a $n$-dimensional variety whence the desired result follows.
 \end{proof}
 \begin{proposition}\label{prop: StableZero}
-  For sufficiently large $N$ it holds that $(t^N \Int \M / \U)_0 = 0$.
+  For sufficiently large $N$ it holds that $t^N (\Int \M)_x / \U_x = 0$.
 \end{proposition}
 \begin{proof}
   The sequence $t^n \Int\M / \U$ forms a decreasing sequence of holonomic $\D_X$-modules.
-  By \cref{prop: FiniteLength} the induced sequence of $(\D_X)_0$ modules in the stalk at $0$ must stabilise.
-  Let $N$ be sufficiently large such that $(t^N\Int\M/\U)_0$ is the stable value.
+  By \cref{prop: FiniteLength} the induced sequence of $\D_{X,x}$ modules in the stalk at $x$ must stabilise.
+  Let $N$ be sufficiently large such that $t^N(\Int\M)_x/\U_x$ attains the stable value.
 
-  Applying \cref{prop: HomAlgebraic} to the $(\D_X)_0$-linear automorphism $s$ produces a non-zero polynomial $q(s)\in \C[s]$ which annihilates $(t^N\Int\M/\U)_0$.
+  Applying \cref{prop: HomAlgebraic} to the $(\D_X)_x$-linear automorphism $s$ produces a non-zero polynomial $q(s)\in \C[s]$ which annihilates $t^N(\Int\M)_x/\U_x$.
   Let $q(s)$ be of minimal degree with this property.
-  Observe that $q(s+1)t = tq(s)$ so, using the stabilisation of $(t^n\Int\M/\U)_0$, it follows that
-  $$q(s+1)(t^N\Int\M/\U)_0 = t q(s) (t^N\Int\M/\U)_0 = 0.$$
-  This means that $q(s) - q(s+1)$ also annihilates $(t^N\Int\M/\U)_0$.
+  Observe that $q(s+1)t = tq(s)$ so, using the stabilisation, it follows that
+  $$q(s+1)t^N\left(\Int\M\right)_x/\U_x = t q(s) t^N\left(\Int\M\right)_x/\U_x = 0.$$
+  This means that $q(s) - q(s+1)$ also annihilates $t^N(\Int\M)_x/\U_x$.
   By the minimality of the degree of $q(s)$ it follows that $q(s) - q(s+1)=0$ which is to say that $q(s)$ is a non-zero constant.
-  This means that $(t^N\Int\M/\U)_0 = 0 $ as desired.
+  This means that $t^N(\Int\M)_x/\U_x = 0 $ as desired.
 \end{proof}
 Putting all these facts together yields the proof of \cref{thm: LichtinEstimate}.
 \begin{proof}
-  Let $N$ be as in \cref{prop: StableZero} and denote $b(s)$ for the polynomial provided by \cref{prop: UpstairsB}.
-  Set $B(s) = b(s+N+1)b(s+N)\cdots b(s)$ and observe that $B(s)\M_0 \subseteq t^{N+1}\M_0 \subseteq t\U_0$.
-  In particular this means that $B(s) \in \operatorname{Ann}_{\C[s]} (\U / t\U)_0$.
-  The $\D_X\langle s,t\rangle$-linear surjection $\U \to \D_X f^s \otimes_{\O_X} \omega_X$ from \cref{lem: SurjectiveUf} now implies that $b_{f,0}$ divides $B(s)$.
-  This yields the desired estimate for $Z(b_{f,0})$. 
+  Let $N$ be as in \cref{prop: StableZero} and denote $b(s)$ for the polynomial provided by \cref{lem: UpstairsB}.
+  Set $B(s) = b(s+N+1)b(s+N)\cdots b(s)$ and observe that $B(s)\M_x \subseteq t^{N+1}\M_x \subseteq t\U_x$.
+  In particular this means that $B(s) \in \operatorname{Ann}_{\C[s]} \U_x / t\U_x$.
+
+  The $\D_X\langle s,t\rangle$-linear surjection $\U \to \D_X f^s \otimes_{\O_X} \omega_X$ from \cref{lem: SurjectiveUf} now implies that $b_{f,x}(s)$ divides $B(s)$.
+  This yields the desired estimate for $Z(b_{f,x})$.
 \end{proof}
