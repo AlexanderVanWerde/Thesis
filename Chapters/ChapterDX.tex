@@ -491,7 +491,7 @@ Then $x_{n+1}\partial_{n+1}$ acts like $s$ on $\widetilde{f}^s$.
 The induced map $Y\times \C \to X\times \C$ is a strong log resolution for the divisor determined by $\widetilde{f}$.
 Now suppose we can prove \cref{thm: LichtinEstimate} for $\widetilde{f}$.
 Then, the theorem also follows for $f$ due to the following result.
-\begin{lemma}
+\begin{lemma}\label{lem: BernsteinTilde}
   The Bernstein-Sato polynomial $b_{f,x}(s)$ is a divisor of $b_{\widetilde{f},x}(s)$.
 \end{lemma}
 \begin{proof}
@@ -533,11 +533,11 @@ Observe that $\M$ may also be equipped with a $\D_X\langle s,t\rangle$-module st
   If the chosen point is on none of divisors $E_i$ then $g$ is invertible so that $\M/t\M$ is trivial.
   Now suppose we are working near a point $y\in Y$ which is on $E_i$ if and only if $i\in I$ with $I$ non-empty.
   Then one can pick local coordinates $y_i$ such that
-  $$ g = \prod_{i\in I} y_i^{m_i}; \qquad \mu^*(dx) =u \prod_{i\in I} y_i^{k_i}$$
+  $$ g = \prod_{i\in I} y_i^{\mult_{E_i}(g)}; \qquad \mu^*(dx) =u \prod_{i\in I} y_i^{k_i}$$
   where $u$ is a local unit.
-  Now set $P = u^{-1}(\prod_{i\in I}\partial_i^{m_i})u$ to get
+  Now set $P = u^{-1}(\prod_{i\in I}\partial_i^{\mult_{E_i}(g)})u$ to get
   $$g^{s+1} \mu^*(dx)\cdot P = q(s) g^s \mu^*(dx)$$
-  where $q(s) = \prod_{i\in I}\prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}s +  m_i + j ). $
+  where $q(s) = \prod_{i\in I}\prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}(g)s +  k_i + j ). $
 \end{proof}
 Observe that $s,t$ can be viewed as $\D_X$-linear injective endomorphisms on $\M$.
 The associated the long exact sequence yields a $\D_X\langle s,t\rangle$-module structure on the direct image $\Int\M$ where the functorial nature of the direct image is used to ensure that $ts -st = 1$.
@@ -551,11 +551,12 @@ Let $u$ be the image of this section in $\Int\M$ and denote $\U$ for the right $
   There is a surjective morphism of right $\D_X\langle s,t\rangle$-modules $\U \to \D_X f^s \otimes_{\O_X} \omega_X$ sending $u$ to $f^s dx$.
 \end{lemma}
 \begin{proof}
-  The resolution of singularities $Y\to X$ is a isomorphism on the complement of $\{f = 0\}$. Hence, a isomorphism $\U \cong \Int \M \cong  \D_X f^s  \otimes_{\O_X}\omega_X$ holds outside of $\{f = 0\}$.
+  The resolution of singularities $Y\to X$ is a isomorphism on the complement of the divisor $D$ determined by $f$.
+  Hence, a isomorphism $\U \cong \Int \M \cong  \D_X f^s  \otimes_{\O_X}\omega_X$ holds outside of $D$.
 
   Pick some open set $V\subseteq X$. To show this yields a well-defined morphism of $\D_X$-modules it must be show that $(f^s dx)P = 0$ whenever $uP = 0$ in $\U(V)$.
-  Due to the isomorphism it is certainly the case that $(f^s dx) P = 0$ outside of $\{f = 0\}$.
-  Hence, the support of the coherent sheaf of $\O_V$-modules $\O_V (f^s dx) P $ lies in $\{f = 0\}$.
+  Due to the isomorphism it is certainly the case that $(f^s dx) P = 0$ outside of $D$.
+  Hence, the support of the coherent sheaf of $\O_V$-modules $\O_V (f^s dx) P $ lies in $D$.
   The Nullstellen Satz now yields that $f^N (f^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
   Note that $f$ is a non-zero divisor of $(\D_Xf^s\otimes_{\O_X} \omega_X)(V)$.
   Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
@@ -564,7 +565,7 @@ Let $u$ be the image of this section in $\Int\M$ and denote $\U$ for the right $
 \end{proof}
 Due to \cref{lem: UpstairsB} there is a suitable $b$-polynomial for $\Int \M$.
 By \cref{lem: lem: SurjectionUf} it remains to compare $\Int\M$ and $\U$.
-\begin{lemma}
+\begin{lemma}\label{lem: QuotientHolonomic}
   The quotient $\Int\M / \U$ is a holonomic $\D_X$-module.
 \end{lemma}
 \begin{proof}
