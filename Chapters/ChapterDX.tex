@@ -1,5 +1,4 @@
 \chapter{$\D_X$-modules and the Riemann-Hilbert Correspondence}\label{Ch: ChapterDX}
-\todo{Noetherian}
 The subject of this chapter are modules over rings of differential operators.
 Throughout $X$ can be a smooth algebraic variety or a complex manifold of dimension $n$.
 The rings of differential operators $\D_X$ will be defined formally in the next section.
@@ -88,7 +87,7 @@ Then the induced elements of $P$ and $Q$ in $\gr \D_X$ are of the form $p = \sum
 On the other hand, the induced element of $PQ - QP$ is $\sum_{i=1}^n\frac{\partial p}{\partial \xi_i}\frac{\partial q}{\partial x_i} - \frac{\partial q}{\partial \xi_i}\frac{\partial p}{\partial x_i}$.
 This is precisely $\{p,q\}$ where $\{\blank,\blank\}$ is the Poisson bracket.
 
-Denote $\pi$ for the projection of $T^*X \to X$.
+Denote $\pi:T^*X \to X$ for the projection map.
 Then any $\gr\D_X$-module $\mathcal{M}$ has a corresponding module on $T^* X$ defined by $\O_{T^*X} \otimes_{\pi^{-1}\gr \D_X} \mathcal{M}$.
 By abuse of notation this module is still denoted $\mathcal{M}$ and it will always be implicitly assumed that $\gr \D_X$-modules live on $T^*X$ unless it is explicitly mentioned otherwise.
 In particular, for a filtration of the $\D_X$-module $\M$ the graded object $\gr \M = \oplus_i F_i \M / F_{i-1}\M$ is a $\gr \D_X$-module.
@@ -182,7 +181,7 @@ The coherence properties of the direct image in the analytic case require the fo
 \begin{definition}
   A $\D_Y$-module $\M$ is said to be $\mu$-good if there exists a open cover $\{V_j\}_{j\in J}$ of $X$ such that $\M$ admits a good filtration on $\mu^{-1}(V_j)$ for any $j\in J$.
 \end{definition}
-Note that, by \cref{prop: GoodFiltration} any coherent $\D_Y$-module on a algebraic variety is $\mu$-good.
+Note that, by \cref{prop: GoodFiltration}, any coherent $\D_Y$-module on a algebraic variety is $\mu$-good.
 \begin{theorem}\label{thm: MuGoodCoherent}
   Let $\M$ be a $\mu$-good $\D_Y$-module and suppose that $\mu$ is proper on the support of $\M$.
   Then, $\int \M$ has coherent cohomology.
@@ -290,13 +289,13 @@ The problem is that $\M$ is not regular at infinity.
 
 There are a number of equivalent definitions for regularity in the algebraic case.
 The following definition expresses that the analytic definition may be used provided one adds the points at infinity.
-This uses the analytification functor on coherent sheaves which is provided by the GAGA principle.
+This uses the analytification functor on coherent sheaves which is provided by the GAGA principle and respects holonomicity.
 \begin{definition}
   Let $\M$ be a holonomic $\D_X$-module on a smooth variety $X$. Denote $\iota:X \to \overline{X}$ for the smooth completion of $X$. Then $\M$ is called regular if $(\int_\iota \M)^{an}$ is regular holonomic on the complex manifold $\overline{X}^{an}$.
 \end{definition}
 \subsection{Perverse Sheaves}
   Classically, the solutions to a differential equation on a vector bundle produce a local system.
-  It is unreasonable to expect local systems in the case of general $\D_X$-modules since their support could be a proper subvariety.
+  One can not expect local systems in the case of general $\D_X$-modules since their support could be a proper subvariety.
   \begin{definition}
     Let $X$ be a complex manifold. A stratification of $X$ consists of a locally finite partition $X  = \sqcup_{j\in J} X_j$ into connected locally closed subsets, called strata, such that
     \begin{enumerate}
@@ -427,7 +426,7 @@ In fact, it will even be established that all roots of $b_{f,x}(s)$ are negative
 Let $Z(b_{f,x})$ denote the set of zeros of the Bernstein-Sato polynomial.
 These are connected to monodromy by the following classical theorem due to Malgrange and Kashiwara.
 \begin{theorem}\label{thm: EigMonodromy}
-  The set $\op{Exp}(Z(b_{f,x}))$ is equal to the set of eigenvalues of monodromy where  $\operatorname{Exp}(x) = \exp(2\pi ix).$
+Denote $\operatorname{Exp}(x) = \exp(2\pi ix)$ then $\op{Exp}(Z(b_{f,x}))$ is equal to the set of eigenvalues of monodromy.
 \end{theorem}
 \begin{proof}
   This theorem may be found in \cite{budur2015bernstein}.
@@ -559,12 +558,12 @@ Let $u$ be the image of this section in $\Int\M$ and denote $\U$ for the right $
   Hence, the support of the coherent sheaf of $\O_V$-modules $\O_V (f^s dx) P $ lies in $D$.
   The Nullstellen Satz now yields that $f^N (f^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
   Note that $f$ is a non-zero divisor of $(\D_Xf^s\otimes_{\O_X} \omega_X)(V)$.
-  Hence, it follows that $(F^s dx) P= 0$ on $V$ as desired.
+  Hence, it follows that $(f^s dx) P= 0$ on $V$ as desired.
 
-  Finally, observe that $tu = fu$ so that this morphism of $\D_X$-modules also commutes with the actions by $t,s$.
+  Finally, observe that $tu = fu$ so that this morphism of $\D_X$-modules also commutes with the actions by $t$ and $s$.
 \end{proof}
 Due to \cref{lem: UpstairsB} there is a suitable $b$-polynomial for $\Int \M$.
-By \cref{lem: lem: SurjectionUf} it remains to compare $\Int\M$ and $\U$.
+By \cref{lem: SurjectionUf} it remains to compare $\Int\M$ and $\U$.
 \begin{lemma}\label{lem: QuotientHolonomic}
   The quotient $\Int\M / \U$ is a holonomic $\D_X$-module.
 \end{lemma}

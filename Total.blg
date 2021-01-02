@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2020/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Total.aux
+White space in argument---line 61 of file Total.aux
+ : \citation{prop:
+ :                 BoundedFiltrationConvergentSpectral}
+I'm skipping whatever remains of this command
+The style file: apalike.bst
+Database file #1: Bibliography/References.bib
+Warning--there's a number but no volume in brianccon2002remarques
+Warning--empty journal in budur2015bernstein
+Warning--empty journal in EGAIII
+Warning--empty journal in milnor1968singular
+Warning--there's a number but no volume in schapira1994index
+Warning--there's a number but no series in weibel1995introduction
+You've used 22 entries,
+            1935 wiz_defined-function locations,
+            597 strings with 6472 characters,
+and the built_in function-call counts, 7062 in all, are:
+= -- 695
+> -- 212
+< -- 25
++ -- 66
+- -- 64
+* -- 525
+:= -- 1272
+add.period$ -- 64
+call.type$ -- 22
+change.case$ -- 135
+chr.to.int$ -- 22
+cite$ -- 28
+duplicate$ -- 307
+empty$ -- 518
+format.name$ -- 98
+if$ -- 1371
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 26
+newline$ -- 110
+num.names$ -- 66
+pop$ -- 120
+preamble$ -- 1
+purify$ -- 140
+quote$ -- 0
+skip$ -- 255
+stack$ -- 0
+substring$ -- 424
+swap$ -- 34
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 122
+warning$ -- 6
+while$ -- 57
+width$ -- 0
+write$ -- 272
+(There was 1 error message)

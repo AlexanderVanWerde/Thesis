@@ -1,0 +1,116 @@
+\begin{thebibliography}{}
+
+\bibitem[Bjork, 1979]{bjork1979rings}
+Bjork, J.-E. (1979).
+\newblock Rings of differential operators.
+\newblock {\em North-Holland Math. Library}, 21.
+
+\bibitem[Bj{\"o}rk, 1993]{bjork1993analytic}
+Bj{\"o}rk, J.-E. (1993).
+\newblock {\em Analytic {D}-modules and applications}.
+\newblock Kluwer Academic Publishers Group, Dordrecht.
+
+\bibitem[Borel, 1987]{borel1987algebraic}
+Borel, A. (1987).
+\newblock {\em Algebraic D-modules}, volume~2.
+\newblock Academic Pr.
+
+\bibitem[Brianccon and Maisonobe, 2002]{brianccon2002remarques}
+Brianccon, J. and Maisonobe, P. (2002).
+\newblock Remarques sur l'id{\'e}al de bernstein associ{\'e} {\`a} des
+  polyn{\^o}mes. pr{\'e}publication univ.
+\newblock {\em Nice-Sophia Antipolis}, (650).
+
+\bibitem[Budur, 2015]{budur2015bernstein}
+Budur, N. (2015).
+\newblock Bernstein-sato polynomials (lecture notes, upc barcelona 2015).
+
+\bibitem[Budur et~al., 2019]{budur2019zero}
+Budur, N., van~der Veer, R., Wu, L., and Zhou, P. (2019).
+\newblock Zero loci of bernstein-sato ideals.
+\newblock {\em arXiv preprint arXiv:1907.04010}.
+
+\bibitem[Deligne, 1977]{deligne1977sga}
+Deligne, P. (1977).
+\newblock Sga 4 1/2--cohomologie {\'e}tale.
+\newblock {\em Lecture Notes in Mathematics}, 569.
+
+\bibitem[Dimca, 2004]{dimca2004sheaves}
+Dimca, A. (2004).
+\newblock {\em Sheaves in topology}.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Grothendieck and Dieudonn{\'e}, 1961]{EGAIII}
+Grothendieck, A. and Dieudonn{\'e}, J. (1961).
+\newblock {\'E}l{\'e}ments de g{\'e}om{\'e}trie alg{\'e}brique iii.
+
+\bibitem[Gyoja et~al., 1993]{gyoja1993bernstein}
+Gyoja, A. et~al. (1993).
+\newblock Bernstein-sato’s polynomial for several analytic functions.
+\newblock {\em Journal of Mathematics of Kyoto University}, 33(2):399--411.
+
+\bibitem[Hotta and Tanisaki, 2007]{hotta2007d}
+Hotta, R. and Tanisaki, T. (2007).
+\newblock {\em {D}-modules, perverse sheaves, and representation theory},
+  volume 236.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Kashiwara, 1976]{kashiwara1976b}
+Kashiwara, M. (1976).
+\newblock B-functions and holonomic systems.
+\newblock {\em Inventiones mathematicae}, 38(1):33--53.
+
+\bibitem[Kashiwara, 2003]{kashiwara2003d}
+Kashiwara, M. (2003).
+\newblock {D}-modules and microlocal calculus, translations of mathematical
+  monographs, 217 american math.
+
+\bibitem[Kruff et~al., 2015]{MasterThesisBSLocal}
+Kruff, N. et~al. (2015).
+\newblock Ore localisation with applications in d-module theory, master's
+  thesis.
+\newblock {\em RWTH Aachen University}.
+
+\bibitem[Lichtin, 1989]{lichtin1989poles}
+Lichtin, B. (1989).
+\newblock Poles of $\abs{f (z, w)}^{2s}$ and roots of the b-function.
+\newblock {\em Arkiv f{\"o}r Matematik}, 27(1-2):283--304.
+
+\bibitem[Maisonobe, 2016]{maisonobe2016filtration}
+Maisonobe, P. (2016).
+\newblock Filtration relative, l'id\'eal de bernstein et ses pentes.
+\newblock {\em arXiv preprint arXiv:1610.03354}.
+
+\bibitem[Milnor, 1968]{milnor1968singular}
+Milnor, J. (1968).
+\newblock Singular points of complex hypersurfaces (am-61).
+
+\bibitem[Monteiro~Fernandes and Sabbah, 2016]{monteiro2016riemann}
+Monteiro~Fernandes, T. and Sabbah, C. (2016).
+\newblock Riemann-hilbert correspondence for mixed twistor d-modules.
+\newblock {\em arXiv}, pages arXiv--1609.
+
+\bibitem[Sabbah, 1987]{sabbah1987proximite}
+Sabbah, C. (1987).
+\newblock Proximit{\'e} {\'e}vanescente. i. la structure polaire d’un
+  {D}-module.
+\newblock {\em Compositio Mathematica}, 62(3):283--328.
+
+\bibitem[Sabbah, 2011]{sabbah2011introduction}
+Sabbah, C. (2011).
+\newblock Introduction to the theory of {D}-modules.
+\newblock {\em Lecture Notes, Nankai}.
+\newblock Accessed in October 2020 at
+  \url{http://www.cmls.polytechnique.fr/perso/sabbah/livres/sabbah_nankai110705.pdf}.
+
+\bibitem[Schapira and Schneiders, 1994]{schapira1994index}
+Schapira, P. and Schneiders, J.-P. (1994).
+\newblock Index theorem for elliptic pairs.
+\newblock {\em Ast{\'e}risque}, (224):1--113.
+
+\bibitem[Weibel, 1995]{weibel1995introduction}
+Weibel, C.~A. (1995).
+\newblock {\em An introduction to homological algebra}.
+\newblock Number~38. Cambridge university press.
+
+\end{thebibliography}
