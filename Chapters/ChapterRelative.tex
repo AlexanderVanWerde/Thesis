@@ -156,7 +156,7 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
     \end{proposition}
     Analogously to the case of $\D_X$-modules the direct image has the following conservation properties.
   \begin{definition}
-      A $\D_Y^R$-module $\M$ is said to be $\mu$-good if $X$ admits a open cover $\{V_j\}_{j\in J}$ such that $\M$ has a good filtration on $\mu^{-1}(V_j)$ for every $j\in J$.
+      A $\D_Y^R$-module $\M$ is said to be $\mu$-good if $X$ admits a open cover $\{V_j\}_{j\in J}$ such that $\M$ has a good filtration on $\mu^{-1}(V_j\times \Spec R)$ for every $j\in J$.
   \end{definition}
   \begin{theorem}
       Suppose that $\mu$ is proper and let $\M$ be a $\mu$-good $\D_Y^R$-module. Then $\int \M$ has coherent cohomology.
@@ -195,17 +195,15 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
     Use \cref{lem: IsotropicDirectImage} on the upper bound of \cref{thm: UpperBoundChrel}. And apply \cref{lem: InclusionCharVar} for the desired result.
   \end{proof}
 \section{Non-commutative Homological Notions}\label{sec: NonComHomological}
-In this section we discuss homological notions associated to the $\Ext$-functor over the noncommutative sheaf of rings $\D_X^R$.
+In this section we discuss homological notions associated to the $\Ext$-functor over the noncommutative sheaf of rings $\D_X^R$ on a affine variety $X$.
 These notions are particularly well-behaved for relatively holonomic modules.
 The results are mainly sheaf-theoretic rewordings of the similar results in \cite{budur2019zero} which are themselves derived from the appendices of \cite{bjork1993analytic}.
-
-
 \subsection{Grades}
 \begin{proposition}\label{prop: ProjectiveResolutionLength}
-  Any coherent $\D_X^R$-module admits a projective resolution of length $\leq 2n + r$.
+  Any coherent $\D_X^R$-module $\M$ admits a projective resolution of length $\leq 2n + r$.
 \end{proposition}
 \begin{proof}
-  .\todo{By truncation}
+  This result may be found in the appendix of \cite{budur2019zero}.
 \end{proof}
 \begin{definition}
   For a non-zero coherent sheaf of $\D_X^R$-modules $\M$ the smallest integer $k\geq 0$ such that $\Ex{\D_X^R}{k}(\M,\D_X^R)\neq 0$ is called the grade of $\M$ and is denoted $j(\M)$.
@@ -274,24 +272,18 @@ The following proposition gives geometrical meaning to grades.
 \begin{proposition}
   For any coherent left $\D_X^R$-module $\M$ and $\D_X^R$-bimodule $\N$ there is a spectral sequence
   $$E_2^{pq}= \Tr{\D_X^R}{-p}(\Ex{\D_X^R}{q}(\M,\D_X^R), \N) $$
-  converging to $H^{p+q} R\Hom_{\D_X^R}^p(\M,\D_X^R)\otimes_{\D_X^R}^L \N.$
+  converging to $H^{p+q} (R\Hom_{\D_X^R}(\M,\D_X^R)\otimes_{\D_X^R}^L \N).$
 \end{proposition}
 \begin{proof}
   This is essentially a minor modification on the proof of the Grothendieck spectral sequence.
   By \cref{prop: QuotientLocallyFree} one can find a resolution $\F^\bullet \to \M$ by locally free left $\D_X^R$-modules of finite rank.
-  Observe that $\Hom_{\D_X^R}(\F^j, \D_X^R)$ is still a locally free module due to $\F^j$ having finite rank.
-  In particular these are projective so they are acyclic for $\blank\otimes_{\D_X^R}^L \N$.
 
-  It is a standard result due to Cartan-Eilenberg that there exists a double complex $\mathscr{P}^{\bullet\bullet}\to \Hom_{\D_X^R}(\F^{\bullet},\D_X^R)$ of projectives $\mathscr{P}^{pq}$ such that
-  \begin{enumerate}
-    \item[(i)] The maps $\mathscr{P}^{\bullet q}\to \Hom_{\D_X^R}(\F^q,\D_X^R)$ yield projective resolutions.
-    \item[(ii)] The images and kernels of the horizontal differentials are projective modules.
-    \item[(iii)] The horizontal cohomology $H_h^{q}(\mathscr{P}^{\bullet\bullet})$ is a complex and yields a projective resolution of $\Ex{\D_X^R}{q}(\M, \D_X^R)$.
-  \end{enumerate}
-  Moreover, using \cref{prop: ProjectiveResolutionLength} in the construction of the Cartan-Eilenberg resolution allows one to assume that $\mathscr{P}^{pq}=0$ for $p>2n + q$.
+  Let $\mathscr{P}^{\bullet\bullet}\to \Hom_{\D_X^R}(\F^{\bullet},\D_X^R)$ be the Cartan-Eilenberg resolution provided by \cref{prop: Cartan-Eilenberg}.
+  Using \cref{prop: ProjectiveResolutionLength} in the construction of the Cartan-Eilenberg resolution allows one to assume that $\mathscr{P}^{pq}=0$ for $p>2n + r$.
 
   Consider the double complex $\mathscr{P}^{\bullet \bullet}\otimes_{\D_X^R}\N$.
-  There are two spectral sequences associated to this double complex.
+  The total cohomology of this double complex comes equipped with two filtrations one vertical and one horizontal.
+  These filtrations are bounded due to the bounds on $p$ so \cref{prop: FiltrationSpectral} is applicable and yield two spectral sequences converging to the total cohomology.
   The first spectral sequence has
   $$E_{2}^{pq} = H^p_h(H^q_v( \mathscr{P}^{\bullet \bullet}\otimes_{\D_X^R}\N)).$$
   Observe that $\Hom_{\D_X^R}(\F^q, \D_X^R)$ is still a locally free module due to $\F^q$ having finite rank.
@@ -303,25 +295,32 @@ The following proposition gives geometrical meaning to grades.
       E_2^{pq} &= H^q_v(H^p_h(\mathscr{P}^{\bullet\bullet}\otimes \D_X^R\N))\\
       &=  \Tr{\D_X^R}{-p}(\Ex{\D_X^R}{q}(\M,\D_X^R), \N)
   \end{align*}
-  where it was used that the image and cohomologies of the horizontal differentials are projective.
+  where it was used that the image and cohomology of the horizontal differentials is projective.
 
-  Since the double complex is vertically bounded it follows from \cref{prop: FiltrationSpectral} that both spectral sequences converge to the same total cohomology.
-  Since the first spectral sequence collapses on the second sheat this means that $\Tr{\D_X^R}{-p}(\Ex{\D_X^R}{q}(\M,\D_X^R), \N)$ converges to $H^{p+q} R\Hom_{\D_X^R}(\M,\D_X^R)\otimes_{\D_X^R}^L \N$
+  Both spectral sequences converge to the same total cohomology.
+  Since the first spectral sequence collapses on the second sheet this means that $\Tr{\D_X^R}{-p}(\Ex{\D_X^R}{q}(\M,\D_X^R), \N)$ converges to $H^{p+q} R\Hom_{\D_X^R}(\M,\D_X^R)\otimes_{\D_X^R}^L \N$
 \end{proof}
-
+\begin{proposition}
+  For any coherent left $\D_X^R$-module $\M$ and ideal $I\subseteq R$ there is a spectral sequence
+  $$E_2^{pq}= \Ex{\D_X^{R/I}}{p}(\Tr{\D_X^R}{-q}(\M,\D_X^{R/I}), \D_X^{R/I}) $$
+  converging to $H^{p+q}(R\Hom_{\D_X^{R/I}}(\M\otimes_{\D_X^R}^L \D_X^{R/I},\D_X^{R/I})).$
+\end{proposition}
+\begin{proof}
+  This is similar to the previous proposition where one can use that tensoring with $\D_X^{R/I}$ turns locally free $\D_X^R$-modules into locally free $\D_X^{R/I}$-modules.
+\end{proof}
 
 The proof of the following lemma is a slight modification on the proof of proposition 3.4.3 in \cite{budur2019zero}.
 \begin{lemma}\label{lem: RestrictToCM}
   Let $\M$ be a non-zero relative holonomic $\D_X^R$-module of grade $j(\M) = n$  then, for any irreducible $b\in R$, it holds that $\M \otimes_R R/(b)$ is a non-zero relative holonomic  $\D_X^{R/(\ell)}$-module of grade $n$.
 \end{lemma}
 \begin{proof}
-  Applying \cref{lem: TorRelHol} with $k=0$ yields that $\M \otimes_R R/(b)$ is a relative holonomic $\D_X^{R/(\ell)}$-module.
+  Applying \cref{lem: TorRelHol} with $k=0$ yields that $\M \otimes_R R/(b)$ is a relative holonomic $\D_X^{R/(b)}$-module.
 
   It remains to establish that $\M \otimes_R R/(b)$ is non-zero of grade $n$.
   By taking a free resolution of $\M$ one has that
   $$R\Hom_{\scaleto{\D_X^R}{8pt}}(\M,\D_X^R)\otimes_{\scaleto{\D_X^R}{8pt}}^L \D_X^{R/(b)} \cong R \Hom_{\scaleto{\D_X^{R/(b)}}{8pt}}(\M\otimes_{\scaleto{\D_X^R}{8pt}}^L \D_X^{R/(b)}, \D_X^{R/(b)}) $$
   where we note that $\D_X^{R/(b)}$ is a $\D_X^{R}$-bimodule so that both tensor products are well-defined.
-  We compare the Grothendieck spectral sequences\todo{Applicability Grothendieck: \cite{budur2019zero}} of both sides of this isomorphism.
+  We compare the spectral sequences of both sides of this isomorphism.
 
   The spectral sequence associated with the right-hand-side has $E_2$-sheet
   $$E^{pq}_2 = \Ex{\D_X^{R/(b)}}{p}(\Tr{\D_X^R}{-q}(\M, \D_X^{R/(b)}), \D_X^{R/(b)}).$$
@@ -392,7 +391,7 @@ The following lemmas provide the necessary modifications and provide the same li
 \begin{proof}
   By taking a free resolution one sees that
   $$R\Hom_{\D_X^R}(R\Hom_{\D_X^R}(\M, \D_X^R),\D_X^R) \cong \M.$$
-  Due to the $(n+k)$-Cohen-Macaulay assumption the only non-zero term in the Grothendieck spectral sequence of the left-hand-side is $\Ex{\D_X^R}{n+k}(\Ex{\D_X^R}{n+k}(\M,\D_X^R),\D_X^R)$ whence the desired result follows.
+  Due to the $(n+k)$-Cohen-Macaulay assumption the only non-zero term in the spectral sequence of the left-hand-side is $\Ex{\D_X^R}{n+k}(\Ex{\D_X^R}{n+k}(\M,\D_X^R),\D_X^R)$ whence the desired result follows.
 \end{proof}
 
 \begin{lemma}\label{lem: StabilisationChains}
@@ -587,7 +586,7 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
   By a taking a $\D_{\X}^{\C[s]/L_{i}}$-free resolution of $K_i$ one finds that
   $$R \Hom_{\scaleto{\D_\X^{ \C[s]/L_{r-1} }}{8pt} }(K_i\otimes^L_{\scaleto{ \D_\X^{\C[s]/L{i}} }{8pt} } \D_\X^{\C[s]/L_{r-1} },\D_\X^{ \C[s]/L_{r-1}} ) \cong R \Hom_{ \scaleto{\D_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\D_\X^{\C[s]/L_{i}}) \otimes^L_{\scaleto{ \D_\X^{\C[s]/L_{i}}}{8pt} } \D_\X^{\C[s]/L_{r-1}}$$
   where we note that $\D_\X^{\C[s]/L_{r-1}}$ is a $\D_X^{\C[s]/L_{i}}$-bimodule so that both tensor products are defined.
-  We compare the Grothendieck spectral sequences of both sides.
+  We compare the spectral sequences of both sides.
 
   The spectral sequence on the left-hand-side has terms
   $$E^{pq}_2 = \Ex{\D_\X^{\C[s]/L_{r-1}}}{p}(\Tr{\D_\X^{\C[s]/L_{i}} }{-q}(K_i,\D_X^{\C[s]/L_{r-1}}),\D_\X^{\C[s]/L_{r-1}}).$$
