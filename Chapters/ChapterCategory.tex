@@ -4,13 +4,13 @@ This chapter contains some categorical preliminaries on the topic of derived cat
 Derived category theory allows to measure the lack of exactness in a functor $F:\AA \to \mathcal{B}$ by encoding error-terms in derived functors $R^iF:\AA \to \mathcal{B}$.
 For instance the non-exactness of the tensor product may be measured by $\Tor$-functors.
 
-Spectral sequences were historically developed by Leray to compute the cohomology of the pushforward of a sheaf.
+Spectral sequences were historically developed by Leray to compute the cohomology of the pushforeward of a sheaf.
 There is some overlap between derived category theory and spectral sequences.
 In particular the Grothendieck spectral sequence allows one to compute the derived functor of some composition $F\circ G$ based on the derived functors of $F$ and $G$ individually.
 This theorem is a essential technical ingredient in the proofs of \cref{ch: ChapterRelHol}.
 
 The discussion of derived category theory in this chapter summarises the relevant parts of \cite[Chapters 1, 2 and 5]{dimca2004sheaves}.
-The section on spectral sequences is based on \cite{weibel1995introduction}. A
+The section on spectral sequences is based on \cite{weibel1995introduction}.
 \section{Spectral Sequences}
 Fix a abelian category $\mathcal{A}$.
 Denote $C(\AA)$ for the category with complexes of objects in $\AA$
@@ -28,7 +28,7 @@ Diagram chasing allows to construct higher-order differentials leading to the fo
   \begin{enumerate}
     \item[(i)]  The maps $d^r_{pq}$ are differentials in the sense that
     $d^r \circ d^r = 0.$
-    \item[(ii)] The $(r+1)$-st sheet is the homology of the $r$-th sheet
+    \item[(ii)] The $(r+1)$-st sheet is the cohomology of the $r$-th sheet
     $E_{pq}^{r+1} \cong \ker(d_{pq}^r)/ \img(d_{p-r,q+r-1}^r).$
   \end{enumerate}
 \end{definition}
@@ -58,7 +58,7 @@ The total complex in the motivating problem comes equipped with a filtration $F^
  if, for each $n$, there are integers $s<t$ such that $F^s C^n = 0$ and $F^t C^n = C^n$.
 \end{definition}
 The following proposition may be used in the motivating problem to recover some information on the cohomology of the total complex.
- \begin{proposition}\label{prop: BoundedFiltrationConvergentSpectral}
+ \begin{proposition}\label{prop: FiltrationSpectral}
    Let $C^\bullet$ be a complex with a bounded filtration.
    Then the associated spectral sequence is bounded and converges to $H^*(C^\bullet)$.
  \end{proposition}
@@ -296,8 +296,10 @@ Hence, this generalises the earlier computations.
 \end{theorem}
 \begin{proof}
   This result may be found in \cite[Chapter 1]{dimca2004sheaves}  or \cite[Chapter 5]{weibel1995introduction}.
-  The main ingredient is the spectral sequence associated to a double complex \cite{prop: BoundedFiltrationConvergentSpectral}.
+  The main ingredient is the spectral sequence associated to a double complex \cref{prop: FiltrationSpectral}.
 \end{proof}
+By passing to opposite categories one also has a Grothendieck spectral sequence for a composition of left derived functors provided there are enough projective objects.
+
 We conclude this section by considering a few important examples of derived functors which will be used later on.
 
 Let $X$ be a topological space equipped with a sheaf of rings $\AA_X$ which need-not be commutative.
@@ -355,6 +357,7 @@ There is a induced derived bifunctor
 $$R\Hom_{\AA_X}^\bullet(\blank,\blank):: D^{-,\ell}(\AA_X)^{opp}\times D^{+,\ell r}(\AA_X)\to D^{r}(\AA_X).$$
 This yields the $\Ext$-sheaves
 $\Ex{\AA_X}{n}(M^\bullet,N^\bullet) =  R^n\Hom_{\AA_X}^\bullet(M^\bullet, N^\bullet).$
+
 
 \section{$t$-structures}
 A generalisation of positive and negatively supported complexes is given by the concept of a $t$-structure.
