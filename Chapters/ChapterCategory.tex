@@ -18,7 +18,7 @@ $$X^\bullet :\cdots \xrightarrow{}  X^{-1}\xrightarrow{d^{-1}} X^0 \xrightarrow{
 A double complex $E^{\bullet \bullet}$ gives rise to a total complex with terms  $\operatorname{Tot}(E)^n = \oplus_{i+j=n} E^{ij}$.
 The motivating question behind spectral sequences is how the cohomology of the total complex may be computed.
 
-We will not go into detail on this motivating question but the idea is that one can first compute horizontal cohomology to get data $E^{**}_1$.
+First compute horizontal cohomology to get data $E^{**}_1$.
 By the commutativity of the double complex there are vertical differentials on $E^{**}_1$ and one can compute the vertical cohomology to get $E^{**}_2$.
 Diagram chasing allows to construct higher-order differentials leading to the following notion.
 \begin{definition}
@@ -42,7 +42,8 @@ In a bounded complex there is, for each choice of $p,q$, a value $r_0$ such that
   such that $E^{pq}_\infty \cong F^p H^{p+q} / F^{p-1} H^{p+q}$.
 \end{definition}
 Observe that $H^*$ is not necessarily uniquely identified by a convergent spectral sequence.
-The total complex in the motivating problem comes equipped with a filtration $F^{m} \operatorname{Tot}(E)^n = \oplus_{p+q = n, p <m} E^{pq}.$
+The total complex in the motivating problem comes equipped with two filtrations.
+A vertical filtration $F^{m} \operatorname{Tot}(E)^n = \oplus_{p+q = n, p <m} E^{pq}$ and a similar horizontal filtration.
 \begin{definition}
   A filtration of a complex $C_\bullet$ is a family of subcomplexes $\{F^m C^\bullet\}_{m\in \Z}$.
   The filtration is said to be exhaustive if $C^\bullet = \cup_m F^mC^\bullet$.
@@ -57,7 +58,8 @@ The total complex in the motivating problem comes equipped with a filtration $F^
   A filtration on a complex $C^\bullet$ is said to be bounded
  if, for each $n$, there are integers $s<t$ such that $F^s C^n = 0$ and $F^t C^n = C^n$.
 \end{definition}
-The following proposition may be used in the motivating problem to recover some information on the cohomology of the total complex.
+The following proposition may be used in the motivating problem to recover the cohomology of the total complex up to extension.
+This is to say that we know that the total cohomology $H^* = H^* \operatorname{Tot}(E)^\bullet$ admits a filtration such that $E^{pq}_\infty \cong F^p H^{p+q}/ F^{p-1} H^{p+q}$.
  \begin{proposition}\label{prop: FiltrationSpectral}
    Let $C^\bullet$ be a complex with a exhaustive bounded filtration.
    Then, the associated spectral sequence is bounded and converges to $H^*(C^\bullet)$.
@@ -284,7 +286,7 @@ One can show that injective objects are $F$-acyclic for any left-exact functor.
 Hence, this generalises the earlier computations.
 \begin{proposition}\label{prop: GrothendieckIsomorphism}
   Let $F:\AA \to \mathcal{B}$ and $G:\mathcal{B}\to \mathcal{C}$ be two additive functors between abelian categories with enough injective objects. Suppose that $F$ is left-exact and that $G$ transforms injective objects into $F$-acyclic objects, then there is an isomorphism
-  $$R^+(F\circ G) = R^+F \circ R^+ G.$$
+  $$R^+(F\circ G) \cong R^+F \circ R^+ G.$$
 \end{proposition}
 \begin{proof}
   This result may be found in \cite[Chapter 1]{dimca2004sheaves}.
@@ -296,20 +298,22 @@ Hence, this generalises the earlier computations.
 \end{theorem}
 \begin{proof}
   This result may be found in \cite[Chapter 1]{dimca2004sheaves}  or \cite[Chapter 5]{weibel1995introduction}.
+  A modification of the proof is discussed in detail in \cref{prop: SpectralTorExt}.
+
   The main idea is to consider the double complex $F(I^\bullet)\to J^{\bullet\bullet}$ provided by the dual of the following lemma.
-  The double complex $G(J^{\bullet\bullet})$ may be filtrated vertically or horizonally and comparing the spectral sequences from \cref{prop: FiltrationSpectral} yields the desired result.
+  The total cohomology of the double complex $G(J^{\bullet\bullet})$ is equipped with two filtrations, a vertical and a horizontal filtration, comparing the spectral sequences from \cref{prop: FiltrationSpectral} yields the desired result.
 \end{proof}
 \begin{lemma}[Cartan-Eilenberg]\label{lem: Cartan-Eilenberg}
-  For any complex $X^\bullet$ there exists a lower half-plane double complex $P^{\bullet\bullet}$ of projective objects such that
+  Suppose $\AA$ admits enough projectives. Then, for any complex $X^\bullet$ there exists a lower half-plane double complex $P^{\bullet\bullet}$ of projective objects such that
   \begin{enumerate}
-    \item[(i)] There is a map $P^{0,\bullet}\to X^\bullet$ such that $J^{\bullet,p}\to X^{p}$ is a projective resolution for every $p$.
+    \item[(i)] There is a map $P^{0,\bullet}\to X^\bullet$ such that $P^{\bullet,p}\to X^{p}$ is a projective resolution for every $p$.
     \item[(ii)] If $X^p = 0$ the corresponding column $P^{\bullet,p}$ is zero.
     \item[(iii)] The horizontal cocycles, coboundaries and cohomology on $P^{\bullet,p}$ form projective resolutions for the $p$-th cycles, boundaries and cohomology of $X^\bullet$ respectively.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
   The proof may be found in \cite[Chapter 5]{weibel1995introduction}.
-  For later use on the structure of teh Cartan-Eilenberg resolution we remark that the columns $P^{\bullet,p}$ are found as direct sums of projective resolutions for the boundaries and cohomology at level $p$ and $p+1$.
+  For later use on the structure of the Cartan-Eilenberg resolution we remark that the columns $P^{\bullet,p}$ are found as direct sums of projective resolutions for the boundaries and cohomology at level $p$ and $p+1$.
 \end{proof}
 
 We conclude this section by considering a few important examples of derived functors which will be used later on.
@@ -345,7 +349,7 @@ The direct image of a sheaf $\mathcal{S}$ on $Y$ is the sheaf $f_*\mathcal{S}$ o
 $$(f_*\mathcal{F})(U) = \mathcal{F}(f^{-1}(U)). $$
 Suppose that $Y,X$ are equipped with sheaves of rings $\AA_Y, \AA_X$ respectively and that $f_*\AA_Y$ is a $\AA_X$-algebra.
 Then the direct image yields a functor from the category of $\AA_Y$-modules to the category of $\AA_X$-modules.
-This is a left-exact functor so it may be computed by injective resolutions.
+This is a left-exact functor so the derived functor may be computed by injective resolutions.
 One can verify that flabby sheaves are $f_*$-acyclic so that flabby resolutions may also be used in the computations.
 
 A classical example of a non-exact functor is given by the tensor product.
@@ -355,9 +359,7 @@ where
 $(\M^\bullet \otimes_{\AA_X} \N^\bullet)^n = \oplus_{i + j = n} \M^i \otimes_{\AA_X} \N^j $
 with differentials defined at $\M^i \otimes_{\AA_X} \N^j$ by
 $d(m\otimes n) = dm \otimes n + (-1)^i m \otimes dn.$
-The category of $\AA_X$-modules admits locally free resolutions.
-In particular, it has enough projective objects.
-Essentially by the remark after \cref{thm: InjectivesAllowDerivedFunctor} it is then possible to construct a derived left-derived functor
+If it exists, the left-derived functor is denoted
 $$ \otimes_{\AA_X}^L : D^{-,\ell}(\AA_X)\times D^{-,r}(\AA_X)\to D^{-,\ell r}(\AA_X).$$
 This yields $\Tor$-sheaves
 $\Tr{\AA_X}{k}(X^\bullet, Y^\bullet) = H^{-k}(X^\bullet\otimes_{\AA_X}^L Y^\bullet).$
@@ -365,11 +367,10 @@ $\Tr{\AA_X}{k}(X^\bullet, Y^\bullet) = H^{-k}(X^\bullet\otimes_{\AA_X}^L Y^\bull
 A similar procedure applies to the $\Hom_{\AA_X}$-bifunctor which is defined by
 $\Hom_{\AA_X}^n(\M^\bullet, \N^\bullet) \ab = \prod_{j\in Z} \Hom_{\AA_X}(\M^j , \N^{n+j}) $
 with the differentials on $\Hom_{\AA_X}^n(M^\bullet,N^\bullet)$ given by $d\varphi = d_N\circ \varphi - (-1)^n \varphi \circ d_M$.
-There is a induced derived bifunctor
+If the right-derived functor exists it is denoted
 $$R\Hom_{\AA_X}^\bullet(\blank,\blank):: D^{-,\ell}(\AA_X)^{opp}\times D^{+,\ell r}(\AA_X)\to D^{r}(\AA_X).$$
 This yields the $\Ext$-sheaves
 $\Ex{\AA_X}{n}(M^\bullet,N^\bullet) =  R^n\Hom_{\AA_X}^\bullet(M^\bullet, N^\bullet).$
-
 
 \section{$t$-structures}
 A generalisation of positive and negatively supported complexes is given by the concept of a $t$-structure.
@@ -438,7 +439,7 @@ Further let $\tH^i:= \tH^0 \circ T^i$.
 \end{definition}
 \begin{definition}
  Let $\mathcal{D}_1,\mathcal{D}_2$ be triangulated categories equipped with $t$-structures and let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a functor of triangulated categories.
- The perverse functor $^pF$ associated to $F$ is the induced functor on the hearts $^pF = \tH^0 \circ F \circ j_1$ where $j_1$ denotes the inclusion functor $j_1:\mathcal{C}_1\to \mathcal{C}_2$.
+ The perverse functor $^pF$ associated to $F$ is the induced functor on the hearts $^pF = \tH^0 \circ F \circ j_1$ where $j_1$ denotes the inclusion functor $j_1:\mathcal{C}_1\to \mathcal{D}_1$.
 \end{definition}
 \begin{proposition}\label{prop: FunctorHeart}
   Let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a $t$-exact functor of triangulated categories. Then $F$ sends the heart $\mathcal{C}_1$ into the heart $\mathcal{C}_2$ and the induced functor $F:\mathcal{C}_1 \to \mathcal{C}_2$ is naturally isomorphic to $^pF$.

@@ -1,3 +1,5 @@
+% Font
+
 % Math
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -17,6 +19,7 @@
 \usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{scalerel}
+\usepackage[ddmmyyyy]{datetime}
 %\usepackage[textsize= tiny, textwidth = 2.6cm]{todonotes}
 %\setuptodonotes{noline,color=orange!40}
 
@@ -152,6 +155,28 @@
 
 % Example Box: \begin{example} OR \begin{example*}
 % Exercise Box: \begin{exercise} OR \begin{exercise*}
+
+\renewenvironment{proof}{%
+   \par\pushQED{\qed}%
+   \topsep6\p@\@plus6\p@\relax
+   \trivlist\item[\hskip\labelsep\slshape Proof.]%
+   \ignorespaces
+}{%
+
+   \popQED\endtrivlist\@endpefalse
+}
+
+\newtheoremstyle{sltheorem}
+{}                % Space above
+{}                % Space below
+{\slshape  }        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{ \bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+
 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}[definition]{Theorem}

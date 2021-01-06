@@ -7,20 +7,20 @@
 The purpose of this thesis is provide a improved estimate for the zero locust of Bernstein-Sato ideals.\\
 
 Historically, this problem arose when trying to extend a function to the entire complex plane.
-Let $f\in \mathbb{R}[x_1,\ldots,x_n]$ be some fixed positive polynomial and $g \in \mathcal{C}_c^\infty$ be some test function.
+Let $f\in \mathbb{R}[x_1,\ldots,x_n]$ be some fixed positive polynomial and let $g \in \mathcal{C}_c^\infty$ be some test function.
 Gelfand asked if it is possible to find a meromorphic extension of the function
 $$\Gamma_g(s) = \int_{\mathbb{R}^n} g f^s dx; \qquad \operatorname{Re}(s)>0 $$
 to the entire complex plane.
-A proof by Bernstein relies on the existence of a differential operator $P(x,\partial, s)$ such that
+A proof by I.N. Bernstein relies on the existence of a differential operator $P(x,\partial, s)$ such that
 $$P(x,\partial,s) f^{s+1} = b_f(s) f^s$$
 for some polynomial $b_f(s)\in \C[s]$.
 The monic polynomial of minimal degree is called the Bernstein-Sato polynomial.
-In particular, this method shows that any pole of $\Gamma_g$ is a root of $b_f(s)$ up a shift with a negative integer.\\
+Further, this method shows that any pole of $\Gamma_g$ is a root of $b_f(s)$ up a shift with a negative integer.\\
 
-The relation between the roots of $b(s)$ and the poles of functions like $\Gamma_g$ is the topic of a notable open problem called the monodromy conjecture.
+The relation between the roots of $b_f(s)$ and the poles of functions like $\Gamma_g$ is the topic of a notable open problem called the monodromy conjecture.
 Further, the roots of $b_f(s)$ give insight into the nature of a singularity by the behaviour of the ill-defined function $f^{-1}$.
 Suppose that $f(0)= 0$ and consider $f$ as a function germ $f:(\C^n,0)\to (\C,0)$.
-Let $t\in \C^\times$ be close to $0$ and consider the intersection $X_t := f^{-1}(t)\cap B_\varepsilon$ where $B_\varepsilon$ is some small ball centred at $0$.
+Let $t\in \C^\times$ be close to $0$ and consider the fiber $F_{f,0} := f^{-1}(t)\cap B_\varepsilon$ where $B_\varepsilon$ is some small ball centred at $0$.
 Twisting $t$ around the origin induces a diffeomorphism $M$ of $X_t$ which is called the geometric monodromy.
 In particular, one gets linear endomorphisms $M^*$ on the vector spaces $H^j(X_t,\C)$.
 The action $M^*$ only depends on the singularity $(f^{-1}(0),0)$.
@@ -58,6 +58,6 @@ Homological algebra is used to control error terms of the reduction process.
 
 The first chapter in this thesis gives provides the categorical framework of derived categories.
 Such derived categories give a natural framework for dealing with homological algebra and are also necessary to define the direct image of $\D_X$-modules.
-The second chapter provides background on $\D_X$-modules building up to the Riemann-Hilbert correspondence which is a broad generalisation of the the equivalence between systems of differential equations and their solutions.
+The second chapter provides background on $\D_X$-modules. This builds up to the Riemann-Hilbert correspondence which is a broad generalisation of the the equivalence between systems of differential equations and their solutions.
 Further, the significance of the roots of Bernstein-Sato polynomials and the estimates due to Kashiwara and Lichtin are discussed.
 Finally, the third chapter includes the new proof for the generalised estimate.
