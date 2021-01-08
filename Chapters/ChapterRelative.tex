@@ -20,7 +20,7 @@ $$S(F) = \{\lambda \in (\C^*)^r \ \vert\  \exists j\in \Z\  \exists x\in D: H^j(
 where $U_x$ is the intersection of $U$ with a arbitrarily small ball centred at $x$.
 If $F$ is a analytic function germ $X$ should be replaced by a arbitrarily small neighbourhood of $x$ and we denote the resulting set $S_x(F)$.
 \begin{theorem}
-  If $F$ is a morphism of smooth affine algebraic varieties or then $\exp(2\pi i\ Z(B_F)) = S(F)$. If $F$ is a holomorphic germ at $x$ then $\exp(2\pi i\ Z(B_{F,x})) = S_x(F)$.
+  If $F$ is a morphism of smooth affine algebraic varieties or then $\exp(2\pi i\ Z(\ab B_F)) = S(F)$. If $F$ is a holomorphic germ at $x$ then $\exp(2\pi i\ Z(B_{F,x})) = S_x(F)$.
 \end{theorem}
 \begin{proof}
   This is proved in \cite{budur2019zero}.
@@ -44,7 +44,7 @@ Then $\mu^*D = \sum a_i E_i$ is in normal crossings form and we let $G = F\circ 
 \end{theorem}
 \begin{proof}
   The rationality of the hyperplanes was established by \cite{sabbah1987proximite} and \cite{gyoja1993bernstein}.
-  The concrete estimate for the slopes was established by \cite{budur2019zero}.
+  The concrete estimate for the slopes was established by \cite{budur2020zero}.
 \end{proof}
 
 The goal of this chapter is to generalise Lichtin's estimate in \cref{thm: LichtinEstimate} using the canonical divisor $K_{Y/X} = \sum k_i E_i$.
@@ -129,7 +129,7 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
 \begin{proof}
   This result may be found in \cite{maisonobe2016filtration} in the analytical case and \cite{budur2019zero} in the algebraic case.
 \end{proof}
-\section{Direct Image Functor for $\D_X^R$-modules}
+\section{Direct Image Functor for $\D_X^R$-modules}\label{sec: DirectImage}
     In this section we state the natural generalisation of the direct image functor for $\D_X$-modules to the relative case of $\D_X^R$-modules. As with $\D_X$-modules this is the most natural for right-modules.
 
     Consider some morphism $\mu:Y\to X$ and denote $\mu^R$ for the induced map from $Y\times \Spec R$ to $X\times \Spec R$.
@@ -367,7 +367,7 @@ The proof of the following lemma is a slight modification on the proof of propos
 \end{proof}
 \subsection{Cohen-Macaulay}
 By \cref{lem: ExtGrade} the following definition gives a class of $j$-pure modules.
-\begin{definition}
+\begin{definition}\label{def: CohenMac}
   A coherent $\D_X^R$-module $\M$ is said to be $j$-Cohen-Macaulay for some $j\geq 0$ if $\Ex{\D_X^R}{k}(\M,\D_X^R) = 0$ for any $k\neq j$.
 \end{definition}
 The property of being $j$-pure is not stable when restricting to a subscheme of $\Spec R$.
@@ -422,7 +422,7 @@ The following lemmas provide the necessary modifications and provide the same li
   This establishes that $\E^{n+k}(\M_{i+1}')$ stabilises.
   By $ \M_i'$ being $(n+k)$-Cohen-Macaulay this means that $\E^{n+k}(\E^{n+k}(\M_i')) \cong \M_i'$ stabilises.
 \end{proof}
-\section{Estimation of the Bernstein-Sato Zero Locust}
+\section{Estimation of the Bernstein-Sato Zero Locust}\label{sec: EstimationBSZeroLocust}
 This section contains the main result of this chapter, namely a proof of the improved estimate for the Bernstein-Sato zero locust which was announced in \cref{thm: EstimateBernsteinSatoZeroLocust}.
 We use the same notation as \cref{sec: IntoductionChapterRelative}.
 This proof is similar to the method employed by \cite{lichtin1989poles} and \cite{kashiwara1976b} but a new induction argument is required in the proof of \cref{lem: GradeNPlusOne}.\\
@@ -673,12 +673,12 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
   \end{proof}
 Now all ingredients are in place for the proof of \cref{thm: EstimateBernsteinSatoZeroLocust}.
 \begin{theorem}
-  With notation as in \cref{sec: IntoductionChapterRelative} every irreducible component of $Z(B_F)$ of codimension $1$ is a hyperplane of the form
+  With notation as in \cref{sec: IntoductionChapterRelative} every irreducible component of $Z(B_{F,x})$ of codimension $1$ is a hyperplane of the form
   $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + c_i=0$$
   with $c_i \in \mathbb{Z}_{\geq 0 }$.
 \end{theorem}
 \begin{proof}
-  By \cref{lem: GradeNPlusOne} the $\D_X$-module $\M/\U$ has grade greater than or equal to $m + 1$.
+  By \cref{lem: GradeNPlusOne} the $\D_X^R$-module $\M/\U$ has grade greater than or equal to $m + 1$.
   Hence \cref{lem: StabilisationChains} provides $N\geq 1$ such that $t^N\M/\U$ stabilises on $\X\times\Spec R$ for some open $\Spec R\subseteq \C^r$ with complement of codimension strictly greater than $1$.
 
   By \cref{cor: GradeIFFBernsteinIdeal} there exists some non-zero $q(s_1,\ldots,s_r) \in B_{\M/\U}$ which is necessarily also in $B_{t^N\M/\U}$.
@@ -694,4 +694,26 @@ Now all ingredients are in place for the proof of \cref{thm: EstimateBernsteinSa
   In particular this means that $B$ is in the Bernstein-Sato ideal of $\U/t\U$ over $\Spec R$.
   By the surjection of \cref{lem: SurjectionUF} this means that $B\in B_{F,x}$ over $\Spec R$. This proves the theorem because the complement of $\Spec R$ has codimension strictly greater than 1.
 \end{proof}
-\subsection{Analytical Modifcations}
+\subsection{Analytical Modifications}
+A similar proof applies in the local analytical case.
+
+Let $U\subseteq \C^r$ denote the analytification of $\Spec R$.
+The analytical vertion of the usual sheaf $\D_X^R = \D_X \otimes_{\C} R$ is the sheaf $\D_{X\times U/U}:= \D_X \otimes_{\O_X}\O_{X\times U}$ on $X\times U$.
+Observe that there is a relative analytification functor which associates to every $\D_X^R$-module $\M$ on $X$ the $\D_{X\times U/U}$-module
+$$\M^{an} = \O_{X\times U} \otimes_{\pi_1^{-1}(\O_X\otimes_\C R)} \pi_1^{-1}(\M)$$
+where $\pi_1:X\times U \to X$ denotes the projection map.
+For any coherent $\D_X\otimes_{\C}R$-module $\M$ it holds that $\M^{an}$ is a coherent $\D_{X\times U/U}$-module.
+Since partial analytification is a exact functor it is compatible with good filtrations and $\grrel \M^{an}= (\grrel \M)^{an}$. Define $\Chrel \M$ to be the support of $\grrel\M^{an}$ in $T^*X\times U$.
+
+
+The results in \cref{sec: DirectImage} apply to $\D_{Y\times U/U}$-modules by theorem 1.17 in \cite{monteiro2016riemann}.
+The $\D_Y$-module direct image of a $\D_Y^R$ may also be be equipped with the structure of a $\D_X^R$-module using the functoriality of the direct image.
+Using that the $\D_Y$-module direct image conserves coherence of $\mu$-good modules one can generalise the proof of \cref{thm: UpperBoundChrel} for any $\D_Y^R$-module spanned by a coherent $\D_Y$-module where one employs the partial analytification functor as before.
+Similarly to \cref{thm: RelHolConserved} it follows that any relative holonomic $\D_Y^R$-module spanned by a coherent $\D_Y$-module has relative holonomic direct images.
+
+For homological results one must replace the sheaf $\D_X^R$ by it's stalk $\D_{X,x}^R$.
+Following \cite{budur2019zero} all the definitions and results in \cref{sec: NonComHomological} may then be replaced by appropriate results in the stalk at $x$.
+For instance, grades are defined using the stalks of the $\Ext$-functor and one replaces $\Chrel\M$ by $\Chrel\M\cap \pi^{-1}(B\times U)$ for some small ball $B\subseteq X$ centered at $x$ and.
+
+The proofs in \cref{sec: EstimationBSZeroLocust} apply for $\D_Y^R$-modules without modification up to \cref{lem: RelHolTorDegree}.
+From \cref{lem: RelHolTorDegree} onwards one must work in the stalk at $x$ and change the notation correspondingly.
