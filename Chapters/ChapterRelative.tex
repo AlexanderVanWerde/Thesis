@@ -1,11 +1,9 @@
 \chapter{Relative Holonomic Modules}\label{ch: ChapterRelHol}
-\section{Introduction}\label{sec: IntoductionChapterRelative}
 Let $X$ be a smooth algebraic variety and $F:X\to \C^r$ a morphism with coordinate functions $f_1,\ldots, f_r$.
 Introduce new variables $s_1,\ldots, s_r$ and abbreviate $F^s = f_1^{s_1}\cdots f_r^{s_r}$.
 The local Bernstein-Sato ideal $B_{F,x}$ of $F$ at $x\in X$ is the collection of all $b(s_1,\ldots,s_r)\in \C[s]$ such that there exists some differential operator $P\in \D_{X,x}\otimes_{\C}\C[s]$ with
 $$b(s_1,\ldots,s_r) F^s =  P\cdot F^{s + 1}$$
 in the stalk at $x$.
-The local Bernstein-Sato ideal only depends on the local singularity at $x$, in particular there are only finitely many different $B_{F,x}$.
 The global Bernstein-Sato ideal $B_F$ is the intersection of all local Bernstein-Sato ideals.
 The local Bernstein-Sato ideal is also a topic of interest when $F$ is a analytic function germ.
 
@@ -32,7 +30,6 @@ If $F$ is a analytic function germ $X$ should be replaced by a arbitrarily small
   This result is due to \cite{maisonobe2016filtration}.
 \end{proof}
 This shows that $Z(B_{F})$ is a natural topic of study.
-
 %Since $Z(B_F)$ is the union of the $Z(B_{F,x})$ it is sufficient to study the local Bernstein-Sato zero loci and it may be assumed that $X$ is a affine algebraic variety.
 The rationality of the roots of the Bernstein-Sato polynomial admits the following generalisation of Kashiwara's estimate.
 Denote $\mu:Y\to X$ for the strong log resolution of $(X,D)$.
@@ -65,7 +62,7 @@ Nonetheless, for notational simplicity the proof will be done in the algebraic c
   The local Bernstein-Sato ideal of $B_{F,x}$ of a function germ $F$ on $X$ equals the local Bernstein-Sato ideal on the analytification $X^{an}$.
 \end{theorem}
 \begin{proof}
-  The original proof is in the unpublished work \cite{brianccon2002remarques}.
+  The original proof is in the unpublished work due to  \cite{brianccon2002remarques}.
   We were unable to find a copy of this work.
   The proof may also be found in chapter 7 of \cite{MasterThesisBSLocal}.
 \end{proof}
@@ -118,9 +115,9 @@ for irreducible conic Lagrangian subvarieties $\Lambda_w\subseteq T^*X$ and irre
 \begin{proof}
   This result may be found in \cite{maisonobe2016filtration} in the analytical case and \cite{budur2019zero} in the algebraic case.
 \end{proof}
-The Bernstein-Sato ideal may be defined more generally for any $\D_X^R$-module $\M$ as $B_\M := \Ann_{R}\M$. To see how this generalises $B_F$ one considers $\D_X^R F^s$ as a $\Xt$-module.
+The Bernstein-Sato ideal may be defined more generally for any $\D_X^R$-module $\M$ as $B_\M := \Ann_{R}\M$. To see how this generalises $B_F$ one considers $\D_X^{\C[s]} F^s$ as a $\XtR{X}{\C[s]}$-module.
 Here $t$ is a new variable which commutes with sections of $\D_X$ and satisfies $ts_i - s_it = 1$ for any $i=1,\ldots,
-p$.  The $\Xt$-module structure on $\D_X^R F^s$ is then defined by $tP(s)F^s = P(s+1)F^{s + 1}$ for any section $P$ of $\D_X^R$. From this point of view $B_F = B_{\D_X^R F^s / t\D_X^R F^s}$.
+p$.  The $\XtR{X}{\C[s]}$-module structure on $\D_X^{\C[s]} F^s$ is then defined by $tP(s)F^s = P(s+1)F^{s + 1}$ for any section $P$ of $\D_X^{\C[s]}$. From this point of view $B_F = B_{\D_X^{\C[s]} F^s / t\D_X^{\C[s]} F^s}$.
 
 The Bernstein-Sato ideal may be recovered from the characteristic variety.
 \begin{proposition}\label{prop: ProjectionBernsteinSatoRelativeChar}
@@ -147,13 +144,13 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
     $$R(p_X)_* \circ R\mu^R_* \cong R(p_X \circ \mu^R)_* \cong R\mu^* \circ R(p_Y)_*.$$
     Combining the right-hand-sides of these isomorphisms yields the $\D_X$-module direct image.
     This is to say that the $\D_Y^R$-module direct image computes the $\D_Y$-module direct image with additional structure.
-    This structure could also be induced using the functoriality of the direct image with the fact that the $s_i$ are $\D_Y$-linear endomorphisms.
+    For a $\D_Y^R$-module on $Y$ this structure could also be induced using the functoriality of the direct image by viewing sections of $\O_{\Spec R}$ as $\D_Y$-linear endomorphisms.
 
     By definition as a derived functor a long exact sequence is immediate.
     \begin{proposition}
         For any short exact sequence of $\D_Y^R$-modules
         $$0\to \M_1 \to \M_2 \to \M_3 \to 0$$
-        there is a long exact sequence in direct images
+        there is a long exact sequence of $\D_X^R$-modules
         $$0\to \int^0 \M_1 \to \int^0 \M_2 \to \int^0 \M_3 \to \int^1 \M_1 \to \cdots. $$
     \end{proposition}
     Analogously to the case of $\D_X$-modules the direct image has the following conservation properties.
@@ -165,6 +162,8 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
   \end{theorem}
   \begin{proof}
     The proof for $\D_X$-modules in chapter 3 of \cite{sabbah2011introduction} is still applicable provided Grauert's coherence theorem is replaced with the algebraic version. This is theorem 3.2.1 of \cite{EGAIII}.
+
+    Alternatively, the algebraic proof in chapter 2 of \cite{hotta2007d} may be generalised.
   \end{proof}
   We want to establish that direct images also conserve holonomicity.
   A analytical version of this result is found in theorem 1.17 of \cite{monteiro2016riemann}.
@@ -205,7 +204,7 @@ The results are mainly sheaf-theoretic rewordings of the similar results in \cit
   Any coherent $\D_X^R$-module $\M$ admits a projective resolution of length $\leq 2n + r$.
 \end{proposition}
 \begin{proof}
-  This result may be found in the appendix of \cite{budur2019zero}.
+  This result may be found in section 3 of \cite{budur2019zero}.
 \end{proof}
 \begin{definition}
   For a non-zero coherent $\D_X^R$-module $\M$ the smallest integer $k\geq 0$ such that $\Ex{\D_X^R}{k}(\M,\D_X^R)\neq 0$ is called the grade of $\M$ and is denoted $j(\M)$.
@@ -217,10 +216,10 @@ The following proposition gives geometrical meaning to grades.
   where $r$ denotes the Krull dimension of the ring $R$.
 \end{proposition}
 \begin{proof}
-  This is lemma 3.2.2 in \cite{budur2019zero}.
+  This result may be found in section 3 of \cite{budur2019zero}.
 \end{proof}
 \begin{corollary}\label{cor: GradeIFFBernsteinIdeal}
-  Let $\M$ be a relative holonomic $\D_X^R$-module. Then $\M$ has grade strictly greater than $n$ if and only if $B_\M$ is non-zero.
+  Let $\M$ be a relative holonomic $\D_X^R$-module. Then $\M$ has grade $n + k$ if and only if $Z(B_\M)$ has codimension $k$ in $\Spec R$.
 \end{corollary}
 \begin{proof}
   This is immediate from \cref{prop: ProjectionBernsteinSatoRelativeChar} and \cref{prop: AXRBehaviourGradesJAndChrel}.
@@ -235,22 +234,22 @@ The following proposition gives geometrical meaning to grades.
   Moreover $\M$ is $j$-pure if and only if $\Ex{\D_X^R}{j}(\Ex{\D_X^R}{k}(\M,\D_X^R),\D_X^R)=0$ for every $k\neq j$.
 \end{lemma}
 \begin{proof}
-  This is lemma 4.3.5 in \cite{budur2019zero}.
+  This result may be found in the appendix of \cite{budur2019zero}.
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{lem: ExtRelHol}
   Let $\M$ be a relative holonomic $\D_X^R$-module of grade $j$. Then $\Ex{\D_X^R}{j}(\M,\D_X^R)$ is a relative holonomic $\D_X^R$-module and
   $$\Ch^{rel}\Ex{\D_X^R}{j}(\M,\D_X^R)\subseteq \Chrel \M. $$
 \end{lemma}
 \begin{proof}
-  This is lemma 3.2.4 in \cite{budur2019zero}.
+  This result may be found in section 3 of \cite{budur2019zero}.
 \end{proof}
 \begin{lemma}
   Let $P \subseteq R$ be a prime ideal and let $\M$ be a coherent $\D_X^{R/P}$-module. If $\M$ is relative holonomic as a $\D_X^R$-module then it is also relative holonomic over $\D_X^{R/P}$.
 \end{lemma}
 \begin{proof}
   That $\M$ is relative holonomic over $\D_X^{R}$ means that it admits a good filtration such that
-  $$\supp \gr_{\D_X^R}^{rel} \M  = \bigcup \Lambda \times S_\Lambda $$
-  for Lagrangian subvarieties $\Lambda \subseteq T^* X \times \Spec R$ and algebraic varieties $S_\Lambda \subseteq \Spec R$.
+  $$\supp \gr_{\D_X^R}^{rel} \M  = \bigcup \Lambda_w \times S_w$$
+  for Lagrangian subvarieties $\Lambda_w \subseteq T^* X \times \Spec R$ and algebraic varieties $S_w \subseteq \Spec R$.
   This filtration descends to a good filtration over $\D_{X}^{R/P}$ and it holds that
   $$\supp \gr_{\D_X^{R/P}}^{rel}\M = (\Id_{T^*X} \times \Delta)^{-1}(\supp \gr_{\D_X^R}^{rel}\M)$$
   where $\Delta:\Spec R/P\to \Spec R$ is the closed embedding.
@@ -268,7 +267,7 @@ The following proposition gives geometrical meaning to grades.
   Let $\M$ be a relative holonomic $\D_X^R$-module which is $(n+k)$-pure for some $0\leq k \leq r$. If $b\in R$ is not contained in any minimal prime ideal containing $B_\M$ then multiplication by $b$ induces injective endomorphisms on $\M$ and $\Ex{\D_X^R}{n+k}(\M,\D_X^R)$. Moreover, there exists a good filtration on $\M$ such that $b$ induces a injection on $\grrel \M$.
 \end{lemma}
 \begin{proof}
-  This is lemma 3.4.2 in \cite{budur2019zero}.
+  This result may be found in section 3 of \cite{budur2019zero}.
 \end{proof}
 \subsection{Spectral Sequences}
 \begin{proposition}\label{prop: SpectralTorExt}
@@ -294,21 +293,21 @@ The following proposition gives geometrical meaning to grades.
 
   The other spectral sequence has
   \begin{align*}
-      E_2^{pq} &= H^q_v(H^p_h(\mathscr{P}^{\bullet\bullet}\otimes \D_X^R\N))\\
+      E_2^{pq} &= H^q_v(H^p_h(\mathscr{P}^{\bullet\bullet}\otimes_{\D_X^R}\N))\\
       &=  \Tr{\D_X^R}{-p}(\Ex{\D_X^R}{q}(\M,\D_X^R), \N)
   \end{align*}
-  where it was used that the image and cohomology of the horizontal differentials is projective.
+  where it was used that the image and cohomology of the horizontal differentials are projective.
 
   Both spectral sequences converge to the same total cohomology.
   Since the first spectral sequence collapses on the second sheet this means that $\Tr{\D_X^R}{-p}(\Ex{\D_X^R}{q}(\M,\D_X^R), \N)$ converges to $H^{p+q}( R\Hom_{\D_X^R}(\M,\D_X^R)\otimes_{\D_X^R}^L \N)$
 \end{proof}
 \begin{proposition}
-  For any coherent left $\D_X^R$-module $\M$ and ideal $I\subseteq R$ there is a spectral sequence
+  For any coherent $\D_X^R$-module $\M$ and ideal $I\subseteq R$ there is a spectral sequence
   $$E_2^{pq}= \Ex{\D_X^{R/I}}{p}(\Tr{\D_X^R}{-q}(\M,\D_X^{R/I}), \D_X^{R/I}) $$
   converging to $H^{p+q}(R\Hom_{\D_X^{R/I}}(\M\otimes_{\D_X^R}^L \D_X^{R/I},\D_X^{R/I})).$
 \end{proposition}
 \begin{proof}
-  This is similar to the previous proposition where one can use that tensoring with $\D_X^{R/I}$ turns locally free $\D_X^R$-modules into locally free $\D_X^{R/I}$-modules.
+  This is similar to the previous proposition where one can use that a tensor product with $\D_X^{R/I}$ turns locally free $\D_X^R$-modules into locally free $\D_X^{R/I}$-modules.
 \end{proof}
 
 The proof of the following lemma is a slight modification on the proof of proposition 3.4.3 in \cite{budur2019zero}.
@@ -319,7 +318,7 @@ The proof of the following lemma is a slight modification on the proof of propos
   Applying \cref{lem: TorRelHol} with $k=0$ yields that $\M \otimes_R R/(b)$ is a relative holonomic $\D_X^{R/(b)}$-module.
 
   It remains to establish that $\M \otimes_R R/(b)$ is non-zero of grade $n$.
-  By taking a locally free resolution of $\M$ one has that
+  By consideration of the locally free resolution of $\M$ provided by \cref{prop: QuotientLocallyFree} one has that
   $$R\Hom_{\scaleto{\D_X^R}{8pt}}(\M,\D_X^R)\otimes_{\scaleto{\D_X^R}{8pt}}^L \D_X^{R/(b)} \cong R \Hom_{\scaleto{\D_X^{R/(b)}}{8pt}}(\M\otimes_{\scaleto{\D_X^R}{8pt}}^L \D_X^{R/(b)}, \D_X^{R/(b)}) $$
   where we note that $\D_X^{R/(b)}$ is a $\D_X^{R}$-bimodule so that both tensor products are well-defined.
   We compare the spectral sequences of both sides of this isomorphism.
@@ -353,7 +352,7 @@ The proof of the following lemma is a slight modification on the proof of propos
   $$\begin{tikzcd}
     0 \arrow{r} & F_{i} \E^n\otimes_R R/(b)\arrow{r} & \E^{n}\otimes_R R/(b)\arrow{r} & (\E^n/F_i \E^n )\arrow{r}\otimes_R R/(b) & 0.
   \end{tikzcd} $$
-  A filtration on $\E^n \otimes_R R/(b)$ is induced by the image of $F_i\E^n$. By the injectivity of the short exact sequences one now has isomorphisms
+  A filtration on $\E^n \otimes_R R/(b)$ is induced by the image of $F_i\E^n$. By the injectivity of the second short exact sequence one now has isomorphisms
   \begin{align*}
     F_i(\E^n \otimes_R R/(b)) \cong F_i\E^n / (F_i \E^n \cap b\E^n) \cong F_i \E^n / b F_i \E^n \cong  (F_i\E^n) \otimes_R R/(b)
   \end{align*}
@@ -378,15 +377,28 @@ For the subclass of $j$-Cohen-Macaulay modules the restriction is more well-beha
 \begin{proof}
   This is shown in the proof of proposition 3.4.3 in \cite{budur2019zero}. This proof is similar to the proof of \cref{lem: RestrictToCM} which was based on \cite{budur2019zero}.
 \end{proof}
+The following lemma is established in the proof of lemma 3.5.2 in \cite{budur2019zero}.
 \begin{lemma}\label{lem: GradeToCMOverOpen}
-  Let $\M$ be a relative holonomic $\D_X^R$-module of grade $n+k$. Then there exists a open $\Spec R' \subseteq \Spec R$ such that $\M\otimes_R R'$ is a relative holonomic and $(n+k)$-Cohen-Macaulay $\D_X^{R'}$ module. Moreover it may be assumed that the complement of $\Spec R'$ in $\Spec R$ has codimension $>k$.
+  Let $\M$ be a relative holonomic $\D_X^R$-module of grade $n+j$. Then there exists a open $\Spec R' \subseteq \Spec R$ such that $\M\otimes_R R'$ is a relative holonomic and $(n+j)$-Cohen-Macaulay $\D_X^{R'}$ module. Moreover it may be assumed that the complement of $\Spec R'$ in $\Spec R$ has codimension $>j$.
+
+  Similarly, if $\M$ is relative holonomic with grade $>n+j$ one can find such a open $\Spec R'$ with $\M\otimes_R R'=0$.
 \end{lemma}
 \begin{proof}
-  This is established in the proof of lemma 3.5.2 in \cite{budur2019zero}.
+  The assumption that $j(\M) = n+j$ means that $\Ex{\D_X^R}{n+i}(\M,\D_X^R) = 0$ for any $i<j$.
+
+  By \cref{lem: ExtGrade} and \cref{cor: GradeIFFBernsteinIdeal} the Bernstein-Sato zero locust of  $\Ex{\D_X^R}{n+j}(\M,\D_X^R)$ has codimension $j$ and the Bernstein-Sato zero locust of $\Ex{\D_X^R}{n+i}(\M,\D_X^R)$ has codimension $>j$ for any $i>j$.
+  Due to \cref{prop: AXRBehaviourGradesJAndChrel} there are only finitely many values of $i$ with $\Ex{\D_X^R}{n+i}(\M,\D_X^R) \neq 0$.
+  Take the open $\Spec R' \subseteq \Spec R$ such that the Bernstein-Sato zero-loci of $\Ex{\D_X^R}{n+i}(\M,\D_X^R)$ with $i>j$ are removed and there is a non-empty intersection with the Bernstein-Sato zero locust of $\Ex{\D_X^R}{n+j}(\M,\D_X^R)$.
+
+  Since localisation is a exact functor it respects good filtrations and commutes with $\grrel$.
+  In particular it follows that for any $\D_X^R$-module $\N$ it holds that $\Ch^{rel}(\N\otimes_R R')= \iota^{-1}(\Chrel\N)$ with $\iota:X\times \Spec R' \to X\times\Spec R$ the inclusion.
+  Now \cref{prop: ProjectionBernsteinSatoRelativeChar} and the construction of the open $\Spec R'$ yield that $\Chrel\Ex{\D_X^{R'}}{n+i}(\M\otimes_R R',\D_X^{R'})$ is non-empty if and only if $i=j$.
+  This means that $\M\otimes_R R'$ is $(n+j)$-Cohen-Macaulay as desired.
+  A similar proof applies for the case with $j(\M)>n+j$.
 \end{proof}
 Relative holonomic $\D_X^R$-modules are not necessarily of finite length.
 This seems to be a obstruction for generalising the proof of \cref{prop: StableZero}.
-The following lemmas provide the necessary modifications and provide the same line of thought as the proof by \cite{kashiwara1976b} for \cref{prop: StableZero}.
+The following lemmas provide the necessary modifications and follow the same line of thought as the proof by \cite{kashiwara1976b} for \cref{prop: StableZero}.
 \begin{lemma}
   For any $(n+k)$-Cohen-Macaulay coherent $\D_X^R$-module $\M$ it holds that  $$\Ex{\D_X^R}{n+k}(\Ex{\D_X^R}{n+k}(\M,\D_X^R),\D_X^R) \cong \M.$$
 \end{lemma}
@@ -403,14 +415,15 @@ The following lemmas provide the necessary modifications and provide the same li
   Then there exists a open $\Spec R' \subseteq \Spec R$ and some sufficiently large $N$ such that $\M_i' = \M_i\otimes_R R'$ stabilises for $i\geq N$. Moreover, it may be assumed that $\Spec R \setminus \Spec R'$ has codimension $>k$.
 \end{lemma}
 \begin{proof}
-  By use of \cref{lem: GradeToCMOverOpen} it may be assumed that $\Spec R'$ is such that $\M_i'$, $\M'/\M_i'$ and $\M'/\M_1'$ are zero or $(n+k)$-Cohen-Macauley for any $i=0,\ldots,N$.
+  By use of \cref{lem: GradeToCMOverOpen} it may be assumed that $\Spec R'$ is such that $\M'$ and $\M'/\M_1'$ are zero or $(n+k)$-Cohen-Macauley.
   For notational simplicity we abbreviate $\E^{k}(\M') :=\Ex{\D_X^{R'}}{k}(\M',\D_X^{R'})$.
 
   Observe that $ \M_i'/\M_{i+1}'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
   This may be used to establish that $\M'/\M_i$ and $\M_i$ are actually $(n+k)$-Cohen-Macaulay or zero for arbitrary $i\geq 0$.
 
-  The injection $ \M_{i+1}'\to \M_i'$ induces exact sequences
-  $$\E^{n+k+j}\left(\frac{\M_i'}{ \M_{i+1}'}\right) \to  \E^{n+k+j}\left(\M_i'\right) \to \E^{n+k +j}\left( \M_{i+1}'\right)\to 0.$$
+  The long exact sequence associated to the injection $ \M_{i+1}'\to \M_i'$ includes exact sequences
+  $$0 \to  \E^{n+k+j}\left(\M_i'\right) \to \E^{n+k +j}\left( \M_{i+1}'\right)\to 0$$
+  for $j\geq 1$ where it was used that $\M_i'/\M_{i+1}'$ is $(n+k)$-Cohen-Macaulay or zero.
   By induction on $i$ it follows that $\M_i'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
   Similarly the long exact sequence induced by the surjection $\M'/\M_{i+1}' \twoheadrightarrow \M'/\M_i'$ yields that $\M'/\M_i'$ is $(n+k)$-Cohen-Macaulay or zero for any $i\geq 0$.
 
@@ -418,13 +431,11 @@ The following lemmas provide the necessary modifications and provide the same li
   The fact that $\M_i'/\M_{i+1}'$ and $\M'/\M_{i}'$ are $(n+k)$-Cohen-Macauley implies that the morphisms $\E^{n+k}(\M_i') \to  \E^{n+k}(\M_{i+1}')$ and $\E^{n+k}(\M') \to \E^{n+k} (\M_i')$ are surjective.
   Note that $\E^{n+k}(\M)$ is a coherent sheaf over the Noetherian sheaf of rings $\D_X^{R'}$.
   Hence the kernels of $\E^{n+k}(\M') \to \E^{n+k} (\M_i')$ stabilise.
-  Hence, the maps $\E^{n+k}(\M_i') \to  \E^{n+k}(\M_{i+1}')$ are isomorphisms for sufficiently large $i$.
-  This establishes that $\E^{n+k}(\M_{i+1}')$ stabilises.
+  Therefore, the maps $\E^{n+k}(\M_i') \to  \E^{n+k}(\M_{i+1}')$ are isomorphisms for sufficiently large $i$ which establishes that $\E^{n+k}(\M_{i+1}')$ stabilises.
   By $ \M_i'$ being $(n+k)$-Cohen-Macaulay this means that $\E^{n+k}(\E^{n+k}(\M_i')) \cong \M_i'$ stabilises.
 \end{proof}
 \section{Estimation of the Bernstein-Sato Zero Locust}\label{sec: EstimationBSZeroLocust}
 This section contains the main result of this chapter, namely a proof of the improved estimate for the Bernstein-Sato zero locust which was announced in \cref{thm: EstimateBernsteinSatoZeroLocust}.
-We use the same notation as \cref{sec: IntoductionChapterRelative}.
 This proof is similar to the method employed by \cite{lichtin1989poles} and \cite{kashiwara1976b} but a new induction argument is required in the proof of \cref{lem: GradeNPlusOne}.\\
 
 \noindent
@@ -432,12 +443,12 @@ For the estimation of $Z(B_{F,x})$ it may be assumed that $X$ is affine and admi
 Similarly to \cref{sec: MonodromyBS} these global coordinates allow to restate the functional equation $P F^{s+1} = b F^s$ as the equation
 $$F^{s+1}dx \cdot P^* = b F^s dx $$
 in $\D_X^{\C[s]} F^s \otimes_{\O_X}\omega_X$.
-The corresponding module $\M$ on $Y$ will be the submodule of $\omega_Y\otimes_{\O_Y} \D_Y^{\C[s]} G^s$ spanned by $G^s \mu^*(dx)$.
-Observe that $\omega_Y\otimes_{\O_Y} \D_Y^{\C[s]} G^s$ is relative holonomic due to \cref{lem: RelHolGs} so the submodule $\M$ is certainly also relative holonomic.
-One can equip $\M$ with the structure of a $\XtR{Y}{}$-module by the action $t G^s \mu^*(dx) = G^{s+1} \mu^*(dx)$.
+The corresponding module $\M$ on $Y$ will be the submodule of $ \D_Y^{\C[s]} G^s\otimes_{\O_Y}\omega_Y$ spanned by $G^s \mu^*(dx)$.
+Observe that $ \D_Y^{\C[s]} G^s\otimes_{\O_Y}\omega_Y$ is relative holonomic due to \cref{lem: RelHolGs} so the submodule $\M$ is certainly also relative holonomic.
+One can equip $\M$ with the structure of a $\XtR{Y}{\C[s]}$-module by the action $t G^s \mu^*(dx) = G^{s+1} \mu^*(dx)$.
 The following statement and proof are analogous to \cref{lem: UpstairsB}.
 \begin{lemma}\label{lem: BernsteinSatoPolynomialUpstairs}
-  In the notation of \cref{sec: IntoductionChapterRelative} a polynomial of the form
+  In the notation of \cref{thm: EstimateBernsteinSatoZeroLocust} a polynomial of the form
   $$b(s)=\prod_{i=1}^r \prod_{j=1}^N(\operatorname{mult}_{E_i}(g_1)\ab s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)\ab s_r + k_i + j)$$
   belongs to the Bernstein-Sato ideal $B_{\M/t\M}$ if $N\geq 0$ is sufficiently large.
 \end{lemma}
@@ -446,9 +457,10 @@ The following statement and proof are analogous to \cref{lem: UpstairsB}.
   Suppose we are working near a point $y\in Y$ which is on $E_i$ if and only if $i\in I$.
   Pick local coordinates $z_1,\ldots,z_n$ where $z_i$ determines $E_i$ if $i\in I$.
 
-  In these local coordinates $G^s = \prod_{j=1}^r u_j^{s_j} \prod_{i\in I} z_i^{\sum_{j=1}^r \mult_{E_i}(g_j)s_j}$ and $\mu^*(dx) = v \prod_{i\in I} z_i^{k_i} dz$
-  For any $i\in I$ set $\xi_i := \partial_i - \sum_{j=1}^{r}s_i\partial_i(u_i)u_i^{-1}$ and let $P = v^{-1}(\prod_{j=1}^r u_j^{-1}) (\prod_{i\in I}\xi_i^{\sum_{j=1}^r\mult_{E_i}(g_j)}) v$ then
-  $$v\prod_{j=1}^r u_j^{s_j + 1}\prod_{i\in I}z_i^{\sum_{j=1}^r \mult_{E_i}(g_j)(s_j+1) + k_i}dz \cdot P =  q(s) v\prod_{j=1}^r u_j^{s_j}\prod_{i\in I}z_i^{\sum_{j=1}^r \mult_{E_i}(g_j)s_j + k_i} $$
+  In these local coordinates
+  $$G^s = \prod_{j=1}^r u_j^{s_j} \prod_{i\in I} z_i^{\sum_{j=1}^r \mult_{E_i}(g_j)s_j};\qquad \mu^*(dx) = v \prod_{i\in I} z_i^{k_i} dz.$$
+  For any $i\in I$ set $\xi_i := \partial_i - \sum_{j=1}^{r}s_j\partial_j(u_j)u_j^{-1}$ and let $P = v^{-1}(\prod_{j=1}^r u_j^{-1}) (\prod_{i\in I}\xi_i^{\sum_{j=1}^r\mult_{E_i}(g_j)}) v$ then
+  $$G^{s+1}\mu^*(dx) \cdot P =  q(s) G^s \mu^*(dx) $$
   where
   $$q(s) = \prod_{i\in I}(\sum_{j=1}^r \mult_{E_i}(g_j)s_j + \mult_{E_i}(g_j) + k_i)\cdots(\sum_{j=1}^r \mult_{E_i}(g_j)s_j + 1 + k_i ).$$
 \end{proof}
@@ -475,14 +487,14 @@ This could disturb coherence.
 To solve this one introduces new coordinates such that there are vector fields $\mathcal{S}_1,\ldots, \mathcal{S}_r$ which acts as $s_1,\ldots,s_r$ on the generator.
 
 Note that there are finitely many codimension $1$ components in $Z(B_{F,x})$.
-Hence, there exist $p$ independent linear polynomials $\sum_{i=1}^r d_{ij}s_i$ such that for any $j$ there is no hyperplane parallel to $\sum_{i=1}^r d_{ij}s_i = 0$ in $Z(B_{F,x})$.
+Hence, there exist $r$ independent linear polynomials $\sum_{j=1}^r d_{ij}s_j$ such that for any $i$ there is no hyperplane parallel to $\sum_{j=1}^r d_{ij}s_j = 0$ in $Z(B_{F,x})$.
 Moreover, it may be assumed that the $d_{ij}$ are non-negative integers.
 Introduce new coordinates $z_{n+1}, \ldots,z_{n+r}$ and set $\widetilde{f}_j = f_j\prod_{i=1}^r z_{n+i}^{d_{ij}}$ on $X\times \C^r$.
 Note that the induced map $Y\times \C^r \to X\times \C^r$ is a resolution of singularities for $\prod \widetilde{f}_i$ and that $\widetilde{g}_j = g_j\prod_{i=1}^r z_{n+i}^{d_{ij}}$ is the pullback of $\widetilde{f}_i$.
 
-For any $i=1,\ldots,p$ it holds that
+For any $i=1,\ldots,r$ it holds that
 $$\widetilde{G}^s \mu^*(dx)\cdot \partial_{n+i} = \sum_{j=1}^r d_{ij}s_j z_j^{-1} \widetilde{G}^s \mu^*(dx).$$
-Since the linear polynomials are independent a appropriate $\C$-linear combination provides a vector field $\zeta_j$ with $\widetilde{G}^s \mu^*(dx)\cdot \zeta_j = s_{j}z_j^{-1}\widetilde{G}^s \mu^*(dx)$.
+Since the $\sum_{j=1}^r d_{ij}s_j$ form a basis for the linear polynomials a appropriate $\C$-linear combination provides a vector field $\zeta_j$ with $\widetilde{G}^s \mu^*(dx)\cdot \zeta_j = s_{j}z_j^{-1}\widetilde{G}^s \mu^*(dx)$.
 Set $\mathcal{S}_j = \zeta_jz_j$ so that $\widetilde{G}^s \mu^*(dx) \cdot \mathcal{S}_j = s_j \widetilde{G}^s \mu^*(dx) $.
 This solves the coherence issue.
 The following result and it's proof are analogous to \cref{lem: BernsteinTilde}.
@@ -491,10 +503,10 @@ The following result and it's proof are analogous to \cref{lem: BernsteinTilde}.
 \end{lemma}
 \begin{proof}
   Take local coordinates $x_1,\ldots, x_{n+r}$ near $x$ and let $P$ be in the stalk $\D_{X\times \C^r,x}^{\C[s]}$ such that $b \widetilde{F}^s = P \widetilde{F}^{s+1}$.
-  Similarly to the above there is a $\C$-basis $\xi_1,\ldots,\xi_r$ for the span of $\partial_{n+1}, \ldots, \partial_{n+r}$ so that $\mathcal{S}_j := x_{n+j}\xi_j$ satisfies $\mathcal{S}_j \cdot \widetilde{F}^s = s_{j}\widetilde{F}^s$.
+  Similarly to the above there is a $\C$-basis $\zeta_1,\ldots,\zeta_r$ for the span of $\partial_{n+1}, \ldots, \partial_{n+r}$ so that $\mathcal{S}_j := x_{n+j}\zeta_j$ satisfies $\mathcal{S}_j \cdot \widetilde{F}^s = s_{j}\widetilde{F}^s$.
   Expand $P$ as a polynomials in $\xi_1,\ldots,\xi_r$
   $$P = \sum_{\alpha} P_\alpha \xi_{1}^{\alpha_1}\cdots \xi_{r}^{\alpha_r}$$
-  where the coefficients $P_\alpha$ live in a stalk of $\O_{X\times \C^r}\otimes_{\O_X\times \C^r}\D_{X\times \C^r}^{\C[s]}$.
+  where the coefficients $P_\alpha$ live in the stalk of $\O_{X\times \C^r}\otimes_{\O_{X\times \C^r}}\D_{X\times \C^r}^{\C[s]}$ at $x$.
 
   Let $N$ be greater than the maximal value of $\abs{\alpha}$ then
   $$(x_{n+1}\cdots x_{n+r})^N b \widetilde{F}^s = \left(\sum_{\alpha} \prod_{i=1}^r (s_i + 1)^{\alpha_i} \sum_\beta Q_{\alpha\beta} \partial_1^{\beta_1}\cdots \partial_n^{\beta_n} \right)\widetilde{F}^{s+1}$$
@@ -509,10 +521,10 @@ The following result and it's proof are analogous to \cref{lem: BernsteinTilde}.
 Note that replacing $F$ by $\widetilde{F}$ leaves \cref{thm: EstimateBernsteinSatoZeroLocust} unchanged up to hyperplanes parallel to $\sum_{i=1}^r d_{ij}s_i = 0$.
 These are not in $Z(B_{F,x})$ by assumption so, by \cref{lem: ReplacementIsAllowed}, it remains to prove the theorem for $\widetilde{F}$.
 For notational simplicity we simply write $F$ instead of $\widetilde{F}$ and $X$ instead of $X\times \C^r$.
-The dimensions of $X$ will be denoted $m = n+p$.
+The dimensions of $X$ will be denoted by $m = n+p$.
 
 Let $\ell_1,\ldots,\ell_{r-1}\in \C[s]$ be degree one polynomials which will be fixed later.
-For any $i=0\ldots,p$ let $L_i$ be the ideal of $\C[s]$ generated by $\ell_1,\ldots,\ell_i$.
+For any $i=0\ldots,r-1$ let $L_i$ be the ideal of $\C[s]$ generated by $\ell_1,\ldots,\ell_i$.
 Assume that the $\ell_i$ are chosen sufficiently generically so that $Z(L_{r-1})$ is a line.
 \begin{lemma}\label{lem: CharVarEstimateW}
   The $\D_\Y$-module $\M\otimes_{\C[s]}\C[s]/L_{r-1}$ is coherent and it's characteristic variety satisfies $\Ch\M\otimes_{\C[s]}\C[s]/L_{r-1} \subseteq \Lambda \cup W $ where $\Lambda$ is isotropic and $W$ is a irreducible variety of dimension $m +1$ which dominates $\Y$.
@@ -523,25 +535,24 @@ Assume that the $\ell_i$ are chosen sufficiently generically so that $Z(L_{r-1})
 
   Take local coordinates $z_1,\ldots,z_n,z_{n+1},\ldots,z_{n+r}$ on $\Y$ as in the proof of \cref{lem: BernsteinSatoPolynomialUpstairs}.
   This is to say that locally
-  $$G^s \mu^*(dx) = v\prod_{j=1}^r u_j^{s_j} \prod_{i\in I}^nu_i^{s_j}z_i^{\sum_{j=1}^r \mult_{E_i}(g_j) s_j + k_i}\prod_{i=1}^n z_{n+i}^{\sum_{j=1}^r d_{ij}s_j} dz.$$
+  $$G^s \mu^*(dx) = v\prod_{j=1}^r u_j^{s_j} \prod_{i\in I}^nz_i^{\sum_{j=1}^r \mult_{E_i}(g_j) s_j + k_i}\prod_{i=1}^n z_{n+i}^{\sum_{j=1}^r d_{ij}s_j} dz.$$
   Let $s_0$ denote a new variable so that $\C[s]/L_{r-1}\cong \C[s_0]$.
   Then $\M\otimes_{\C[s_0]}\C[s]/L_{r-1}$ may be viewed as the $\D_\Y$-module which is locally generated by a formal symbol
   $$[G^s \mu^*(dx)] =v \prod_{i=1}^{2n} u_i^{A_i s_0 + a_i}z_i^{B_i s_0 + b_i} dz $$
   where $A_i,B_i,a_i,b_i$ are complex numbers and we set $u_{i}=1$ for $i>n$.
   Moreover, since the linear functions $\sum_{j=1}^r d_{ij}s_j$ on the final terms in $G^s\mu^*(dx)$ form a basis for the linear polynomials there will be at least one $B_{i+n}$ which is non-zero.
 
-  Denote $w = v\prod_{i=1}^n u_i^{a_i}$ and consider for any $j=1,\ldots,n+r$ the operation of $w^{-1}\partial_j wz_j$ on the generator
-  $$[G^s \mu^*(dx)]\cdot w^{-1}\partial_j w =((B_j s_0 + b_j)z_j^{-1} + \sum_{i=1}^{n} A_i s_0 u_i^{-1}\partial_j(u_i) )[G^s \mu^*(dx)].$$
-  Recall that the $s_1,\ldots,s_n$ could be produced by acting with vector fields on the generator.
-  It follows that there also exists a differential operator $\mathcal{S}_0$ of degree $1$ such that $s_0 [G^s \mu^*(dx)] = [G^s \mu^*(dx)]\cdot \mathcal{S}_0$.
-  Now we get a well-defined surjection $\D_\Y/\mathcal{I} \twoheadrightarrow \M\otimes_{\C[s]}\C[s]/L_{r-1}$ where $\mathcal{I}$ denotes the right ideal sheaf generated by $w^{-1}\partial_j wz_j - b_j - \mathcal{S}_0 h_i$ with $h_j = B_j + z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i)$ for $j=1,\ldots, n+r$.
+  Denote $w = v\prod_{i=1}^n u_i^{a_i}$ and consider for any $j=1,\ldots,n+r$ the operation of $w^{-1}\partial_j w$ on the generator
+  \begin{align*}
+    [G^s \mu^*(dx)]\cdot w^{-1}\partial_j w &=((B_j s_0 + b_j)z_j^{-1} + \sum_{i=1}^{n} A_i s_0 u_i^{-1}\partial_j(u_i) )[G^s \mu^*(dx)].
+  \end{align*}
+  Set $h_j = B_j + z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i)$ and $\xi_j= w^{-1}\partial_j wz_j - b_j$.
+  Observe that $ z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i) \ab= 0$ for $j>n$.
+  Hence the $h_{n+j}$ are scalars and they are not all zero since there is some non-zero $B_{n+j}$.
+  By renumbering we may assume that $h_1$ is a non-zero scalar.
 
-  Note that $ z_j\sum_{i=1}^n A_iu_i^{-1}\partial_j(u_i) = 0$ for $j>n$.
-  Hence, the $h_{n+j}$ are complex scalars and they are not all zero since there exists a non-zero $B_{n+j}$.
-  After renumbering we now have that $h_1 \in \C^\times$.
-  Denoting $\zeta_j, \sigma_0$ for the elements of $\gr \D_\X$ which correspond to $\partial_j, \mathcal{S}_0$ respectively it holds that $\gr I$ contains $z_j \zeta_j - h_j \sigma_0$ for any $j=1,\ldots, n+r$.
-  Then also $h_1z_j \zeta_j - h_jz_1 \zeta_1$ is in $\gr I$ for any $j=2,\ldots, n+r$.
-  This yields the desired bound for the characteristic variety.
+  Now we get a well-defined surjection $\D_\Y/\mathcal{I}\twoheadrightarrow \M \otimes_{\C[s]}\C[s]/L_{r-1}$ where $\mathcal{I}$ is the right ideal sheaf generated by $\xi_j h_1 - \xi_1 h_j$.
+  This yields that $\Ch \M\otimes_{\C[s]}\C[s]\C[s]/L_{r-1}$ lies inside of the zero-locust of $\gr \mathcal{I}$ which produces the desired result.
 \end{proof}
 \begin{lemma}\label{lem: InjectiveEll}
   Any polynomial $b\in \C[s]$ which is not in $L_i$ induces a injective endomorphisms on $\M \otimes_{\C[s]}\C[s]/L_i$.
@@ -553,12 +564,12 @@ Assume that the $\ell_i$ are chosen sufficiently generically so that $Z(L_{r-1})
 
   Similarly to the proof of \cref{lem: CharVarEstimateW} one can pick local coordinates $z_i$ such that $\M \otimes_{\C[s]}\C[s]/L_i$ is generated by some formal symbol $[G^s \mu^*(dx)]$.
   Further pick some isomorphism $\C[s]/L_i \cong \C[s']$.
-  By definition of the formal symbol $\partial_i$ acts on $[G^s \mu^*(dx)]$ as a polynomial in $\widetilde{s}$ with rational functions of the $z_i$ as coefficients.
+  By definition of the formal symbol $\partial_i$ acts on $[G^s \mu^*(dx)]$ as a polynomial in $s'$ with rational functions of the $z_i$ as coefficients.
 
   If $b$ is not injective it follows by clearing denominators that there is some non-zero polynomial $f = \sum_{\alpha,\beta} c_{\alpha,\beta} z^\alpha s'^\beta$ with $[G^s \mu^*(dx)] f = 0$.
   Further, it can be assumed that the degree of $f$ in $z$ is zero.
-  Indeed, if $z_i$ occurs in $f$ then one can find a non-zero polynomial $g$ of lesser degree such that
-  $$[G^s \mu^*(dx)] f\partial_1 - [G^s \mu^*(dx)]\partial_1 f = [G^s \mu^*(dx)] g.$$
+  Indeed, if $z_i$ occurs in $f$ then one can find a non-zero polynomial $g$ of lesser degree in $z_i$ such that
+  $$[G^s \mu^*(dx)] f\partial_i - [G^s \mu^*(dx)]\partial_i f = [G^s \mu^*(dx)] g.$$
   The left-hand-side of this equality vanishes so $[G^s \mu^*(dx)] g = 0$.
   Repeating this procedure it may be assumed that $f$ is a non-zero polynomial in $\C[s']$.
 
@@ -571,7 +582,7 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
   Here $K_i$ denotes the kernel of $\ell_i$ on $\int^1 (\M \otimes_{\C[s]}\C[s]/L_{i-1})$.
 \end{lemma}
 \begin{proof}
-  By a taking a $\D_{\X}^{\C[s]/L_{i}}$-free resolution of $K_i$ one finds that
+  By consideration of the $\D_{\X}^{\C[s]/L_{i}}$-free resolution of $K_i$ provided by \cref{prop: QuotientLocallyFree} one finds that
   $$R \Hom_{\scaleto{\D_\X^{ \C[s]/L_{r-1} }}{8pt} }(K_i\otimes^L_{\scaleto{ \D_\X^{\C[s]/L{i}} }{8pt} } \D_\X^{\C[s]/L_{r-1} },\D_\X^{ \C[s]/L_{r-1}} ) \cong R \Hom_{ \scaleto{\D_\X^{\C[s]/L_{i}}}{8pt} } (K_i,\D_\X^{\C[s]/L_{i}}) \otimes^L_{\scaleto{ \D_\X^{\C[s]/L_{i}}}{8pt} } \D_\X^{\C[s]/L_{r-1}}$$
   where we note that $\D_\X^{\C[s]/L_{r-1}}$ is a $\D_X^{\C[s]/L_{i}}$-bimodule so that both tensor products are defined.
   We compare the spectral sequences of both sides.
@@ -584,46 +595,31 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
 
   The spectral sequence on the right-hand-side has terms
   $$E_2^{pq} = \Tr{\D_\X^{\C[s]/L_{i}} }{-p}(\Ex{ \D_\X^{\C[s]/L_{i}} }{q} (K_i,\D_\X^{\C[s]/L_{i}}), \D_\X^{\C[s]/L_{r-1}}).$$
-  The claim follows if we can ensure that that all terms with $p+q = m -1$ vanish on $\X\times\Spec R$ for some open subset $\Spec R\subseteq \C^p$.
+  The claim follows if we can ensure that that all terms with $p+q = m -1$ vanish on $\X\times(Z(L_{r-1})\cap\Spec R)$ for some open subset $\Spec R\subseteq \C^r$ with $Z(L_{r-1})\cap \Spec R \neq 0$.
   Indeed, then by \cref{cor: GradeIFFBernsteinIdeal} the terms have grade $m+1$ and it follows that the same must hold for the total cohomology.
+  By abuse of notation we may also denote $L_i$ for the ideal in $R$ generated by $\ell_1,\ldots,\ell_i$.
   \\
 
-  The $\ell_i$ and the open $\Spec R$ are constructed by induction on $i$. For any $i,j,k$ with $k\leq i$ denote $\E_{ik}^{n+j}:= \Ex{\D_\X^{R/L_{k}} }{n+j}(K_k, \D_\X^{R/L_k}) \otimes_{\scaleto{\D_\X^{R/L_{k}}}{8pt}} \D_\X^{R/L_{i}}$.
-  In every induction step it is ensured that
+\newpage
+  For any $i,j,k$ with $k\leq i$ denote $\E_{ik}^{m+j}:= \Ex{\D_\X^{R/L_{k}} }{m+j}(K_k, \D_\X^{R/L_k}) \otimes_{\scaleto{\D_\X^{R/L_{k}}}{8pt}} \D_\X^{R/L_{i}}$.
+  Using \cref{lem: GradeToCMOverOpen} one can inductively construct the $\ell_i$ and open $\Spec R$ such that for every $i$
   \begin{enumerate}[label=(\roman*)]
-    \item $\E_{ii}^{n+j}$ is $(n+j)$-Cohen-Macaulay over $\D_X^{R/L_i}$ or zero for every $j\geq 0$.
     \item $Z(L_i)\cap \Spec R \neq 0$.
-    \item $\ell_i$ induces a injection on $\E_{(i-1)k}^{n+j}$
-    for every $j\geq 0$ and $k<i$.
+    \item $\E_{ii}^{m}$ is $m$-Cohen-Macaulay over $\D_X^{R/L_i}$ or zero.
+    \item $\E_{ii}^{m+j} = 0$ for every $j>0$.
   \end{enumerate}
-  By abuse of notation $L_i$ may also denote the ideal of $R$ generated by $\ell_1,\ldots,\ell_i$.
-
-  Take some arbitrary $\ell_1$ for the base-case and use \cref{lem: GradeToCMOverOpen} to find a open $\Spec R \subseteq \C^r$ such that $\E^{n+j}_{11}$  is $(n+j)$-Cohen-Macaulay or zero for every $j\geq 0$.
-  This only requires removing a strict closed subset of $\Spec \C[s]/L_1$ so $Z(L_1)\cap \Spec R = \Spec R/L_1$ is non-empty.
-  The final property is vacuous for $i=1$.
-
-  Now assume that $i>1$ and that $\ell_1,\ldots, \ell_{i-1}$ are already constructed.
-  First let's ensure that $\ell_i$
-  induces a injection on $\E^{n+j}_{(i-1)k}$ for every $j\geq 0$ and $k<i$.
-  By iterative application of \cref{lem: CMLemmaBudur} it holds that $\E^{n+j}_{(i-1)k }$
-  is $(n+j)$-Cohen-Macaulay or zero over $\D_\X^{R/L_{i-1}}$.
-  Take $\ell_i$ so that the induced element of $R/L_{i-1}$ is non-constant and does not vanish on any irreducible component of the Bernstein-Sato zero locust of $\E^{n+j}_{(i-1)k}$ for every $j\geq 0$ and $k<i$.
-  Then, by \cref{lem: NotBernsteinInjectiveAutomorphism} the desired injectivity follows.
-  As before, \cref{lem: GradeToCMOverOpen} can be used to to find a open $\Spec R' \subseteq \Spec R$ such that $\E^{n+j}_{ii}$  is $(n+j)$-Cohen-Macaulay for every $j\geq 0$ and  $Z(L_i)\cap \Spec R' = \Spec R'/L_i$ is non-empty.
-  Note that replacing $\Spec R$ by $\Spec R'$ will conserve the induction hypothesis.
-  This concludes the inductive construction of the $\ell_i$.\\
+  Iteratively applying \cref{lem: CMLemmaBudur} then shows that $\E_{ik}^{m}$ is $m$-Cohen-Macaulay for any $k<i$.
+  Then due to \cref{lem: NotBernsteinInjectiveAutomorphism} the polynomial $\ell_i$ induces a injection on $\E_{(i-1)k}^{m}$ for any $k<i$.
+  Applying this fact with with the free resolution $\D_\X^{R/L_{i-1}}\to \D_\X^{R/L_{i-1}}$ for $\D_\X^{R/L_i}$ yields that $\Tr{\D_\X^{R/L_i}}{-p}(\E_{(i-1)k}^{m}, \D_\X^{R/L_i}) = 0$ for all $p<0$.
+  Taking a locally free resolution for $\E_{(i-1)k}^m$ it follows that
+  $$\mathcal{E}_{(i-1)k}^{m} \otimes^L_{\scaleto{\D_\X^{R/L_{i-1}}}{8pt}} \D_\X^{R/L_{r-1}} \cong  \mathcal{E}_{ik}^{m}  \otimes^L_{\scaleto{\D_\X^{R/L_{i}}}{8pt}}\D_\X^{R/L_{r-1}}. $$
 
 
-  Applying injectivity of $\ell_i$ on $\E_{(i-1)k}^{n+j}$ with the free resolution $\D_\X^{R/L_{i-1}}\xrightarrow{\ell_i}\D_\X^{R/L_{i-1}}$ for $\D_\X^{R/L_i}$ yields that $\Tr{\D_\X^{R/L_i}}{-m}(\E_{(i-1)k}^{n+j}, \D_\X^{R/L_i}) = 0$ for all $m>0$.
-  By taking a $\D_\X^{R/L_{i-1}}$-free resolution of $\mathcal{E}_{(i-1)k}^{n+j}$ it follows that
-  $$\mathcal{E}_{(i-1)k}^{n+j} \otimes^L_{\scaleto{\D_\X^{R/L_{i-1}}}{8pt}} \D_\X^{R/L_{r-1}} \cong  \mathcal{E}_{ik}^{n+j}  \otimes^L_{\scaleto{\D_\X^{R/L_{i}}}{8pt}}\D_\X^{R/L_{r-1}}. $$
-
-
-  Iterative application of the isomorphism yields $\E_{ii}^{n+j}\otimes^L_{\scaleto{\D_\X^{R/L_{i}}}{8pt}} \D_\X^{R/L_{r-1}} \cong \E_{(p-2)i}^{n+j}\otimes^L_{\scaleto{\D_\X^{R/L_{p-2}}}{8pt}} \D_\X^{R/L_{r-1}}$.
-  This means that
-  $$\Tr{\D_\X^{\C[s]/L_{i}}}{-r} (\Ex{\D_\X^{\C[s]/L_{i}} }{q} (K_i,\D_\X^{\C[s]/L_{i}}), \D_\X^{\C[s]/L_{r-1}})\cong \Tr{\D_\X^{\C[s]/L_{i}} }{-r}(\E_{(p-2)i}^{q}, \D_\X^{\C[s]/L_{r-1}}).$$
-  The right right-hand-side of this isomorphism was already observed to vanish for any $r < 0$ and the left-hand-side is precisely the $E^{pq}_2$-term of the spectral sequence.
-  This establishes that the $E^{pq}_2$-terms with $r+q = m -1$ vanish for $q>m-1$.
+  Iterative application of the isomorphism yields $\E_{ii}^{m}\otimes^L_{\scaleto{\D_\X^{R/L_{i}}}{8pt}} \D_\X^{R/L_{r-1}} \cong \E_{(p-2)i}^{m}\otimes^L_{\scaleto{\D_\X^{R/L_{p-2}}}{8pt}} \D_\X^{R/L_{r-1}}$.
+  In particular,
+  $$\Tr{\D_\X^{\C[s]/L_{i}}}{1} (\Ex{\D_\X^{\C[s]/L_{i}} }{m} (K_i,\D_\X^{\C[s]/L_{i}}), \D_\X^{\C[s]/L_{r-1}})\cong \Tr{\D_\X^{\C[s]/L_{i}} }{1}(\E_{(p-2)i}^{m}, \D_\X^{\C[s]/L_{r-1}}).$$
+  The right right-hand-side of this isomorphism is known to vanish  and the left-hand-side is precisely the $E^{-1,m}_2$-term of the spectral sequence.
+  Due to condition (iii) the $E^{pq}_2$-terms with $p+q = m -1$ and $p>m$ also vanish.
   The remaining term $E^{(m -1)0}_2$ is zero regardless since it involves $\Ext^{m - 1}$ of a relative holonomic module.
   This concludes the proof.
 \end{proof}
@@ -636,21 +632,19 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
   The first task is to relate $(\Int\M) \otimes_{\C[s]} \C[s]/L_{r-1}$ with $\Int\M_{r-1}$.
 
   Recall from \cref{lem: InjectiveEll} that $\ell_{i}$ is injective on $\M_{i-1}$.
-  This implies that
-  $\ell_{i}\Int \M_{i-1} = \int^0 \ell_{i}\M_{i-1}.$
   The injective endomorphisms of $\ell_i$ on $\M_{i-1}$ induces a long exact sequence of $\D_X^{\C[s]/L_{i-1}}$-modules
   $$0 \to \Int\M_{i-1} \xrightarrow{\ell_i} \Int \M_{i-1} \to \Int \M_i \to \cdots $$
   whence $(\Int \M_{i-1})\otimes_{\C[s]/L_{i-1}} \C[s]/L_i$ is a submodule of $\Int\M_i$.
   The quotient is isomorphic to the kernel $K_i$ of $\ell_i$ on $\int^1\IntMinspace\M_{i-1}$.
 
-  Applying a tensor product with $\C[s]/L_{r-1}$ to the inclusion $\Int \M_{i-1} \otimes_{\C[s]/L_{i-1}} \C[s]/L_i \hookrightarrow \Int\M_i$ yields a exact sequence
+  Applying a tensor product with $\C[s]/L_{r-1}$ to the inclusion $(\Int \M_{i-1}) \otimes_{\C[s]/L_{i-1}} \C[s]/L_i \hookrightarrow \Int\M_i$ yields a exact sequence
   $$\Tr{\C[s]/L_{i-1}}{1}\left(K_i, \frac{\C[s]}{L_{r-1}}\right) \to \left(\Int \M_{i-1}\right) \otimes_{\C[s]/L_{i-1}}\frac{\C[s]}{L_{r-1}} \to \left(\Int\M_i\right) \otimes_{\C[s]/L_{i-1}}\frac{\C[s]}{L_{r-1}}.$$
   By choice of the $\ell_i$ it holds that $\Tr{\D_\X^{\C[s]/L_i} }{1}(K_i, \D_\X^{\C[s]/L_{r-1}})$ has grade $\geq m+1$.
   This implies the existence of a non-zero polynomial $b_i\in \C[s]/L_{r-1}$ which annihilates $\Tr{\C[s]/L_{i}}{1}(K_i, \C[s]/\ab L_{r-1} ))$.
 
   Denote $B = \prod_{i=1}^{r-1}b_i$ and note that the kernels of the endomorphisms induced by $B^N$ form a increasing sequence inside the coherent $\D_X^{\C[s]/L_{r-1}}$-module $(\Int \M_{i-1})\otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}$.
   Such a increasing sequence must stabilise for sufficiently large $N$.
-  Then it follows that the intersection of $\img \Tr{\C[s]/L_{i-1}}{1}(K_i, \C[s]/L_{r-1})$ and $ B^N((\Int \M_{i-1}) \otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1})$ is trivial.
+  Then it follows that the intersection of $\img \Tr{\C[s]/L_{i-1}}{1}(K_i, \C[s]/L_{r-1})$ and $ B^N(\Int \M_{i-1}) \otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}$ is trivial.
   This means that there are injections $$B^N \left(\Int \M_{i-1}\right) \otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1} \hookrightarrow B^N \left(\Int\M_i\right)\otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}.$$
   In particular $B^N(\Int\M)\otimes_{\C[s]}\C[s]/L_{r-1}$ is a submodule of $\Int\M_{r-1}$.
 
@@ -667,7 +661,7 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
   Intersecting with $\pi^{-1}(D)$ yields a closed strict subset which necessarily has lower dimension.
   Hence, it follows that $\dim \Ch B^N (\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1} \leq m$.
   This means that $B^N(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is holonomic.
-  By \cref{prop: HomAlgebraic} the Bernstein-Sato ideal of holonomic module is non-zero.
+  By \cref{prop: HomAlgebraic} the Bernstein-Sato ideal of a holonomic module is non-zero.
   This implies that the Bernstein-Sato ideal of $(\Int\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is non-zero which means that it has grade $\geq m+1$ by \cref{cor: GradeIFFBernsteinIdeal}.
   Then also $\Int\M/\U$ has grade $\geq m+1$ by \cref{lem: RestrictToCM}.
   \end{proof}
@@ -692,17 +686,18 @@ Now all ingredients are in place for the proof of \cref{thm: EstimateBernsteinSa
   Set $B := \prod_{i=0}^{N+1} b(s_1 + i, \ldots, s_r + i)$ then it follows that
   $B\M \subseteq t\U$ on $\X \times \Spec R$.
   In particular this means that $B$ is in the Bernstein-Sato ideal of $\U/t\U$ over $\Spec R$.
-  By the surjection of \cref{lem: SurjectionUF} this means that $B\in B_{F,x}$ over $\Spec R$. This proves the theorem because the complement of $\Spec R$ has codimension strictly greater than 1.
+  By construction $\Spec R$ includes all the codimension one components of $Z(B_{F,x})$.
+  Hence, the surjection of \cref{lem: SurjectionUF} yields the desired result.
 \end{proof}
 \subsection{Analytical Modifications}
 A similar proof applies in the local analytical case.
 
 Let $U\subseteq \C^r$ denote the analytification of $\Spec R$.
-The analytical vertion of the usual sheaf $\D_X^R = \D_X \otimes_{\C} R$ is the sheaf $\D_{X\times U/U}:= \D_X \otimes_{\O_X}\O_{X\times U}$ on $X\times U$.
+The analytical version of the usual sheaf $\D_X^R = \D_X \otimes_{\C} R$ is the sheaf $\D_{X\times U/U}:= \D_X \otimes_{\O_X}\O_{X\times U}$ on $X\times U$.
 Observe that there is a relative analytification functor which associates to every $\D_X^R$-module $\M$ on $X$ the $\D_{X\times U/U}$-module
 $$\M^{an} = \O_{X\times U} \otimes_{\pi_1^{-1}(\O_X\otimes_\C R)} \pi_1^{-1}(\M)$$
 where $\pi_1:X\times U \to X$ denotes the projection map.
-For any coherent $\D_X\otimes_{\C}R$-module $\M$ it holds that $\M^{an}$ is a coherent $\D_{X\times U/U}$-module.
+For any coherent $\D_X^R$-module $\M$ it holds that $\M^{an}$ is a coherent $\D_{X\times U/U}$-module.
 Since partial analytification is a exact functor it is compatible with good filtrations and $\grrel \M^{an}= (\grrel \M)^{an}$. Define $\Chrel \M$ to be the support of $\grrel\M^{an}$ in $T^*X\times U$.
 
 

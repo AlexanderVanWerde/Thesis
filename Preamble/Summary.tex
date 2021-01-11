@@ -19,10 +19,9 @@ Further, this method shows that any pole of $\Gamma_g$ is a root of $b_f(s)$ up 
 
 The relation between the roots of $b_f(s)$ and the poles of functions like $\Gamma_g$ is the topic of a notable open problem called the monodromy conjecture.
 Further, the roots of $b_f(s)$ give insight into the nature of a singularity by the behaviour of the ill-defined function $f^{-1}$.
-Suppose that $f(0)= 0$ and consider $f$ as a function germ $f:(\C^n,0)\to (\C,0)$.
-Let $t\in \C^\times$ be close to $0$ and consider the fiber $F_{f,0} := f^{-1}(t)\cap B_\varepsilon$ where $B_\varepsilon$ is some small ball centred at $0$.
-Twisting $t$ around the origin induces a diffeomorphism $M$ of $X_t$ which is called the geometric monodromy.
-In particular, one gets linear endomorphisms $M^*$ on the vector spaces $H^j(X_t,\C)$.
+Suppose that $f(0)= 0$ and consider the function germ $f:(\C^n,0)\to (\C,0)$.
+Let $t\in \C^\times$ be close to $0$ and set $F_{f,0} := f^{-1}(t)\cap B_\varepsilon$ where $B_\varepsilon$ is some small ball centred at $0$.
+Twisting $t$ induces linear endomorphisms $M^*$ on the vector spaces $H^j(X_t,\C)$.
 The action $M^*$ only depends on the singularity $(f^{-1}(0),0)$.
 In particular, the eigenvalues of the action are invariants of the singularity.
 These eigenvalues are called the eigenvalues of monodromy.
@@ -35,13 +34,13 @@ The main difficulty is to connect the easier problem to the original problem.
 This relies on the sheaf-theoretic framework of $\D_X$-modules and their direct images.
 Here $\D_X$ denotes the sheaf of differential operators on a space $X$.
 
-The original estimate due to Kashiwara establishes that the roots of $b(s)$ are negative rational numbers.
+The original estimate due to Kashiwara establishes that the roots of $b_f(s)$ are negative rational numbers.
 A lower bound for the distance between the largest root and $0$ was established by Lichtin.
 This refined estimate uses a similar methodology to Kashiwara but replaced $f^s$ with the distribution $f^s dx$.
 \\
 
 In this thesis a multivariate generalization of the problem is considered.
-Let $F:(\C^{n},0)\to (\C^p,0)$ be a function germ with coordinate functions $f_1,\ldots, f_p$ and define variables $s_1,\ldots, s_p$.
+Let $F:(\C^{n},0)\to (\C^p,0)$ be a function germ with coordinate functions $f_1,\ldots, f_p$ and introduce new variables $s_1,\ldots, s_p$.
 It is then still known that there exists a differential operator $P(x,\partial, s)$ such that
 $$P(x,\partial,s) f_1^{s_1 + 1}\cdots f_p^{s_p + 1} = b(s)f_1^{s_1}\cdots f_p^{s_p}$$
 for some polynomial $b(s) \in \C[s_1,\ldots, s_p]$.
@@ -52,11 +51,12 @@ There are generalisations of the monodromy conjecture and monodromy theorem to t
 Kashiwara's estimate for the roots of $b(s)$ has been generalised to a estimation of the Bernstein-Sato ideal by Budur et al.
 This thesis also generalises the refined estimate due to Lichtin.
 
-The main new idea is a induction argument to reduce the number of $s_i$ to one.
-Homological algebra is used to control error terms of the reduction process.
+The main new idea is a reduction argument to reduce the number of $s_i$ to one.
+This involves a tensor product which gives rise to error terms in the shape of the $\Tor$-functor.
+Homological algebra is used to control these error terms.
 \\
 
-The first chapter in this thesis gives provides the categorical framework of derived categories.
+The first chapter in this thesis provides the categorical framework of derived categories.
 Such derived categories give a natural framework for dealing with homological algebra and are also necessary to define the direct image of $\D_X$-modules.
 The second chapter provides background on $\D_X$-modules. This builds up to the Riemann-Hilbert correspondence which is a broad generalisation of the the equivalence between systems of differential equations and their solutions.
 Further, the significance of the roots of Bernstein-Sato polynomials and the estimates due to Kashiwara and Lichtin are discussed.
