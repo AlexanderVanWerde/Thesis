@@ -73,10 +73,10 @@ For example $C^+(\AA)$ may contain complexes of the form $\cdots \to 0\to \cdots
 For a complex $X^\bullet$ and $k\in \Z$ one has a shifted complex $X^\bullet[k]$ with $(X^\bullet[k])^s = X^{k+s}$.
 Further, denote $\operatorname{Hom}^k(X^\bullet, Y^\bullet) :=  \op{Hom}(X^\bullet, Y^\bullet[k])$ which are the chain maps that change the grading by $k$.
 \begin{definition}
- Two complex morphisms $u,v:X^\bullet\to Y^\bullet$ are called homotopic if there exists $h\in \operatorname{Hom}^{-1}(X^\bullet, Y^\bullet)$ such that $u-v = d_Y h + hd_X$.
+ Two complex morphisms $u,v:X^\bullet\to Y^\bullet$ are called homotopic if there exists $h\in \operatorname{Hom}^{-1}(X^\bullet, Y^\bullet)$ such that $u-v = d_Y h + hd_X$. This may be denoted $u\sim v$.
 \end{definition}
 \begin{definition}
- A morphism $u:X^\bullet\to Y^\bullet$  of complexes in $C^*(\AA)$ is called a quasi-isomorphism if the induced morphism in cohomology $H^k(u):H^k(X^\bullet) \to H^k(Y^\bullet)$ is a isomorphism for all $k$. This may be denoted $u\sim v$.
+ A morphism $u:X^\bullet\to Y^\bullet$  of complexes in $C^*(\AA)$ is called a quasi-isomorphism if the induced morphism in cohomology $H^k(u):H^k(X^\bullet) \to H^k(Y^\bullet)$ is a isomorphism for all $k$.
 \end{definition}
 The idea behind the following definition is to retain the same objects as $C^*(\AA)$ but turn quasi-isomorphisms into isomorphisms.
 The technicalities may be found in chapter 8 of \cite{deligne1977sga}.
@@ -151,7 +151,7 @@ Further evidence that the triangles $T_u$ behave like short exact sequences is g
 Further investigation of the properties of $T_u$ gives rise to the concept of a triangulated category.
 These definitions and properties are pleasant in their own right so we go into some detail.
 
-The distinguish triangles $\mathcal{T}$ in $K^*(\AA)$ or $D^*(\AA)$ are the family of triangles which are isomorphic to a triangle of the form $T_u$.
+The distinguished triangles $\mathcal{T}$ in $K^*(\AA)$ or $D^*(\AA)$ are the family of triangles which are isomorphic to a triangle of the form $T_u$.
 Observe that these categories have a shift functor $T$ given by $TX^\bullet = X^\bullet[1]$.
 \begin{definition}
  An additive category $\mathcal{D}$ equipped with a self-equivalence $T$ and family of distinguished triangles $\mathcal{T}$ is called a triangulated category if the following axioms are satisfied.
@@ -230,7 +230,7 @@ The key example for the above definition is given by the cohomological functor $
 Given abelian categories $\AA, \mathcal{B}$ and a functor of triangulated categories $F:K^*(\AA)\to K(\mathcal{B})$ one may wonder if there is a natural lift to the derived categories.
 \begin{definition}
  Let $F$ be as above. The right derived functor of $F$ is a initial couple $(R^*F,\xi_F)$ consisting of a functor of triangulated categories $R^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:p_B\circ F \to R^*F \circ p_\AA^*$.
- By initial it is mean that for any other such couple $(G,\zeta)$ there is a unique natural transformation $\eta: R^*F\to G$ such that $\zeta = (\eta \circ p_\AA^*)\circ \xi_{F}$.
+ By initial it is meant that for any other such couple $(G,\zeta)$ there is a unique natural transformation $\eta: R^*F\to G$ such that $\zeta = (\eta \circ p_\AA^*)\circ \xi_{F}$.
 \end{definition}
 The dual notion is a left derived functor. This is a final couple $(L^*F,\xi_F)$ consisting of a functor of triangulated categories $F^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:  L^*F \circ p_\AA^* \to p_B\circ F$.
 It is clear that, if a derived functor exists, it is unique up to unique isomorphism.
@@ -259,7 +259,7 @@ The higher-order terms measure measures to what degree the original functor fail
  $$D^*(\AA) \xrightarrow{R^*F} D(\mathcal{B}) \xrightarrow{H^n} \mathcal{B}. $$
 \end{definition}
 \begin{proposition}
-   Let $F:\AA\to \mathcal{B}$ be a functor of triangulated categories.
+   Let $F:\AA\to \mathcal{B}$ be a functor of abelian categories.
    Suppose that the derived functor $R^*F$ of the induced functor $F:K^*(\AA)\to K(\mathcal{B})$ exists.
    Then, for any short exact sequence in $\AA$
    $$0\to X \to Y \to Z \to 0 $$
@@ -306,14 +306,14 @@ Hence, this generalises the earlier computations.
 \begin{proposition}[Cartan-Eilenberg]\label{prop: Cartan-Eilenberg}
   Suppose $\AA$ admits enough projectives. Then, for any complex $X^\bullet$ there exists a lower half-plane double complex $P^{\bullet\bullet}$ of projective objects such that
   \begin{enumerate}
-    \item[(i)] There is a map $P^{0,\bullet}\to X^\bullet$ such that $P^{\bullet,p}\to X^{p}$ is a projective resolution for every $p$.
-    \item[(ii)] If $X^p = 0$ the corresponding column $P^{\bullet,p}$ is zero.
-    \item[(iii)] The horizontal cocycles, coboundaries and cohomology on $P^{\bullet,p}$ form projective resolutions for the $p$-th cocycles, coboundaries and cohomology of $X^\bullet$ respectively.
+    \item[(i)] There is a map $P^{0,\bullet}\to X^\bullet$ such that $P^{\bullet,q}\to X^{q}$ is a projective resolution for every $p$.
+    \item[(ii)] If $X^q = 0$ the corresponding column $P^{\bullet,q}$ is zero.
+    \item[(iii)] The horizontal cocycles, coboundaries and cohomology on $P^{\bullet,q}$ form projective resolutions for the $q$-th cocycles, coboundaries and cohomology of $X^\bullet$ respectively.
   \end{enumerate}
 \end{proposition}
 \begin{proof}
   The proof may be found in chapter 5 of \cite{weibel1995introduction}.
-  For later use on the structure of the Cartan-Eilenberg resolution we remark that the columns $P^{\bullet,p}$ are found as direct sums of projective resolutions for the boundaries and cohomology at level $p$ and $p+1$.
+  For later use on the structure of the Cartan-Eilenberg resolution we remark that the columns $P^{\bullet,q}$ are found as direct sums of projective resolutions for the boundaries and cohomology at level $q$ and $q+1$.
 \end{proof}
 
 We conclude this section by considering a few important examples of derived functors which will be used later on.
@@ -321,10 +321,10 @@ We conclude this section by considering a few important examples of derived func
 Let $X$ be a topological space equipped with a sheaf of rings $\AA_X$ which need-not be commutative.
 The corresponding categories of complexes of left or right modules are denoted $C^{*,\ell}(\AA_X)$ and $C^{*,r}(\AA_X)$ respectively.
 Similarly, the category of complexes of bimodules is denoted $C^{*,\ell r}(\AA_X)$.
-Using \cref{thm: InjectivesAllowDerivedFunctor} one can establish that the global sections functor $\Gamma(X,\blank)$ on $C^{*,*}(\AA_X)$ has a derived functor $R^+\Gamma(X,\blank)$.
+Using \cref{thm: InjectivesAllowDerivedFunctor} one can establish that the global sections functor $\Gamma(X,\blank)$ on $C^{+,*}(\AA_X)$ has a derived functor $R^+\Gamma(X,\blank)$.
 The cohomology of a sheaf of modules is given by the functors $H^k(X,\blank) := R^k \Gamma(X,\blank)$ and the hypercohomology of a complex of modules is given by the functors $\mathbb{H}^k(X,\blank):= \mathbb{R}^k\Gamma(X,\blank)$.
-The cohomology sheaf of a complex $\M^\bullet$ is the sheaf associated to the presheaf $U\mapsto \mathbb{H}^k(U,\M^\bullet)$ and is denoted $\H^k(\M^\bullet)$.
-The cohomology sheaves of a module $\M$ are defined similarly and also denoted $\H^k(\M)$.
+%The cohomology sheaf of a complex $\M^\bullet$ is the sheaf associated to the presheaf $U\mapsto \mathbb{H}^k(U,\M^\bullet)$ and is denoted $\H^k(\M^\bullet)$.
+%The cohomology sheaves of a module $\M$ are defined similarly and also denoted $\H^k(\M)$.
 
 Cohomology measures the failure of sections to be global.
 Correspondingly, acyclic objects are given by sheaves which have no such failure.

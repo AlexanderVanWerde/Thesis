@@ -2,7 +2,7 @@
 Let $X$ be a smooth algebraic variety and $F:X\to \C^r$ a morphism with coordinate functions $f_1,\ldots, f_r$.
 Introduce new variables $s_1,\ldots, s_r$ and abbreviate $F^s = f_1^{s_1}\cdots f_r^{s_r}$.
 The local Bernstein-Sato ideal $B_{F,x}$ of $F$ at $x\in X$ is the collection of all $b(s_1,\ldots,s_r)\in \C[s]$ such that there exists some differential operator $P\in \D_{X,x}\otimes_{\C}\C[s]$ with
-$$b(s_1,\ldots,s_r) F^s =  P\cdot F^{s + 1}$$
+$$P\cdot F^{s + 1} =  b(s_1,\ldots,s_r) F^s$$
 in the stalk at $x$.
 The global Bernstein-Sato ideal $B_F$ is the intersection of all local Bernstein-Sato ideals.
 The local Bernstein-Sato ideal is also a topic of interest when $F$ is a analytic function germ.
@@ -16,7 +16,7 @@ For any $\lambda \in (\C^*)^r$ let $L_\lambda$ denote the line bundle on $U$ fou
 The eigenvalues of monodromy are generalised by the set
 $$S(F) = \{\lambda \in (\C^*)^r \ \vert\  \exists j\in \Z\  \exists x\in D: H^j(U_x,L_\lambda) \neq 0\} $$
 where $U_x$ is the intersection of $U$ with a arbitrarily small ball centred at $x$.
-If $F$ is a analytic function germ $X$ should be replaced by a arbitrarily small neighbourhood of $x$ and we denote the resulting set $S_x(F)$.
+If $F$ is a analytic function germ $X$ should be replaced by a arbitrarily small neighbourhood of $x$ and we denote the resulting set by $S_x(F)$.
 \begin{theorem}
   If $F$ is a morphism of smooth affine algebraic varieties or then $\exp(2\pi i\ Z(\ab B_F)) = S(F)$. If $F$ is a holomorphic germ at $x$ then $\exp(2\pi i\ Z(B_{F,x})) = S_x(F)$.
 \end{theorem}
@@ -36,7 +36,7 @@ Denote $\mu:Y\to X$ for the strong log resolution of $(X,D)$.
 Then $\mu^*D = \sum a_i E_i$ is in normal crossings form and we let $G = F\circ \mu$ with coordinate functions $g_1,\ldots, g_r$.
 \begin{theorem}\label{thm: Slopes}
   Every irreducible component of $Z(B_{F,x})$ of codimension $1$ is a hyperplane of the form
-  $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + c_i $$
+  $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + c_i=0 $$
   with $c_i\in \Z_{>0}.$
 \end{theorem}
 \begin{proof}
@@ -51,7 +51,7 @@ The goal of this chapter is to generalise Lichtin's estimate in \cref{thm: Licht
   with $c_i \in \mathbb{Z}_{> 0 }$.
 \end{theorem}
 The main new ingredient is a argument for reducing the number of variables.
-This reduction process involves a tensor product to reduce the number of variables.
+This reduction process involves a tensor product.
 The non-exactness of the tensor product causes error-terms in the form of the $\Tor$-functor.
 These error-terms may be controlled using homological results which are set up in \cref{sec: NonComHomological}
 
@@ -71,7 +71,7 @@ For any regular commutative $\C$-algebra integral domain $R$ we define a sheaf o
 $$\D_{X}^R = \D_X \otimes_{\C} \O_{\Spec R}.$$
 It will also be convenient to use the abbreviations $\O_{X}^R := \O_{X \times \Spec R}$.
 
-The order filtration $F_p\D_X$ extends to a filtration $F_p\D^R_X = F_p\D_X \otimes_{\C} \O_R$ on $\D^R_X$ which is called the relative filtration.
+The order filtration $F_p\D_X$ extends to a filtration $F_p\D^R_X = F_p\D_X \otimes_{\C} \O_{\Spec R}$ on $\D^R_X$ which is called the relative filtration.
 The associated graded objects are denoted by $\grrel$. Denote $\pi:T^*X\times \Spec R \to X\times \Spec R$ for the projection map.
 As in the case of $\D_X$-modules one can view $\pi^{-1}(\grrel\D_X^R)$ as a subsheaf of $\O_{T^*X}^R$ and for any $\grrel\D_X^R$-module $\mathcal{M}$ there is a corresponding module on $T^*X\times \Spec R$ defined by $\O_{T^*X}^R\otimes_{\pi^{-1}\grrel\D_X^R}\pi^{-1}\mathcal{M}$.
 By abuse of notation the corresponding module on $T^*X\times \Spec R$ is still denoted with $\mathcal{M}$ and we adopt the perspective that $\grrel\D_X^R$-modules always live on $T^*X\times \Spec R$ unless explicitly mentioned otherwise.
@@ -141,10 +141,10 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
     $$\M^\bullet \otimes_{\D_Y^R}^L \D_{Y\to X}^R \cong \M^\bullet \otimes_{\D_Y}^L \D_{Y\to X}.$$
     Denote $p_X:X\times \Spec R \to X$ for the projection map.
     Due to \cref{prop: GrothendieckIsomorphism} one has a isomorphism
-    $$R(p_X)_* \circ R\mu^R_* \cong R(p_X \circ \mu^R)_* \cong R\mu^* \circ R(p_Y)_*.$$
+    $$R(p_X)_* \circ R\mu^R_* \cong R(p_X \circ \mu^R)_* \cong R\mu_* \circ R(p_Y)_*.$$
     Combining the right-hand-sides of these isomorphisms yields the $\D_X$-module direct image.
     This is to say that the $\D_Y^R$-module direct image computes the $\D_Y$-module direct image with additional structure.
-    For a $\D_Y^R$-module on $Y$ this structure could also be induced using the functoriality of the direct image by viewing sections of $\O_{\Spec R}$ as $\D_Y$-linear endomorphisms.
+    %For a $\D_Y^R$-module on $Y$ this structure could also be induced using the functoriality of the direct image by viewing sections of $\O_{\Spec R}$ as $\D_Y$-linear endomorphisms.
 
     By definition as a derived functor a long exact sequence is immediate.
     \begin{proposition}
@@ -165,8 +165,8 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
 
     Alternatively, the algebraic proof in chapter 2 of \cite{hotta2007d} may be generalised.
   \end{proof}
-  We want to establish that direct images also conserve holonomicity.
-  A analytical version of this result is found in theorem 1.17 of \cite{monteiro2016riemann}.
+  We want to establish that direct images also conserve relative holonomicity.
+  A analytical version of this result may be found in theorem 1.17 of \cite{monteiro2016riemann}.
   The analytic analogue of $\D_{Y}^R$ is given by $\D_{Y\times U/U}:= \D_Y\otimes_{\O_Y}\O_{Y\times U}$ where $U$ denotes the analytification of $\Spec R$.
   It is clear how notions such as the relative characteristic variety may be analytified.
 
@@ -188,6 +188,8 @@ The Bernstein-Sato ideal may be recovered from the characteristic variety.
   \begin{proof}
     The analytic version of this statement is provided by corollary 4.3 in \cite{schapira1994index}.
     This implies the algebraic version due to all involved notions commuting with analytification.
+
+    Alternatively, the proof in chapter 3 of \cite{sabbah2011introduction} can be generalised.
   \end{proof}
   \begin{theorem}\label{thm: RelHolConserved}
       Suppose that $\mu$ is proper and let $\M$ be a $\mu$-good relative holonomic $\D_Y^R$-module. Then $\int \M$ has relative holonomic cohomology.
@@ -462,7 +464,7 @@ The following statement and proof are analogous to \cref{lem: UpstairsB}.
   For any $i\in I$ set $\xi_i := \partial_i - \sum_{j=1}^{r}s_j\partial_j(u_j)u_j^{-1}$ and let $P = v^{-1}(\prod_{j=1}^r u_j^{-1}) (\prod_{i\in I}\xi_i^{\sum_{j=1}^r\mult_{E_i}(g_j)}) v$ then
   $$G^{s+1}\mu^*(dx) \cdot P =  q(s) G^s \mu^*(dx) $$
   where
-  $$q(s) = \prod_{i\in I}(\sum_{j=1}^r \mult_{E_i}(g_j)s_j + \mult_{E_i}(g_j) + k_i)\cdots(\sum_{j=1}^r \mult_{E_i}(g_j)s_j + 1 + k_i ).$$
+  $$q(s) = \prod_{i\in I}((\sum_{j=1}^r \mult_{E_i}(g_j)s_j + \mult_{E_i}(g_j)) + k_i)\cdots((\sum_{j=1}^r \mult_{E_i}(g_j)s_j) + 1 + k_i ).$$
 \end{proof}
 Recall that the $\D_Y^R$-module direct image computes the $\D_Y$-module direct image with additional structure.
 In particular the $\D_X$-linear endomorphism $t$ induces a endomorphism on $\Int\M$.
@@ -600,7 +602,6 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
   By abuse of notation we may also denote $L_i$ for the ideal in $R$ generated by $\ell_1,\ldots,\ell_i$.
   \\
 
-\newpage
   For any $i,j,k$ with $k\leq i$ denote $\E_{ik}^{m+j}:= \Ex{\D_\X^{R/L_{k}} }{m+j}(K_k, \D_\X^{R/L_k}) \otimes_{\scaleto{\D_\X^{R/L_{k}}}{8pt}} \D_\X^{R/L_{i}}$.
   Using \cref{lem: GradeToCMOverOpen} one can inductively construct the $\ell_i$ and open $\Spec R$ such that for every $i$
   \begin{enumerate}[label=(\roman*)]
@@ -609,7 +610,7 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
     \item $\E_{ii}^{m+j} = 0$ for every $j>0$.
   \end{enumerate}
   Iteratively applying \cref{lem: CMLemmaBudur} then shows that $\E_{ik}^{m}$ is $m$-Cohen-Macaulay for any $k<i$.
-  Then due to \cref{lem: NotBernsteinInjectiveAutomorphism} the polynomial $\ell_i$ induces a injection on $\E_{(i-1)k}^{m}$ for any $k<i$.
+  Then due to \cref{lem: NotBernsteinInjectiveAutomorphism} the polynomial $\ell_i$ induces a injection on $\E_{(i-1)k}^{m}$ for any $k\leq i$.
   Applying this fact with with the free resolution $\D_\X^{R/L_{i-1}}\to \D_\X^{R/L_{i-1}}$ for $\D_\X^{R/L_i}$ yields that $\Tr{\D_\X^{R/L_i}}{-p}(\E_{(i-1)k}^{m}, \D_\X^{R/L_i}) = 0$ for all $p<0$.
   Taking a locally free resolution for $\E_{(i-1)k}^m$ it follows that
   $$\mathcal{E}_{(i-1)k}^{m} \otimes^L_{\scaleto{\D_\X^{R/L_{i-1}}}{8pt}} \D_\X^{R/L_{r-1}} \cong  \mathcal{E}_{ik}^{m}  \otimes^L_{\scaleto{\D_\X^{R/L_{i}}}{8pt}}\D_\X^{R/L_{r-1}}. $$
@@ -666,11 +667,6 @@ The following lemma allows us to choose the $\ell_i$ appropriately such that the
   Then also $\Int\M/\U$ has grade $\geq m+1$ by \cref{lem: RestrictToCM}.
   \end{proof}
 Now all ingredients are in place for the proof of \cref{thm: EstimateBernsteinSatoZeroLocust}.
-\begin{theorem}
-  With notation as in \cref{sec: IntoductionChapterRelative} every irreducible component of $Z(B_{F,x})$ of codimension $1$ is a hyperplane of the form
-  $$\operatorname{mult}_{E_i}(g_1) s_1 + \cdots + \operatorname{mult}_{E_i}(g_r)s_r + k_i + c_i=0$$
-  with $c_i \in \mathbb{Z}_{\geq 0 }$.
-\end{theorem}
 \begin{proof}
   By \cref{lem: GradeNPlusOne} the $\D_X^R$-module $\M/\U$ has grade greater than or equal to $m + 1$.
   Hence \cref{lem: StabilisationChains} provides $N\geq 1$ such that $t^N\M/\U$ stabilises on $\X\times\Spec R$ for some open $\Spec R\subseteq \C^r$ with complement of codimension strictly greater than $1$.
