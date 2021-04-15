@@ -37,12 +37,9 @@ Observe that $\D_X$ is a sheaf of non-commutative rings.
 Given local coordinates $x_1,\ldots, x_n$ on $X$ it holds that
 $$\partial_i x_j - x_j\partial_i = \delta_{ij} $$
 where $\delta$ denotes the Kronecker delta.
-\begin{lemma}
+\begin{lemma}{\cite[Chapters 1 \& 4]{hotta2007d}}
   For any $x\in X$ the stalk $\D_{X,x}$ is left and right Noetherian. Moreover, in the algebraic case $\D_X$ is a left and right Noetherian sheaf of rings.
 \end{lemma}
-\begin{proof}
-  The algebraic and analytic cases may be found in chapters 1 and 4 of \cite{hotta2007d} respectively.
-\end{proof}
 Giving a left $\D_X$-module is equivalent to giving a $\O_X$-module $\M$ with $\Theta_X$-action such that
 $\xi\cdot (fm) = f (\xi \cdot m)  + \xi(f)\ m  $
 for any sections $f$ of $\O_X$ and $\xi$ of $\Theta_X$. Similarly, giving a right $\D_X$-module is equivalent to giving a $\O_X$-module $\M$ with $\Theta_X$-action such that
@@ -93,24 +90,15 @@ Then any $\gr\D_X$-module $\mathcal{M}$ has a corresponding module on $T^* X$ de
 By abuse of notation this module is still denoted $\mathcal{M}$ and it will always be implicitly assumed that $\gr \D_X$-modules live on $T^*X$ unless it is explicitly mentioned otherwise.
 In particular, for a filtration of the $\D_X$-module $\M$ the graded object $\gr \M = \oplus_i F_i \M / F_{i-1}\M$ is a $\gr \D_X$-module.
 
-\begin{proposition}\label{prop: GoodFiltration}
+\begin{proposition}{\cite[Chapter 2]{hotta2007d}}\label{prop: GoodFiltration}
   A $\D_X$-module $\M$ is coherent if and only if it locally admits a filtration such that $\gr \M$ is a coherent $\gr \D_X$-module. Such a filtration is called a good filtration. In the algebraic case the filtration can be taken globally.
 \end{proposition}
-\begin{proof}
-  A proof of this result may be found in chapter 2 of \cite{hotta2007d}.
-\end{proof}
-\begin{proposition}
+\begin{proposition}{\cite[Chapter 2]{hotta2007d}}
   Let $\M$ be a coherent $\D_X$-module, then the support of $\grrel\M$ in $T^* X$ is a independent of the chosen good filtration. It is called the characteristic variety of $\M$ and denoted $\Ch \M$.
 \end{proposition}
-\begin{proof}
-  A proof of this result may be found in chapter 2 of \cite{hotta2007d}.
-\end{proof}
-\begin{proposition}\label{prop: StructureChVar}
+\begin{proposition}{\cite[Chapter 2]{hotta2007d}}\label{prop: StructureChVar}
   Let $\M$ be a coherent $\D_X$-module, then $\Ch \M$ is a homogeneous and involutive closed subset of $T^* X$.
 \end{proposition}
-\begin{proof}
-  These results may be found in chapter 2 of \cite{kashiwara2003d}.
-\end{proof}
 Characteristic varieties behave well with respect to quotients and submodules.
 \begin{proposition}\label{prop: SESBehaviourChar}
   Consider a short exact sequence of coherent $\D_X$-modules
@@ -126,20 +114,15 @@ Characteristic varieties behave well with respect to quotients and submodules.
 Let $f$ be a non-constant function of $\O_X$ and $s$ a new variable.
 For the purposes of the study of Bernstein-Sato polynomials the coherent $\D_X$-module $\D_X f^s$ is essential.
 The corresponding characteristic variety is understood and may provide some intuition for general characteristic varieties.
-\begin{proposition}\label{prop: Charfs}
+\begin{proposition}{\cite{kashiwara1976b}}\label{prop: Charfs}
   The characteristic variety of the coherent $\D_X$-module $\D_Xf^s$ is the closure of
   $$W_f = \{(x,sf^{-1}df(x)); \qquad f(x)\neq 0, s\in \C \}$$
   in $T^*X$.
 \end{proposition}
-\begin{proof}
-  This proof of this result may be found in \cite{kashiwara1976b}.
-\end{proof}
-\begin{proposition}\label{prop: IsotropicAndDominate}
+The following result follows from \cref{prop: Charfs} by establishing that the part of the closure of $W_f$ above $f=0$ is isotropic.
+\begin{proposition}{\cite{kashiwara1976b}}\label{prop: IsotropicAndDominate}
   One can write $\Ch \D_X f^s = \Lambda \cup W$ for some isotropic variety $\Lambda \subseteq T^*X$ and a irreducible $(n+1)$-dimensional variety $W$ which dominates $X$.
 \end{proposition}
-\begin{proof}
-  The proof of this result may be found in \cite{kashiwara1976b}. It follows from \cref{prop: Charfs} by establishing that the part of the closure of $W_f$ above $f=0$ is isotropic.
-\end{proof}
 
 \subsection{Direct Image}
 In this section we describe the direct image of $\D_Y$-modules.
@@ -170,12 +153,9 @@ Most notably, it is immediate from the derived definition that one gets a long e
     there is a long exact sequence of $\D_X$-modules
     $$0 \to \int^0\M_1 \to \int^0 \M_2 \to \int^0 \M_3 \to \int^1 \M_1 \to \cdots.$$
 \end{proposition}
-\begin{proposition}
+\begin{proposition}{\cite{borel1987algebraic}}
   Let $\mu:Z\to Y$ and $\nu:Y\to X$ be a morphisms of smooth varieties. Then there is a isomorphism of functors $\int_{\nu\circ \mu} \cong \int_\nu \int_\mu$.
 \end{proposition}
-\begin{proof}
-  A proof may be found in chapter 6 of \cite{borel1987algebraic}.
-\end{proof}
 A similar theorem applies to complex manifolds provided $\mu$ is proper.
 Denote $D_{coh}^{*,*}(\D_X)$ for the full subcategory of $D^{*,*}(\D_X)$ consisting of those complexes of $\D_X$-modules with coherent cohomology.
 The coherence properties of the direct image in the analytic case require the following notion.
@@ -183,13 +163,10 @@ The coherence properties of the direct image in the analytic case require the fo
   A $\D_Y$-module $\M$ is said to be $\mu$-good if there exists a open cover $\{V_j\}_{j\in J}$ of $X$ such that $\M$ admits a good filtration on $\mu^{-1}(V_j)$ for any $j\in J$.
 \end{definition}
 Note that, by \cref{prop: GoodFiltration}, any coherent $\D_Y$-module on a algebraic variety is $\mu$-good.
-\begin{theorem}\label{thm: MuGoodCoherent}
+\begin{theorem}{\cite{sabbah2011introduction}}\label{thm: MuGoodCoherent}
   Let $\M$ be a $\mu$-good $\D_Y$-module and suppose that $\mu$ is proper on the support of $\M$.
   Then, $\int \M$ has coherent cohomology.
 \end{theorem}
-\begin{proof}
-  A proof for the analytic case may be found in chapter 3 of \cite{sabbah2011introduction}. The algebraic case follows similarly provided Grauert's coherence theorem is replaced with the algebraic version in theorem 3.2.1 of \cite{EGAIII}.
-\end{proof}
 Consider the following cotangent diagram.
 $$
 \begin{tikzcd}
@@ -197,13 +174,10 @@ $$
     T^* Y & & T^*X
 \end{tikzcd}
 $$
-\begin{proposition}\label{prop: EstimateProper}
+\begin{proposition}{\cite[Chapter 3]{sabbah2011introduction}}\label{prop: EstimateProper}
   Let $\M$ be a $\mu$-good $\D_Y$-module and suppose that $\mu$ is proper on the support of $\M$. Then, for any $j\geq 0$
   $$\Ch\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Ch \M) \right).$$
 \end{proposition}
-\begin{proof}
-  See remark 2.5.2 in chapter 2 of \cite{hotta2007d} for the algebraic case or chapter 3 of \cite{sabbah2011introduction} for the analytic case.
-\end{proof}
 \section{Riemann-Hilbert Correspondence}\label{sec: Riemann-Hilbert}
 This section concerns the Riemann-Hilbert correspondence which states that a system of differential equations is equivalent to it's system of solutions.
 The systems of differential equations are encoded in regular holonomic $\D_X$-modules.
@@ -218,37 +192,22 @@ Observe that the involutive part of \cref{prop: StructureChVar} implies that $\d
 \end{definition}
 The full subcategory of $D^{*,*}(\D_X)$ consisting of complexes with holonomic cohomology is denoted $D_h^{*,*}(\D_X)$.
 For technical purposes it is mostly important that holonomic modules have finiteness properties.
-\begin{proposition}\label{prop: FiniteLength}
+\begin{proposition}{\cite[Chapter 4]{kashiwara2003d}}\label{prop: FiniteLength}
   Let $\M$ be a holonomic $\D_X$-module. Then, for any $x\in X$, the stalk $\M_x$ is a $\D_{X,x}$-module of finite length.
 \end{proposition}
-\begin{proof}
-  This result may be found in chapter 4 of \cite{kashiwara2003d}.
-\end{proof}
-\begin{proposition}\label{prop: HomAlgebraic}
+\begin{proposition}{\cite[Chapter 5]{bjork1979rings}}\label{prop: HomAlgebraic}
   Let $\M$ be a holonomic $\D_X$-module. Then $\Hom_{\D_X}(\M,\M)$ is $\C$-algebraic. This is to say that for any $\varphi \in\Hom_{\D_X}(\M,\M) $ there exists some polynomial $b$ with coefficients in $\C$ such that $b(\varphi)=0$.
 \end{proposition}
-\begin{proof}
-  This result may be found in chapter 5 of \cite{bjork1979rings}.
-\end{proof}
-\begin{proposition}
-  Let $\M$ be a holonomic $\D_X$-module and suppose that $\mu:Y\to X$ is proper on the support of $\M$. Then $\int \M$ has holonomic cohomology. Moreover, the assumption that $\mu$ is proper may be removed if in the algebraic case.
+\begin{proposition}{\cite[Chapter 4]{sabbah2011introduction}}
+  Let $\M$ be a holonomic $\D_X$-module and suppose that $\mu:Y\to X$ is proper. Then $\int \M$ has holonomic cohomology.
 \end{proposition}
-\begin{proof}
-  This result may be found in chapter 4 of \cite{sabbah2011introduction} or chapter 3 of \cite{hotta2007d} in the algebraic case.
-\end{proof}
-When $\mu$ is proper this may be established by combining \cref{prop: EstimateProper} with the following results.
-\begin{lemma}
+This theorem can be established by combining \cref{prop: EstimateProper} with the following facts.
+\begin{lemma}{\cite[Chapter 4]{sabbah2011introduction}}
   Let $\M$ be a holonomic $\D_X$-module. Then $\M$ has a globally defined good filtration.
 \end{lemma}
-\begin{proof}
-  This result may be found in chapter 4 of \cite{sabbah2011introduction}.
-\end{proof}
-\begin{lemma}\label{lem: IsotropicDirectImage}
+\begin{lemma}{\cite{kashiwara1976b}}\label{lem: IsotropicDirectImage}
   Let $\mu:Y\to X$ be a proper morphism and $V\subseteq T^*Y$ an isotropic subvariety. Then $\widetilde{\mu}((T^*\mu)^{-1}(\Chrel \M) )$ is also isotropic.
 \end{lemma}
-\begin{proof}
-  This result may be found in \cite{kashiwara1976b}.
-\end{proof}
 \subsection{Regular singularities}
 This section is based on chapter 5 of \cite{kashiwara2003d} and chapter 6 of \cite{hotta2007d}.
 Let $X=\C$ considered as a complex manifold and consider a ordinary differential operator
@@ -261,7 +220,7 @@ The solutions near zero may be more subtle due to monodromy.
 Observe that $\Ch \M\subseteq \{(x,\xi): x\xi = 0\}$.
 Hence, for any filtration on $\M$ there exists some $N>0$ such that
 $(x\xi)^N \gr\M = 0 $.
-\begin{proposition}
+\begin{proposition}{\cite{kashiwara2003d}}
   The following conditions are equivalent.
   \begin{enumerate}
     \item There exists a filtration on $\M$ such that $x\xi\gr\M = 0$.
@@ -269,9 +228,6 @@ $(x\xi)^N \gr\M = 0 $.
     near $0$ for some $s\geq 0$, $\lambda \in \C$ and holomorphic $u_j$.
   \end{enumerate}
 \end{proposition}
-\begin{proof}
-  This result may be found in chapter 5 of \cite{kashiwara2003d}.
-\end{proof}
 If these two equivalent conditions are satisfied one calls $0$ a regular singularity of $\M$.
 This has the following generalisation to higher dimensions.
 \begin{definition}
@@ -315,26 +271,17 @@ This uses the analytification functor which is provided by the GAGA principle an
   $$\supp^m\mathcal{F}^\bullet = \supp H^m \mathcal{F}^\bullet; \qquad \operatorname{cosupp}^m\mathcal{F}^\bullet = \supp^{-m}\mathbb{D}\mathcal{F}^\bullet$$
   where $\mathbb{D}\mathcal{F}^\bullet := R \Hom_\C(\mathcal{F}^\bullet,\C_X)$.
   The support $\supp \mathcal{F}^\bullet$ is the closure of the union of the $\supp^m\mathcal{F}^\bullet$.
-  \begin{theorem}
+  \begin{theorem}{\cite[Chapter 4]{dimca2004sheaves}}
     Let $\mathcal{F}^\bullet$ be a constructible complex on $Y$ and consider a morphism $\mu:Y\to X$ which is proper on $\supp \mathcal{F}^\bullet$. Then $Rf_*(\mathcal{F}^\bullet)$ is constructible on $X$.
   \end{theorem}
-  \begin{proof}
-    This result may be found in chapter 4 of \cite{dimca2004sheaves}.
-  \end{proof}
-  \begin{theorem}
+  \begin{theorem}{\cite[Chapter 4]{dimca2004sheaves}}
     Let $\mathcal{F}^\bullet$ be a complex of $D^b(\C_X)$. Then $\mathcal{F}^\bullet$ is constructible if and only if the dual $\mathbb{D}\mathcal{F}^\bullet$ is constructible.
   \end{theorem}
-  \begin{proof}
-    This result may be found in chapter 4 of \cite{dimca2004sheaves}.
-  \end{proof}
   Let $D^{\leq 0}(X)$ denote the full subcategory of $D^b_c(X)$ consisting of complexes with $\dim \supp^{-m} \mathcal{F}^\bullet < m$ and $\dim \supp^m \mathcal{F}^\bullet = 0$ for all $m\geq 0$.
   Dually $D^{\geq 0}(X)$ consists of complexes with $\dim \op{cosupp}^{-m}\mathcal{F}^\bullet <m$ and $\dim \op{cosupp}^m \mathcal{F}^\bullet = 0$ for all $m\geq 0$.
-  \begin{proposition}
+  \begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}
     The pair $(D^{\leq 0}(X), D^{\geq 0}(X))$ is a non-degenerated $t$-structure on the triangulated category $D^{b}_c(X)$.
   \end{proposition}
-  \begin{proof}
-    This result may be found in chapter 5 of \cite{dimca2004sheaves}.
-  \end{proof}
   \begin{definition}
     The heart of the $t$-structure on $D^b_c(X)$ are called the perverse sheaves $\operatorname{Perv}(X) = D^{\leq 0}(X)\cap D^{\geq 0}(X).$
   \end{definition}
@@ -342,12 +289,9 @@ This uses the analytification functor which is provided by the GAGA principle an
   The reason for the terminology perverse sheaves is that the functor $U\mapsto \operatorname{Perv}(U)$ has the gluing property of sheaves.
   More precisely, it is a stack.
   Perverse sheaves still capture the local systems.
-  \begin{theorem}
+  \begin{theorem}{\cite[Chapter 5]{dimca2004sheaves}}
     Let $X$ be a complex manifold of dimension $n$. Then $\mathcal{L}[n]$ is a perverse sheaf on $X$ for any local system $\mathcal{L}$ on $X$.
   \end{theorem}
-  \begin{proof}
-    This result may be found in chapter 5 of \cite{dimca2004sheaves}.
-  \end{proof}
   The following are immediate from \cref{prop: HeartExtension} and \cref{prop: tStructCohomD}.
   \begin{proposition}
     A constructible complex $\mathcal{F}^\bullet$ is a perverse sheaf if and only if $^pH(\mathcal{F}^\bullet) = 0$ for all $k\neq 0$.
@@ -365,25 +309,16 @@ This uses the analytification functor which is provided by the GAGA principle an
   from $D^{b,*}(\D_X)^{opp}$ to $D^{b,*}(\D_X)$.
   The de Rham complex of $\M^\bullet$ is defined by
   $$\DR(\M^\bullet):=\Omega_X^\bullet \otimes_{\D_X} \M^\bullet[n]. $$
-  \begin{proposition}
+  \begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}
     There is a natural isomorphism $\Sol(\blank) \cong \DR(\mathbb{D}\blank)$.
   \end{proposition}
-  \begin{proof}
-    This result may be found in chapter 5 of \cite{dimca2004sheaves}.
-  \end{proof}
-  \begin{proposition}
+  \begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}
     For any holonomic complex $\M^\bullet$ in $D_h^{b,\ell}(\D_X)$ the complexes $\Sol(\M^\bullet)$ and $\DR(\M^\bullet)$ are constructible.
   \end{proposition}
-  \begin{proof}
-    This result may be found in chapter 5 of \cite{dimca2004sheaves}.
-  \end{proof}
   We are finally ready to state the Riemann-Hilbert correspondence on the equivalence between differential equations and their solutions.
   \begin{theorem}[Riemann-Hilbert Correspondence]
     The de Rham functor $\DR:D_{rh}^{b,\ell}(\D_X)\ab \to D_c^b(X)$ is a $t$-exact equivalence of categories and commutes with direct images.
   \end{theorem}
-  \begin{proof}
-    This result may be found in chapter 5 of \cite{dimca2004sheaves}.
-  \end{proof}
   \begin{corollary}
     The de Rham functor is a equivalence of categories between the category of regular holonomic $\D_X$-modules and $\operatorname{Perv}(X)$.
   \end{corollary}
@@ -400,12 +335,9 @@ The algebraic case will be discussed in detail in the next chapter.
 Let $X$ be a complex manifold and consider a holomorphic function $f:X \to \C$.
 Let $x\in X$ with $f(x) = 0$, we study the function germ $f:(X,x)\to (\C,0)$.
 \subsection{Monodromy}
-\begin{theorem}
+\begin{theorem}{\cite{milnor2016singular}}
   Let $B\subseteq X$ be a small ball and pick $t\in \C^\times$ close to zero. The diffeomorphism class of $F_{f,x} := f^{-1}(t)\cap B $  is independent of the choice of $t$.
 \end{theorem}
-\begin{proof}
-  The isolated singularity case is established in \cite{milnor2016singular} and the general case was established by Hamm-Le.
-\end{proof}
 \begin{definition}
   The diffeomorphism class of $F_{f,x}$ is called the Milnor fiber.
 \end{definition}
@@ -427,12 +359,9 @@ In fact, it will even be established that all roots of $b_{f,x}(s)$ are negative
 
 Let $Z(b_{f,x})$ denote the set of zeros of the Bernstein-Sato polynomial.
 These are connected to monodromy by the following classical theorem due to Malgrange and Kashiwara.
-\begin{theorem}\label{thm: EigMonodromy}
+\begin{theorem}{\cite{budur2015bernstein}}\label{thm: EigMonodromy}
 The set of eigenvalues of monodromy is equal to the set $\exp(2\pi i\ Z(b_{f,x}))$.
 \end{theorem}
-\begin{proof}
-  This theorem may be found in \cite{budur2015bernstein}.
-\end{proof}
 Monodromy is a topological notion whereas the Bernstein-Sato polynomial is defined in terms of $\D_X$-modules.
 This suggest that the Riemann-Hilbert correspondence is involved.
 Indeed, monodromy of the Milnor fiber can be encoded in a constructible complex so that the Riemann-Hilbert correspondence is applicable.
@@ -444,14 +373,11 @@ Denote $\iota:f^{-1}(0)\to X$ for the inclusion map.
 \end{definition}
 Denote $\iota_x:\{x\}\to f^{-1}(0)$ for the inclusion map.
 The following theorem is due to Deligne.
-\begin{theorem}
+\begin{theorem}{\cite{budur2015bernstein}}
   There is a isomorphism
   $$H^i(F_{f,x}, \C) \cong \mathbb{H}^i(L\iota_x^* (\psi_f \C_X)) $$
   and the monodromy action on the cohomology of the Milnor fiber corresponds with the action of the covering transformations $\widetilde{\C}^\times \to \widetilde{\C}^\times$ on the nearby cycles.
 \end{theorem}
-\begin{proof}
-  This theorem may be found in \cite{budur2015bernstein}.
-\end{proof}
 To describe the $\D_X$-theoretic counterpart of this constructible complex requires the technical notion of $V$-filtrations.
 The interested reader may find these concepts in \cite{budur2015bernstein}.
 \subsection{Estimation of $Z(b_{f,0})$}
@@ -466,13 +392,10 @@ Let $D$ be the divisor determined by $f$.
 By Hironaka's resolution of singularities one can find a resolution $\mu:Y\to X$ for $(X,D)$.
 Let $g = f\circ \mu$ denote the pullback of $f$ to $Y$, then $\mu^*D = \sum_{i=1}^r \operatorname{mult}_{E_i}(g) E_i$ where $\operatorname{mult}_{E_i}(g)$ denotes the order of vanishing of $g$ on the irreducible hypersurface $E_i$.
 Using that $g$ is locally a monomial Kashiwara was able to establish the following estimate by consideration of the direct image of the $\D_Y$-module $\D_Y g^s$.
-\begin{theorem}
+\begin{theorem}{\cite{kashiwara1976b}}
   Every root of $b_{f,x}(s)$ is of the form $ -c_i/\operatorname{mult}_{E_i}(g) $ with $c_i\in \mathbb{Z}_{>0}$.
   In particular $Z(b_{f,x})\subseteq \mathbb{Q}_{<0}$.
 \end{theorem}
-\begin{proof}
-  This is proved in \cite{kashiwara1976b}.
-\end{proof}
 Combining this estimate with \cref{thm: EigMonodromy} one gets the following theorem.
 \begin{theorem}
   The eigenvalues of monodromy are roots of unity.
