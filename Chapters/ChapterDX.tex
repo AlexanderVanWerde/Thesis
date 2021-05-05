@@ -37,7 +37,7 @@ The following lemma follows by a direct computation.
 \begin{lemma}\label{lem: EquivalencLeftRight}
   The functor $\blank\otimes_{\O_X}\omega_X$ is a equivalence of categories with pseudoinverse  $\Hom_{\O_X}(\omega_X,\blank)$.
 \end{lemma}
-\begin{example}
+\begin{example}\label{ex: Solutions}
   Consider the differential equation defining the square root function $f(z)= z^{-1/2}$
   $$zf'(z) -1/2f(z) = 0.$$
   The use of $f$ to describe the differential equation is somewhat arbitrary.
@@ -53,7 +53,7 @@ The following lemma follows by a direct computation.
   $$P:\D_{\C} \to \D_{\C}: Q \mapsto  Q(z\partial_x -1/2).$$
   The solutions are then encoded in the sheaf $\Hom_{\D_\C}(\M,\O_\C)$.
 \end{example}
-\begin{remark}
+\begin{remark}\label{rem: Solutions}
   More generally than the foregoing example for a system of differential equations
   $$\sum_{j=1}^k P_{ij}(x,\partial) f_j = 0; \qquad i= 1,\ldots,m$$
   with unknown functions $f_j$ on $X$ and differential operators $P_{ij}\in \D_X(X)$
@@ -274,7 +274,7 @@ This uses the analytification functor which is provided by the GAGA principle an
   Let $\M$ be a holonomic $\D_X$-module on a smooth variety $X$. Denote $\iota:X \to \overline{X}$ for the smooth completion of $X$. Then $\M$ is called regular if $(\int_\iota \M)^{an}$ is regular holonomic on the complex manifold $\overline{X}^{an}$.
 \end{definition}
 \subsection{Perverse Sheaves}
-  Classically, the solutions to a differential equation on a vector bundle produce a local system.
+  Classically, the solutions to a differential equation on a vector bundle produces a local system.
   One can not expect local systems in the case of general $\D_X$-modules since their support could be a proper subvariety.
   \begin{definition}
     Let $X$ be a complex manifold. A stratification of $X$ consists of a locally finite partition $X  = \sqcup_{j\in J} X_j$ into connected locally closed subsets, called strata, such that
@@ -325,8 +325,9 @@ This uses the analytification functor which is provided by the GAGA principle an
     it holds that if two terms are perverse sheaves then so is the third.
   \end{proposition}
 \subsection{Riemann-Hilbert Correspondence}
-  Recall that $\Hom_{\D_X}(\M, \O_X)$ encodes the solutions of a system of differential equations.
+  Recall from \cref{ex: Solutions} and \cref{rem: Solutions} that $\Hom_{\D_X}(\M, \O_X)$ encodes the solutions of a system of differential equations.
   More generally, the solutions complex is the functor $\operatorname{Sol}(\blank) := R \Hom_{\D_X}(\blank,\O_X)[n]$ from $D^{b,\ell}(\D_X)^{opp}$ to $D^{b}(\C_X)$.
+  This is a contravariant functor.
   The contravariance may be fixed using the duality functor
   $$\mathbb{D} = R\Hom_{\D_X}(\blank,\D_X)\otimes_{\O_X}^L\omega_X^{-1}[n]$$
   from $D^{b,*}(\D_X)^{opp}$ to $D^{b,*}(\D_X)$.
@@ -348,10 +349,13 @@ This uses the analytification functor which is provided by the GAGA principle an
   \begin{proof}
     Follows from the Riemann-Hilbert correspondence and \cref{prop: FunctorHeart}.
   \end{proof}
-\section{Monodromy and Bernstein-Sato Polynomials}\label{sec: MonodromyBS}
-The goal of this section is to motivate Bernstein-Sato polynomials by their connection to monodromy.
+\section{Interpretation and estimation of Bernstein-Sato polynomials}\label{sec: MonodromyBS}
+Philosophically, the Riemann-Hilbert correspondence states that there is a intimate connection between $\D_X$-modules and topology.
+The goal of this section is to investigate a particular instantiation of this connection, namely the connection between Bernstein-Sato polynomials and monodromy.
+
+
 Further, we include Kashiwara and Lichtin's proof for the estimation of the roots of the Bernstein-Sato polynomial.
-This proof is a important framework for the generalised proof in \cref{ch: ChapterRelHol}.
+This proof is a important framework for the generalisation in \cref{ch: ChapterRelHol}.
 
 We focus on the local analytic case.
 The algebraic case will be discussed in detail in the next chapter.
@@ -360,34 +364,63 @@ Let $x\in X$ with $f(x) = 0$, we study the function germ $f:(X,x)\to (\C,0)$.
 \subsection{Monodromy}
 \begin{theorem}{\cite{milnor2016singular}}
   Let $B\subseteq X$ be a small ball and pick $t\in \C^\times$ close to zero. The diffeomorphism class of $F_{f,x} := f^{-1}(t)\cap B $  is independent of the choice of $t$.
+
+  This diffeomorphism class is called the Milnor fiber.
 \end{theorem}
-\begin{definition}
-  The diffeomorphism class of $F_{f,x}$ is called the Milnor fiber.
-\end{definition}
-Going over a loop around the origin in $T$ induces a endomorphism $M^*$ on the cohomology $H^j(F_{f,x},\C)$ for every $j\in \Z$.
+Going over a loop around the origin in $\C^\times$ induces a well-defined endomorphism $M^*$ on the singular cohomology $H^j(F_{f,x},\C)$ for every $j\in \Z$.
 This is called the monodromy action and only depends on the local singularity $f^{-1}(0)\cap B$.
 In particular, this means that the eigenvalues of $M^*$ on $H^j(F_{f,x},\C)$ are invariants of the singularity.
 If $\lambda \in \C$ is a eigenvalue of $M^*$ on some $H^j(F_{f,x},\C)$ it is called a eigenvalue of monodromy.
-
-
+\subsection{Bernstein-Sato polynomials}
 \begin{definition}
   Let $s$ be a new variable.
   The local Bernstein-Sato polynomial $b_{f,x}(s)\in \C[s]$ is the monic polynomial of minimal degree such that there exists some differential operator $P(x,\partial,s)$ in $\D_{X,x}\otimes_{\C}\C[s]$ with
   $$P(x,\partial,s) f^{s+1} = b_{f,x}(s) f^s$$
   in the stalk at $x$.
 \end{definition}
-The existence of Bernstein-Sato polynomials was originally proved by I.N. Berntein.
-The following section gives a alternative method to prove the existence.
-In fact, it will even be established that all roots of $b_{f,x}(s)$ are negative rational numbers.
+The fact that there always exists a Bernstein-Sato polynomial was proved by I.N. Bernstein, I.S. Gelfand and independently by Atiyah.
+\begin{remark}
+  Algorithms to compute the Bernstein-Sato polynomials are known due to \cite{oaku1997algorithm}.
+  These algorithms have been implemented in software packages such as SINGULAR.
+  This package was used in the computation of the following examples.
+\end{remark}
+\begin{example}\label{ex: Monomial}
+  The monomial $f = x_1^{\alpha_1}\cdots x_n^{\alpha_n}$ on $\C^n$ satisfies the Bernstein-Sato relation
+  $$\partial_1^{r_1}\cdots \partial_n^{r_n} f^{s+1} = \prod_{i=1}^n (r_i s + r_i)\cdots (r_i s + 1) f^{s}. $$
+\end{example}
+\begin{example}
+  The hyperplane arrangement $f = x(x+y)(x+2y)$ on $\C^2$ has local Bernstein-Sato polynomial
+  $$ b_{f,0} = (s+2/3)(s+1)^2(s+4/3).$$
+\end{example}
+\begin{example}
+  The cusp singularity $f = x^2 - y^2$ on $\C^2$ has local Bernstein-Sato polynomial
+  $$b_{f,0}(s) = (s+5/6)(s+1)(s+7/6).$$
+\end{example}
+\begin{example}
+  The cardoid $f = (x^2+y^2+x)^2-(x^2+y^2)$ on $\C^2$ has local Bernstein-Sato polynomial
+  $$b_{f,0}(s) = (s+5/6)(s+1)(s+7/6). $$
+\end{example}
+Observe that in all these examples the roots of the local Bernstein-Sato polynomial are negative rational numbers.
+This is a general fact due to \cite{kashiwara1976b}.
+The proof of this statement will be discussed in \cref{sec: Estimation}.\\
 
 Let $Z(b_{f,x})$ denote the set of zeros of the Bernstein-Sato polynomial.
-These are connected to monodromy by the following classical theorem due to Malgrange and Kashiwara.
-\begin{theorem}{\cite{budur2015bernstein}}\label{thm: EigMonodromy}
+These are connected to monodromy by the following theorem due to Malgrange and Kashiwara.
+\begin{theorem}\label{thm: EigMonodromy}
 The set of eigenvalues of monodromy is equal to the set $\exp(2\pi i\ Z(b_{f,x}))$.
 \end{theorem}
+\begin{remark}
+  There are many more connections between Bernstein-Sato polynomials and other invariants of singularities.
+
+  A open problem, called the monodromy conjecture, concerns the relation between the roots of Bernstein-Sato polynomials and the poles of a certain meromorphic function called the Zeta function.
+  Another connection to the world of topology is was given by a conjecture of \cite{yano1982exponents} using a topological invariant of Puiseux characteristics in the case of a plane curve.
+  This conjecture was proved in full generality in \cite{blanco2019yano}.
+
+  More invariants will be encountered in \cref{ch: ChapterRelHol}.
+\end{remark}
 Monodromy is a topological notion whereas the Bernstein-Sato polynomial is defined in terms of $\D_X$-modules.
 This suggest that the Riemann-Hilbert correspondence is involved.
-Indeed, monodromy of the Milnor fiber can be encoded in a constructible complex so that the Riemann-Hilbert correspondence is applicable.
+Indeed, the monodromy of the Milnor fiber can be encoded in a constructible complex so that the Riemann-Hilbert correspondence is applicable.
 
 Let $\widetilde{\C}^\times$ denote the universal cover of $\C^\times$ and consider the projection $p:X\times \widetilde{\C}^\times \to X$.
 Denote $\iota:f^{-1}(0)\to X$ for the inclusion map.
@@ -396,18 +429,15 @@ Denote $\iota:f^{-1}(0)\to X$ for the inclusion map.
 \end{definition}
 Denote $\iota_x:\{x\}\to f^{-1}(0)$ for the inclusion map.
 The following theorem is due to Deligne.
-\begin{theorem}{\cite{budur2015bernstein}}
+\begin{theorem}
   There is a isomorphism
   $$H^i(F_{f,x}, \C) \cong \mathbb{H}^i(L\iota_x^* (\psi_f \C_X)) $$
   and the monodromy action on the cohomology of the Milnor fiber corresponds with the action of the covering transformations $\widetilde{\C}^\times \to \widetilde{\C}^\times$ on the nearby cycles.
 \end{theorem}
 To describe the $\D_X$-theoretic counterpart of this constructible complex requires the technical notion of $V$-filtrations.
 The interested reader may find these concepts in \cite{budur2015bernstein}.
-\subsection{Estimation of $Z(b_{f,0})$}
-Estimation of $Z(b_{f,x})$ is easy if $f$ is a monomial.
-For instance, if $f = x_1^{r_1}\cdots x_n^{r_n}$ then set $P = \partial_1^{r_1}\cdots \partial_n^{r_n}$ to get
-$$P f^{s+1} = \prod_{i=1}^n (r_i s + r_i)\cdots (r_i s + 1) f^{s}. $$
-The main idea employed in the proof by \cite{kashiwara1976b} is that one can reduce to this situation by resolution of singularities and $\D_X$-module direct images.
+\subsection{Estimation of $Z(b_{f,0})$}\label{sec: Estimation}
+The main idea employed in the estimation of $Z(b_{f,0})$ by \cite{kashiwara1976b} is that one can reduce to the monomial case \cref{ex: Monomial} by a resolution of singularities and use of $\D_X$-module direct images.
 \begin{definition}
   Let $D$ be a divisor on $X$. A strong log resolution of $(X,D)$ consists of a projective morphism $\mu:Y\to X$ which is a isomorphism over the complement of $D$ such that $Y$ is smooth and $\mu^*D$ is a simple normal crossings divisor.
 \end{definition}
@@ -423,7 +453,7 @@ Combining this estimate with \cref{thm: EigMonodromy} one gets the following the
 \begin{theorem}
   The eigenvalues of monodromy are roots of unity.
 \end{theorem}
-\cite{lichtin1989poles} improved the estimate by similar computations for the right $\D_Y$-module $\M$ spanned by $ g^s \mu^*(dx)$ inside $\D_Yg^s\otimes_{\O_Y} \omega_Y$.
+\cite{lichtin1989poles} improved the estimate by similar computations for the right $\D_Y$-module $\M$ spanned by $g^s \mu^*(dx)$ inside $\D_Yg^s\otimes_{\O_Y} \omega_Y$.
 The advantage of this approach is that $\mu^*(dx)$ involves the local behaviour of $\mu$ which can detect redundant divisors in $\mu^*D$.
 The vanishing of $\mu^*(dx)$ is measured in the relative canonical divisor $K_{Y/X} = \sum k_i E_i$.
 \begin{theorem}\label{thm: LichtinEstimate}
