@@ -1,0 +1,31 @@
+\chapter{Moments of Holonomic Distributions}
+In this chapter we discuss how holonomicity may be used to determine recursion relations for the moments of a probability distribution.
+Similar observations have been made in \cite{brehard2019moment} whose main focus is on distributions of the form $\mu = \exp(p(x))1_{G}(x)dx$ with $p(x)$ a multivariate polynomial and $G$ a semi-algebraic set.
+There it is discussed when it is possible to recover the coefficients of $p(x)$ and some polynomial $g(x)$ vanishing on the boundary of $G$ given a finite number of moments $m_n = \int x^n d\mu$.
+
+We will not address this reconstruction problem and instead focus on the asymptotic rate of growth of the moments.
+This problem is of interest in non-asymptotic probability theory.
+For non-asymptotic concentration results it is often necessary to assume that the tails of the probability distribution decrease sufficiently rapidly.
+This gives rise to the notions of subgaussian and subexponential random variables.
+The goal of this chapter is to provide a easy way to verify whether a given holonomic distribution satisfies these conditions.
+
+In \cref{sec: Motivation} we provide the probabilistic motivation for the problem.
+
+
+
+
+\section{Probabilistic Motivation}\label{sec: Motivation}
+
+\section{Holonomic Distributions}
+
+\section{Recursion on the Moments}
+Let $\mu$ be a fixed holonomic distribution on $\mathbb{R}^n$ and assume that the moments
+$$m_\alpha = \int_{\mathbb{R}^n} x^\alpha d\mu$$
+exist for all $\alpha \in \mathbb{Z}_{\geq 0}^n$.
+
+From here on out we will assume that $n = 1$ which is the main case of interest in the probabilistic context.
+\begin{proposition}
+  Suppose that $\mu$ is annihilated by $P \in \D_{\C}^n$. If $P = \sum_{ij} c_{ij}x^i \partial^j$ then it holds that
+  $$ \sum_{ij} c_{ij} (n+ i)(n+ i -1)\cdots (n+i-j + 1) m_{n + i - j} = 0$$
+  for any $n \geq 0$.
+\end{proposition}

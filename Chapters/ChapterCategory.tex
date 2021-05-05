@@ -85,7 +85,7 @@ A vertical filtration $F^{m} \operatorname{Tot}(E)^n = \oplus_{p+q = n, p <m} E^
   A filtration of a complex $C_\bullet$ is a family of subcomplexes $\{F^m C^\bullet\}_{m\in \Z}$.
   The filtration is said to be exhaustive if $C^\bullet = \cup_m F^mC^\bullet$.
 \end{definition}
-\begin{proposition}{\cite[Chapter 5]{weibel1995introduction}}
+\begin{proposition}{\cite[Theorem 5.4.1.]{weibel1995introduction}}
  A exhaustive filtration of a complex $C^\bullet$ determines a spectral sequence starting with $E^{pq}_0 = F^p C^{p+q}/F^{p-1}C^{p+q}$ and $E^{pq}_1= H^{p+q} E^{p\bullet}_0$.
 \end{proposition}
 \begin{definition}
@@ -94,7 +94,7 @@ A vertical filtration $F^{m} \operatorname{Tot}(E)^n = \oplus_{p+q = n, p <m} E^
 \end{definition}
 The following proposition may be used in the motivating problem to recover the cohomology of the total complex up to extension.
 This is to say that we know that the total cohomology $H^* = H^* \operatorname{Tot}(E)^\bullet$ admits a filtration such that $E^{pq}_\infty \cong F^p H^{p+q}/ F^{p-1} H^{p+q}$.
- \begin{proposition}{\cite[Chapter 5]{weibel1995introduction}}\label{prop: FiltrationSpectral}
+ \begin{proposition}{\cite[Theorem 5.51.]{weibel1995introduction}}\label{prop: FiltrationSpectral}
    Let $C^\bullet$ be a complex with a exhaustive bounded filtration.
    Then, the associated spectral sequence is bounded and converges to $H^*(C^\bullet)$.
  \end{proposition}
@@ -125,10 +125,10 @@ This definition can be made more concrete provided the category has enough injec
 \end{definition}
 Observe that two homotopic maps induce the same morphism in cohomology.
 It follows that there is a well-defined functor $p_\AA^*:K^*(\AA)\to D^*(\AA)$.
-\begin{proposition}{\cite[Chapter 1]{dimca2004sheaves}}\label{prop: DerivedCategoryInjectives}
+\begin{proposition}{\cite[Proposition 1.3.10.]{dimca2004sheaves}}\label{prop: DerivedCategoryInjectives}
  Let $\AA$ be a abelian category with enough injectives and denote $I(\AA)$ for the full subcategory of injective objects.
  Then the natural functor
- $$p_\AA^*: K^+(I(\AA))\to D^+(\AA) $$
+ $$p_\AA^+: K^+(I(\AA))\to D^+(\AA) $$
  is a equivalence of categories.
 \end{proposition}
 By passing to the opposite categories one gets a similar theorem in categories with enough projectives for $D^-(\AA)$.
@@ -154,14 +154,14 @@ $$
  \end{tikzcd}
 $$
 The triangles $T_u$ may be used to encode short exact sequences.
-\begin{proposition}{\cite[Chapter 1]{dimca2004sheaves}}\label{prop: SESYieldsTriangle}
+\begin{proposition}{\cite[Proposition 1.1.23.]{dimca2004sheaves}}\label{prop: SESYieldsTriangle}
 Given a short exact sequence in $C^*(\AA)$
 $$0 \to X^\bullet \xrightarrow{u} Y^\bullet \xrightarrow{v} Z^\bullet \to 0 $$
 there exists a quasi-isomorphism $m:C_u^\bullet \to Z^\bullet$ with $m\circ q = v$.
 \end{proposition}
 This shows that a short exact sequence induces a triangle isomorphic to a standard triangle $T_u$ in $D^*(\AA)$.
 Further evidence that the triangles $T_u$ behave like short exact sequences is given by the following result.
-\begin{proposition}{\cite[Chapter 1]{dimca2004sheaves}}
+\begin{proposition}{\cite[Lemma 1.1.20, Proposition 1.1.21]{dimca2004sheaves}}
  Let $u:X^\bullet \to Y^\bullet$ be a morphism in $C^*(\AA)$.
  \begin{enumerate}
    \item[(i)] The composition of any two consecutive maps in $T_u$ is homotopic to $0$.
@@ -203,7 +203,7 @@ Observe that these categories have a shift functor $T$ given by $TX^\bullet = X^
    such that $(id_X, v,a)$ and $(u,id_Z,b)$ are morphisms of triangles.
    \end{enumerate}
 \end{definition}
-\begin{proposition}{\cite[Chapter 1]{dimca2004sheaves}}
+\begin{proposition}{\cite[Proposition 1.2.4. ]{dimca2004sheaves}}
  Let $\mathcal{A}$ be a abelian category. Then $K^*(\AA)$ and $D^*(\AA)$ are triangulated categories.
 \end{proposition}
 A triangle $X\to Y \to Z \to TX$ will also be denoted $X\to Y \to Z \xrightarrow{+1} X$ and $T^m X$ may be denoted with $X[m]$.
@@ -251,14 +251,14 @@ Given abelian categories $\AA, \mathcal{B}$ and a functor of triangulated catego
  Let $F$ be as above. The right derived functor of $F$ is a initial couple $(R^*F,\xi_F)$ consisting of a functor of triangulated categories $R^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:p_B\circ F \to R^*F \circ p_\AA^*$.
  By initial it is meant that for any other such couple $(G,\zeta)$ there is a unique natural transformation $\eta: R^*F\to G$ such that $\zeta = (\eta \circ p_\AA^*)\circ \xi_{F}$.
 \end{definition}
-The dual notion is a left derived functor. This is a final couple $(L^*F,\xi_F)$ consisting of a functor of triangulated categories $F^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:  L^*F \circ p_\AA^* \to p_B\circ F$.
+The dual notion is a left derived functor. This is a final couple $(L^*F,\xi_F)$ consisting of a functor of triangulated categories $L^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:  L^*F \circ p_\AA^* \to p_B\circ F$.
 It is clear that, if a derived functor exists, it is unique up to unique isomorphism.
 
 %One can show that the derived functor of $F:K(\AA)\to K(\mathcal{B})$ can be defined at a object $X\in K^+(\AA)$ if and only if the restriction $F^+:K^+(\AA) \to K(\mathcal{B})$ is defined at $X$ and the values are canonically isomorphic.
 %This means that there are no problems
 There are general theorems on the existence of derived functors which may be found in chapter 1 of \cite{dimca2004sheaves}.
 The following will be sufficient for our applications.
-\begin{theorem}\label{thm: InjectivesAllowDerivedFunctor}
+\begin{theorem}{\cite[Remark 1.3.15.]{dimca2004sheaves}}\label{thm: InjectivesAllowDerivedFunctor}
  Consider a functor of triangulated categories $F:K^+(\AA)\to K(\mathcal{B})$ .
  If $\AA$ has enough injectives and $F$ is additive then the right derived functor $R^+F$ exists.
 \end{theorem}
@@ -302,12 +302,12 @@ In practice, it is often difficult to find a concrete injective resolution.
 Computation derived functors can also be done using $F$-acyclic resolutions.
 One can show that injective objects are $F$-acyclic for any left-exact functor.
 Hence, this generalises the earlier computations.
-\begin{proposition}{\cite[Chapter 1]{dimca2004sheaves}}\label{prop: GrothendieckIsomorphism}
+\begin{proposition}{\cite[Theorem 1.3.18.]{dimca2004sheaves}}\label{prop: GrothendieckIsomorphism}
   Let $F:\AA \to \mathcal{B}$ and $G:\mathcal{B}\to \mathcal{C}$ be two additive functors between abelian categories with enough injective objects. Suppose that $F$ is left-exact and that $G$ transforms injective objects into $F$-acyclic objects, then there is an isomorphism
   $$R^+(F\circ G) \cong R^+F \circ R^+ G.$$
 \end{proposition}
 The following theorem is known as the Grothendieck spectral sequence and will be used extensively in \cref{ch: ChapterRelHol}.
-\begin{theorem}{\cite[Chapter 5]{dimca2004sheaves}}
+\begin{theorem}{\cite[Theorem 1.3.19.]{dimca2004sheaves}}
   Let $F,G$ be as in the previous proposition. Then, for any object $X$ of $\AA$, there is a spectral sequence
   $$E_2^{pq} = R^pF(R^qG(X)) $$
   converging to $R^{p+q}(F\circ G)(X).$
@@ -318,7 +318,7 @@ The following theorem is known as the Grothendieck spectral sequence and will be
   The main idea is to consider the double complex $F(I^\bullet)\to J^{\bullet\bullet}$ provided by the dual of the following lemma.
   The total complex of $G(J^{\bullet\bullet})$ is equipped with two filtrations, a vertical and a horizontal filtration, comparing the spectral sequences from \cref{prop: FiltrationSpectral} yields the desired result.
 \end{proof}
-\begin{proposition}{\cite[Chapter 1]{dimca2004sheaves}}\label{prop: Cartan-Eilenberg}
+\begin{proposition}{\cite[Lemma 5.7.2.]{weibel1995introduction}}\label{prop: Cartan-Eilenberg}
   Suppose $\AA$ admits enough projectives. Then, for any complex $X^\bullet$ there exists a lower half-plane double complex $P^{\bullet\bullet}$ of projective objects such that
   \begin{enumerate}
     \item[(i)] There is a map $P^{0,\bullet}\to X^\bullet$ such that $P^{\bullet,q}\to X^{q}$ is a projective resolution for every $p$.
@@ -343,7 +343,7 @@ Correspondingly, acyclic objects are given by sheaves which have no such failure
 \begin{definition}
  A sheaf of $\mathcal{R}_X$-modules $\F$ is called flabby if for any open $U\subseteq X$ the restriction morphism $\rho_U^X:\F(X)\to\F(U) $ is surjective.
 \end{definition}
-\begin{proposition}{\cite[Chapter 2]{dimca2004sheaves}}
+\begin{proposition}{\cite[Proposition 2.1.8.]{dimca2004sheaves}}
  If $\F$ is a flabby sheaf of $\mathcal{R}_X$-modules then $\F$ is $\Gamma(X,\blank)$-acyclic.
 \end{proposition}
 %The hypercohomology of a sheaf complex can be computed using flabby resolutions.
@@ -396,7 +396,7 @@ A generalisation of positive and negatively supported complexes is given by the 
  Let $\mathcal{D}$ be a triangulated category with a $t$-structure. Then $\mathcal{C} = \mathcal{D}^{\leq 0} \cap \mathcal{D}^{\geq 0}$ is called the heart of the $t$-structure.
 \end{definition}
 In the motivating case of $K^*(\AA)$ and $D^*(\AA)$ the heart of the $t$-structure recovers the original abelian category $\AA$.
-\begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}\label{prop: HeartExtension}
+\begin{proposition}{\cite[Proposition 5.1.2.]{dimca2004sheaves}}\label{prop: HeartExtension}
  The heart $\mathcal{C}$ of a $t$-structure is an abelian category which is stable by extensions.
 \end{proposition}
 Observe that $D^*(\AA)$ comes equipped with truncation functors
@@ -405,7 +405,7 @@ $$\tau_{\leq m}X^\bullet : \cdots \to X^{m-1} \to \ker d \to 0 \to 0 \to \cdots$
 and similarly truncation functors $\tau_{\geq m}:D^*(\A)\to D^{+}(\A)$ are defined by
 $$\tau_{\geq m}X^\bullet: \cdots \to 0 \to 0 \to \operatorname{coim} d \to X^{m+1}\to \cdots.$$
 This generalises to $t$-structures.
-\begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}
+\begin{proposition}{\cite[Proposition 5.1.4.]{dimca2004sheaves}}
  Let $\mathcal{D}$ be a triangulated category with a $t$-structure.
  Then the inclusion of $\mathcal{D}^{\leq n}$ in $\mathcal{D}$ has a right adjoint functor $\tau_{\leq n}$.
  Similarly, the inclusion of $\mathcal{D}^{\geq n}$ in $\mathcal{D}$ has a left adjoint $\tau_{\geq n}$.
@@ -416,13 +416,13 @@ Further, let $\tH^i:=\ \tH^0 \circ T^i$.
 \begin{definition}
  A $t$-structure is said to be non-degenerated if $\cap \mathcal{D}^{\leq n} = \cap \mathcal{D}^{\geq n}= \operatorname{Null}$ where $\operatorname{Null}$ denotes the family of objects which are isomorphic to the zero object in $\mathcal{D}$.
 \end{definition}
-\begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}
+\begin{proposition}{\cite[Proposition 5.1.6.]{dimca2004sheaves}}
  Let $\mathcal{D}$ be a triangulated category with a $t$-structure. Then $\tH^0:\mathcal{D}\to \mathcal{C}$ is a cohomological functor.
 \end{proposition}
-\begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}
+\begin{proposition}{\cite[Proposition 5.1.7.]{dimca2004sheaves}}
  Let $\mathcal{D}$ be a triangulated category with a non-degenerated $t$-structure. Then the system of functors $\tH^i$ is conservative.
 \end{proposition}
-\begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}\label{prop: tStructCohomD}
+\begin{proposition}{\cite[Proposition 5.1.7.]{dimca2004sheaves}}\label{prop: tStructCohomD}
   Let $\mathcal{D}$ be a triangulated category with a non-degenerated $t$-structure.
   Then $X\in \mathcal{D}^{\leq 0}$ if and only if $\tH^i(X) = 0$ for $i>0$. Similarly $X\in \mathcal{D}^{\geq 0}$ if and only if $\tH^i(X)= 0$ for $i<0$.
 \end{proposition}
@@ -434,6 +434,6 @@ Further, let $\tH^i:=\ \tH^0 \circ T^i$.
  Let $\mathcal{D}_1,\mathcal{D}_2$ be triangulated categories equipped with $t$-structures and let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a functor of triangulated categories.
  The perverse functor $^pF$ associated to $F$ is the induced functor on the hearts $^pF = \tH^0 \circ F \circ j_1$ where $j_1$ denotes the inclusion functor $j_1:\mathcal{C}_1\to \mathcal{D}_1$.
 \end{definition}
-\begin{proposition}{\cite[Chapter 5]{dimca2004sheaves}}\label{prop: FunctorHeart}
+\begin{proposition}{\cite[Proposition 5.1.9.]{dimca2004sheaves}}\label{prop: FunctorHeart}
   Let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a $t$-exact functor of triangulated categories. Then $F$ sends the heart $\mathcal{C}_1$ into the heart $\mathcal{C}_2$ and the induced functor $F:\mathcal{C}_1 \to \mathcal{C}_2$ is naturally isomorphic to $^pF$.
 \end{proposition}
