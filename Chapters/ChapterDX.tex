@@ -191,17 +191,17 @@ Note that, by \cref{prop: GoodFiltration}, any coherent $\D_Y$-module on a algeb
   Let $\M$ be a $\mu$-good $\D_Y$-module and suppose that $\mu$ is proper on the support of $\M$.
   Then, $\int \M$ has coherent cohomology.
 \end{theorem}
-Consider the following cotangent diagram.
-$$
-\begin{tikzcd}
-    & \mu^* T^* X\arrow[swap]{ld}{T^* \mu} \arrow{rd}{\widetilde{\mu}} & \\
-    T^* Y & & T^*X
-\end{tikzcd}
-$$
-\begin{proposition}{\cite[Theorem 3.4.1.]{sabbah2011introduction}}\label{prop: EstimateProper}
-  Let $\M$ be a $\mu$-good $\D_Y$-module and suppose that $\mu$ is proper on the support of $\M$. Then, for any $j\geq 0$
-  $$\Ch\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Ch \M) \right).$$
-\end{proposition}
+%Consider the following cotangent diagram.
+%$$
+%\begin{tikzcd}
+%    & \mu^* T^* X\arrow[swap]{ld}{T^* \mu} \arrow{rd}{\widetilde{\mu}} & \\
+%    T^* Y & & T^*X
+%\end{tikzcd}
+%$$
+%\begin{proposition}{\cite[Theorem 3.4.1.]{sabbah2011introduction}}\label{prop: EstimateProper}
+%  Let $\M$ be a $\mu$-good $\D_Y$-module and suppose that $\mu$ is proper on the support of $\M$. Then, for any $j\geq 0$
+%  $$\Ch\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Ch \M) \right).$$
+%\end{proposition}
 \section{Riemann-Hilbert Correspondence}\label{sec: Riemann-Hilbert}
 This section concerns the Riemann-Hilbert correspondence which states that a system of differential equations is equivalent to it's system of solutions.
 The systems of differential equations are encoded in regular holonomic $\D_X$-modules.
@@ -222,6 +222,160 @@ For technical purposes it is mostly important that holonomic modules have finite
 \begin{proposition}{\cite[Chapter 5, Proposition 9.2]{bjork1979rings}}\label{prop: HomAlgebraic}
   Let $\M$ be a holonomic $\D_X$-module. Then $\Hom_{\D_X}(\M,\M)$ is $\C$-algebraic. This is to say that for any $\varphi \in\Hom_{\D_X}(\M,\M) $ there exists some polynomial $b$ with coefficients in $\C$ such that $b(\varphi)=0$.
 \end{proposition}
+\subsubsection{Holonomicity and direct images}
+Let $\mu:Y\to X$ be a proper morphism.
+The goal of this section is to show that the direct image functor preserves holonomicity.
+Given a coherent $\D_X$-module $\M$ with  characteristic variety $\Chrel \M$.
+The goal is to estimate $\Chrel \IntJ{j} \M$ in terms of $\Chrel\M$.
+
+The original proof by \cite{kashiwara1976b} uses the theory of microlocal differential operators.
+The idea of the following proof is due to \cite{malgrange1985images} in a $K$-theoretic context.
+We follow the exposition of \cite{sabbah2011introduction}. %We note that the assumption that $\mu$ is proper can be relaxed but this version will suffice for our purposes.
+\\
+
+\noindent
+Consider the following cotangent diagram
+$$
+\begin{tikzcd}
+    & \mu^* T^* X\times \arrow[swap]{ld}{T^* \mu} \arrow{rd}{\widetilde{\mu}} & \\
+    T^* Y & & T^*X
+\end{tikzcd}
+$$
+
+The first step is to note that the behaviour of $\gr \D_Y$-modules is easy to understand.
+The direct image of a right $\gr \D_Y$-modules $\mathcal{M}$ is defined by $\int \mathcal{M} :=  R\widetilde{\mu}_* ( L(T^*\mu)^*\mathcal{M}).$
+Here, $(T^*\mu)^*(\blank)$ produces a sheaf on $\mu^*T^*X$ by $ \blank\otimes_{\mu^{-1}\O_X} \gr \D_X$.
+Looking at the supports the following result is immediate.
+\begin{lemma}\label{lem: GrKashiwara}
+    For any $\gr\D_Y$-module $\mathcal{M}$ it holds that
+    $$\supp \int^j \mathcal{M}\subseteq \widetilde{\mu}\left((T^* \mu)^{-1} \supp \mathcal{M}\right).$$
+\end{lemma}
+Applying this lemma to $\gr\M$ it remains to show that $\supp\gr\IntJ{j}\M\subseteq \supp\int^j \gr\M$.
+This is proved in \cref{prop: SuppGrrelIntInclusion}.
+The main technical ingredient in the proof is the Rees module associated to a filtered $\D_Y$-module $\M$.
+\begin{definition}
+    Let $r$ be a new variable. The Rees sheaf of rings $\Rees\D_Y$ is defined as the subsheaf $\oplus_p F_p \D_Y r^p $ of $\D_Y \otimes_\C \C[r]$. Similarly, any filtered $\D_Y$-module $\M$ gives rise to a $\Rees\D_Y$-module $\Rrel\M := \oplus_p F_p \M r^p$.
+\end{definition}
+Given a $\D_Y$-module $\M$ with a good filtration it follows that $\Rrel\M$ is a coherent $\Rees\D_Y$-module similarly to \cref{prop: CoherentAndGoodFiltration}.
+The following isomorphisms of filtered modules on $Y$ are essential.
+They mean that the Rees module can be viewed as a parametrisation of various relevant modules.
+$$\frac{\Rrel\M}{(r-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{r\Rrel\M} \cong \gr \M;\qquad \frac{\Rrel\M}{r^\ell\Rrel\M} \cong  \grl\M.$$
+Here $\grl$ takes a filtered $\D_X$-module $\M$ and returns $\oplus_k F_{k}\M/F_{k-\ell}\M$.
+The first formula may be be used to find a corresponding filtered $\D_Y$-module for any graded $\Rees\D_Y$-module without $\C[r]$-torsion.
+
+The direct image of a $\Rees\D_Y$-module $\mathcal{M}$ is defined by $\int \mathcal{M} = R^j\mu_*(\mathcal{M}\otimes^L_{\Rees \D_Y} \Rrel \D_{Y\to X})$.
+Here the filtration on $\D_{Y\to X}$ is defined by $F_i\D_{Y\to X} =\O_{Y} \otimes_{\mu^{-1}\O_X}\mu^{-1}F_i\D_X $.
+The direct image may be restricted to the category of graded Rees modules in which case it returns a graded Rees module. Coherence is preserved similarly to \cref{thm: ConservationQuasiCoherentAndCoherentIfProper}.
+
+Note that we now have multiple notions of direct images for modules over $\D_Y$ and $\gr\D_Y$.
+The Rees module viewpoint agrees with the earlier definitions by the following lemma.
+\begin{lemma}\label{lem: ReesAndOtherDirectImagesAgree}
+  Consider a filtered right $\D_Y$-module $\M$.
+  Then viewing $\int^j \Rrel\M / r\Rrel\M$ with it's $\gr\D_X$-module structure as a sheaf on $T^*X$ recovers the $\gr\D_Y$-module direct image $\int^j \gr\M$.
+  Viewing  $\int^j \Rrel\M / (r-1)\M$ as a $\D_X$-module recovers $\IntJ{j} \M$.
+\end{lemma}
+\begin{proof}
+  We give the proof for $\int^j \gr \M$, the proof for $\IntJ{j} \M$ is similar but easier.
+  Consider the following Cartesian square
+  $$
+      \begin{tikzcd}
+        \mu^*T^* X \arrow{r}{T^*\mu} \arrow{d}{{\widetilde{\mu}}} &T^*Y \arrow{r}{\pi_Y} & Y\arrow{d}{\mu} \\
+        T^*X\arrow{rr}{\pi_X}  && X.
+      \end{tikzcd}
+  $$
+  The derived version of the flat base change theorem \cite[Chapter 4, Proposition 3.1.0]{berthelot2006theorie}   yields that
+  $$L\pi_X^*R\mu_*\left(\frac{\Rrel\M}{r\Rrel \M}\otimes^L_{\D_Y}\Rrel \D_{Y\to X}\right)\cong  R\widetilde{\mu}_*L(T^*\mu\circ\pi_Y)^*\left(\frac{\Rrel\M}{r\Rrel \M}\otimes^L_{\D_Y}\Rrel \D_{Y\to X}\right).$$
+  Since $\pi_X$ is flat it follows that $H^j L\pi_X^*(R\mu_* \blank) = \pi_X^*(R^j\mu_*\blank)$. It now suffices to show that the right hand of the isomorphism side is $\int \gr\M$.
+  We show that $L\pi_Y^*(\frac{\Rrel\M}{r\Rrel \M}\otimes^L_{\D_Y}\Rrel \D_{Y\to X})\cong \gr\M \otimes^L_{\mu^{-1}\O_X}\widetilde{\mu}^*\gr\D_{X}$
+  whence the result follows since $L(T^*\mu \circ \pi_Y)^* = L (T^*\mu)^* \circ L \pi_Y^*$ by $\pi_Y$ being flat.
+
+  Let $\mathcal{F}^\bullet$ denote a bimodule resolution for $\Rrel \D_{Y\to X}$ by locally free left $\Rees\D_Y$-modules.
+  Then $(\Rees \D_Y / r\Rees \D_Y)\otimes_{\Rees \D_Y}\mathcal{F}^\bullet$ is a bimodule resolution for $\gr \D_{Y\to X}$ by locally free left $\gr\D_Y$-modules.
+  Now $L\pi_Y^*$ just means applying $\pi_Y^{-1}(\blank)\otimes_{\pi_Y^{-1}\O_Y} \O_{T^*Y}$ to the terms of this free resolution.
+  Due to flatness this yields a free resolution in $\pi^{*}\gr\D_Y$-modules of $\pi^* \gr\D_{Y\to X}$.
+  Since $\gr \D_{Y\to X} = \O_Y\otimes_{\mu^{-1}\O_X} \mu^{-1}\gr\D_X$ and $\pi^*\mu^* = \widetilde{\mu}^*\pi^*$ the desired equality follows.
+\end{proof}
+It turns out that one can directly compare $\grl\IntJ{j}\M$ and $\int^j \grl\M$ when $\ell$ is large. Some care is required since since $\int^j \Rrel \M$ may have $\C[r]$-torsion.
+\begin{lemma}\label{lem: KernelZellStabilises}
+  Consider a $\D_Y$-module $\M$ with a good filtration. Then, for sufficiently large $\ell$, the kernel of $r^\ell$ in $\int^j \Rrel \M$ stabilises. For such $\ell$ the quotient $\int^j \Rrel \M/ \ker r^\ell$ is the $\Rees \D_X$-coherent module associated to a good filtration on $\IntJ{j} \M$.
+\end{lemma}
+\begin{proof}
+  By $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\D_X$ it follows that $\ker r^\ell$ stabilises.
+
+    Now consider the short exact sequence $0\to \Rrel \M \xrightarrow{r-1} \Rrel \M \to \M \to 0$. This induces a long exact sequence
+    $$\cdots \to \int^j \Rrel \M \xrightarrow{r-1} \int^j \Rrel \M \to \IntJ{j} \M \to \int^{j+1} \Rrel \M \xrightarrow{r-1}\cdots. $$
+    Since $\int^{j+1} \Rrel \M$ is a graded $\Rees\D_X$-module it follows that $r-1$ is injective whence $\int^j \Rrel \M / (r-1)\int^j \Rrel \M \cong \IntJ{j} \M$. This yields the desired result using that $\int^j \Rrel \M / \ker r^\ell$ is $\C[r]$-torsion free and the isomorphism
+    $$ \frac{\int^j \Rrel \M }{(r-1)\int^j \Rrel \M } \cong \frac{\int^j \Rrel \M /\ker r^\ell }{(r-1)(\int^j \Rrel \M/\ker r^\ell) }.$$
+\end{proof}
+From now on we equip $\IntJ{j} \M$ with the good filtation inherited from the Rees module's direct image.
+\begin{lemma}\label{lem: EllLargeSubquotent}
+    Consider a $\D_Y$-module $\M$ with a good filtration. Then, if $\ell$ is sufficiently large, $\grl \IntJ{j}\M$ is a subquotient of $\int^j\grl\M$.
+\end{lemma}
+\begin{proof}
+  The short exact sequence $0\to \Rrel\M \xrightarrow{r^\ell}\Rrel \M \to \Rrel\M / r^\ell \Rrel\M \to 0$ induces a long exact sequence
+  $$\cdots \to \int^j \Rrel \M \xrightarrow{r^\ell} \int^j \Rrel \M \to \int^j \Rrel\M/r^\ell \Rrel\M \to \int^{j+1} \Rrel \M \xrightarrow{r^\ell}\cdots. $$
+  Hence, $\int^j \Rrel \M / r^\ell \int^j \Rrel \M$ is a submodule of $\int^j (\Rrel\M/r^\ell \Rrel\M)$ and it remains to show that $\Rrel \IntJ{j} \M/ r^\ell \Rrel \IntJ{j} \M$ is a quotient of $\int^j \Rrel \M / r^\ell \int^j \Rrel \M$.
+
+  Let $\ell$ be sufficiently large so that \cref{lem: KernelZellStabilises} yields a isomorphism $\int^j \Rrel \M / \ker r^\ell \cong \Rrel\int^j \M$. The map $r^\ell$ induces a isomorphism $\int^j \Rrel \M / \ker r^\ell \cong r^\ell \int^j \Rrel \M$. Therefore $r^\ell \int^j \Rrel \M / r^{2\ell}\int^j \Rrel\M \cong \Rrel \IntJ{j} \M / r^\ell \Rrel\IntJ{j} \M $.
+  The desired quotient follows by applying the map $m\mapsto r^\ell m$ on $\int^j \Rrel \M / r^\ell \int^j \Rrel \M$.
+\end{proof}
+The main remaining task is to relate these results to the desired case of $\ell = 1$.
+\begin{definition}
+  For any $\ell \geq 1$ the $G$-filtration on a $\Rees\D_Y$-module $\mathcal{M}$ is defined by the decreasing sequence of $\grl\D_Y$-submodules $G_j \mathcal{M} := r^{j}\mathcal{M}$.
+\end{definition}
+\begin{lemma}\label{lem: GradedGGradedLYieldsGraded}
+  For any filtered $\D_Y$-module $\M$ and $\ell \geq 1$ there is the a isomorphism of $\gr \D_Y$-modules
+  $$\gr^G \grl \M \cong (\gr\M)^\ell.$$
+\end{lemma}
+\begin{proof}
+  This follows from directly from the fact that $G_j\grl\M = \oplus_k F_{k-j}\M /F_{k-\ell}\M$.
+\end{proof}
+\begin{lemma}\label{lem: grGCommutes}
+  Consider a $\Rees\D_Y$-module $\mathcal{M}$. Then one has a isomorphism $\gr^G\int\mathcal{M} \cong \int\gr^G\mathcal{M}$ in $\bD^{b,r}(\gr\D_X)$.
+\end{lemma}
+\begin{proof}
+  Writing out the direct image functors the desired result is a isomorphism $$\gr^GR\mu_*(\mathcal{M}\otimes^L_{\Rees\D_Y} \Rees\D_{Y\to X})  \cong R\mu_*(\gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X}\gr\D_X).$$
+  The proof of the commutation proceeds in two steps corresponding to the two derived functors.
+
+  Let $\F^\bullet$ be a bimodule resolution for $\Rrel\D_{Y\to X}$ by locally free left $\Rees \D_Y$-modules.
+  There is a $G$-filtration on this complex given by $r^j(\mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet) = (r^j\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$.
+  By the flatness of locally free sheaves and the short exact sequence $0\to \oplus_j r^j \mathcal{M} \to \oplus_j r^{j-1}\mathcal{M} \to \gr^G \mathcal{M} \to 0$ it follows that $\gr^G(\mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet) \cong (\gr^G\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$.
+  Similarly to the arguments in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\D_Y$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X}\gr\D_X$.
+
+  Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
+  Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $\bR\mu_*$.
+  Moreover, since the terms of a Godement resolution are essentially direct sums of formal products of stalks, it is immediate that $r^i \mathcal{G}(\mathcal{N}^\bullet) = \mathcal{G}(r^i\mathcal{N}^\bullet)$ and that $\gr^G\mathcal{G}(\mathcal{N}^\bullet) =\mathcal{G}(\gr^G\mathcal{N}^\bullet)$ for any complex of right $\mu^{-1}\Rees\D_X$-modules $\mathcal{N}^\bullet$.
+  Applying $\mu_*$ to these equalities and setting $\mathcal{N}^\bullet = \mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet$ yields the desired result.
+\end{proof}
+\begin{proposition}\label{prop: SuppGrrelIntInclusion}
+  For a filtered $\D_Y$-module $\M$ with a good filtration it holds that  $$\supp \gr\IntJ{j}\M \subseteq \supp \int^j \gr\M.$$
+\end{proposition}
+\begin{proof}
+  Let $\ell\geq 0$ be sufficiently large so that \cref{lem: EllLargeSubquotent} holds, that is to say that $\grl\IntJ{j} \M$ is a subquotient of $\int^j \grl \M$.
+  By \cref{lem: GradedGGradedLYieldsGraded} it holds that $\gr^G\grl \IntJ{j} \M \cong (\gr\int\M)^\ell$.
+  Since $\grl \IntJ{j} \M$ is a subquotient of $\int \grl\M$ it remains to show that the support of $\gr^G \int^j \grl\M$ is a subset of the support of $\int^j \gr \M$.
+
+  This can be established with the spectral sequence associated of the $G$-filtered complex $\int \grl \M$. Since the $G$-filtration is finite on $\grl\D_X$-modules the associated spectral sequence abbuts by general results\todo{Found spectral sequence result online, add good reference.}. To be precise the associated spectral sequence with terms
+  $E^2_{pq} = H^{p+q}\gr^G \int \grl \M$ abuts to $\gr^G\int \M$.
+  By \cref{lem: grGCommutes} and \cref{lem: GradedGGradedLYieldsGraded} it holds that $E^2_{pq} \cong (\int^{p+q}\gr \M)^\ell$. \todo{Or $E^1$? Seems to depend on preference but should actually matter somewhat for the differentials.}
+  It follows that $\supp\gr^G \int^j \grl\M$ is a subset of the support of $\int \gr \M$ which completes the proof.
+\end{proof}
+\begin{theorem}\label{thm: KashiwaraEstimate}
+    Let $\M$ be a coherent $\D_Y$-module. Then, for any $j\geq 0$, we have
+    $$\Chrel\left(\IntJ{j} \M \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Chrel \M) \right).$$
+\end{theorem}
+\begin{proof}
+  This is immediate from \cref{lem: GrKashiwara} and \cref{prop: SuppGrrelIntInclusion}.
+\end{proof}
+\begin{corollary}\label{cor: RelHolConserved}
+  Let $\M$ be a relative holonomic $\D_Y$-module. Then, for any $j\geq 0$ the direct image $\IntJ{j}\M$ is a relative holonomic $\D_X$-module.
+\end{corollary}
+\begin{proof}
+  This follows from \cref{thm: KashiwaraEstimate} and (\todo{isotropic is conserved \cite{kashiwara1976b}}).
+\end{proof}
+
+
+% OLD
 \begin{proposition}{\cite[Corollary 4.10]{kashiwara1976b}}
   Let $\M$ be a holonomic $\D_X$-module and suppose that $\mu:Y\to X$ is proper. Then $\int \M$ has holonomic cohomology.
 \end{proposition}
