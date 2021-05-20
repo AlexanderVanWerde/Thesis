@@ -1,26 +1,78 @@
 \chapter{Moments of Holonomic Distributions}
-In this chapter we discuss how holonomicity may be used to determine recursion relations for the moments of a probability distribution.
-Similar observations have been made in \cite{brehard2019moment} whose main focus is on distributions of the form $\mu = \exp(p(x))1_{G}(x)dx$ with $p(x)$ a multivariate polynomial and $G$ a semi-algebraic set.
-There it is discussed when it is possible to recover the coefficients of $p(x)$ and some polynomial $g(x)$ vanishing on the boundary of $G$ given a finite number of moments $m_n = \int x^n d\mu$.
+In order to do mathematics one has to pick some class of objects which is sufficiently specific that one can make interesting observations but is also sufficiently general.
+For instance, many real-world functions are analytic but representing a general analytic function requires an infinite amount of information.
+Hence, the representation of general analytic functions is not possible inside of a computer.
+On the other hand, a polynomial only has a finite amount of information and can be dealt with in a computer but these are not sufficiently general for most real-world applications.
+It was observed by \cite{zeilberger1990holonomic} that the class of holonomic functions provides an acceptable compromise.
+Many functions are holonomic and one only requires a finite amount of information to encode the corresponding differential equations.
 
-We will not address this reconstruction problem and instead focus on the asymptotic rate of growth of the moments.
-This problem is of interest in non-asymptotic probability theory.
-For non-asymptotic concentration results it is often necessary to assume that the tails of the probability distribution decrease sufficiently rapidly.
-This gives rise to the notions of subgaussian and subexponential random variables.
-The goal of this chapter is to provide a easy way to verify whether a given holonomic distribution satisfies these conditions.
+An introduction to the literature on holonomic functions is provided in \cref{sec: HolAlgorithm}.
+A class of distributions of probabilistic interest is discussed in \cref{sec: SubGSubE}.
+We demonstrate how the holonomic toolbox may be applied to such probabilistic problems in \cref{sec: RecursionMoment}.
+\section{Holonomic functions}\label{sec: HolAlgorithm}
+Let $\k$ denote a field of characteristic zero.
+The Weil algebra $D_n(\k)$ is the $\k$-algebra found from $\k[x_1,\ldots,x_n]$ found by adjoining new variables $\partial_1,\ldots,\partial_n$ subject to the usual commutation relations
+$$\partial_i x_j = x_j \partial_i + \delta_{ij};\qquad \partial_i \partial_j = \partial_j \partial_i $$
+where $\delta_{ij}$ denotes the Kronecker delta.
+One has the corresponding notions of a order filtration, graded objects, characteristic varieties and holonomic $D_n(\k)$-modules precisely as in \cref{Ch: ChapterDX}.
 
-In \cref{sec: Motivation} we provide the probabilistic motivation for the problem.
+An object which gives rise to a $D_n(\k)$-module is said to be holonomic over $\k$ precisely when the corresponding module is so.
+For instance, a holonomic function over $\C$ is an analytic function $f:U\to \C$ on some open $U\subseteq \C^n$ such that $f$ satisfies a system of differential equations $P_{1}(x,\partial)f = 0,\ldots, P_{k}(x,\partial)f=0$ with $D_n(\C)/(P_1,\ldots,P_k)$ holonomic over $D_n(\C)$.
+For a parameter-dependent function $f_s(x)$ one can speak of holonomicity over $\C(s_1,\ldots,s_r)$.
+These notions also apply to distributions.
+\begin{example}
+  Let $f_s(x) = \exp(sx^2)$ on $\C$ then  $\partial_{x}f_s - sf_s = 0$.
+  It follows that the characteristic variety is the zero section of $T^*\C(s)$.
+  Hence, the parameter-dependent function $f_s(x)$ is holonomic over $\C(s)$.
 
+  More generally, for any polynomial $p$ on $\C^n$ with undetermined coefficients $s_1,\ldots,s_r$ it holds that $f_s = \exp(p(x))$ is holonomic over $\C(s_1,\ldots,s_r)$.
+\end{example}
+\begin{example}
+  Consider a Dirac delta $\delta_{s}$ at the point $(s_1,\ldots,s_n)$ in $\C^n$.
+  Then $\delta_{s}\cdot (x_i - s_i) = 0$ for all $i=1,\ldots,n$ whence it follows that $\delta_s$ is holonomic over $\C(s_1,\ldots,s_n)$.
+\end{example}
+In the foregoing chapter we had a notion of relative holonomicity over $\C[s]$ with $s = (s_1,\ldots,s_r)$.
+One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the following result.
+\begin{lemma}
+    For any $\D_{\C^n}[s]$-module $\M$ with $\dim\Chrel\M\leq n+r$ it holds that the global sections of $\M\otimes_{\C[s]}\C(s)$ form a holonomic $D_n(\C(s))$-module.
+  \end{lemma}
+  \begin{proof}
+    Consider a good filtration on $\M$ and equip $\M\otimes_{\C[s]}\C(s)$ with the induced filtration.
+    Since localisation is an exact functor it holds that $\grrel\M\otimes_{\C[s]}\C(s) \cong \gr(\M\otimes_{\C[s]}\C(s)) $.
 
+    Suppose that $\Ch(\M\otimes_{\C[s]}\C(s))$ has dimension strictly greater than $n$ as a variety over $\C(s)$.
+    Let $\mathfrak{m}$ be a maximal ideal of the coordinate ring of $\Ch (\M\otimes_{\C[s]}\C(s))$.
+    The maximal ideal $\mathfrak{m}$ corresponds to a prime ideal $\mathfrak{p}$ of the coordinate ring of $\Chrel\M$ which does not intersect $\C[s]\setminus\{0\}$.
+    Moreover it follows from the assumption that  $\dim\Ch(\M\otimes_{\C[s]}\C(s))> n$ that $\mathfrak{p}$ has height $>n$.
 
+    Now the subvariety $V = Z(\mathfrak{p})$ of $\Chrel\M$ has codimension $>n$ and is not contained in any set of the form $Z(b(s))$ for $b(s)\in \C[s]\setminus\{0\}$.
+    Since $\dim\Chrel\M\leq n+s$ it follows that $\dim V <r$.
 
-\section{Probabilistic Motivation}\label{sec: Motivation}
-
-\section{Holonomic Distributions}
-
-\section{Recursion on the Moments}
-Let $\mu$ be a fixed holonomic distribution on $\mathbb{R}^n$ and assume that the moments
-$$m_\alpha = \int_{\mathbb{R}^n} x^\alpha d\mu$$
+    Denote $\pi:\C^{n+r}\to\C^r $ for the projection map and observe that $\dim\operatorname{cl}\pi(V)\leq \dim(V) < r$ where $\operatorname{cl}$ denotes the closure in the Zariski topology. %\footnote{\url{https://math.stackexchange.com/q/95794 }}
+    This contradicts the assumption that $V\nsubseteq Z(b(s))$ for any $b(s)\in \C[s]\setminus\{0\}$ and we conclude that $\dim \Ch (\M\otimes_{\C[s]}\C(s)) \leq n$.
+    \end{proof}
+    \subsection{Closure properties}
+    The class of holonomic functions is closed under the usual operations.
+    These closure properties are typically effective.
+    This means that there are algorithms to compute the relations over $D_n(\k)$ satisfied by the output of the operation.
+    Such algorithms often rely on the theory of Gr\"obner bases and have been implemented in software packages such as SINGULAR or Mathematica.
+    \begin{theorem}{\cite[Proposition 3.1]{zeilberger1990holonomic}}
+      Let $f,g$ be holonomic functions over $\k$.
+      If $f+g$ is defined it is also holonomic over $\k$.
+    \end{theorem}
+    \begin{theorem}{\cite[Proposition 3.2]{zeilberger1990holonomic}}
+      Let $f,g$ be holonomic functions over $\k$ such that $f\cdot g$ is defined.
+      If $f\cdot g$ is defined it is also holonomic over $\k$.
+      When $\k=\R$, $\k = \C$ or $\k = \C(s)$ the statement also holds if $g$ is replaced by a distribution.
+    \end{theorem}
+    \begin{theorem}{\cite[Theorem 2.7]{stanley1980differentiably}}
+      Let $f$ and $a$ be monovariate holonomic functions and algebraic functions over $\k$ respectively.
+      If $f\circ a$ is defined it is also holonomic over $\k$.
+    \end{theorem}
+\section{Subgaussian random variables}\label{sec: SubGSubE}
+\section{Recursion on moments}\label{sec: RecursionMoment}
+Let $\mu$ be a fixed holonomic distribution on $\R^n$ and assume that the moments
+$$m_\alpha = \int_{\R^n} x^\alpha d\mu$$
 exist for all $\alpha \in \mathbb{Z}_{\geq 0}^n$.
 
 From here on out we will assume that $n = 1$ which is the main case of interest in the probabilistic context.
@@ -29,3 +81,12 @@ From here on out we will assume that $n = 1$ which is the main case of interest 
   $$ \sum_{ij} c_{ij} (n+ i)(n+ i -1)\cdots (n+i-j + 1) m_{n + i - j} = 0$$
   for any $n \geq 0$.
 \end{proposition}
+
+%Similar observations have been made in \cite{brehard2019moment} whose main focus is on distributions of the form $\mu = \exp(p(x))1_{G}(x)dx$ with $p(x)$ a multivariate polynomial and $G$ a semi-algebraic set.
+%There it is discussed when it is possible to recover the coefficients of $p(x)$ and some polynomial $g(x)$ vanishing on the boundary of $G$ given a finite number of moments $m_n = \int x^n d\mu$.
+
+%We will not address this reconstruction problem and instead focus on the asymptotic rate of growth of the moments.
+%This problem is of interest in non-asymptotic probability theory.
+%For non-asymptotic concentration results it is often necessary to assume that the tails of the probability distribution decrease sufficiently rapidly.
+%This gives rise to the notions of subgaussian and subexponential random variables.
+%The goal of this chapter is to provide a easy way to verify whether a given holonomic distribution satisfies these conditions.

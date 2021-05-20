@@ -13,6 +13,7 @@
 \usepackage[all]{xy}
 \usepackage{spectralsequences}
 
+\usepackage{subcaption}
 % Document
 \usepackage[hidelinks]{hyperref}
 \usepackage[stretch=10]{microtype}
@@ -78,6 +79,7 @@
 \renewcommand{\sc}[1]{\scaleto{#1}{8pt}} % Scaling in Tor/Ext
 %%       COMMANDS       %%
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
+\renewcommand{\k}{\ensuremath{\Bbbk}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 \renewcommand{\O}{\ensuremath{\mathcal{O}}}
 \newcommand{\N}{\ensuremath{\mathscr{N}}}
@@ -97,7 +99,7 @@
 \newcommand{\tH}{\ensuremath{^tH}}
 \newcommand{\M}{\ensuremath{\mathscr{M}}}
 %\newcommand{\L}{\ensuremath{\mathcal{L}}}
-\newcommand{\R}{\ensuremath{\mathscr{R}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\U}{\ensuremath{\mathscr{U}}}
 \newcommand{\F}{\ensuremath{\mathscr{F}}}
 \newcommand{\G}{\ensuremath{\mathscr{G}}}
@@ -108,6 +110,24 @@
 \newcommand{\bD}{\ensuremath{\boldsymbol{D}}}
 \newcommand{\Sp}{\ensuremath{\operatorname{Sp}}}
 \newcommand{\supp}{\ensuremath{\operatorname{supp}}}
+
+\DeclareMathOperator{\LCT}{LCT}
+\DeclareMathOperator{\RLCT}{RLCT}
+\DeclareMathOperator{\lct}{lct}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\KLT}{KLT}
+\DeclareMathOperator{\RKLT}{RKLT}
+
+
+\def\bZ{\mathbb{Z}}
+\def\bQ{\mathbb{Q}}
+\def\bN{\mathbb{N}}
+\def\bC{\mathbb{C}}
+\def\pa{\partial}
+\def\sD{\mathscr{D}}
+\def\ra{\rightarrow}
+\def\lam{\lambda}
+
 
 \newcommand{\X}{X}
 \newcommand{\Y}{Y}
@@ -148,6 +168,7 @@
 
 
 \newcommand{\ignore}[1]{}
+\newcommand{\new}[1]{#1}
 %%      ENVIRONMENTS        %%
 
 % Definition: \begin{definition}{Name}

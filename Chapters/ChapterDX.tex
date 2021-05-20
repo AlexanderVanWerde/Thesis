@@ -152,9 +152,16 @@ $$f\cdot (g\otimes \mu^{-1}h) = fg \otimes \mu^{-1}h; \qquad \xi\cdot (g\otimes\
 for any sections $f$ of $\O_Y$ and $\xi$ of $\Theta_Y$.
 Here $T\mu(\xi)$ is a local section of $\O_Y\otimes_{\mu^{-1}\O_X} \mu^{-1}\Theta_X$.
 \begin{example}
-  If $\mu:\C \to \C^2:y\mapsto (0,y)$ is the inclusion then sections of $\D_{\C\to \C^2}$ may be identified with finite sums of the form $\sum_{j=0}^n f_j(x,y)\partial_y^j$ where $f_j(x,y)$ are sections of $\O_{\C^2}$.
+  If $\mu:\C^2 \to \C:(x,y)\mapsto x$ is the projection map then sections of $\D_{\C^2\to \C }$ may be identified with finite sums of the form $\sum_{j=0}^n f_j(x,y)\partial_x^j$ where $f_j(x,y)$ are sections of $\O_{\C^2}$.
   The left $\D_{\C^2}$-module structure is such that
-  $$\partial_x \cdot f\partial_y^j = \partial_{x}(f)\partial_y^j;\qquad \partial_y\cdot f\partial_{y}^j = \partial_y(f)\partial_y^j + f \partial_y^{j+1}.$$
+  $$\partial_y \cdot f\partial_x^j = \partial_{y}(f)\partial_x^j;\qquad \partial_x\cdot f\partial_{x}^j = \partial_x(f)\partial_x^j + f \partial_x^{j+1}.$$
+\end{example}
+\begin{example}
+  If $\mu:\C \to \C^2: y \mapsto (0,y)$ is the inclusion then sections of $\D_{\C\to \C^2}$ may be identified with finite sums of the form $\sum f_{ij}(x,y)\partial_x^i \partial_y^j$ with $f_{ij}(x,y)$ sections of $\O_{\C^2}$ defined in a neighbourhood of the $y$-axis.
+  The left $\D_{\C}$-module structure is such that
+  $$
+    \partial_y \cdot f\partial_x^i\partial_y^j = \partial_{y}(f)\partial_x^i\partial_y^j + f \partial_x^i\partial_y^{j+1}.
+  $$
 \end{example}
 \begin{definition}
   The direct image functor $\int_\mu:D^{b,r}(\D_Y)\to D^{b,r}(\D_X)$ is given by $R\mu_* (\blank\otimes_{\D_Y}^L \D_{Y\to X})$.
@@ -163,7 +170,7 @@ Here $T\mu(\xi)$ is a local section of $\O_Y\otimes_{\mu^{-1}\O_X} \mu^{-1}\Thet
 \end{definition}
 \begin{remark}\label{rem: Spencer}
   A explicit free resolution for the transfer module is known.
-  This involves the Spencer complex $\Sp_Y^\bullet(\M)$ of a $\D_Y$-module $\M$ with $\Sp_Y^{-k}(\M) = \M\otimes_{\O_Y}\wedge^k \Theta_k$.
+  This involves the Spencer complex $\Sp_Y^\bullet(\M)$ of a $\D_Y$-module $\M$ with $\Sp_Y^{-k}(\M) = \M\otimes_{\O_Y}\wedge^k \Theta_Y$.
   The details may be found in \cite{sabbah2011introduction}.
 \end{remark}
 \begin{remark}
@@ -250,7 +257,7 @@ Looking at the supports the following result is immediate.
     For any $\gr\D_Y$-module $\mathcal{M}$ it holds that
     $$\supp \int^j \mathcal{M}\subseteq \widetilde{\mu}\left((T^* \mu)^{-1} \supp \mathcal{M}\right).$$
 \end{lemma}
-Applying this lemma to $\gr\M$ it remains to show that $\supp\gr\IntJ{j}\M\subseteq \supp\int^j \gr\M$.
+Applying this lemma to $\gr\M$ it remains to show that $\supp\gr\IntJ{j}\M\subseteq \supp\int^j \gr\M$ for some good filtration on $\IntJ{j}\M$.
 This is proved in \cref{prop: SuppGrrelIntInclusion}.
 The main technical ingredient in the proof is the Rees module associated to a filtered $\D_Y$-module $\M$.
 \begin{definition}
@@ -293,7 +300,7 @@ The Rees module viewpoint agrees with the earlier definitions by the following l
   By use of this free resolution one sees that
   $$ \frac{\Rrel\M}{\rho\Rrel \M}\otimes^L_{\Rrel\D_Y}\Rrel \D_{Y\to X} \cong \frac{\Rrel\M}{\rho\Rrel \M} \otimes^L_{\Rrel\D_Y}\frac{\Rrel \D_{Y\to X}}{\rho\Rrel \D_{Y\to X}}.$$
   Note that $L\pi_Y^*$ involves taking a tensor product with $\O_{T^*Y}$ so that we get
-  $$L\pi_Y^*( \frac{\Rrel\M}{\rho\Rrel \M}\otimes^L_{\Rrel\D_Y} \Rrel \D_{Y\to X}) \cong \gr\M \otimes_{\O_{T^*Y}}^L \left( \O_{T^*Y}\otimes_{(\mu\circ \pi_Y)^{-1}\O_X}(\mu\circ\pi_Y)^{-1}(\gr\D_X)\right).$$
+  $$L\pi_Y^*\left( \frac{\Rrel\M}{\rho\Rrel \M}\otimes^L_{\Rrel\D_Y} \Rrel \D_{Y\to X}\right) \cong \gr\M \otimes_{\O_{T^*Y}}^L \left( \O_{T^*Y}\otimes_{(\mu\circ \pi_Y)^{-1}\O_X}(\mu\circ\pi_Y)^{-1}(\gr\D_X)\right).$$
   Finally observe that $\O_{\mu^*T^*X} \cong \widetilde{\mu}^*\gr\D_X$.
   This means that the term $\gr\M$ is being tensored with in the above formula is already implicit in $L(T^*\mu)^*$.
   This is to say that
@@ -305,7 +312,7 @@ It turns out that one can directly compare $\grl\IntJ{j}\M$ and $\int^j \grl\M$ 
   Consider a $\D_Y$-module $\M$ with a good filtration. Then, for sufficiently large $\ell$, the kernel of $\rho^\ell$ in $\int^j \Rrel \M$ stabilises. For such $\ell$ the quotient $\int^j \Rrel \M/ \ker \rho^\ell$ is the $\Rees \D_X$-coherent module associated to a good filtration on $\IntJ{j} \M$.
 \end{lemma}
 \begin{proof}
-  By $\int \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\D_X$ it follows that $\ker \rho^\ell$ stabilises.
+  By $\int^j \Rrel \M$ being coherent over the sheaf of Noetherian rings $\Rees\D_X$ it follows that $\ker \rho^\ell$ stabilises.
 
     Now consider the short exact sequence $0\to \Rrel \M \xrightarrow{\rho-1} \Rrel \M \to \M \to 0$. This induces a long exact sequence
     $$\cdots \to \int^j \Rrel \M \xrightarrow{\rho-1} \int^j \Rrel \M \to \IntJ{j} \M \to \int^{j+1} \Rrel \M \xrightarrow{\rho-1}\cdots. $$
@@ -330,42 +337,44 @@ The main remaining task is to relate these results to the desired case of $\ell 
 \begin{definition}
   For any $\ell \geq 1$ the $G$-filtration on a $\Rees\D_Y$-module $\mathcal{M}$ is defined by the decreasing sequence of $\grl\D_Y$-submodules $G_j \mathcal{M} := \rho^{j}\mathcal{M}$.
 \end{definition}
+Observe that $G_j\grl\M = \oplus_k F_{k-j}\M /F_{k-\ell}\M$ for any filtered $\D_Y$-module $\M$.
+Hence, the following lemma is immediate.
 \begin{lemma}\label{lem: GradedGGradedLYieldsGraded}
-  For any filtered $\D_Y$-module $\M$ and $\ell \geq 1$ there is the a isomorphism of $\gr \D_Y$-modules
-  $$\gr^G \grl \M \cong (\gr\M)^\ell.$$
+  For any filtered $\D_Y$-module $\M$ and $\ell \geq 1$ there is an isomorphism
+  $$\gr^G_j \grl \M \cong \gr\M$$
+  for any $j\geq 0$.
 \end{lemma}
-\begin{proof}
-  This follows from directly from the fact that $G_j\grl\M = \oplus_k F_{k-j}\M /F_{k-\ell}\M$.
-\end{proof}
 \begin{lemma}\label{lem: grGCommutes}
   Consider a $\Rees\D_Y$-module $\mathcal{M}$. Then one has a isomorphism $\gr^G\int\mathcal{M} \cong \int\gr^G\mathcal{M}$ in $\D^{b,r}(\gr\D_X)$.
 \end{lemma}
 \begin{proof}
-  Writing out the direct image functors the desired result is a isomorphism $$\gr^GR\mu_*(\mathcal{M}\otimes^L_{\Rees\D_Y} \Rees\D_{Y\to X})  \cong R\mu_*(\gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X}\gr\D_X).$$
-  The proof of the commutation proceeds in two steps corresponding to the two derived functors.
+  Observe that the free resolution for $\Rees \D_{Y\to X}$ following from \cref{rem: Spencer} can be made to respect the $G$-filtrations.
+  It follows that $\gr^G(\mathcal{M}\otimes^L_{\Rees\D_Y} \Rees\D_{Y\to X}) \cong \gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X}\gr\D_X$.
+  Similarly, the terms of the Godement resolution are essentially direct sums of formal products over stalks and hence respect the $G$-filtration.
+  We conclude that
+   $$\gr^GR\mu_*(\mathcal{M}\otimes^L_{\Rees\D_Y} \Rees\D_{Y\to X})  \cong R\mu_*(\gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X}\gr\D_X)$$
+  which is the desired isomorphism.
 
-  Let $\F^\bullet$ be a bimodule resolution for $\Rrel\D_{Y\to X}$ by locally free left $\Rees \D_Y$-modules.
-  There is a $G$-filtration on this complex given by $\rho^j(\mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet) = (\rho^j\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$.
-  By the flatness of locally free sheaves and the short exact sequence $0\to \oplus_j \rho^j \mathcal{M} \to \oplus_j \rho^{j-1}\mathcal{M} \to \gr^G \mathcal{M} \to 0$ it follows that $\gr^G(\mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet) \cong (\gr^G\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$.
-  Similarly to the arguments in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\D_Y$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X}\gr\D_X$.
+  %Let $\F^\bullet$ be a bimodule resolution for $\Rrel\D_{Y\to X}$ by locally free left $\Rees \D_Y$-modules.
+  %There is a $G$-filtration on this complex given by $\rho^j(\mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet) = (\rho^j\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$.
+  %By the flatness of locally free sheaves and the short exact sequence $0\to \oplus_j \rho^j \mathcal{M} \to \oplus_j \rho^{j-1}\mathcal{M} \to \gr^G \mathcal{M} \to 0$ it follows that $\gr^G(\mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet) \cong (\gr^G\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$.
+  %Similarly to the arguments in the proof of \cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\D_Y$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X}\gr\D_X$.
 
-  Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
-  Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $R\mu_*$.
-  Moreover, since the terms of a Godement resolution are essentially direct sums of formal products of stalks, it is immediate that $\rho^i \mathcal{G}(\mathcal{N}^\bullet) = \mathcal{G}(\rho^i\mathcal{N}^\bullet)$ and that $\gr^G\mathcal{G}(\mathcal{N}^\bullet) =\mathcal{G}(\gr^G\mathcal{N}^\bullet)$ for any complex of right $\mu^{-1}\Rees\D_X$-modules $\mathcal{N}^\bullet$.
-  Applying $\mu_*$ to these equalities and setting $\mathcal{N}^\bullet = \mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet$ yields the desired result.
+  %Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
+  %Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $R\mu_*$.
+  %Moreover, since the terms of a Godement resolution are essentially direct sums of formal products of stalks, it is immediate that $\rho^i \mathcal{G}(\mathcal{N}^\bullet) = \mathcal{G}(\rho^i\mathcal{N}^\bullet)$ and that $\gr^G\mathcal{G}(\mathcal{N}^\bullet) =\mathcal{G}(\gr^G\mathcal{N}^\bullet)$ for any complex of right $\mu^{-1}\Rees\D_X$-modules $\mathcal{N}^\bullet$.
+  %Applying $\mu_*$ to these equalities and setting $\mathcal{N}^\bullet = \mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet$ yields the desired result.
 \end{proof}
 \begin{proposition}\label{prop: SuppGrrelIntInclusion}
   For a filtered $\D_Y$-module $\M$ with a good filtration it holds that  $$\supp \gr\IntJ{j}\M \subseteq \supp \int^j \gr\M.$$
 \end{proposition}
 \begin{proof}
   Let $\ell\geq 0$ be sufficiently large so that \cref{lem: EllLargeSubquotent} holds, that is to say that $\grl\IntJ{j} \M$ is a subquotient of $\int^j \grl \M$.
-  By \cref{lem: GradedGGradedLYieldsGraded} it holds that $\gr^G\grl \IntJ{j} \M \cong (\gr\int\M)^\ell$.
-  Since $\grl \IntJ{j} \M$ is a subquotient of $\int \grl\M$ it remains to show that the support of $\gr^G \int^j \grl\M$ is a subset of the support of $\int^j \gr \M$.
-
-  This can be established with the spectral sequence associated of the $G$-filtered complex $\int \grl \M$. Since the $G$-filtration is finite on $\grl\D_X$-modules the associated spectral sequence abuts by general results\todo{Found spectral sequence result online, add good reference.}. To be precise the associated spectral sequence with terms
-  $E^2_{pq} = H^{p+q}\gr^G \int \grl \M$ abuts to $\gr^G\int \M$.
-  By \cref{lem: grGCommutes} and \cref{lem: GradedGGradedLYieldsGraded} it holds that $E^2_{pq} \cong (\int^{p+q}\gr \M)^\ell$. \todo{Or $E^1$? Seems to depend on preference but should actually matter somewhat for the differentials.}
-  It follows that $\supp\gr^G \int^j \grl\M$ is a subset of the support of $\int \gr \M$ which completes the proof.
+  By \cref{lem: GradedGGradedLYieldsGraded} it holds that $\gr^G\grl \IntJ{j} \M \cong (\gr\IntJ{j}\M)^\ell$.
+  Morover, by \cref{lem: EllLargeSubquotent} $\grl \IntJ{j} \M$ is a subquotient of $\int^{j} \grl\M$.
+  This shows that $\supp\gr\int\M \subseteq \supp \gr^G\int\grl \M$.
+  Finally, observe that $\supp \gr^G\int\grl \M = \supp \int \gr \M$ since, by \cref{lem: grGCommutes}, $\gr^G\int\grl \M \cong \int\gr^G\grl\M\cong \int (\gr\M)^\ell$.
+  This concludes the proof.
 \end{proof}
 \begin{theorem}\label{thm: KashiwaraEstimate}
     Let $\M$ be a coherent $\D_Y$-module. Then, for any $j\geq 0$, we have
@@ -375,21 +384,11 @@ The main remaining task is to relate these results to the desired case of $\ell 
   This is immediate from \cref{lem: GrKashiwara} and \cref{prop: SuppGrrelIntInclusion}.
 \end{proof}
 \begin{corollary}\label{cor: RelHolConserved}
-  Let $\M$ be a relative holonomic $\D_Y$-module. Then, for any $j\geq 0$ the direct image $\IntJ{j}\M$ is a relative holonomic $\D_X$-module.
+  Let $\M$ be a holonomic $\D_Y$-module. Then, for any $j\geq 0$ the direct image $\IntJ{j}\M$ is a holonomic $\D_X$-module.
 \end{corollary}
 \begin{proof}
-  This follows from \cref{thm: KashiwaraEstimate} and (\todo{isotropic is conserved \cite{kashiwara1976b}}).
+  This follows from \cref{thm: KashiwaraEstimate} and \cref{lem: IsotropicDirectImage}.
 \end{proof}
-
-
-% OLD
-\begin{proposition}{\cite[Corollary 4.10]{kashiwara1976b}}
-  Let $\M$ be a holonomic $\D_X$-module and suppose that $\mu:Y\to X$ is proper. Then $\int \M$ has holonomic cohomology.
-\end{proposition}
-The above theorem can be established by combining \cref{prop: EstimateProper} and \cref{prop: StructureChVar} with the following facts.
-\begin{lemma}{\cite[Theorem 4.3.4]{sabbah2011introduction}}
-  Let $\M$ be a holonomic $\D_X$-module. Then $\M$ has a globally defined good filtration.
-\end{lemma}
 \begin{lemma}{\cite[Proposition 4.9.]{kashiwara1976b}}\label{lem: IsotropicDirectImage}
   Let $\mu:Y\to X$ be a proper morphism and $V\subseteq T^*Y$ an isotropic subvariety. Then $\widetilde{\mu}((T^*\mu)^{-1}(\Ch \M) )$ is also isotropic.
 \end{lemma}
@@ -550,7 +549,7 @@ The fact that there always exists a Bernstein-Sato polynomial was proved by I.N.
   The cardoid $f(x,y) = (x^2+y^2+x)^2-(x^2+y^2)$ on $\C^2$ has local Bernstein-Sato polynomial
   $$b_{f,0}(s) = (s+5/6)(s+1)(s+7/6). $$
   Observe that this is the same local Bernstein-Sato polynomial as for the cusp in \cref{example: CuspBs}.
-  This is no coincidence, the analytic curve germs corresponding to the cusp and the cardoid at the are isomorphic and the Bernstein-Sato polynomial is an invariant of singularities.
+  This is no coincidence, the analytic curve germs corresponding to the cusp and the cardoid at the origin are isomorphic and the Bernstein-Sato polynomial is an invariant of singularities.
 \end{example}
 Note that in all these examples the roots of the local Bernstein-Sato polynomial are negative rational numbers.
 This is a general fact due to \cite{kashiwara1976b}.
@@ -732,7 +731,7 @@ By \cref{lem: SurjectiveUf} it remains to compare $\Int\M$ and $\U$.
   By \cref{prop: IsotropicAndDominate} it follows that $\Ch \M \subseteq W \cup \Lambda$ for some isotropic $\Lambda\subseteq T^*Y$ and a irreducible $(m+1)$-dimensional variety $W$ which dominates $Y$.
 
   Observe that $\M$ is certainly $\mu$-good since it admits a global good filtration $F_i\M := F_i\D_Y \cdot g^s \mu^*(dx)$.
-  Hence, \cref{prop: EstimateProper} is applicable and yields that
+  Hence, \cref{thm: KashiwaraEstimate} is applicable and yields that
   $$\Ch \Int \M \subseteq \widetilde{\mu}\left((T^*\mu)^{-1} (\Lambda \cup W)\right).$$
   By \cref{lem: IsotropicDirectImage} the set $\widetilde{\mu}((T^*\mu)^{-1}(\Lambda))$ is still isotropic and will not form any obstruction to $\Int\M/\U$ being holonomic.
   Further, observe that $\widetilde{\mu}((T^*\mu)^{-1}(W))$ remains a irreducible $(m+1)$-dimensional variety which dominates $B$.
