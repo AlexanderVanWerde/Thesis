@@ -1,25 +1,26 @@
-\chapter{Moments of Holonomic Distributions}
+\chapter{Moments of holonomic distributions}
 In order to do mathematics one has to pick some class of objects which is sufficiently specific that one can make interesting observations but is also sufficiently general.
 For instance, many real-world functions are analytic but representing a general analytic function requires an infinite amount of information.
 Hence, the representation of general analytic functions is not possible inside of a computer.
 On the other hand, a polynomial only has a finite amount of information and can be dealt with in a computer but these are not sufficiently general for most real-world applications.
 It was observed by \cite{zeilberger1990holonomic} that the class of holonomic functions provides an acceptable compromise.
-Many functions are holonomic and one only requires a finite amount of information to encode the corresponding differential equations.
+Many functions are holonomic only a finite amount of information is required to encode the corresponding differential equations.
+
 
 An introduction to the literature on holonomic functions is provided in \cref{sec: HolAlgorithm}.
 A class of distributions of probabilistic interest is discussed in \cref{sec: SubGSubE}.
 We demonstrate how the holonomic toolbox may be applied to such probabilistic problems in \cref{sec: RecursionMoment}.
 \section{Holonomic functions}\label{sec: HolAlgorithm}
-Let $\k$ denote a field of characteristic zero.
-The Weil algebra $D_n(\k)$ is the $\k$-algebra found from $\k[x_1,\ldots,x_n]$ found by adjoining new variables $\partial_1,\ldots,\partial_n$ subject to the usual commutation relations
+Let $K$ denote a field of characteristic zero.
+The Weyl algebra $D_n(K)$ is the $K$-algebra found from $K[x_1,\ldots,x_n]$ found by adjoining new variables $\partial_1,\ldots,\partial_n$ subject to the usual commutation relations
 $$\partial_i x_j = x_j \partial_i + \delta_{ij};\qquad \partial_i \partial_j = \partial_j \partial_i $$
 where $\delta_{ij}$ denotes the Kronecker delta.
-One has the corresponding notions of a order filtration, graded objects, characteristic varieties and holonomic $D_n(\k)$-modules precisely as in \cref{Ch: ChapterDX}.
+One has the corresponding notions of a order filtration, graded objects, characteristic varieties and holonomic $D_n(K)$-modules precisely as in \cref{Ch: ChapterDX}.
 
-An object which gives rise to a $D_n(\k)$-module is said to be holonomic over $\k$ precisely when the corresponding module is so.
+An object which gives rise to a $D_n(K)$-module is said to be holonomic over $K$ precisely when the corresponding module is so.
 For instance, a holonomic function over $\C$ is an analytic function $f:U\to \C$ on some open $U\subseteq \C^n$ such that $f$ satisfies a system of differential equations $P_{1}(x,\partial)f = 0,\ldots, P_{k}(x,\partial)f=0$ with $D_n(\C)/(P_1,\ldots,P_k)$ holonomic over $D_n(\C)$.
 For a parameter-dependent function $f_s(x)$ one can speak of holonomicity over $\C(s_1,\ldots,s_r)$.
-These notions also apply to distributions.
+Similar notions apply to distributions.
 \begin{example}
   Let $f_s(x) = \exp(sx^2)$ on $\C$ then  $\partial_{x}f_s - sf_s = 0$.
   It follows that the characteristic variety is the zero section of $T^*\C(s)$.
@@ -35,7 +36,7 @@ In the foregoing chapter we had a notion of relative holonomicity over $\C[s]$ w
 One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the following result.
 \begin{lemma}
     For any $\D_{\C^n}[s]$-module $\M$ with $\dim\Chrel\M\leq n+r$ it holds that the global sections of $\M\otimes_{\C[s]}\C(s)$ form a holonomic $D_n(\C(s))$-module.
-  \end{lemma}
+\end{lemma}
   \begin{proof}
     Consider a good filtration on $\M$ and equip $\M\otimes_{\C[s]}\C(s)$ with the induced filtration.
     Since localisation is an exact functor it holds that $\grrel\M\otimes_{\C[s]}\C(s) \cong \gr(\M\otimes_{\C[s]}\C(s)) $.
@@ -54,39 +55,71 @@ One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the
     \subsection{Closure properties}
     The class of holonomic functions is closed under the usual operations.
     These closure properties are typically effective.
-    This means that there are algorithms to compute the relations over $D_n(\k)$ satisfied by the output of the operation.
+    This means that there are algorithms to compute the relations over $D_n(K)$ satisfied by the output of the operation.
     Such algorithms often rely on the theory of Gr\"obner bases and have been implemented in software packages such as SINGULAR or Mathematica.
+
     \begin{theorem}{\cite[Proposition 3.1]{zeilberger1990holonomic}}
-      Let $f,g$ be holonomic functions over $\k$.
-      If $f+g$ is defined it is also holonomic over $\k$.
+      Let $f,g$ be holonomic functions or distributions over $K$.
+      If $f+g$ is defined it is also holonomic over $K$.
     \end{theorem}
     \begin{theorem}{\cite[Proposition 3.2]{zeilberger1990holonomic}}
-      Let $f,g$ be holonomic functions over $\k$ such that $f\cdot g$ is defined.
-      If $f\cdot g$ is defined it is also holonomic over $\k$.
-      When $\k=\R$, $\k = \C$ or $\k = \C(s)$ the statement also holds if $g$ is replaced by a distribution.
+      Let $f,g$ be holonomic functions over $K$.
+      If $f\cdot g$ is defined it is also holonomic over $K$.
+      The same result holds if $g$ is a holonomic distribution.
+    \end{theorem}
+    \begin{theorem}{\cite[Corollary 1]{harris1985reciprocals}}
+      Let $f$ be a monovariate holonomic function over $K$.
+      If $1/f$ is defined it is holonomic over $K$ if and only if the logarithmic derivative $\partial f/f$ is algebraic over $K$.
     \end{theorem}
     \begin{theorem}{\cite[Theorem 2.7]{stanley1980differentiably}}
-      Let $f$ and $a$ be monovariate holonomic functions and algebraic functions over $\k$ respectively.
-      If $f\circ a$ is defined it is also holonomic over $\k$.
+      Let $f$ and $a$ be a monovariate holonomic function and a monovariate algebraic functions over $K$ respectively.
+      If $f\circ a$ is defined it is also holonomic over $K$.
     \end{theorem}
+    \subsection{Asymptotics of holonomic sequences}
+    It also makes sense to speak about holonomic sequences.
+    In this case it is convenient to replace the notation $x_i,\partial_i$ by $m_i,S_i$ respectively.
+    The Weyl algebra $D_n(\k)$ acts on multivariate sequences $u:\mathbb{Z}_{\geq 0}^n \to K$ by $(m_iu)(m):= m_i u(m)$ and $(S_iu)(m) = u(m-e_i)$ with $e_i$ the $i$-th standard basis vector.
+
+    In this section we will mainly be concerned with monovariate sequences $u:\mathbb{Z}_{\geq 0}\to K$.
+    \begin{theorem}{\cite[Theorem 1.5]{stanley1980differentiably}}\label{thm: GeneratingFunction}
+      A sequence $u:\mathbb{Z}_{\geq 0}\to K$ is holonomic over $K$ if and only if it's generating sequence $f(z) = \sum_{m=0}^{\infty} u(m)z^m$ is so.
+    \end{theorem}
+    A sequence $u:\mathbb{Z}_{\geq 0}$ is holonomic if and only if there exists some homogeneous linear recursion relation
+    $$p_d(m)u(m+d) + p_{d-1}(m)u(m+d-1) + \cdots + p_0(m)u(m) = 0 $$
+    with polynomial coefficients $p_k \in K[m]$.
+    A holonomic sequence is called $K$-recurrent if the polynomials $p_k$ can be taken to be constants.
+    If the $K$-recurrent sequence $u$ has recurrence relation $\sum_{j=0}^d c_{j}u(m+j)= 0$ with $d$ minimal and $c_d = 1$ one calls $\sum_{j=0}^d c_jx^j\in K[x]$ the minimal polynomial of $u$.
+    In this case the asymptotics of the recursions are well-understood, see for instance \cite[Chapter 2]{everest2003recurrence}, in particular the structure of the solutions to such recursions is explicitly known.
+    \begin{theorem}{\cite[Theorem 1.6]{nobleAsymptotics}}
+      Let $u:\mathbb{Z}_{\geq 0}$ be a $K$-recurrent sequence and denote $\lambda_1,\ldots,\lambda_k$ for the distinct roots of the minimal polynomial of $u$.
+      Then there exist polynomials $P_1,\ldots,P_k \in \overline{K}[n]$ such that
+      $$u(m) = \sum_{j=1}^k P_j(m)\lambda_j^m$$
+      for all $m\in \mathbb{Z}_{\geq 0}$.
+    \end{theorem}
+    The case of holonomic sequences is more subtle but an assymptotic expansion in the case with $K = \C$ has been proved by \cite{birkhoff1933analytic}.
+    It should be noted that there are allegedly gaps in the complicated proof.
+    Still, the results have so far matched up with reality.
+    Algorithms to compute the expansions have been implemented by \cite{kauers2011mathematica} and \cite{zeilberger1990holonomic}.
+
+    Another approach in the case with $K = \C$ is due to \cite{flajolet1990singularity}.
+    Due to the algorithms associated to \Cref{thm: GeneratingFunction} one gets an implicit description of the generating function $f$ of $u$.
+    Suppose that $f$ defines an analytic function near the origin and assume that $f$ has a unique singularity of minimal modulus.
+    By renormalization it may be assumed that this singularity occurs at $1$.
+    For any $r>1$ and $\theta \in (0,\pi/2)$  consider the closed indented disk
+    $$\Delta(r,\theta) := \{z\in \mathbb{C}: \abs{z}\leq r, \quad \abs{\operatorname{Arg}(z-1)}\geq \theta\}.$$
+    \begin{theorem}{\cite[Corollary 3]{flajolet1990singularity}}
+      With conventions as above, suppose that $f(z)$ is analytic in some domain $\Delta(r,\theta)$ and assume that as $z$ tends to $1$
+      $$f(z) = \sum_{j=1}^k c_{j}(1-z)^{\alpha_j} + O(\abs{1-z}^A)$$
+      for $c_j,\alpha_j,A\in \C$ with $\operatorname{Re}(\alpha_0)\leq \cdots \leq \operatorname{Re}(\alpha_k)<A$.
+      Then, as $m$ tends to infinity
+      $$u(m) = \sum_{j=1}c_j m^{-\alpha_j' - 1} + O(m^{-A -1}).$$
+    \end{theorem}
+    Other methods based on generating functions are also known, for instance due to \cite{hayman1956generalisation}.
+    Algorithms to determine the asymptotics of $u$ based on the generating function have been implemented by \cite{salvy1991examples}.
 \section{Subgaussian random variables}\label{sec: SubGSubE}
-\section{Recursion on moments}\label{sec: RecursionMoment}
-Let $\mu$ be a fixed holonomic distribution on $\R^n$ and assume that the moments
-$$m_\alpha = \int_{\R^n} x^\alpha d\mu$$
-exist for all $\alpha \in \mathbb{Z}_{\geq 0}^n$.
-
-From here on out we will assume that $n = 1$ which is the main case of interest in the probabilistic context.
-\begin{proposition}
-  Suppose that $\mu$ is annihilated by $P \in \D_{\C}^n$. If $P = \sum_{ij} c_{ij}x^i \partial^j$ then it holds that
-  $$ \sum_{ij} c_{ij} (n+ i)(n+ i -1)\cdots (n+i-j + 1) m_{n + i - j} = 0$$
-  for any $n \geq 0$.
-\end{proposition}
-
-%Similar observations have been made in \cite{brehard2019moment} whose main focus is on distributions of the form $\mu = \exp(p(x))1_{G}(x)dx$ with $p(x)$ a multivariate polynomial and $G$ a semi-algebraic set.
-%There it is discussed when it is possible to recover the coefficients of $p(x)$ and some polynomial $g(x)$ vanishing on the boundary of $G$ given a finite number of moments $m_n = \int x^n d\mu$.
-
-%We will not address this reconstruction problem and instead focus on the asymptotic rate of growth of the moments.
-%This problem is of interest in non-asymptotic probability theory.
-%For non-asymptotic concentration results it is often necessary to assume that the tails of the probability distribution decrease sufficiently rapidly.
-%This gives rise to the notions of subgaussian and subexponential random variables.
-%The goal of this chapter is to provide a easy way to verify whether a given holonomic distribution satisfies these conditions.
+\section{Moments of holonomic functions}\label{sec: RecursionMoment}
+The main subject of interest in this chapter are the moments of probability distributions with holonomic densities.
+Let $f:\mathbb{R}^n \to \mathbb{R}$ be holonomic.
+Suppose that all moments $m_\alpha(f) := \int_{\mathbb{R}^n} x^\alpha f dx$ are finite and that all partial derivatives of $f$ of arbitrary order vanish as some $x_i$ tends to infinity.
+Then also the moments $m_\alpha(\partial^\beta f)$ are finite.
+For instance, due to integration by parts $\int_a^{b} x^\alpha \partial_1 f = $

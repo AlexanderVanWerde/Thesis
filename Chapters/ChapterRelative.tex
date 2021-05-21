@@ -4,28 +4,27 @@ Introduce new variables $s = (s_1,\ldots, s_r)$ and fix a tuple of natural numbe
 The monovariate Bernstein-Sato polynomial in \cref{sec: MonodromyBS} is generalised by the Bernstein-Sato ideal $B_F^{a}$ which consists of all polynomials $b(s)\in \C[s]$ such that
 $$b(s) F^s \in \D_{\C^n}[s]F^{s+a}$$
 where $F^s = f_1^{s_1}\cdots f_r^{s_r}$.
-The main purpose of this chapter is to generalise the estimate by Lichtin and Kashiwara given in \cref{sec: sec: MonodromyBS} to the zero locus of $B_F^a$.
+The main purpose of this chapter is to generalise the estimate by Lichtin and Kashiwara given in \cref{sec: MonodromyBS} to the zero locus of $B_F^a$.
 
 \Cref{sec: BSIdeal} provides an introduction to Bernstein-Sato zero loci and the available results on their estimation.
 It turns out that the $\D_X$-modules encoding the Bernstein-Sato relations are no longer holonomic due to the new variables $s_i$.
-This is essentially the problem which has been surmounted in \cite{budur2020zeroI} and \cite{budur2020zeroII} in order to prove a topological interpretation of $Z(B_F^a)$.
+This is essentially the problem which has been surmounted in \cite{budur2020zeroI} and \cite{budur2020zeroII} in order to prove a monodromy-based interpretation of $Z(B_F^a)$.
 We adapt the technique from these papers to suit our goal.
 The corresponding notions are introduced in \cref{sec: DXS}.
 The proof for the generalisation of Lichtin's estimate is given in \cref{sec: UpperBound}.
 This establishes an upper bound on the Bernstein-Sato zero locus.
-A number of lower bounds on the Bernstein-Sato zero locus in terms of jumping walls of mixed multiplier ideals are given in \cref{sec: LowerBound}.
-\section{Bernstein-Sato ideal}
+A number of lower bounds on the Bernstein-Sato zero locus are given in \cref{sec: LowerBound}.
+\section{Bernstein-Sato ideal}\label{sec: BSIdeal}
 Let $X$ be a smooth affine complex variety and consider a morphism $F:X\to \C^r$.
 As in \Cref{ex: fs} let $\D_X[s]F^{s+a}$ be the $\sD_X[s]$-submodule of the free $\bC[x,f^{-1},s]$-module $\bC[x,f^{-1},s]F^{s+a}$ obtained by applying formally the operators in $\sD_X[s]$ to the symbol $F^{s+a}$ by using the usual derivation rules, where $f=f_1\ldots f_r$.
 \begin{definition}
-  The Bernstein-Sato zero locus associated to $F$ and $a\in \mathbb{Z}_{\geq 0}^r$ is the collection of polynomials $b(s)\in \C[s]$ such that
-  $$b(s)F^s \in  \D_X[s]F^{s+a}.$$
+  The Bernstein-Sato zero locus associated to $F$ and $a\in \mathbb{Z}_{\geq 0}^r$ is the collection of polynomials $b(s)\in \C[s]$ such that $b(s)F^s \in  \D_X[s]F^{s+a}.$
 \end{definition}
 When $r>1$ the ring $\C[s]$ is not a principal ideal domain so $B_F^{a}$ may not be principal.
-The zero locus of the ideal $B_F^a$ is denoted $$Z(B_F^a)\subseteq \C^r.$$
+The zero locus of the ideal $B_F^a$ is denoted $Z(B_F^a)\subseteq \C^r.$
 This construction extends easily to the case when $F:(X,x)\to (\bC^r,0)$ is the germ of a holomorphic map of complex manifolds.
 These give rise to the so-called local Bernstein-Sato ideals $B_{F,x}^a$.
-The global Bernstein-Sato ideal is known to be equal the intersection of all local $B_{F,x}^a$ for $x$ in the zero locus of $f$ \cite{brianccon2002remarques}.
+The global Bernstein-Sato ideal is known to be equal the intersection of all local $B_{F,x}^a$ for $x$ in the zero locus of $f$ by \cite{brianccon2002remarques}.
 \begin{example}
   Consider the case where $X=\C^2$ with $f_1 = x^{l_1}y^{k_1}$ and $f_2 = x^{l_2}y^{k_2}$.
   Then a Bernstein-Sato relation for $a = (1,1)$ may be found by acting with $\partial_x^{l_1 + l_2}\partial_y^{k_1 + k_2}$ on $F^{s+1}$.
@@ -41,10 +40,11 @@ The global Bernstein-Sato ideal is known to be equal the intersection of all loc
   \end{figure}
   \end{example}
     In the case where $a =(1,\ldots,1)$ the Bernstein-Sato ideal $B_F^a$ can be computed using SINGULAR.
-    This software package has been used to compute the examples in \cref{fig: TwoCusps} and \cref{fig: TwoCones} which were visualised using Mathematica.
-    A-priori the Bernstein-Sato zero locus could have been an arbitrary affine variety, however in these examples it always seems to consist of a number of hyperplanes.
+    This software package has been used to compute the examples in \Cref{figure: TwoCusps} and \Cref{figure: TwoCones} which were visualised using Mathematica.
+    A-priori the Bernstein-Sato zero locus could have been an arbitrary affine variety.
+    In these examples it always seems to consist of a number of hyperplanes.
     This may be explained by the following theorem.
-    \begin{theorem} \label{thrmMoreA}  (\cite[Theorem 1.1.1]{budur2020zeroII}) Let $F=(f_1,\ldots,f_r):X\ra\bC^r$ be a morphism of smooth complex affine irreducible algebraic varieties, or the germ at $x\in X$ of a holomorphic map on a complex manifold.  Let $a\in\mathbb{Z}_{\geq 0}^r$ such that $\prod_{j=1}^rf_j^{a_j}$ is not invertible. Then:
+    \begin{theorem}{\cite[Theorem 1.1.1]{budur2020zeroII}} \label{thrmMoreA}   Let $F=(f_1,\ldots,f_r):X\ra\bC^r$ be a morphism of smooth complex affine irreducible algebraic varieties, or the germ at $x\in X$ of a holomorphic map on a complex manifold.  Let $a\in\mathbb{Z}_{\geq 0}^r$ such that $\prod_{j=1}^rf_j^{a_j}$ is not invertible. Then:
     \begin{enumerate}
     \item Every irreducible component of $Z(B_F^{a})$ of codimension 1 is a  hyperplane of type $l_1s_1+\ldots+l_rs_r+b=0$ with $l_j\in\bQ_{\ge 0}$, $b\in\bQ_{>0}$, and for each such hyperplane there exists $j$ with $a_j\ne 0$ such that $l_j>0$.
     \item Every irreducible component of  $Z(B_F^{a})$ of codimension $>1$  can be translated by an element of $\bZ^r$ inside a component of codimension 1.
@@ -66,7 +66,7 @@ The global Bernstein-Sato ideal is known to be equal the intersection of all loc
       \caption{On the left: the zero loci determined by $f_1(x,y) = xy$ and $f_2(x,y) = (x+y)(x-y)$ respectively in orange and blue.
       On the right: the
       Bernstein-Sato zero-locus $Z(B_F^1)$.}
-      \label{fig: TwoCones}
+      \label{figure: TwoCones}
     \end{figure}
     \begin{figure}
       \centering
@@ -81,7 +81,7 @@ The global Bernstein-Sato ideal is known to be equal the intersection of all loc
       \caption{On the left: the zero loci determined by $f_1(x,y) = y^2 -x^3$ and $f_2(x,y) = x^2 -y^3$ respectively in orange and blue.
       On the right: the
       Bernstein-Sato zero-locus $Z(B_F^1)$.}
-      \label{fig: TwoCusps}
+      \label{figure: TwoCusps}
     \end{figure}
 
 
@@ -89,7 +89,7 @@ The first goal of this chapter is to to further refine part (1) of the above the
 This means we provide a lower bound on the constant $c$ in terms of numerical data from a resolution of singularities.
 
 Let $\mu:Y\to X$ be a strong log resolution of $f$.
-The numerical data is given by the orders of vanishing $\ord_{E}(f_j)\in\mathbb{Z}_{\geq 0}$ of $f_j$ along  irreducible components $E$ of $\mu^*D$, and the orders of vanishing $k_E=\ord_{E}(\det \operatorname{Jac}(\mu))\in\mathbb{Z}_{\geq 0}$ of the determinant of the Jacobian of $\mu$, also equal to the coefficients of the relative canonical divisor $K_\mu$ of $\mu$. We show:
+The numerical data is given by the orders of vanishing $\ord_{E}(f_j)\in\mathbb{Z}_{\geq 0}$ of $f_j$ along  irreducible components $E$ of $\mu^*D$, and the orders of vanishing $k_E=\ord_{E}(\det \operatorname{Jac}(\mu))\in\mathbb{Z}_{\geq 0}$ of the determinant of the Jacobian of $\mu$, also equal to the coefficients of the relative canonical divisor $K_{Y/X}$. We show:
 \begin{theorem}\label{thm: MainTheorem}
   Every irreducible component of $Z(B_F^a)$ of codimension $1$ is a hyperplane of the form
   $$\ord_{E}(f_1)s_1 + \cdots + \ord_{E}(f_r)s_r + k_E + c=0 $$
@@ -97,7 +97,7 @@ with $c\in\bZ_{>0}$.
 \end{theorem}
 
 Without the term $k_E$ the statement was proven for $r\ge 1$ by \cite[Lemma 4.4.6]{budur2020zeroII} generalising Kashiwara's estimate.
-The case $r=1$ of Theorem \ref{thm: MainTheorem} is due to Lichtin \cite{lichtin1989poles}, a new proof of which was given by Dirks-Musta\c{t}\u{a} \cite{DM}.
+The case $r=1$ of Theorem \ref{thm: MainTheorem} is due to \cite{lichtin1989poles}, a new proof of which was given by \cite{DM}.
 
 The second part of this chapter contains a number of lower bounds for the Bernstein-Sato zero locus.
 Firstly, we provide a multivariate generalisation for the fact that the Bernstein-Sato polynomial for $r=1=a$ always has the trivial root $-1$.
@@ -107,7 +107,7 @@ Firstly, we provide a multivariate generalisation for the fact that the Bernstei
 \end{proposition}
 Further, we generalise the fact that the jumping numbers of $f$ in $[0,\lct(f)+1)$ are roots of $b_{f}(s)$ in the case $r=1$ \cite[Theorem 2]{BSArbitraryVariety}.
 For any $\lambda\in \mathbb{R}_{\geq 0}^r$ the mixed multiplier ideal sheaf of $F^\lambda$ is given by
-$$\mathcal{J}(F^\lambda) = \mu_*\O_Y(K_\mu - \lfloor \sum_{j=1}^r \lambda_j \mu^* D_j \rfloor)$$
+$$\mathcal{J}(F^\lambda) = \mu_*\O_Y(K_{Y/X} - \lfloor \sum_{j=1}^r \lambda_j \mu^* D_j \rfloor)$$
 where $D_i$ denotes the divisor determined by $f_i$ and $\lfloor \blank \rfloor$ is the round-down of an $\mathbb{R}$-divisor.
 Associated to $\lambda$ is the region $$\mathcal{R}_F(\lambda):= \{\lambda'\in \mathbb{R}_{\geq 0}^r:\mathcal{J}(F^{\lambda}) \subseteq \mathcal{J}(F^{\lambda'})\}.$$
 
@@ -116,9 +116,10 @@ By the definition of mixed multiplier ideals the facets of the jumping wall are 
 $\sum_{j=1}^r\ord_E(f_j)s_j = k_E + c$
 with $c\in \mathbb{Z}_{>0}$ and $E$ an irreducible component of $\mu^*D$.
 \begin{example}
-  Let $f_i(x,y) = \prod_{j=1}^{n_1} \ell_{1j}$ and $f_2(x,y) = \prod_{j=1}^{n_2} \ell_{2j}$ for linear polynomials $\ell_{ij}$ which go through the origin and all have different zero loci.
-  Consider a blow-up at the origin.
-  For any irreducible polynomial $p\in \C[x,y]$ denote $E_p$ for the divisor determined by $p$ and denote $E_{e}$ for the exceptional divisor of the blowup.
+  For any $i=1,\ldots,r$ let $f_i(x,y) = \prod_{j=1}^{n_1} \ell_{ij}$ for linear polynomials $\ell_{ij}$ which go through the origin.
+  Suppose that the $\ell_{ij}$ all have different zero loci.
+  Consider a blow-up at the origin and let $E_{e}$ be the exceptional divisor of the blow-up.
+  Denote $E_{\ell_{ij}}$ for the divisor determined by $\ell_{ij}$.
   Then the global sections of $\mathcal{J}(F^s)$ are the polynomials $h\in \C[x,y]$ such that for all $i,j$
   $$\ord_{E_{\ell_{ij}}} h\geq \lfloor s_i \rfloor;\qquad \ord_{E_{e}} h \geq \lfloor n_1s_1 + n_2s_2 - 1 \rfloor. $$
   \begin{figure}[h!]
@@ -176,10 +177,10 @@ Since $\D_X^R$ is a sheaf of non-commutative rings, one should distinguish betwe
 We may also refer to a $\D_X^R$-module without specifying left or right if no confusion is possible. In these cases it is intended that the result holds in either case.
 
 For any filtered $\D_X^R$-module $\M$ there is an associated sheaf of modules on $T^*X\times \Spec R$ given by
-$(\pi\times \Id_{\Spec R})^{-1}(\grrel\M)\allowbreak\otimes_{\pi^{-1}\grrel\D_X^R} \O_{T^*X\times \Spec R}$.
+$(\pi_{T^*X}\times \pi_{\Spec R})^{-1}(\grrel\M)\allowbreak\otimes_{\pi^{-1}\grrel\D_X^R} \O_{T^*X\times \Spec R}$.
 From here on out we write $\grrel\D_X^R$ and $\grrel \M$ for the corresponding sheaves on $T^*X\times \Spec R$.
 
-A filtration  compatible with $F_\bullet \sD_X^R$ on a $\D_X^R$-module $\M$ is said to be good if $\grrel\M$ is a coherent $\grrel\D_X^R$-module.
+A filtration  compatible with $F_* \sD_X^R$ on a $\D_X^R$-module $\M$ is said to be good if $\grrel\M$ is a coherent $\grrel\D_X^R$-module.
 A quasi-coherent $\D_X^R$-module $\M$ locally admits a good filtration if and only if it is coherent \cite[Corollary D.1.2]{hotta2007d}, in fact one can take this filtration to be global \cite[Proof of Theorem 2.1.3]{hotta2007d}.
 For a coherent $\D_X^R$-module $\M$ the support $\Chrel\M$ of $\grrel\M$ in $T^*X\times \Spec R$ is independent of the chosen filtration \cite[Lemma D.3.1.]{hotta2007d} and is called the relative characteristic variety.
 Equivalently, the relative characteristic variety is locally determined by the radical of the annihilator ideal of $\grrel \M$ in $\grrel\D_X^R$.
@@ -250,7 +251,7 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   The Bernstein-Sato-ideal of a $\D_X^R$-module $\M$ is given by $B_\M:=\Ann_R \M$.
 \end{definition}
 
-\begin{proposition}[{\cite[Lemma 3.4.1]{budur2020zeroI}}]\label{prop: ChrelGrades}
+\begin{proposition}{\cite[Lemma 3.4.1]{budur2020zeroI}}\label{prop: ChrelGrades}
   Let $\M$ be a relative holonomic $\D_X^R$-module then
   $$\dim \Chrel \M + j(\M) = 2n + r.$$
 \end{proposition}
@@ -261,17 +262,17 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
 \begin{definition}
   A non-zero coherent $\D_X^R$-module $\M$ is said to be $j$-pure if $j(\N) = j(\M) = j$ for every non-zero submodule $\N$.
 \end{definition}
-\begin{proposition}[{\cite[Lemma 4.3.5.]{budur2020zeroI}}]\label{prop: JPureExt}
+\begin{proposition}{\cite[Lemma 4.3.5.]{budur2020zeroI}}\label{prop: JPureExt}
    Let $\M$ be a non-zero coherent right $\D_X^R$-module of grade $j$. Then:
 \begin{enumerate}
 \item    $\Ex{\D_X^R}{j}(\M,\D_X^R)$ is a $j$-pure left $\D_X^R$-module and $\Ex{\D_X^R}{k}(\M,\D_X^R)$ has grade $\ge k$ for any $k\neq j$;
 \item $\M$ is $j$-pure if and only if $\Ex{\D_X^R}{k}(\Ex{\D_X^R}{k}(\M,\D_X^R),\D_X^R)= 0$ for every $k\neq j$.
 \end{enumerate}
  \end{proposition}
- \begin{proposition}[{\cite[Lemma 3.4.2]{budur2020zeroI}}]\label{prop: Injective3.4.2}
+ \begin{proposition}{\cite[Lemma 3.4.2]{budur2020zeroI}}\label{prop: Injective3.4.2}
    Let $\M$ be a $j$-pure relative holonomic $\D_X^R$-module and suppose that $b\in R$ is not contained in any minimal prime ideal of $R$ containing $B_\M$. Then there exists a good filtration on $\M$ such that multiplication by $b$ induces injective endomorphisms on $\M$ and $\grrel\M$.
  \end{proposition}
- \begin{proposition}[{\cite[Lemma 3.2.4.]{budur2020zeroI}}]
+ \begin{proposition}{\cite[Lemma 3.2.4.]{budur2020zeroI}}
    Let $\M$ be a relative holonomic right $\D_X^R$-module. Then, for any $k\geq 0$, $\Ex{\D_X^R}{k}(\M,\D_X^R)$ is a relative holonomic left $\D_X^R$-module.
  \end{proposition}
  \begin{proposition}\label{prop: TorRelHol}
@@ -291,13 +292,13 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
    where $\Delta: \Spec R/P\to \Spec R$ is the closed embedding.
    This proves the desired result.
  \end{proof}
- \begin{proposition}{\cite[Corollary 5.8.4]{weibel1995introduction}}
+ \begin{proposition}
    For any coherent right $\D_X^R$-module $\M$ and prime ideal $P\subseteq R$ with $Z(P)\subseteq \Spec R$ non-singular there is a spectral sequence
   $$E_2^{pq}= \Ex{\D_X^{R/P}}{p}(\Tr{\D_X^R}{-q}(\M,\D_X^{R/P}), \D_X^{R/P}) $$
   converging to $H^{p+q}(R\Hom_{\D_X^{R/P}}(\M\otimes_{\D_X^R}^L \D_X^{R/P},\D_X^{R/P})).$
  \end{proposition}
  \begin{proof}
-   This is simply the Grothendieck spectral sequence for this composition of derived functors.
+   This is simply the Grothendieck spectral sequence \Cref{thm:  GrothendieckSpectral} for this composition of derived functors.
    It is applicable since $\blank \otimes_{\D_X^{R}}\D_X^{R/P}$ transforms projective right $\D_X^R$-modules into projective right $\D_X^{R/P}$-modules and these are acyclic for $\Hom_{\D_X^{R/P}}(\blank,\D_X^{R/P})$.
  \end{proof}
 
@@ -702,9 +703,9 @@ The proof of \Cref{thm: MainTheorem} proceeds similarly in the local analytic ca
 If the smooth affine variety $X$ is replaced with a germ of a complex manifold $(X,x)$ then one should replace the sheaves $\D_X$ and $\D_X^R$ by the stalks of the corresponding analytic sheaves $\D_{X,x}$ and $\D_{X,x}^R$.
 Here $R$ remains a regular commutative finitely generated $\C$-algebra integral domain.
 
-Denote $Y$ for the analytification of $\Spec R$.
-The role of the relative characteristic variety $\Chrel\M$ is replaced by $\Chrel\M \cap \pi^{-1}(\Omega_x)\times Y$ for some small ball $\Omega_x$ in $X$ where $\pi:T^*X\to X$ is the projection map.
-Correspondingly, a $\D_X^R$-module $\M$ is said to be relative holonomic at $x$ if $\Chrel\M \cap \pi^{-1}(\Omega_x)\times Y$ satisfies the analytic version of \Cref{def: RelHolonomic}.
+Denote $\mathcal{S}$ for the analytification of $\Spec R$.
+The role of the relative characteristic variety $\Chrel\M$ is replaced by $\Chrel\M \cap \pi^{-1}(\Omega_x)\times \mathcal{S}$ for some small ball $\Omega_x$ in $X$ where $\pi:T^*X\to X$ is the projection map.
+Correspondingly, a $\D_X^R$-module $\M$ is said to be relative holonomic at $x$ if $\Chrel\M \cap \pi^{-1}(\Omega_x)\times \mathcal{S}$ satisfies the analytic version of \Cref{def: RelHolonomic}.
 
 Similarly one can considers grades, purity and $j$-Cohen-Macaulay at $x$ which is to say that one considers these properties over $\D_{X,x}^R$.
 With these changes the homological results from \cite{budur2020zeroI} given in \cref{sec: HomNotion} generalise appropriately as is outlined outlined in section 3.6 of loc. cit.
@@ -799,7 +800,7 @@ Note that taking the the real part of the Bernstein-Sato functional equation on 
 The converse is also true provided all singularities of $F$ on the complexification lie inside of $X_\mathbb{R}$.
 
 Let $\mu:Y_\mathbb{R}\to X_\mathbb{R}$ be a resolution of singularities for $f$ by real algebraic manifolds.
-Denote $g_j = f_j\circ \mu$ and $K_\mu$ for the relative canonical divisor of $\mu$.
+Denote $g_j = f_j\circ \mu$ and $K_{Y/X}$ for the relative canonical divisor of $\mu$.
 The real mixed multiplier ideal sheaf associated to $\lambda \in \mathbb{R}_{\geq 0}^r$ is given by
 $\mathcal{J}_{\mathbb{R}}(F^\lambda) := \mu_* \O_{Y_\mathbb{R}}(K_\mu - \lfloor \sum_{j=1}^r \lambda_j \mu^* D_j \rfloor). $
 This sheaf may be restated analytically as in \cite[Proposition 1]{RealLogCan}.
