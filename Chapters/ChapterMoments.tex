@@ -29,8 +29,9 @@ Similar notions apply to distributions.
   More generally, for any polynomial $p$ on $\C^n$ with undetermined coefficients $s_1,\ldots,s_r$ it holds that $f_s = \exp(p(x))$ is holonomic over $\C(s_1,\ldots,s_r)$.
 \end{example}
 \begin{example}
-  Consider a Dirac delta $\delta_{s}$ at the point $(s_1,\ldots,s_n)$ in $\C^n$.
-  Then $\delta_{s}\cdot (x_i - s_i) = 0$ for all $i=1,\ldots,n$ whence it follows that $\delta_s$ is holonomic over $\C(s_1,\ldots,s_n)$.
+  The parameter-dependent distribution $f_{s_1,s_2} = \chi_{[s_1,s_2]}dx$ on $\mathbb{R}$ with $\chi_{[s_1,s_2]}$ the indicator function is holonomic over $\R(s_1,s_2)$.
+  Indeed, $\chi_{[s_1,s_2]}dx\cdot \partial_x = \delta{s_1} -\delta_{s_2}$ with $\delta$ the Dirac delta.
+  Hence, $f_{s_1,s_2}$ is annihilated by $\partial_x(x-s_2)(x-s_1)$ from which the holonomicity follows.
 \end{example}
 In the foregoing chapter we had a notion of relative holonomicity over $\C[s]$ with $s = (s_1,\ldots,s_r)$.
 One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the following result.
@@ -71,7 +72,7 @@ One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the
       Let $f$ be a monovariate holonomic function over $K$.
       If $1/f$ is defined it is holonomic over $K$ if and only if the logarithmic derivative $\partial f/f$ is algebraic over $K$.
     \end{theorem}
-    \begin{theorem}{\cite[Theorem 2.7]{stanley1980differentiably}}
+    \begin{theorem}{\cite[Theorem 2.7]{stanley1980differentiably}}\label{thm: AlgebraicPrecomp}
       Let $f$ and $a$ be a monovariate holonomic function and a monovariate algebraic functions over $K$ respectively.
       If $f\circ a$ is defined it is also holonomic over $K$.
     \end{theorem}
@@ -80,11 +81,13 @@ One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the
     In this case it is convenient to replace the notation $x_i,\partial_i$ by $m_i,S_i$ respectively.
     The Weyl algebra $D_n(\k)$ acts on multivariate sequences $u:\mathbb{Z}_{\geq 0}^n \to K$ by $(m_iu)(m):= m_i u(m)$ and $(S_iu)(m) = u(m-e_i)$ with $e_i$ the $i$-th standard basis vector.
 
-    In this section we will mainly be concerned with monovariate sequences $u:\mathbb{Z}_{\geq 0}\to K$.
+    This section is concerned with the asymptotics of monovariate sequences $u:\mathbb{Z}_{\geq 0}\to K$.
+    The statement that $u(m) = O(b(m))$ for some positive sequence $b:\mathbb{Z}_{\geq 0}\to \mathbb{R}_{\geq 0}$ means that there exists some $C,M\geq 0$ such that for all $m\geq m$ it holds that $\abs{u(m)}\leq Cb(m)$.
+    The statement that $u(m)\sim b(m)$ means that $\lim_{m\to \infty} u(m)/b(m) = 1$.
     \begin{theorem}{\cite[Theorem 1.5]{stanley1980differentiably}}\label{thm: GeneratingFunction}
-      A sequence $u:\mathbb{Z}_{\geq 0}\to K$ is holonomic over $K$ if and only if it's generating sequence $f(z) = \sum_{m=0}^{\infty} u(m)z^m$ is so.
+      A sequence $u:\mathbb{Z}_{\geq 0}\to K$ is holonomic over $K$ if and only if its generating sequence $f(z) = \sum_{m=0}^{\infty} u(m)z^m$ is so.
     \end{theorem}
-    A sequence $u:\mathbb{Z}_{\geq 0}$ is holonomic if and only if there exists some homogeneous linear recursion relation
+    A sequence $u:\mathbb{Z}_{\geq 0}\to K$ is holonomic if and only if there exists some homogeneous linear recursion relation
     $$p_d(m)u(m+d) + p_{d-1}(m)u(m+d-1) + \cdots + p_0(m)u(m) = 0 $$
     with polynomial coefficients $p_k \in K[m]$.
     A holonomic sequence is called $K$-recurrent if the polynomials $p_k$ can be taken to be constants.
@@ -96,11 +99,15 @@ One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the
       $$u(m) = \sum_{j=1}^k P_j(m)\lambda_j^m$$
       for all $m\in \mathbb{Z}_{\geq 0}$.
     \end{theorem}
-    The case of holonomic sequences is more subtle but an assymptotic expansion in the case with $K = \C$ has been proved by \cite{birkhoff1933analytic}.
+    The case of holonomic sequences is more subtle but an asymptotic expansion in the case with $K = \C$ has been proved by \cite{birkhoff1933analytic}.
     It should be noted that there are allegedly gaps in the complicated proof.
     Still, the results have so far matched up with reality.
     Algorithms to compute the expansions have been implemented by \cite{kauers2011mathematica} and \cite{zeilberger1990holonomic}.
-
+    In particular, from the asymptotic expansion the following theorem follows.
+    \begin{theorem}(\cite{birkhoff1933analytic})
+      Suppose that $u:\mathbb{Z}_{\geq 0}\to \C$ is holonomic. Then there exist constants $c,\alpha, \beta, \gamma \in \C$, positive integers $r,k\in \mathbb{Z}_{\geq 0}$ and a polynomial $p\in \C[x]$ such that
+      $$u(m) \sim cm^{\alpha m} e^{p(m^{1/r})}\beta^m m^\gamma \log(m)^{k-1}.$$
+    \end{theorem}
     Another approach in the case with $K = \C$ is due to \cite{flajolet1990singularity}.
     Due to the algorithms associated to \Cref{thm: GeneratingFunction} one gets an implicit description of the generating function $f$ of $u$.
     Suppose that $f$ defines an analytic function near the origin and assume that $f$ has a unique singularity of minimal modulus.
@@ -116,8 +123,84 @@ One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the
     \end{theorem}
     Other methods based on generating functions are also known, for instance due to \cite{hayman1956generalisation}.
     Algorithms to determine the asymptotics of $u$ based on the generating function have been implemented by \cite{salvy1991examples}.
-\section{Subgaussian random variables}\label{sec: SubGSubE}
-\section{Moments of holonomic functions}\label{sec: RecursionMoment}
+\section{Concentration of random variables}\label{sec: SubGSubE}
+In probability and statistics it is often necessary to have some assumption regarding the concentration of a random variable.
+For instance, the Cauchy distribution can be hard to understand because of it's large tails.
+These large tails cause pathological behaviour such as undefined variance and expected value.
+
+A general way to measure the size of the tails employs Orlicz norms.
+\begin{definition}
+  An function $\psi:\mathbb{R}_{\geq 0}\to \mathbb{R}_{\geq 0}$ is called an Orlicz function if it is convex, non-decreasing, and satisfies $\psi(0)= 0$ and $\lim_{x\to \infty}\psi(x) = \infty$.
+\end{definition}
+\begin{definition}
+  Let $\psi$ be an Orlicz function. A random variable $X$ is said to belong to the Orlicz space $L_\psi$ if it's Orlicz norm
+  $$\norm{X}_{\psi} := \inf\{t>0: \mathbb{E}\psi(\abs{X}/t)\leq 1\}$$
+  is finite.
+\end{definition}
+\begin{example}
+  Consider the Orlicz function $\psi(x) = x^p$ for $p\geq 1$.
+  Then $L_\psi$ is the classical $L^p$-space of random variables with finite $p$th absolute moments.
+\end{example}
+\begin{example}
+  Consider the Orlicz function $\psi_2(x):= \exp(x^2)-1$.
+  The random variables in $L_{\psi_2}$ are called sub-gaussian random variables.
+  %These are precisely the random variables $X$ for which there exists some constant $R>0$ with
+  %$$\mathbb{P}(\abs{X}\geq t) \leq 2\exp(-t^2/R^2)$$
+  %for all $t\geq 0$.
+  %Moreover, the constant $R$ differs from $\norm{X}_{\psi_2}$ by at most an absolute constant factor.
+  %More characterisations of sub-gaussian random variables may be found in \cite[Proposition 2.5.2]{vershynin2018high}.
+\end{example}
+\begin{example}
+  Consider the Orlicz function $\psi_1(x) = \exp(\abs{x})-1$.
+  The random variables in $L_{\psi_1}$ are called sub-exponential.
+  %These are precisely the random variables $X$ for which there exists some constant $R>0$ with
+  %$$\mathbb{P}(\abs{X}\geq t) \leq 2\exp(-t/R)$$
+  %for all $t\geq 0$.
+  %Moreover, the constant $R$ differs from $\norm{X}_{\psi_1}$ by at most an absolute constant factor.
+  %More characterisations of sub-exponential random variables may be found in \cite[Proposition 2.7.1]{vershynin2018high}.
+\end{example}
+To demonstrate why these assumptions are useful in applied mathematics consider the following theorem as an example.
+\begin{theorem}{\cite[Theorem 4.4.5]{vershynin2018high}}
+  There exists some constant $C>0$ such that for any  $m\times n$ random matrix $A$ with independent sub-gaussian entries $A_{ij}$ satisfying $\mathbb{E}A_{ij} = 0$, $\mathbb{E}A_{ij}^2 = 1$ and $\norm{A_{ij}}_{\psi_2}\leq R$
+  it hold that
+  $$\mathbb{P}\left(\norm{A} \leq  CR(\sqrt{m} + \sqrt{n} + t)\right) \geq 1-2\exp(-t^2)$$
+  for all $t>0$.
+  Here $\norm{A}$ denotes the operator norm of $A$.
+\end{theorem}
+We study a family of Orlicz norms defined by $\psi(x) = \exp(h(\abs{x}) -1$ for $h:\R_{\geq 0} \to \R_{\geq 0}$ a non-decreasing convex function with $h(0)=0$ and $\lim_{x\to \infty}h(x)= \infty$.
+The corresponding Orlicz norm and space will be denoted $\norm{X}_h$ and $L_h$ respectively.
+See \cite{wellner2017bennett} and the references therein for some applications of this class of Orlicz norms.
+In particular, note that this family of norms include the sub-exponential and sub-gaussian norms which have many applications, see \cite{vershynin2018high}.
+
+The following theorem and it's proof generalise a similar statement and proof for sub-exponential and sub-gaussian random variables in \cite[Chapter 2]{vershynin2018high}.
+\begin{theorem}
+  Let $X$ be a random variable. The following are equivalent
+  \begin{enumerate}[label = (\roman*)]
+    \item It holds that $X\in L_h$.
+    \item There exists some $R\in \mathbb{R}_{>0}$ such that
+    $$\mathbb{P}\left(h(\abs{X}/R)\geq t\right) \leq 2\exp(-t)$$
+    for all $t\in \mathbb{R}_{>0}$.
+    \item There exists some constant $R>0$ such that
+    $$\mathbb{E} h(X)^p \leq (Rp)^p$$
+    for all $p\in \mathbb{Z}_{\geq 0}$.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  $(i)\Rightarrow (ii)$ Assume that $X$ is in $L_h$. This means that we can find some $R>0$ with $\mathbb{E} \exp(h(\abs{X}/R)) \leq 2$.
+  Markov's inequality states that for any non-negative random variable $Y$ it holds that $\mathbb{P}(Y\geq t)\leq \mathbb{E}Y / t$.
+  Hence,
+  \begin{align*}
+    \mathbb{P}(h(\abs{X}/R)\geq t) = \mathbb{P}(\exp(h(\abs{X}/R))\geq \exp(t))  \leq 2\exp(-t)
+  \end{align*}
+  which is the desired inequality.
+
+  $(ii)\Rightarrow (iii)$ Note that for any positive random variable $Y$ it holds that $\mathbb{E}Y = \int_{0}^{\infty}\mathbb{P}(\abs{Y}>t)$.
+  Therefore,
+  \begin{align*}
+    \mathbb{E}h(\abs{X}^p) = \int_{0}^\infty \mathbb{P}(h(\abs{X}^p)\geq u )
+  \end{align*}
+\end{proof}
+\section{Moments with holonomic densities}\label{sec: RecursionMoment}
 The main subject of interest in this chapter are the moments of probability distributions with holonomic densities.
 Let $f:\mathbb{R}^n \to \mathbb{R}$ be holonomic.
 Suppose that all moments $m_\alpha(f) := \int_{\mathbb{R}^n} x^\alpha f dx$ are finite and that all partial derivatives of $f$ of arbitrary order vanish as some $x_i$ tends to infinity.
