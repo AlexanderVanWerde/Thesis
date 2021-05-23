@@ -128,37 +128,26 @@ In probability and statistics it is often necessary to have some assumption rega
 For instance, the Cauchy distribution can be hard to understand because of it's large tails.
 These large tails cause pathological behaviour such as undefined variance and expected value.
 
-A general way to measure the size of the tails employs Orlicz norms.
+\begin{theorem}{\cite[Proof of Proposition 2.5.2]{vershynin2018high}}\label{thm: EquivalentLp}
+  Let $X$ be a real random variable and let $p\in \mathbb{R}_{>0}$. The following are equivalent
+  \begin{enumerate}[label = (\roman*)]
+    \item There exists some $R_1\in \mathbb{R}_{>0}$ such that $\mathbb{P}(\abs{X}\geq t) \leq 2\exp(-t^p/R_1^p)$
+    \item There exists some $R_2\in \mathbb{R}_{>0}$ such that $\mathbb{E}\exp(\abs{X}^p/R_2^p) \leq 2.$
+    \item There exists some constant $R_3\in \mathbb{R}_{>0}$ such that $\left(\mathbb{E} \abs{X}^k \right)^{1/k} \leq R_3k^{1/p}$
+    for all $k\in \mathbb{Z}_{\geq 0}$.
+  \end{enumerate}
+  Moreover, the constants $R_i$ which occur in these equivalent conditions can differ by at most an absolute constant factor.
+\end{theorem}
 \begin{definition}
-  An function $\psi:\mathbb{R}_{\geq 0}\to \mathbb{R}_{\geq 0}$ is called an Orlicz function if it is convex, non-decreasing, and satisfies $\psi(0)= 0$ and $\lim_{x\to \infty}\psi(x) = \infty$.
+  Let $p\in \mathbb{R}_{\geq 1}$.
+  A random variable $X$ belongs to $L_{\psi_p}$ if it satisfies any of the equivalent conditions of \Cref{thm: EquivalentLp}.
+  In this case the minimal constant $R_2$ which satisfies part (ii) of \Cref{thm: EquivalentLp} is denoted $\norm{X}_{\psi_p}$.
 \end{definition}
-\begin{definition}
-  Let $\psi$ be an Orlicz function. A random variable $X$ is said to belong to the Orlicz space $L_\psi$ if it's Orlicz norm
-  $$\norm{X}_{\psi} := \inf\{t>0: \mathbb{E}\psi(\abs{X}/t)\leq 1\}$$
-  is finite.
-\end{definition}
-\begin{example}
-  Consider the Orlicz function $\psi(x) = x^p$ for $p\geq 1$.
-  Then $L_\psi$ is the classical $L^p$-space of random variables with finite $p$th absolute moments.
-\end{example}
-\begin{example}
-  Consider the Orlicz function $\psi_2(x):= \exp(x^2)-1$.
-  The random variables in $L_{\psi_2}$ are called sub-gaussian random variables.
-  %These are precisely the random variables $X$ for which there exists some constant $R>0$ with
-  %$$\mathbb{P}(\abs{X}\geq t) \leq 2\exp(-t^2/R^2)$$
-  %for all $t\geq 0$.
-  %Moreover, the constant $R$ differs from $\norm{X}_{\psi_2}$ by at most an absolute constant factor.
-  %More characterisations of sub-gaussian random variables may be found in \cite[Proposition 2.5.2]{vershynin2018high}.
-\end{example}
-\begin{example}
-  Consider the Orlicz function $\psi_1(x) = \exp(\abs{x})-1$.
-  The random variables in $L_{\psi_1}$ are called sub-exponential.
-  %These are precisely the random variables $X$ for which there exists some constant $R>0$ with
-  %$$\mathbb{P}(\abs{X}\geq t) \leq 2\exp(-t/R)$$
-  %for all $t\geq 0$.
-  %Moreover, the constant $R$ differs from $\norm{X}_{\psi_1}$ by at most an absolute constant factor.
-  %More characterisations of sub-exponential random variables may be found in \cite[Proposition 2.7.1]{vershynin2018high}.
-\end{example}
+\begin{remark}
+  One can show that, whenever $p\geq 1$, $(L_{\psi_p},\norm{\cdot}_p)$ is a normed vector space.
+  The variables in $L_{\psi_1}$ are called sub-exponential and the variables in $L_{\psi_2}$ are called sub-gaussian.
+\end{remark}
+
 To demonstrate why these assumptions are useful in applied mathematics consider the following theorem as an example.
 \begin{theorem}{\cite[Theorem 4.4.5]{vershynin2018high}}
   There exists some constant $C>0$ such that for any  $m\times n$ random matrix $A$ with independent sub-gaussian entries $A_{ij}$ satisfying $\mathbb{E}A_{ij} = 0$, $\mathbb{E}A_{ij}^2 = 1$ and $\norm{A_{ij}}_{\psi_2}\leq R$
@@ -167,39 +156,7 @@ To demonstrate why these assumptions are useful in applied mathematics consider 
   for all $t>0$.
   Here $\norm{A}$ denotes the operator norm of $A$.
 \end{theorem}
-We study a family of Orlicz norms defined by $\psi(x) = \exp(h(\abs{x}) -1$ for $h:\R_{\geq 0} \to \R_{\geq 0}$ a non-decreasing convex function with $h(0)=0$ and $\lim_{x\to \infty}h(x)= \infty$.
-The corresponding Orlicz norm and space will be denoted $\norm{X}_h$ and $L_h$ respectively.
-See \cite{wellner2017bennett} and the references therein for some applications of this class of Orlicz norms.
-In particular, note that this family of norms include the sub-exponential and sub-gaussian norms which have many applications, see \cite{vershynin2018high}.
 
-The following theorem and it's proof generalise a similar statement and proof for sub-exponential and sub-gaussian random variables in \cite[Chapter 2]{vershynin2018high}.
-\begin{theorem}
-  Let $X$ be a random variable. The following are equivalent
-  \begin{enumerate}[label = (\roman*)]
-    \item It holds that $X\in L_h$.
-    \item There exists some $R\in \mathbb{R}_{>0}$ such that
-    $$\mathbb{P}\left(h(\abs{X}/R)\geq t\right) \leq 2\exp(-t)$$
-    for all $t\in \mathbb{R}_{>0}$.
-    \item There exists some constant $R>0$ such that
-    $$\mathbb{E} h(X)^p \leq (Rp)^p$$
-    for all $p\in \mathbb{Z}_{\geq 0}$.
-  \end{enumerate}
-\end{theorem}
-\begin{proof}
-  $(i)\Rightarrow (ii)$ Assume that $X$ is in $L_h$. This means that we can find some $R>0$ with $\mathbb{E} \exp(h(\abs{X}/R)) \leq 2$.
-  Markov's inequality states that for any non-negative random variable $Y$ it holds that $\mathbb{P}(Y\geq t)\leq \mathbb{E}Y / t$.
-  Hence,
-  \begin{align*}
-    \mathbb{P}(h(\abs{X}/R)\geq t) = \mathbb{P}(\exp(h(\abs{X}/R))\geq \exp(t))  \leq 2\exp(-t)
-  \end{align*}
-  which is the desired inequality.
-
-  $(ii)\Rightarrow (iii)$ Note that for any positive random variable $Y$ it holds that $\mathbb{E}Y = \int_{0}^{\infty}\mathbb{P}(\abs{Y}>t)$.
-  Therefore,
-  \begin{align*}
-    \mathbb{E}h(\abs{X}^p) = \int_{0}^\infty \mathbb{P}(h(\abs{X}^p)\geq u )
-  \end{align*}
-\end{proof}
 \section{Moments with holonomic densities}\label{sec: RecursionMoment}
 The main subject of interest in this chapter are the moments of probability distributions with holonomic densities.
 Let $f:\mathbb{R}^n \to \mathbb{R}$ be holonomic.
