@@ -1,33 +1,25 @@
-\addcontentsline{toc}{chapter}{Summary} %% CHANGE BACK TO SUMMARY %%
-\chapter*{Summary}\label{ch: Summary} %% CHANGE BACK TO SUMMARY %%
-
-%%      CHANGE BACK TO SUMMARY    %%
+\addcontentsline{toc}{chapter}{Summary} %%
+\chapter*{Summary}\label{ch: Summary} %%
 
 
 The purpose of this thesis is to provide a improved estimate for the zero loci of Bernstein-Sato ideals.\\
 
+\noindent
 Historically, this problem arose when trying to extend a function to the entire complex plane.
 Let $f\in \mathbb{R}[x_1,\ldots,x_n]$ be some fixed positive polynomial and let $g \in \mathcal{C}_c^\infty$ be some test function.
 Gelfand asked if it is possible to find a meromorphic extension of the function
-$$\Gamma_g(s) = \int_{\mathbb{R}^n} g f^s dx; \qquad \operatorname{Re}(s)>0 $$
+$$\zeta_g(s) = \int_{\mathbb{R}^n} g f^s dx; \qquad \operatorname{Re}(s)>0 $$
 to the entire complex plane.
 A proof by I.N. Bernstein relies on the existence of a differential operator $P(x,\partial, s)$ such that
 $$P(x,\partial,s) f^{s+1} = b_f(s) f^s$$
 for some polynomial $b_f(s)\in \C[s]$.
 The monic polynomial of minimal degree is called the Bernstein-Sato polynomial.
-Further, this method shows that any pole of $\Gamma_g$ is a root of $b_f(s)$ up to a shift with a negative integer.\\
+Further, this method shows that any pole of $\zeta_g$ is a root of $b_f(s)$ up to a shift with a negative integer.
 
-The relation between the roots of $b_f(s)$ and the poles of functions like $\Gamma_g$ is the topic of a notable open problem called the monodromy conjecture.
-Further, the roots of $b_f(s)$ give insight into the nature of a singularity by the behaviour of the ill-defined function $f^{-1}$.
-Suppose that $f(0)= 0$ and consider the function germ $f:(\C^n,0)\to (\C,0)$.
-Let $t\in \C^\times$ be close to the origin and set $F_{f,0} := f^{-1}(t)\cap B_\varepsilon$ where $B_\varepsilon$ is some small ball centred at $0$.
-Twisting $t$ around the origin induces linear endomorphisms $M^*$ on the vector spaces $H^j(X_t,\C)$.
-The action $M^*$ only depends on the singularity $(f^{-1}(0),0)$.
-In particular, the eigenvalues of the action are invariants of the singularity.
-These eigenvalues are called the eigenvalues of monodromy.
-A classical theorem due to Malgrange and Kashiwara establishes that the eigenvalues of monodromy are precisely the set $\exp(2\pi i Z(b_f))$ where $Z(b_f)$ denotes the collection of roots of the Bernstein-Sato polynomial.
-
+The relation between the roots of $b_f(s)$ and the poles of functions like $\zeta_g$ is the topic of a notable open problem called the monodromy conjecture.
+Further, the roots of $b_f(s)$ relate to various invariants of singularities.
 This shows that the roots of the Bernstein-Sato polynomial are a worthy topic of study.
+
 Estimation of the roots of the Bernstein-Sato polynomial has been done in terms of data from a resolution of singularities.
 The resolution reduces the problem to the case where $f$ is a monomial in which case the Bernstein-Sato polynomial can be computed explicitly.
 The main difficulty is to connect the easier problem to the original problem.
@@ -36,29 +28,26 @@ Here $\D_X$ denotes the sheaf of differential operators on a space $X$.
 
 The original estimate due to Kashiwara establishes that the roots of $b_f(s)$ are negative rational numbers.
 A lower bound for the distance between the largest root and $0$ was established by Lichtin.
-This refined estimate uses a similar methodology to Kashiwara but replaced $f^s$ with the distribution $f^s dx$.
 \\
 
+\noindent
 In this thesis a multivariate generalization of the problem is considered.
-Let $F:(\C^{n},0)\to (\C^p,0)$ be a function germ with coordinate functions $f_1,\ldots, f_r$ and introduce new variables $s_1,\ldots, s_r$.
-Let $a \in \mathbb{Z}_{\geq 0}^r$ be a non-zero vector.
-It is then still known that there exists a differential operator $P(x,\partial, s)$ such that
+Let $F= (f_1,\ldots,f_r)$ be a tuple of complex polynomials $f_i \in \C[x_1,\ldots,x_n]$ and introduce new variables $s_1,\ldots, s_r$.
+It is then still known that, for any $a \in \mathbb{Z}_{\geq 0}^r$, there exists a differential operator $P(x,\partial, s)$ such that
 $$P(x,\partial,s) f_1^{s_1 + a_1}\cdots f_r^{s_r + a_r} = b(s)f_1^{s_1}\cdots f_r^{s_r}$$
 for some polynomial $b(s) \in \C[s_1,\ldots, s_r]$.
 The collection of all possible polynomial $b(s)$ form an ideal of $\C[s_1,\ldots,s_r]$ which is called the Bernstein-Sato ideal and is denoted $B_{F}^a$.
 The roots of Bernstein-Sato polynomials are generalised by the zero locus $Z(B_F^a)$.
 
-There are generalisations of the monodromy conjecture and monodromy theorem to the multivariate situation involving $Z(B_F^a)$.
-Kashiwara's estimate for the roots of $b(s)$ has been generalised to a estimation of the Bernstein-Sato ideal by Budur et al.
-This thesis also generalises the refined estimate due to Lichtin.
-
+The first purpose of this thesis was to provide a generalisation for the estimate due to Lichtin to this multivariate case.
 The main new idea is a reduction argument to reduce the number of $s_i$ to one.
 This involves a tensor product which gives rise to error terms in the shape of the $\Tor$-functor.
 Homological algebra is used to control these error terms.
-\\
 
-The first chapter in this thesis provides the categorical framework of derived categories.
-Such derived categories give a natural framework for dealing with homological algebra and are also necessary to define the direct image of $\D_X$-modules.
-The second chapter provides background on $\D_X$-modules. This builds up to the Riemann-Hilbert correspondence which is a broad generalisation of the the equivalence between systems of differential equations and their solutions.
-Further, the significance of the roots of Bernstein-Sato polynomials and the estimates due to Kashiwara and Lichtin are discussed.
-Finally, the third chapter includes the new proof for the generalised estimate.
+We also consider the relation of the Bernstein-Sato zero locus to some invariants of singularities.
+Namely, the jumping walls of mixed multiplier ideals and $\LCT$-poltopes. \\
+
+\noindent
+The final chapter of this thesis explores how tools from $\D_X$-module theory could be used on certain problems from probability theory.
+It is shown that $\D_X$-module theory may be used to derive recursions in the moments of a random variable.
+These recursions can then be used to establish tail bounds for random variables.

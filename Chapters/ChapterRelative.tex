@@ -1,10 +1,10 @@
 \chapter{Estimation of Bernstein-Sato zero-loci}\label{ch: ChapterRelHol}
 Let $F = (f_1,\ldots,f_r)\in \C^n\to \C^r$ be a tuple of polynomials.
 Introduce new variables $s = (s_1,\ldots, s_r)$ and fix a tuple of natural numbers $a = (a_1,\ldots, a_r) \in \mathbb{Z}_{\geq a}^r$ such that the product $f_1^{a_1}\ldots f_r^{a_r}$ is not invertible.
-The monovariate Bernstein-Sato polynomial in \cref{sec: MonodromyBS} is generalised by the Bernstein-Sato ideal $B_F^{a}$ which consists of all polynomials $b(s)\in \C[s]$ such that
+The monovariate Bernstein-Sato polynomial in \cref{sec: MonodromyBS} is generalised by the {\it Bernstein-Sato ideal} $B_F^{a}$ which consists of all polynomials $b(s)\in \C[s]$ such that
 $$b(s) F^s \in \D_{\C^n}[s]F^{s+a}$$
 where $F^s = f_1^{s_1}\cdots f_r^{s_r}$.
-The main purpose of this chapter is to generalise the estimate by Lichtin and Kashiwara given in \cref{sec: MonodromyBS} to the zero locus of $B_F^a$.
+The main purpose of this chapter is to generalise the estimate by Lichtin and Kashiwara given in \cref{sec: MonodromyBS} to the zero locus $Z(B_F^a)$.
 
 \Cref{sec: BSIdeal} provides an introduction to Bernstein-Sato zero loci and the available results on their estimation.
 It turns out that the $\D_X$-modules encoding the Bernstein-Sato relations are no longer holonomic due to the new variables $s_i$.
@@ -18,12 +18,12 @@ A number of lower bounds on the Bernstein-Sato zero locus are given in \cref{sec
 Let $X$ be a smooth affine complex variety and consider a morphism $F:X\to \C^r$.
 As in \Cref{ex: fs} let $\D_X[s]F^{s+a}$ be the $\sD_X[s]$-submodule of the free $\bC[x,f^{-1},s]$-module $\bC[x,f^{-1},s]F^{s+a}$ obtained by applying formally the operators in $\sD_X[s]$ to the symbol $F^{s+a}$ by using the usual derivation rules, where $f=f_1\ldots f_r$.
 \begin{definition}
-  The Bernstein-Sato zero locus associated to $F$ and $a\in \mathbb{Z}_{\geq 0}^r$ is the collection of polynomials $b(s)\in \C[s]$ such that $b(s)F^s \in  \D_X[s]F^{s+a}.$
+  The {\it Bernstein-Sato ideal} associated to $F$ and $a\in \mathbb{Z}_{\geq 0}^r$ is the collection of polynomials $b(s)\in \C[s]$ such that $b(s)F^s \in  \D_X[s]F^{s+a}.$
 \end{definition}
 When $r>1$ the ring $\C[s]$ is not a principal ideal domain so $B_F^{a}$ may not be principal.
 The zero locus of the ideal $B_F^a$ is denoted $Z(B_F^a)\subseteq \C^r.$
 This construction extends easily to the case when $F:(X,x)\to (\bC^r,0)$ is the germ of a holomorphic map of complex manifolds.
-These give rise to the so-called local Bernstein-Sato ideals $B_{F,x}^a$.
+These give rise to the so-called {\it local Bernstein-Sato ideals} $B_{F,x}^a$.
 The global Bernstein-Sato ideal is known to be equal the intersection of all local $B_{F,x}^a$ for $x$ in the zero locus of $f$ by \cite{brianccon2002remarques}.
 \begin{example}
   Consider the case where $X=\C^2$ with $f_1 = x^{l_1}y^{k_1}$ and $f_2 = x^{l_2}y^{k_2}$.
@@ -36,7 +36,7 @@ The global Bernstein-Sato ideal is known to be equal the intersection of all loc
   \begin{figure}[h!]
     \centering
     \includegraphics[width =4cm ]{Figures/MonomialBS2}
-    \caption{An example of the Bernstein-Sato zero-locus $Z(B_F^1)$ in the monomial case when $F = (x^2y^4, x^3)$. The dotted lines correspond the the axes.}
+    \caption{An example of the Bernstein-Sato zero-locus $Z(B_F^1)$ in the monomial case when $F = (x^2y^4, x^3)$. The dotted lines correspond the coordinate axes $x=0$ and $y=0$.}
   \end{figure}
   \end{example}
     In the case where $a =(1,\ldots,1)$ the Bernstein-Sato ideal $B_F^a$ can be computed using SINGULAR.
@@ -44,7 +44,8 @@ The global Bernstein-Sato ideal is known to be equal the intersection of all loc
     A-priori the Bernstein-Sato zero locus could have been an arbitrary affine variety.
     In these examples it always seems to consist of a number of hyperplanes.
     This may be explained by the following theorem.
-    \begin{theorem}{\cite[Theorem 1.1.1]{budur2020zeroII}} \label{thrmMoreA}   Let $F=(f_1,\ldots,f_r):X\ra\bC^r$ be a morphism of smooth complex affine irreducible algebraic varieties, or the germ at $x\in X$ of a holomorphic map on a complex manifold.  Let $a\in\mathbb{Z}_{\geq 0}^r$ such that $\prod_{j=1}^rf_j^{a_j}$ is not invertible. Then:
+    \begin{theorem}{\cite[Theorem 1.1.1]{budur2020zeroII}} \label{thrmMoreA}
+      Let $F=(f_1,\ldots,f_r):X\ra\bC^r$ be a morphism of smooth complex affine irreducible algebraic varieties, or the germ at $x\in X$ of a holomorphic map on a complex manifold.  Let $a\in\mathbb{Z}_{\geq 0}^r$ such that $\prod_{j=1}^rf_j^{a_j}$ is not invertible. Then:
     \begin{enumerate}
     \item Every irreducible component of $Z(B_F^{a})$ of codimension 1 is a  hyperplane of type $l_1s_1+\ldots+l_rs_r+b=0$ with $l_j\in\bQ_{\ge 0}$, $b\in\bQ_{>0}$, and for each such hyperplane there exists $j$ with $a_j\ne 0$ such that $l_j>0$.
     \item Every irreducible component of  $Z(B_F^{a})$ of codimension $>1$  can be translated by an element of $\bZ^r$ inside a component of codimension 1.
@@ -89,7 +90,7 @@ The first goal of this chapter is to to further refine part (1) of the above the
 This means we provide a lower bound on the constant $c$ in terms of numerical data from a resolution of singularities.
 
 Let $\mu:Y\to X$ be a strong log resolution of $f$.
-The numerical data is given by the orders of vanishing $\ord_{E}(f_j)\in\mathbb{Z}_{\geq 0}$ of $f_j$ along  irreducible components $E$ of $\mu^*D$, and the orders of vanishing $k_E=\ord_{E}(\det \operatorname{Jac}(\mu))\in\mathbb{Z}_{\geq 0}$ of the determinant of the Jacobian of $\mu$, also equal to the coefficients of the relative canonical divisor $K_{Y/X}$. We show:
+The numerical data is given by the orders of vanishing $\ord_{E}(f_j)\in\mathbb{Z}_{\geq 0}$ of $f_j$ along irreducible components $E$ of $\mu^*D$, and the orders of vanishing $k_E=\ord_{E}(\det \operatorname{Jac}(\mu))\in\mathbb{Z}_{\geq 0}$ of the determinant of the Jacobian of $\mu$, also equal to the coefficients of the relative canonical divisor $K_{Y/X}$. We show:
 \begin{theorem}\label{thm: MainTheorem}
   Every irreducible component of $Z(B_F^a)$ of codimension $1$ is a hyperplane of the form
   $$\ord_{E}(f_1)s_1 + \cdots + \ord_{E}(f_r)s_r + k_E + c=0 $$
@@ -97,7 +98,7 @@ with $c\in\bZ_{>0}$.
 \end{theorem}
 
 Without the term $k_E$ the statement was proven for $r\ge 1$ by \cite[Lemma 4.4.6]{budur2020zeroII} generalising Kashiwara's estimate.
-The case $r=1$ of Theorem \ref{thm: MainTheorem} is due to \cite{lichtin1989poles}, a new proof of which was given by \cite{DM}.
+The case $r=1$ of \Cref{thm: MainTheorem} is due to \cite{lichtin1989poles}, a new proof of which was given by \cite{DM}.
 
 The second part of this chapter contains a number of lower bounds for the Bernstein-Sato zero locus.
 Firstly, we provide a multivariate generalisation for the fact that the Bernstein-Sato polynomial for $r=1=a$ always has the trivial root $-1$.
@@ -106,12 +107,12 @@ Firstly, we provide a multivariate generalisation for the fact that the Bernstei
   Then $\sum_{j=1}^r \ord_{E}(f_j)s_j + c = 0$ determines an irreducible component of $Z(B_F^a)$ for $c = 1,\ldots, \sum_{j=1}^{r}\ord_{E}(f_j)a_j$.
 \end{proposition}
 Further, we generalise the fact that the jumping numbers of $f$ in $[0,\lct(f)+1)$ are roots of $b_{f}(s)$ in the case $r=1$ \cite[Theorem 2]{BSArbitraryVariety}.
-For any $\lambda\in \mathbb{R}_{\geq 0}^r$ the mixed multiplier ideal sheaf of $F^\lambda$ is given by
+For any $\lambda\in \mathbb{R}_{\geq 0}^r$ the {\it mixed multiplier ideal sheaf} of $F^\lambda$ is given by
 $$\mathcal{J}(F^\lambda) = \mu_*\O_Y(K_{Y/X} - \lfloor \sum_{j=1}^r \lambda_j \mu^* D_j \rfloor)$$
 where $D_i$ denotes the divisor determined by $f_i$ and $\lfloor \blank \rfloor$ is the round-down of an $\mathbb{R}$-divisor.
-Associated to $\lambda$ is the region $$\mathcal{R}_F(\lambda):= \{\lambda'\in \mathbb{R}_{\geq 0}^r:\mathcal{J}(F^{\lambda}) \subseteq \mathcal{J}(F^{\lambda'})\}.$$
+Associated to $\lambda$ is the {\it region} $$\mathcal{R}_F(\lambda):= \{\lambda'\in \mathbb{R}_{\geq 0}^r:\mathcal{J}(F^{\lambda}) \subseteq \mathcal{J}(F^{\lambda'})\}.$$
 
-The jumping numbers from the case $r=1$ are generalised by the jumping wall associated to $\lambda$ which is the intersection of the boundary of $\mathcal{R}_F(\lambda)$ with $\mathbb{R}_{>0}^r$.
+The jumping numbers from the case $r=1$ are generalised by the {\it jumping wall} associated to $\lambda$ which is the intersection of the boundary of $\mathcal{R}_F(\lambda)$ with $\mathbb{R}_{>0}^r$.
 By the definition of mixed multiplier ideals the facets of the jumping wall are cut out by hyperplanes of the form
 $\sum_{j=1}^r\ord_E(f_j)s_j = k_E + c$
 with $c\in \mathbb{Z}_{>0}$ and $E$ an irreducible component of $\mu^*D$.
@@ -128,7 +129,7 @@ with $c\in \mathbb{Z}_{>0}$ and $E$ an irreducible component of $\mu^*D$.
     \caption{The jumping walls and a region $\mathcal{R}_F(\lambda)$ for $f_1(x,y) =xy$ and $f_2(x,y)=(x+y)(x-y)$.}
   \end{figure}
 \end{example}
-The log-canonical threshold is generalised by the $\LCT$-polytope
+The log-canonical threshold is generalised by the {\it $\LCT$-polytope}
 $$ \LCT(F) :=  \bigcap_{E}\{\lambda\in \mathbb{R}_{\geq 0}^r : \sum_{j=1}^r \ord_E(f_j)\lambda_j \leq k_E + 1\}$$
 where $E$ runs over the irreducible components of $\mu^*D$.
 The suitable generalisation for the region $[0,\lct(f) + 1)$ is the $\KLT_{a}$-region
@@ -157,15 +158,16 @@ Mixed multiplier ideals and their jumping walls will be defined on real algebrai
 There are also the associated notions of a $\RKLT_a$-region,  $\RLCT$-polytope and real Bernstein-Sato ideal $B_{\mathbb{R},F}^a$.
 We prove the following generalisation of Saito's result on the real jumping walls.
 \begin{theorem}
-  Suppose that $\sum_{j=1}^r \ord_E(g_j)s_j = k_E + c$ determines a facet of a real jumping wall which intersects $\RKLT_{a}(F)$.
-  Then $\sum_{j=1}^r \ord_E(g_j)s_j + k_E + c = 0$ determines a component of $Z(B_{\mathbb{R},F}^a)$.
+  Suppose that $\sum_{j=1}^r \ord_E(f_j)s_j = k_E + c$ determines a facet of a real jumping wall which intersects $\RKLT_{a}(F)$.
+  Then $\sum_{j=1}^r \ord_E(f_j)s_j + k_E + c = 0$ determines a component of $Z(B_{\mathbb{R},F}^a)$.
 \end{theorem}
 
 \section{Relative differential operators}\label{sec: DXS}
 This section provides preliminaries on the theory of $\D_X[s]$-modules, such as direct images and homological properties.
 
 \subsection{Relative holonomic $\sD$-modules}\label{sec: RelHol}
-Let $X$ be a smooth complex variety and let $R$ be a regular commutative finitely generated $\C$-algebra integral domain. The sheaf of relative differential operators on $X$ is defined by
+Let $X$ be a smooth complex variety and let $R$ be a regular commutative finitely generated $\C$-algebra integral domain.
+The {\it sheaf of relative differential operators} on $X$ is defined by
 $$\D_X^R := \D_X \otimes_\C R.$$
 The order filtration $F_j \D_X$ on $\D_X$ extends to a filtration $F_j \D_X^R := F_j\D_X\otimes_\C R$ on $\D_X^R$.
 The graded objects for this filtration are denoted by $\grrel$.
@@ -180,9 +182,9 @@ For any filtered $\D_X^R$-module $\M$ there is an associated sheaf of modules on
 $(\pi_{T^*X}\times \pi_{\Spec R})^{-1}(\grrel\M)\allowbreak\otimes_{\pi^{-1}\grrel\D_X^R} \O_{T^*X\times \Spec R}$.
 From here on out we write $\grrel\D_X^R$ and $\grrel \M$ for the corresponding sheaves on $T^*X\times \Spec R$.
 
-A filtration  compatible with $F_* \sD_X^R$ on a $\D_X^R$-module $\M$ is said to be good if $\grrel\M$ is a coherent $\grrel\D_X^R$-module.
+A filtration compatible with $F_* \sD_X^R$ on a $\D_X^R$-module $\M$ is said to be {\it good} if $\grrel\M$ is a coherent $\grrel\D_X^R$-module.
 A quasi-coherent $\D_X^R$-module $\M$ locally admits a good filtration if and only if it is coherent \cite[Corollary D.1.2]{hotta2007d}, in fact one can take this filtration to be global \cite[Proof of Theorem 2.1.3]{hotta2007d}.
-For a coherent $\D_X^R$-module $\M$ the support $\Chrel\M$ of $\grrel\M$ in $T^*X\times \Spec R$ is independent of the chosen filtration \cite[Lemma D.3.1.]{hotta2007d} and is called the relative characteristic variety.
+For a coherent $\D_X^R$-module $\M$ the support $\Chrel\M$ of $\grrel\M$ in $T^*X\times \Spec R$ is independent of the chosen filtration \cite[Lemma D.3.1.]{hotta2007d} and is called the {\it relative characteristic variety}.
 Equivalently, the relative characteristic variety is locally determined by the radical of the annihilator ideal of $\grrel \M$ in $\grrel\D_X^R$.
 \begin{proposition}{\cite[Lemma 3.2.2]{budur2020zeroI}}\label{prop: SESBehaviourChrel}
   For any short exact sequence of coherent $\D_X^R$-modules
@@ -190,7 +192,7 @@ Equivalently, the relative characteristic variety is locally determined by the r
   it holds that $\Chrel\M_2 = \Chrel\M_1 \cup \Chrel\M_3.$
 \end{proposition}
 \begin{definition}\label{def: RelHolonomic}
-  A coherent $\D_X^R$-module $\M$ is said to be relative holonomic if its characteristic variety is a finite union $\Chrel\M = \cup_w \Lambda_w \times S_w$ where $\Lambda_w\subseteq T^* X$ are irreducible conic Lagrangian subvarieties and $S_w\subseteq \Spec R$ are irreducible subvarieties.
+  A coherent $\D_X^R$-module $\M$ is said to be {\it relative holonomic} if its characteristic variety is a finite union $\Chrel\M = \cup_w \Lambda_w \times S_w$ where $\Lambda_w\subseteq T^* X$ are irreducible conic Lagrangian subvarieties and $S_w\subseteq \Spec R$ are irreducible subvarieties.
 \end{definition}
 
 \begin{proposition}{\cite[Lemma 3.2.4]{budur2020zeroI}}\label{prop: SubquotientRelHol}
@@ -211,7 +213,7 @@ The pseudoinverse associates $\Hom_{\O_X}(\omega_X,\allowbreak\M)$ to a given ri
 Pick local coordinates $x_1,\ldots, x_n$ on $X$, these are regular functions such that is to say that $dx_1,\ldots,dx_n$ are a local basis for $\Omega_{X}^1$.
 There is an induced section $dx := dx_1\wedge \ldots \wedge dx_n$ for $\omega_X$.
 
-For any left $\D_X^R$-module $\M$ one now gets a locally defined $\O_X\otimes R$-linear isomorphism $\M \to \M\otimes_{\O_X}\omega_X$  associating to any section $m$ the section $m^* = m dx$.
+For any left $\D_X^R$-module $\M$ one now gets a locally defined $\O_X\otimes_{\C} R$-linear isomorphism $\M \to \M\otimes_{\O_X}\omega_X$  associating to any section $m$ the section $m^* = m dx$.
 This can be made to commute with the $\D_X^R$-module structure.
 This is to say that for any operator $P$ of $\D_X^R$ there is an adjoint $P^*$ such that
 $$(P\cdot m)^* = m^* \cdot P^*.$$
@@ -219,25 +221,25 @@ Indeed, for a vector field $\xi = \sum \xi_i \partial_i$ this is satisfied by se
 Iteration then extends to differential operators of arbitrary order.
 \subsection{Direct image}
 Let $\mu:Y\to X$ be a morphism of varieties.
-The direct image functor $\int \M:= R\mu_*(\M\otimes_{\D_Y}^L \D_{Y\to X}) $ on right $\D_Y$-modules induces an $\D_Y^R$-module direct image functor.
+The direct image functor $\int \M:= R\mu_*(\M\otimes_{\D_Y}^L \D_{Y\to X}) $ on right $\D_Y$-modules induces a $\D_Y^R$-module direct image functor.
 Indeed, consider a right $\D_Y^R$-module $\M$ and observe that multiplication by $r\in R$ is $\D_Y$-linear.
 By the functoriality of the $\D_Y$-module direct image it follows that there is an associated endomorphism on $\int \M$.
 This equips the direct image with a canonical structure as complex of $\D_X^R$-modules.
-For any $j\in \mathbb{Z}$ we still call $\int^j\M := H^j\int\M$ the $j$-th direct image.
+For any $j\in \mathbb{Z}$ we still call $\IntJ{j}\M := H^j\int\M$ the {\it $j$-th direct image}.
 
-Whenever $\mu$ is proper and $\M$ is coherent as $\D_Y^R$-module it holds that $\int^j\M$ is coherent over $\D_X^R$ for any $j$.
+Whenever $\mu$ is proper and $\M$ is coherent as $\D_Y^R$-module it holds that $\IntJ{j}\M$ is coherent over $\D_X^R$ for any $j$.
 The proof for this statement is identical to the absolute case \cite[Theorem 2.5.1]{hotta2007d}.
-The following proposition may be established identically to the absolute case which was established in \cref{cor: RelHolConserved}.
+The following proposition may be established identically to the absolute case which was established in \Cref{cor: RelHolConserved}.
 \begin{proposition}\label{prop: DirectImageRelHol}
   Suppose that $\mu$ is proper and let $\M$ be a relative holonomic right $\D_Y^R$-module.
-  Then $\int^j \M$ is relative holonomic for any $j\in \mathbb{Z}$.
+  Then $\IntJ{j} \M$ is relative holonomic for any $j\in \mathbb{Z}$.
 \end{proposition}
 %an analytical version of this result may be found in  \cite[Theorem 1.17]{monteiro2016riemann}.
 \subsection{Homological notions}\label{sec: HomNotion}
-In this section it is assumed that $X$ is affine. We denote $n = \dim X$ and $r = \dim R$ for the Krull dimension of the ring $R$.
+In this section it is assumed that $X$ is affine.
+We denote $n = \dim X$ and $r = \dim R$ for the Krull dimension of the ring $R$.
 For some results in this section the distinction between left and right modules is relevant.
 Such results have been stated in terms of right $\D_X^R$-modules, which is the case we will need. It should be clear that these results have obvious analogues for left $\D_X^R$-modules.
-
 
 \subsubsection{Grades}
 \begin{definition}
@@ -248,7 +250,7 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   Hence, $j(\M)\leq j(\M\otimes_R R')$.
 \end{remark}
 \begin{definition}\label{def: BSIdeal}
-  The Bernstein-Sato-ideal of a $\D_X^R$-module $\M$ is given by $B_\M:=\Ann_R \M$.
+  The {\it Bernstein-Sato-ideal} of a $\D_X^R$-module $\M$ is given by $B_\M:=\Ann_R \M$.
 \end{definition}
 
 \begin{proposition}{\cite[Lemma 3.4.1]{budur2020zeroI}}\label{prop: ChrelGrades}
@@ -260,7 +262,7 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   Hence, $j(\M)=n+k$ for a relative holonomic module $\M$ if and only if $Z(B_\M)$  has codimension $k$ in $\Spec R$.
   \end{remark}
 \begin{definition}
-  A non-zero coherent $\D_X^R$-module $\M$ is said to be $j$-pure if $j(\N) = j(\M) = j$ for every non-zero submodule $\N$.
+  A non-zero coherent $\D_X^R$-module $\M$ is said to be {\it $j$-pure} if $j(\N) = j(\M) = j$ for every non-zero submodule $\N$.
 \end{definition}
 \begin{proposition}{\cite[Lemma 4.3.5.]{budur2020zeroI}}\label{prop: JPureExt}
    Let $\M$ be a non-zero coherent right $\D_X^R$-module of grade $j$. Then:
@@ -270,13 +272,16 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
 \end{enumerate}
  \end{proposition}
  \begin{proposition}{\cite[Lemma 3.4.2]{budur2020zeroI}}\label{prop: Injective3.4.2}
-   Let $\M$ be a $j$-pure relative holonomic $\D_X^R$-module and suppose that $b\in R$ is not contained in any minimal prime ideal of $R$ containing $B_\M$. Then there exists a good filtration on $\M$ such that multiplication by $b$ induces injective endomorphisms on $\M$ and $\grrel\M$.
+   Let $\M$ be a $j$-pure relative holonomic $\D_X^R$-module and suppose that $b\in R$ is not contained in any minimal prime ideal of $R$ containing $B_\M$.
+   Then there exists a good filtration on $\M$ such that multiplication by $b$ induces injective endomorphisms on $\M$ and $\grrel\M$.
  \end{proposition}
  \begin{proposition}{\cite[Lemma 3.2.4.]{budur2020zeroI}}
-   Let $\M$ be a relative holonomic right $\D_X^R$-module. Then, for any $k\geq 0$, $\Ex{\D_X^R}{k}(\M,\D_X^R)$ is a relative holonomic left $\D_X^R$-module.
+   Let $\M$ be a relative holonomic right $\D_X^R$-module.
+   Then, for any $k\geq 0$, $\Ex{\D_X^R}{k}(\M,\D_X^R)$ is a relative holonomic left $\D_X^R$-module.
  \end{proposition}
  \begin{proposition}\label{prop: TorRelHol}
-   Let $\M$ be a relative holonomic right $\D_X^R$-module and let $P\subseteq R$ be a prime ideal with $Z(P)$ non-singular. Then, for any $k\geq 0$, $\Tr{\D_X^R}{k}(\M,\D_X^{R/P})$ is a relative holonomic right $\D_X^{R/P}$-module.
+   Let $\M$ be a relative holonomic right $\D_X^R$-module and let $P\subseteq R$ be a prime ideal with $Z(P)$ non-singular.
+   Then, for any $k\geq 0$, $\Tr{\D_X^R}{k}(\M,\D_X^{R/P})$ is a relative holonomic right $\D_X^{R/P}$-module.
  \end{proposition}
  \begin{proof}
    The assumption on $P$ is equivalent to assuming that $R/P$ is a ring of the same type as $R$, namely a commutative regular finitely generated $\bC$-algebra integral domain.
@@ -302,24 +307,24 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
    It is applicable since $\blank \otimes_{\D_X^{R}}\D_X^{R/P}$ transforms projective right $\D_X^R$-modules into projective right $\D_X^{R/P}$-modules and these are acyclic for $\Hom_{\D_X^{R/P}}(\blank,\D_X^{R/P})$.
  \end{proof}
 
- \begin{proposition}
+ \begin{proposition}\label{prop: SpectralTorExt}
    For any coherent right $\D_X^R$-module $\M$ and right $\D_X^R$-module $\N$ there is a spectral sequence
    $$E_2^{pq}= \Tr{\D_X^R}{-p}(\N,\Ex{\D_X^R}{q}(\M,\D_X^R)) $$
    converging to $H^{p+q} (\N\otimes_{\D_X^R}^L R\Hom_{\D_X^R}(\M,\D_X^R) ).$
  \end{proposition}
  \begin{proof}
-   The conditions of the Grothendieck spectral sequence \cite[Corollary 5.8.4]{weibel1995introduction} are not satisfied in this case.
+   The conditions of the Grothendieck spectral sequence \Cref{thm: GrothendieckSpectral} are not satisfied in this case.
    For instance, $\Hom_{\sc{\D_X^R}}(\blank,\D_X^R)$ does not necessarily transform projective objects into $(\N\otimes_{\D_X^R}\blank)$-acyclic objects.
    Still, the same proof applies with some minor modifications.
 
   Take a resolution $\F^\bullet \to \M$ by free right $\D_X^R$-modules of finite rank.
-  Let $\mathscr{P}^{\bullet\bullet}\to \Hom_{\D_X^R}(\F^{\bullet},\D_X^R)$ be the Cartan-Eilenberg resolution provided by \cref{prop: Cartan-Eilenberg}.
+  Let $\mathscr{P}^{\bullet\bullet}\to \Hom_{\D_X^R}(\F^{\bullet},\D_X^R)$ be the Cartan-Eilenberg resolution provided by \Cref{prop: Cartan-Eilenberg}.
   It is known that any coherent left $\D_X^R$-module admits a projective resolution of length $\leq 2n + r$ \cite[p6]{budur2020zeroI}.
   Using this fact in the construction of the Cartan-Eilenberg resolution allows one to assume that $\mathscr{P}^{pq}=0$ for $-p>2n + r$.
 
   Consider the double complex $\N\otimes_{\D_X^R}\mathscr{P}^{\bullet \bullet}$.
   The total cohomology of this double complex comes equipped with two filtrations one vertical and one horizontal.
-  These filtrations are bounded due to the bounds on $p$ so \cref{prop: FiltrationSpectral} is applicable and yield two spectral sequences converging to the total cohomology.
+  These filtrations are bounded due to the bounds on $p$ so \Cref{prop: FiltrationSpectral} is applicable and yield two spectral sequences converging to the total cohomology.
   The first spectral sequence has
   $$E_{2}^{pq} = H^p_h(H^q_v(\N \otimes_{\D_X^R}\mathscr{P}^{\bullet \bullet})).$$
   Observe that $\Hom_{\D_X^R}(\F^q, \D_X^R)$ is a free left module due to $\F^q$ being free of finite rank.
@@ -337,7 +342,7 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   Since the first spectral sequence collapses on the second sheet this means that $\Tr{\D_X^R}{-p}(\N,\Ex{\D_X^R}{q}(\M,\D_X^R))$ converges to $H^{p+q}( \N\otimes_{\D_X^R}^LR\Hom_{\D_X^R}(\M,\D_X^R) )$.
  \end{proof}
  The proof of the following proposition is based on the proof of \cite[Proposition 3.4.3]{budur2020zeroI}.
- An alternative proof, based on the purifications, has been provided by van der Veer and will appear in a forthcoming paper.
+ An alternative proof, based on purifications, has been provided by van der Veer and will appear in a forthcoming paper.
  \begin{proposition}\label{prop: RestrictConservesGraden}
    Let $\M$ be a non-zero relative holonomic right $\D_X^R$-module of grade $n$.
    Then, for any $b\in R$ with $Z(b)$ non-singular and irreducible it holds that $\M\otimes_R R/(b)$ is a non-zero relative holonomic right $\D_X^{R/(b)}$-module of grade $n$.
@@ -396,7 +401,7 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
  \end{proof}
 \subsubsection{Relative Cohen-Macaulay $\sD$-modules}
  \begin{definition}[\cite{{budur2020zeroI}}]
-   A coherent $\D_X^R$-module $\M$ is said to be $j$-Cohen-Macaulay for some $j\geq 0$ if $\Ex{\D_X^R}{k}(\M,\D_X^R) = 0$ for any $k\neq j$.
+   A coherent $\D_X^R$-module $\M$ is said to be {\it $j$-Cohen-Macaulay} for some $j\geq 0$ if $\Ex{\D_X^R}{k}(\M,\D_X^R) = 0$ for any $k\neq j$.
  \end{definition}
  \begin{remark}
   If $\M$ is $j$-Cohen-Macaulay then, by \Cref{prop: JPureExt}, it is $j$-pure.
@@ -417,10 +422,10 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
  Hence, without loss of generality, we may assume that $X$ is affine and admits local coordinates $x_1,\ldots, x_n$.
  Recall from the introduction that $G = F\circ\mu$ and denote $g_j$ for the coordinate functions of $G$.
  \subsection{Translation to right-module}
- By the translation between left and right modules in \Cref{sec: RelHol} the functional equation $P F^{s+a} = b F^s$ may be restated as the equation
+ By the translation between left and right modules in \cref{sec: RelHol} the functional equation $P F^{s+a} = b F^s$ may be restated as the equation
  $$F^{s+a}dx \cdot P^* = b F^s dx $$
  in $\D_X^{\C[s]} F^s \otimes_{\O_X}\omega_X$.
- Define $\M$ to be the submodule of $ \D_Y^{\C[s]} G^s\otimes_{\O_Y}\omega_Y$ spanned by $G^s \mu^*(dx)$ over $\D_Y^{\C[s]}$.
+ Define $\M$ to be the submodule of $\D_Y^{\C[s]} G^s\otimes_{\O_Y}\omega_Y$ spanned by $G^s \mu^*(dx)$ over $\D_Y^{\C[s]}$.
  \begin{lemma}
    The right $\D_Y^{\C[s]}$-module $\M$ is relative holonomic.
  \end{lemma}
@@ -512,9 +517,7 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   Recall that the linear functions $\sum_{j=1}^r d_{ij}s_j$ with $i \in \{n+1,\ldots,n+r\}$ form a basis for the linear polynomials.
   Since these occur as the exponents in the final factors of  $G^s\mu^*(dx)$ it may be assumed that there is at least one $C_{j}$ with $j>n$ which is non-zero.
 
-  Set $h_j = C_j + z_j\sum_{i=1}^n B_iu_i^{-1}\partial_j(u_i)$ and $\xi_j= v^{-1}\partial_j vz_j - c_j$.
-  Observe that $ z_j\sum_{i=1}^n B_iu_i^{-1}\partial_j(u_i) = 0$ for $j>n$.
-  Hence the $h_{j}$ with $j>n$ are scalars and they are not all zero.
+  Set $h_j = C_j + z_j\sum_{i=1}^n B_iu_i^{-1}\partial_j(u_i)$ and $\xi_j= v^{-1}\partial_j vz_j - c_j$. Since $ z_j\sum_{i=1}^n B_iu_i^{-1}\partial_j(u_i) = 0$ for $j>n$ if follows the $h_{j}$ with $j>n$ are scalars and they are not all zero.
   By renumbering we may assume that $h_1$ is a non-zero scalar.
 
   Now for any $j=2,\ldots,n+r$ the vector field $\xi_j h_1 - \xi_1 h_j$ annihilates $\M\otimes_{\C[s]}\C[s]/L_{r-1}$.
@@ -526,7 +529,7 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
 \end{proposition}
 \begin{proof}
   Pick local coordinates $z_1,\ldots, z_m$ on $Y$.
-  For the sake of notational simplicity we apply the equivalence between left and right $\D_Y^{\C[s]}$-modules described in \Cref{sec: RelHol}.
+  For the sake of notational simplicity we apply the equivalence between left and right $\D_Y^{\C[s]}$-modules described in \cref{sec: RelHol}.
   It then suffices to show that there exists a free resolution of length $\leq m$ for any left $\D_Y^{\C[s]}$-module of the form $\N:= \D_Y^{\C[s]}z_1^{p_1}\cdots z_n^{p_m}$ with $p_1,\ldots, p_m\in \C[s]$.
 
   Denote $e_i$ for the $i$-th basis vector of $(\D_X^{\C[s]})^m$.
@@ -611,28 +614,29 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
 \end{proof}
 
 \subsection{Comparison $\U$ and $\M$}
-  The $\D_X$-linear endomorphism $t$ induces an endomorphism on $\int^0\M$.
-  The relation $s_it = t(s_i +a_i)$ also holds on $\int^0\M$ due to the functoriality of the direct image.
-  Hence, $\int^0\M$ is equipped with the structure of a $\D_X\langle s,t\rangle$-module.
+  The $\D_X$-linear endomorphism $t$ induces an endomorphism on $\IntJ{0}\M$.
+  The relation $s_it = t(s_i +a_i)$ also holds on $\IntJ{0}\M$ due to the functoriality of the direct image.
+  Hence, $\IntJ{0}\M$ is equipped with the structure of a $\D_X\langle s,t\rangle$-module.
 
-  The surjection of right $\D_Y^{\C[s]}$-modules $\D_Y^{\C[s]}\to \M$ defined by $1\mapsto G^s \mu^*(dx)$ induces a morphism $\int^0 \D_Y^{\C[s]} \to \int^0\M$.
+  The surjection of right $\D_Y^{\C[s]}$-modules $\D_Y^{\C[s]}\to \M$ defined by $1\mapsto G^s \mu^*(dx)$ induces a morphism $\int^{0} \D_Y^{\C[s]} \to \IntJ{0}\M$.
   Observe that $\int^0 \D_Y^{\C[s]} = R^0\mu_*(\D_{Y\to X}^{\C[s]})$ contains global section corresponding to $1$ in $\D_{Y\to X}^{\C[s]}$.
-  We write $u$ for the image of this section in $\int^0 \M$ and $\U$ for the right $\D_X\langle s,t\rangle$-module generated by $u$.
+  We write $u$ for the image of this section in $\IntJ{0} \M$ and $\U$ for the right $\D_X\langle s,t\rangle$-module generated by $u$.
   \begin{lemma}\label{lem: SurjectionUF}
   There is a surjective morphism of right $\D_X\langle s,t \rangle$-modules $\U\to \D_X^{\C[s]}F^s \otimes_{\O_X}\omega_X$ sending $u$ to $F^sdx$.
 \end{lemma}
 \begin{proof}
-  This is analogous to the corresponding absolute result \cite[Chapter 5, p246]{bjork1979rings}. It must be show that $(F^s dx)P = 0$ whenever $uP = 0$ for some differential operator $P$ over an open $U\subseteq X$.
+  This is analogous to the corresponding absolute result \cite[Chapter 5, p246]{bjork1979rings}.
+  It must be show that $(F^s dx)P = 0$ whenever $uP = 0$ for some differential operator $P$ over an open $U\subseteq X$.
 
   The resolution of singularities $Y\to X$ is an isomorphism on the complement of the divisor $D$ determined by $\prod f_i$.
-  Hence, an isomorphism $\U \cong \int^0 \M \cong  \D_X F^s  \otimes_{\O_X}\omega_X$ holds outside of $D$.
+  Hence, an isomorphism $\U \cong \IntJ{0} \M \cong  \D_X F^s  \otimes_{\O_X}\omega_X$ holds outside of $D$.
   It follows that the support of the coherent sheaf of $\O_U$-modules $\O_U (F^s dx) P $ lies in $D$.
   The Nullstellen Satz now yields that $(\prod f_i)^N (F^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
   Note that $\prod f_i$ is a non-zero divisor of $(\D_X F^s\otimes_{\O_X} \omega_X)(U)$.
   Therefore, $(f^s dx) P= 0$ on $U$ as desired.
 \end{proof}
 \begin{lemma}\label{lem: GradeNPlusOne}
-  The relative holonomic $\D_X^{\C[s]}$-module $\int^0\M/\U$ has grade $j(\int^0\M/\U)\geq m+1$.
+  The relative holonomic $\D_X^{\C[s]}$-module $\IntJ{0}\M/\U$ has grade $j(\IntJ{0}\M/\U)\geq m+1$.
 \end{lemma}
 \begin{proof}
   Let $\ell_1,\ldots,\ell_{r-1}$ be the degree one polynomials provided by \Cref{lem: RelHolTorDegree}.
@@ -640,36 +644,36 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
 
   Recall from \Cref{cor: InjectiveEll} that $\ell_{i}$ is injective on $\M_{i-1}$.
   The injective endomorphism of $\ell_i$ on $\M_{i-1}$ induces a long exact sequence of $\D_X^{\C[s]/L_{i-1}}$-modules
-  $$0 \to \int^0\M_{i-1} \xrightarrow{\ell_i} \int^0 \M_{i-1} \to \int^0 \M_i \to \cdots $$
-  whence $(\int^0 \M_{i-1})\otimes_{\C[s]/L_{i-1}} \C[s]/L_i$ is a submodule of $\int^0\M_i$.
-  The quotient is isomorphic to the kernel $K_i$ of $\ell_i$ on $\int^1\M_{i-1}$.
+  $$0 \to\IntJ{0}\M_{i-1} \xrightarrow{\ell_i} \IntJ{0} \M_{i-1} \to \IntJ{0} \M_i \to \cdots $$
+  whence $(\IntJ{0}\M_{i-1})\otimes_{\C[s]/L_{i-1}} \C[s]/L_i$ is a submodule of $\IntJ{0}\M_i$.
+  The quotient is isomorphic to the kernel $K_i$ of $\ell_i$ on $\IntJ{1}\M_{i-1}$.
 
-  Applying a tensor product with $\C[s]/L_{r-1}$ to the inclusion $(\int^0 \M_{i-1}) \otimes_{\C[s]/L_{i-1}} \C[s]/L_i \hookrightarrow \int^0\M_i$ yields an exact sequence
-  $$\Tr{\C[s]/L_{i-1}}{1}\left(K_i, \frac{\C[s]}{L_{r-1}}\right) \to \left(\int^0 \M_{i-1}\right) \otimes_{\C[s]/L_{i-1}}\frac{\C[s]}{L_{r-1}} \to \left(\int^0\M_i\right) \otimes_{\C[s]/L_{i-1}}\frac{\C[s]}{L_{r-1}}.$$
+  Applying a tensor product with $\C[s]/L_{r-1}$ to the inclusion $(\IntJ{0} \M_{i-1}) \otimes_{\C[s]/L_{i-1}} \C[s]/L_i \hookrightarrow \IntJ{0}\M_i$ yields an exact sequence
+  $$\Tr{\C[s]/L_{i-1}}{1}\left(K_i, \frac{\C[s]}{L_{r-1}}\right) \to \left(\IntJ{0} \M_{i-1}\right) \otimes_{\C[s]/L_{i-1}}\frac{\C[s]}{L_{r-1}} \to \left(\IntJ{0}\M_i\right) \otimes_{\C[s]/L_{i-1}}\frac{\C[s]}{L_{r-1}}.$$
   By choice of the $\ell_i$ it holds that $\Tr{\D_X^{\C[s]/L_i} }{1}(K_i, \D_X^{\C[s]/L_{r-1}})$ has grade $\geq m+1$.
   This implies the existence of a non-zero polynomial $b_i\in \C[s]/L_{r-1}$ which annihilates $\Tr{\C[s]/L_{i}}{1}(K_i, \C[s]/L_{r-1} )$.
 
-  Denote $B = \prod_{i=1}^{r-1}b_i$ and note that the kernels of the endomorphisms induced by $B^N$ form an increasing sequence inside the coherent $\D_X^{\C[s]/L_{r-1}}$-module $(\int^0 \M_{i-1})\otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}$.
+  Denote $B = \prod_{i=1}^{r-1}b_i$ and note that the kernels of the endomorphisms induced by $B^N$ form an increasing sequence inside the coherent $\D_X^{\C[s]/L_{r-1}}$-module $(\IntJ{0} \M_{i-1})\otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}$.
   Such increasing sequences must stabilise for sufficiently large $N$.
-  Then it follows that the intersection of $\img \Tr{\C[s]/L_{i-1}}{1}(K_i, \C[s]\allowbreak/L_{r-1})$ and $ B^N(\int^0 \M_{i-1}) \otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}$ is trivial for any $i$.
-  This means that there are injections $$B^N \left(\int^0 \M_{i-1}\right) \otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1} \hookrightarrow B^N \left(\int^0\M_i\right)\otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}.$$
-  In particular $B^N(\int^0\M)\otimes_{\C[s]}\C[s]/L_{r-1}$ is a submodule of $\int^0\M_{r-1}$.
+  Then it follows that the intersection of $\img \Tr{\C[s]/L_{i-1}}{1}(K_i, \C[s]\allowbreak/L_{r-1})$ and $ B^N(\IntJ{0} \M_{i-1}) \otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}$ is trivial for any $i$.
+  This means that there are injections $$B^N \left(\IntJ{0} \M_{i-1}\right) \otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1} \hookrightarrow B^N \left(\IntJ{0}\M_i\right)\otimes_{\C[s]/L_{i-1}}\C[s]/L_{r-1}.$$
+  In particular $B^N(\IntJ{0}\M)\otimes_{\C[s]}\C[s]/L_{r-1}$ is a submodule of $\IntJ{0}\M_{r-1}$.
 
 
-  Theorem 4.2 of \cite{kashiwara1976b} and \Cref{prop: CharVarEstimateW} yield that $\int^0 \M_{r-1}$ is a coherent $\D_X$-module with characteristic variety $\widetilde{\mu}((T^*\mu)^{-1}(\Lambda\cup W))$ with $\Lambda$ isotropic and $W$ irreducible of dimension $m+1$ dominating $Y$.
-  Observe that $B^N(\int^0\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is a subquotient of $\int^0\M_{r-1}$ with support in the divisor $D$.
-  Hence, $B^N(\int^0\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is a coherent $\D_X$-module with
-  $$\Ch\left( B^N\left(\int^0\M/ \U\right)\otimes_{\C[s]}\C[s]/L_{r-1} \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Lambda\cup W)\right) \cap \pi^{-1}(D)$$
+  Theorem 4.2 of \cite{kashiwara1976b} and \Cref{prop: CharVarEstimateW} yield that $\IntJ{0}\M_{r-1}$ is a coherent $\D_X$-module with characteristic variety $\widetilde{\mu}((T^*\mu)^{-1}(\Lambda\cup W))$ with $\Lambda$ isotropic and $W$ irreducible of dimension $m+1$ dominating $Y$.
+  Observe that $B^N(\IntJ{0}\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is a subquotient of $\IntJ{0}\M_{r-1}$ with support in the divisor $D$.
+  Hence, $B^N(\IntJ{0}\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is a coherent $\D_X$-module with
+  $$\Ch\left( B^N\left(\IntJ{0}\M/ \U\right)\otimes_{\C[s]}\C[s]/L_{r-1} \right)\subseteq  \widetilde{\mu}\left((T^*\mu)^{-1}(\Lambda\cup W)\right) \cap \pi^{-1}(D)$$
   where $\pi:T^*X\to X$ is the projection map.
 
   By \cite[Proposition 4.9]{kashiwara1976b} $\widetilde{\mu}((T^*\mu)^{-1}(\Lambda))$ remains isotropic.
   Moreover, $\widetilde{\mu}((T^*\mu)^{-1}(W))$ is irreducible of dimension $m+1$ and dominates $X$.
   Intersecting with $\pi^{-1}(D)$ yields a closed strict subset which necessarily has lower dimension.
-  Hence, it follows that $\dim \Ch B^N (\int^0\M/\allowbreak \U)\otimes_{\C[s]}\C[s]/L_{r-1} \leq m$.
-  This means that $B^N(\int^0\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is holonomic.
+  Hence, it follows that $\dim \Ch B^N (\IntJ{0}\M/\allowbreak \U)\otimes_{\C[s]}\C[s]/L_{r-1} \leq m$.
+  This means that $B^N(\IntJ{0}\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is holonomic.
   By \cite[Proposition 3.11, Chapter 3]{bjork1979rings} the Bernstein-Sato ideal of a holonomic module is non-zero.
-  This implies that the Bernstein-Sato ideal of $(\int^0\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is non-zero which means that it has grade $\geq m+1$ by \Cref{rem: GradeIFFBernsteinIdeal}.
-  Then also $\int^0\M/\U$ has grade $\geq m+1$ by \Cref{prop: RestrictConservesGraden}.
+  This implies that the Bernstein-Sato ideal of $(\IntJ{0}\M/ \U)\otimes_{\C[s]}\C[s]/L_{r-1}$ is non-zero which means that it has grade $\geq m+1$ by \Cref{rem: GradeIFFBernsteinIdeal}.
+  Then also $\IntJ{0}\M/\U$ has grade $\geq m+1$ by \Cref{prop: RestrictConservesGraden}.
   \end{proof}
   \begin{theorem}\label{thm: EstimateBernsteinSatoZeroLocust}
   Every irreducible component of $Z(B_{F,x}^a)$ of codimension $1$ is a hyperplane of the form
@@ -677,17 +681,17 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   with $c \in \mathbb{Z}_{> 0 }$.
 \end{theorem}
 \begin{proof}
-  The Bernstein-Sato ideals $B_{(\int^0\M/\U)t^n}$ form an increasing sequence of ideals in the Noetherian ring $R$.
-  Hence there must exist some $N\geq 1$ such that $B_{(\int^0\M/\U)t^n} = B_{(\int^0\M/\U)t^{n+1}}$ for all $n\geq N$.
+  The Bernstein-Sato ideals $B_{(\IntJ{0}\M/\U)t^n}$ form an increasing sequence of ideals in the Noetherian ring $R$.
+  Hence there must exist some $N\geq 1$ such that $B_{(\IntJ{0}\M/\U)t^n} = B_{(\IntJ{0}\M/\U)t^{n+1}}$ for all $n\geq N$.
 
-  By \Cref{lem: GradeNPlusOne} the $\D_X^{\C[s]}$-module $\int^0\M/\U$ has grade greater than or equal to $m + 1$ so \Cref{rem: GradeIFFBernsteinIdeal} provides some non-zero $q(s_1,\ldots,s_r) \in B_{\M/\U}$.
-	Then also $q\in B_{(\int^0\M/\U)t^N}$.
+  By \Cref{lem: GradeNPlusOne} the $\D_X^{\C[s]}$-module $\IntJ{0}\M/\U$ has grade greater than or equal to $m + 1$ so \Cref{rem: GradeIFFBernsteinIdeal} provides some non-zero $q(s_1,\ldots,s_r) \in B_{\M/\U}$.
+	Then also $q\in B_{(\IntJ{0}\M/\U)t^N}$.
   Observe that one has the commutation relation
   $$q(s_1,\ldots,s_r)t = tq(s_1+a_1,\ldots, s_r + a_r).$$
-  In particular it follows that $q(s + a)\in B_{(\int^0\M/\U)t^{N+1}}$.
-  Due to the stabilisation $B_{(\int^0\M/\U)t^N} = B_{(\int^0\M/\U)t^{N+1}}$ it follows by iteration that $q(s+ja)\in B_{(\int^0\M/\U)t^N}$ for any integer $j\geq 0$.
-  Due to the estimate for the slopes in \Cref{thrmMoreA} it follows that $Z(B_{(\int^0\M/\U)t^N})$ does not contain any codimension one component of $Z(B_{F,x}^a)$.
-  Hence, we can pick some polynomial $r(s)$ which annihilates $(\int^0\M/\U)t^N$ but does not vanish on any codimension one component of $Z(B_{F,x}^a)$.
+  In particular it follows that $q(s + a)\in B_{(\IntJ{0}\M/\U)t^{N+1}}$.
+  Due to the stabilisation $B_{(\IntJ{0}\M/\U)t^N} = B_{(\IntJ{0}\M/\U)t^{N+1}}$ it follows by iteration that $q(s+ja)\in B_{(\IntJ{0}\M/\U)t^N}$ for any integer $j\geq 0$.
+  Due to the estimate for the slopes in \Cref{thrmMoreA} it follows that $Z(B_{(\IntJ{0}\M/\U)t^N})$ does not contain any codimension one component of $Z(B_{F,x}^a)$.
+  Hence, we can pick some polynomial $r(s)$ which annihilates $(\IntJ{0}\M/\U)t^N$ but does not vanish on any codimension one component of $Z(B_{F,x}^a)$.
 
   Let $b(s)$ be the Bernstein-Sato polynomial for $\M/\M t$ provided by \Cref{lem: BernsteinSatoPolynomialUpstairs}.
   Set $B := r(s)\prod_{j=0}^{N+1} b(s+ ja)$ then it follows that
@@ -708,7 +712,7 @@ The role of the relative characteristic variety $\Chrel\M$ is replaced by $\Chre
 Correspondingly, a $\D_X^R$-module $\M$ is said to be relative holonomic at $x$ if $\Chrel\M \cap (\pi^{-1}(\Omega_x)\times S)$ satisfies the analytic version of \Cref{def: RelHolonomic}.
 
 Similarly one can considers grades, purity and $j$-Cohen-Macaulay at $x$ which is to say that one considers these properties over $\D_{X,x}^R$.
-With these changes the homological results from \cite{budur2020zeroI} given in \cref{sec: HomNotion} generalise appropriately as is outlined outlined in section 3.6 of loc. cit.
+With these changes the homological results from \cite{budur2020zeroI} given in \cref{sec: HomNotion} generalise appropriately as is outlined outlined in section 3.6 of {\it loc. cit.}
 
 The analytical direct image functor associated to a proper morphism of complex manifolds $\mu:Y\to X$ still preserves relative holonomicity provided one adds the assumption that the right $\D_Y^R$-module $\M$ is $\mu$-good \cite[Theorem 1.17]{AnalyticDirectIm}.
 An analytic $\D_Y^R$-module $\M$ is said to be $\mu$-good if $X$ has an open cover $\{V_j\}_j$ such that $\M$ admits a good filtration on $\mu^{-1}(V_j)$ for every $j$.
@@ -775,7 +779,8 @@ The proof of the following theorem is now analogous to a proof for $r=1$ in \cit
   Since the point $\lambda$ on the facet and $b(s)\in B_F^a$ were arbitrary we conclude that $\sum_j \ord_{E}(g_j)s_j +  k_E + c=0$ determines a component of $Z(B_F^a)$.
 \end{proof}
 \begin{corollary}\label{cor: LCT}
-  Suppose that $\sum_{j=1}^r \ord_E(g_j)s_j = k_E + 1$ determines a face of $\LCT(F)$. If $a_j\neq 0$ and $\ord_{E}(g_j)\neq 0$ for some $j$, then $\sum_j \ord_{E}(g_j)s_j +k_E + 1=0$ determines a component of $Z(B_F^a)$.
+  Suppose that $\sum_{j=1}^r \ord_E(g_j)s_j = k_E + 1$ determines a face of $\LCT(F)$.
+  If $a_j\neq 0$ and $\ord_{E}(g_j)\neq 0$ for some $j$, then $\sum_j \ord_{E}(g_j)s_j +k_E + 1=0$ determines a component of $Z(B_F^a)$.
  % Moreover, if $\sum_j \ord_{E}(g_j)s_j +k_E+c = 0$ determines a codimension-one component of $Z(B_F^a)$, then $c\ge  1$.
 \end{corollary}
 \begin{proof}
@@ -786,7 +791,7 @@ The proof of the following theorem is now analogous to a proof for $r=1$ in \cit
   From this we conclude that $\lambda \in \KLT_a(F)$ which means that the facet intersects $\KLT_a(F)$.
   The desired result now follows from \Cref{thm: JumpingWall}.
 \end{proof}
-\subsection{Real Jumping Walls}\label{sec: RealJump}
+\subsection{Real jumping walls}\label{sec: RealJump}
 Finally, we establish the real analogues for the results in \cref{sec: JumpingWall}.
 Let $X_\mathbb{R}$ be a real algebraic manifold and let $F = (f_1,\ldots,f_r)$ be a tuple of real algebraic functions on $X_{\mathbb{R}}$.
 Fix some $a\in \mathbb{Z}_{\geq 0}$ and set $f = \prod_{j=1}^r f_j$.
@@ -796,21 +801,22 @@ Denote $\O_{X_\mathbb{R}}$ for the sheaf of real analytic functions on $X_\mathb
 The real Bernstein-Sato ideal $B_{\mathbb{R},F}^a$ consists of all polynomials $b(s)\in \mathbb{R}[s]$ such that
 $$b(s)F^s \in \D_{X_\mathbb{R}}[s]F^{s+a}$$
 where $\D_{X_\mathbb{R}}[s]$ denotes the sheaf of analytic differential operators on $X_\mathbb{R}$.
-Note that taking the the real part of the Bernstein-Sato functional equation on the complexification of $X_\mathbb{R}$ shows that $B_{\mathbb{R},F}^a$ is a non-empty subset of the Bernstein-Sato ideal of $F$ on the complexification of $X_\mathbb{R}$.
+Note that taking the real part of the Bernstein-Sato functional equation on the complexification of $X_\mathbb{R}$ shows that $B_{\mathbb{R},F}^a$ is a non-empty subset of the Bernstein-Sato ideal of $F$ on the complexification of $X_\mathbb{R}$.
 The converse is also true provided all singularities of $F$ on the complexification lie inside of $X_\mathbb{R}$.
 
 Let $\mu:Y_\mathbb{R}\to X_\mathbb{R}$ be a resolution of singularities for $f$ by real algebraic manifolds.
-Denote $g_j = f_j\circ \mu$ and $K_{Y/X}$ for the relative canonical divisor of $\mu$.
-The real mixed multiplier ideal sheaf associated to $\lambda \in \mathbb{R}_{\geq 0}^r$ is given by
+This is to say that $g_j = f_j\circ \mu$ is locally a monoial.
+Further denote $K_{Y/X}$ for the {\it relative canonical divisor} of $\mu$.
+The {\it real mixed multiplier ideal sheaf} associated to $\lambda \in \mathbb{R}_{\geq 0}^r$ is given by
 $\mathcal{J}_{\mathbb{R}}(F^\lambda) := \mu_* \O_{Y_\mathbb{R}}(K_\mu - \lfloor \sum_{j=1}^r \lambda_j \mu^* D_j \rfloor). $
 This sheaf may be restated analytically as in \cite[Proposition 1]{RealLogCan}.
 For any $x\in X$
 $$\mathcal{J}_{\mathbb{R},x}(F^\lambda)_x =\{\phi\in \O_{X,x} :  \abs{\phi}\prod_{j=1}^r \abs{f_j}^{-\lambda_j} \text{ is integrable near }x\}.$$
-Associated to $\lambda$ is the region $\mathcal{R}_{\mathbb{R},F}(\lambda) := \{\lambda' \in \mathbb{R}_{\geq 0}^r : \mathcal{J}_\mathbb{R}(F^\lambda) \subseteq \mathcal{J}_\mathbb{R}(F^{\lambda'})\}.$
-The real jumping wall associated to $\lambda$ is the intersection of the boundary of $\mathcal{R}_{\mathbb{R},F}(\lambda)$ with $\mathbb{R}_{>0}^r$. The $\RLCT$-polytope $\RLCT(F)$ is the closure of $\mathcal{R}_{\mathbb{R},F}(0)$.
+Associated to $\lambda$ is the {\it region} $\mathcal{R}_{\mathbb{R},F}(\lambda) := \{\lambda' \in \mathbb{R}_{\geq 0}^r : \mathcal{J}_\mathbb{R}(F^\lambda) \subseteq \mathcal{J}_\mathbb{R}(F^{\lambda'})\}.$
+The {\it real jumping wall} associated to $\lambda$ is the intersection of the boundary of $\mathcal{R}_{\mathbb{R},F}(\lambda)$ with $\mathbb{R}_{>0}^r$. The $\RLCT$-polytope $\RLCT(F)$ is the closure of $\mathcal{R}_{\mathbb{R},F}(0)$.
 The facets of the jumping wall are cut out by hyperplanes of the form $\sum_{j=1}^r\ord_E(g_j)s_j = k_E + c$ with $c\in \mathbb{Z}_{>0}$ and $E$ an irreducible component of $\mu^*D$.
-The $\RLCT$-polytope is cut out by hyperplanes of the form $\sum_{j=1}^r\ord_E(g_j)s_j = k_E + 1$.
-The $\RKLT_a$-region is given by
+The {\it $\RLCT$-polytope} is cut out by hyperplanes of the form $\sum_{j=1}^r\ord_E(g_j)s_j = k_E + 1$.
+The {\it $\RKLT_a$-region} is given by
 $$\RKLT_a(F) = \{\lambda\in \mathbb{R}_{\geq 0}^r : \prod_{j=1}^r \abs{f_j}^{-(\lambda_j-a_j)}\text{ is integrable near any }x\in D\}.$$
 
 The following theorem now follows similarly to \Cref{thm: JumpingWall2}.

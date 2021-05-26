@@ -1,4 +1,4 @@
-\chapter{Categorical Preliminaries}\label{ch: ChapterCategory}
+\chapter{Categorical preliminaries}\label{ch: ChapterCategory}
 This chapter contains some categorical preliminaries on the topic of derived category theory and spectral sequences.
 
 Derived category theory allows one to measure the lack of exactness in a functor $F:\AA \to \mathcal{B}$ by encoding error-terms in derived functors $R^iF:\AA \to \mathcal{B}$.
@@ -6,12 +6,12 @@ For instance the non-exactness of the tensor product may be measured by $\Tor$-f
 
 Spectral sequences were historically developed by Leray to compute the cohomology of the pushforeward of a sheaf.
 There is some overlap between derived category theory and spectral sequences.
-In particular the Grothendieck spectral sequence allows one to compute the derived functor of some composition $F\circ G$ based on the derived functors of $F$ and $G$ individually.
-This theorem is a essential technical ingredient in the proofs of \cref{ch: ChapterRelHol}.
+In particular the Grothendieck spectral sequence allows one to compute the derived functor of some composition $G\circ F$ based on the derived functors of $G$ and $F$ individually.
+This theorem is an essential technical ingredient in the proofs of \cref{ch: ChapterRelHol}.
 
 The discussion of derived category theory in this chapter summarises the relevant parts of chapters 1,2 and 5 of \cite{dimca2004sheaves}.
 The section on spectral sequences is based on chapter 5 of \cite{weibel1995introduction}.
-\section{Spectral Sequences}
+\section{Spectral sequences}
 Fix an abelian category $\mathcal{A}$.
 Denote $C(\AA)$ for the category with complexes of objects in $\AA$
 $$X^\bullet :\cdots \xrightarrow{}  X^{-1}\xrightarrow{d^{-1}} X^0 \xrightarrow{d^{0}} X^1\xrightarrow{d^1} \cdots.$$
@@ -22,7 +22,7 @@ First compute horizontal cohomology to get data $E^{**}_1$.
 By the commutativity of the double complex there are vertical differentials on $E^{**}_1$ and one can compute the vertical cohomology to get $E^{**}_2$.
 Diagram chasing allows to construct higher-order differentials leading to the following notion.
 \begin{definition}
-  A cohomology spectral sequence starting at the $a$-th sheet consists of families of objects $ \{E^{p,q}_r\}_{p,q\in \mathbb{Z}}$ for $r\geq a$ and maps
+  A {\it cohomology spectral sequence} starting at the $a$-th sheet consists of families of objects $ \{E^{p,q}_r\}_{p,q\in \mathbb{Z}}$ for $r\geq a$ and maps
   $d_{pq}^r : E^{pq}_r \to E^{p+r,q-r+1}_r $
   such that
   \begin{enumerate}
@@ -70,11 +70,11 @@ Diagram chasing allows to construct higher-order differentials leading to the fo
 \end{sseqpage}
 
 \begin{definition}
-  A cohomology spectral sequence is said to be bounded if for each $n$ there are finitely many non-zero terms $E^{pq}_a$ with $p+q = n$.
+  A cohomology spectral sequence is said to be {\it bounded} if for each $n$ there are finitely many non-zero terms $E^{pq}_a$ with $p+q = n$.
 \end{definition}
-In a bounded complex there is, for each choice of $p,q$, a value $r_0$ such that $E_{r}^{pq}= E_{r+1}^{pq}$ for all $r \geq r_0$. This stable value is denoted $E^{pq}_\infty$.
+In a bounded spectral sequence there is, for each choice of $p,q$, a value $r_0$ such that $E_{r}^{pq}= E_{r+1}^{pq}$ for all $r \geq r_0$. This stable value is denoted $E^{pq}_\infty$.
 \begin{definition}
-  A bounded spectral sequence is said to converge to a family of objects $H^*$ if any $H^n$ admits a finite filtration
+  A bounded spectral sequence is said to {\it converge} to a family of objects $H^*$ if any $H^n$ admits a finite filtration
   $$0 = F^s H^n \subseteq \cdots F^p H^n \subseteq F^{p+1}H^n \subseteq \cdots \subseteq F^t H^n = H^n $$
   such that $E^{pq}_\infty \cong F^p H^{p+q} / F^{p-1} H^{p+q}$.
 \end{definition}
@@ -82,63 +82,64 @@ Observe that $H^*$ is not necessarily uniquely identified by a convergent spectr
 The total complex in the motivating problem comes equipped with two filtrations.
 A vertical filtration $F^{m} \operatorname{Tot}(E)^n = \oplus_{p+q = n, p <m} E^{pq}$ and a similar horizontal filtration.
 \begin{definition}
-  A filtration of a complex $C_\bullet$ is a family of subcomplexes $\{F^m C^\bullet\}_{m\in \Z}$.
-  The filtration is said to be exhaustive if $C^\bullet = \cup_m F^mC^\bullet$.
+  A {\it filtration} of a complex $C_\bullet$ is a family of subcomplexes $\{F^m C^\bullet\}_{m\in \Z}$.
+  The filtration is said to be {\it exhaustive} if $C^\bullet = \cup_m F^mC^\bullet$.
 \end{definition}
+From here on out all filtrations are assumed to be exhaustive.
 \begin{proposition}{\cite[Theorem 5.4.1.]{weibel1995introduction}}
- A exhaustive filtration of a complex $C^\bullet$ determines a spectral sequence starting with $E^{pq}_0 = F^p C^{p+q}/F^{p-1}C^{p+q}$ and $E^{pq}_1= H^{p+q} E^{p\bullet}_0$.
+ A filtration of a complex $C^\bullet$ determines a spectral sequence starting with $E^{pq}_0 = F^p C^{p+q}/F^{p-1}C^{p+q}$ and $E^{pq}_1= H^{p+q} E^{p\bullet}_0$.
 \end{proposition}
 \begin{definition}
-  A filtration on a complex $C^\bullet$ is said to be bounded
+ A filtration on a complex $C^\bullet$ is said to be bounded
  if, for each $n$, there are integers $s<t$ such that $F^s C^n = 0$ and $F^t C^n = C^n$.
 \end{definition}
 The following proposition may be used in the motivating problem to recover the cohomology of the total complex up to extension.
 This is to say that we know that the total cohomology $H^* = H^* \operatorname{Tot}(E)^\bullet$ admits a filtration such that $E^{pq}_\infty \cong F^p H^{p+q}/ F^{p-1} H^{p+q}$.
  \begin{proposition}{\cite[Theorem 5.51.]{weibel1995introduction}}\label{prop: FiltrationSpectral}
-   Let $C^\bullet$ be a complex with a exhaustive bounded filtration.
+   Let $C^\bullet$ be a complex with a bounded filtration.
    Then, the associated spectral sequence is bounded and converges to $H^*(C^\bullet)$.
  \end{proposition}
-\section{Derived Categories}
+\section{Derived categories}
 The category $C(\AA)$ contains full subcategories $C^*(\AA)$ with $*\in \{ +, -, b\}$ denoting that the complexes in $\AA$ are bounded below, above or bounded on both sides respectively.
 For example $C^+(\AA)$ may contain complexes of the form $\cdots \to 0\to \cdots \to X^{-1} \to X^0 \to \cdots$.
 For a complex $X^\bullet$ and $k\in \Z$ one has a shifted complex $X^\bullet[k]$ with $(X^\bullet[k])^s = X^{k+s}$.
 Further, denote $\operatorname{Hom}^k(X^\bullet, Y^\bullet) :=  \op{Hom}(X^\bullet, Y^\bullet[k])$ for the chain maps that change the grading by $k$.
 \begin{definition}
- Two complex morphisms $u,v:X^\bullet\to Y^\bullet$ are called homotopic if there exists $h\in \operatorname{Hom}^{-1}(X^\bullet, Y^\bullet)$ such that $u-v = d_Y h + hd_X$. This may be denoted $u\sim v$.
+ Two complex morphisms $u,v:X^\bullet\to Y^\bullet$ are called {\it homotopic} if there exists $h\in \operatorname{Hom}^{-1}(X^\bullet, Y^\bullet)$ such that $u-v = d_Y h + hd_X$. This may be denoted $u\sim v$.
 \end{definition}
 \begin{definition}
- A morphism $u:X^\bullet\to Y^\bullet$  of complexes in $C^*(\AA)$ is called a quasi-isomorphism if the induced morphism in cohomology $H^k(u):H^k(X^\bullet) \to H^k(Y^\bullet)$ is a isomorphism for all $k$.
+ A morphism $u:X^\bullet\to Y^\bullet$  of complexes in $C^*(\AA)$ is called a {\it quasi-isomorphism} if the induced morphism in cohomology $H^k(u):H^k(X^\bullet) \to H^k(Y^\bullet)$ is an isomorphism for all $k$.
 \end{definition}
 The idea behind the following definition is to retain the same objects as $C^*(\AA)$ but turn quasi-isomorphisms into isomorphisms.
 The technicalities may be found in chapter 8 of \cite{deligne1977sga}.
 \begin{definition}
-  The derived category $D^*(\AA)$ is defined as the category obtained from $C^*(\AA)$ by localising with respect to the multiplicative system formed by the quasi-isomorphisms.
+  The {\it derived category} $D^*(\AA)$ is the category obtained from $C^*(\AA)$ by localising with respect to the multiplicative system formed by the quasi-isomorphisms.
 \end{definition}
 This definition can be made more concrete provided the category has enough injectives.
 \begin{definition}
- A abelian category $\AA$ has enough injectives if for any object $X$ in $\AA$ there is an exact sequence $0\to X \to I$ in $\AA$ with $I$ injective.
+ An abelian category $\AA$ has {\it enough injectives} if for any object $X$ in $\AA$ there is an exact sequence $0\to X \to I$ in $\AA$ with $I$ injective.
 \end{definition}
 \begin{definition}
- Let $\AA$ be a abelian category.
- The homotopical category of complexes $K^*(\AA)$ of $\AA$ has the same objects as $C^*(\AA)$ and as morphisms
+ Let $\AA$ be an abelian category.
+ The {\it homotopical category of complexes} $K^*(\AA)$ of $\AA$ has the same objects as $C^*(\AA)$ and as morphisms
  $$\operatorname{Hom}_{K^*(\AA)}(X^\bullet,Y^\bullet):= \operatorname{Hom}_{C^*(\AA)}(X^\bullet,Y^\bullet)/\sim.$$
 \end{definition}
 Observe that two homotopic maps induce the same morphism in cohomology.
 It follows that there is a well-defined functor $p_\AA^*:K^*(\AA)\to D^*(\AA)$.
 \begin{proposition}{\cite[Proposition 1.3.10.]{dimca2004sheaves}}\label{prop: DerivedCategoryInjectives}
- Let $\AA$ be a abelian category with enough injectives and denote $I(\AA)$ for the full subcategory of injective objects.
+ Let $\AA$ be an abelian category with enough injectives and denote $I(\AA)$ for the full subcategory of injective objects.
  Then the natural functor
  $$p_\AA^+: K^+(I(\AA))\to D^+(\AA) $$
- is a equivalence of categories.
+ is an equivalence of categories.
 \end{proposition}
 By passing to the opposite categories one gets a similar theorem in categories with enough projectives for $D^-(\AA)$.
-\section{Triangulated Categories}
+\section{Triangulated categories}
 The categories $K^*(\AA)$ and $D^*(\AA)$ remain additive but may fail to be exact.
 In particular, the notion of short exact sequences no longer makes sense.
 Instead, $K^*(\AA)$ and $D^*(\AA)$ may be viewed as triangulated categories which is to say that they come equipped with a notion of exact triangles.
 \begin{definition}
  Let $u:X^\bullet \to Y^\bullet$ be a morphism of complexes in $C^*(\AA)$.
- The mapping cone of $u$ is the complex in $C^*(\AA)$ given by
+ The {\it mapping cone} of $u$ is the complex in $C^*(\AA)$ given by
  $$C_u^\bullet := Y^\bullet \oplus (X^\bullet[1]) $$
  with $d_u(y,x)= (dy + u(x) , -dx)$.
 \end{definition}
@@ -171,12 +172,12 @@ Further evidence that the triangles $T_u$ behave like short exact sequences is g
  \end{enumerate}
 \end{proposition}
 Further investigation of the properties of $T_u$ gives rise to the concept of a triangulated category.
-These definitions and properties are pleasant in their own right so we go into some detail.
+These definitions and properties are nice in their own right so we go into some detail.
 
-The distinguished triangles $\mathcal{T}$ in $K^*(\AA)$ or $D^*(\AA)$ are the family of triangles which are isomorphic to a triangle of the form $T_u$.
+The {\it distinguished triangles} $\mathcal{T}$ in $K^*(\AA)$ or $D^*(\AA)$ are the family of triangles which are isomorphic to a triangle of the form $T_u$.
 Observe that these categories have a shift functor $T$ given by $TX^\bullet = X^\bullet[1]$.
 \begin{definition}
- An additive category $\mathcal{D}$ equipped with a self-equivalence $T$ and a family of distinguished triangles $\mathcal{T}$ is called a triangulated category if the following axioms are satisfied.
+ An additive category $\mathcal{D}$ equipped with a self-equivalence $T$ and a family of distinguished triangles $\mathcal{T}$ is called a {\it triangulated category} if the following axioms are satisfied.
  \begin{enumerate}
    \item[(Tr1)] Any triangle isomorphic to a distinguish triangle is distinguished. For any object $X$ the triangle $X\xrightarrow{\operatorname{Id}} X \to 0 \to TX$ is distinguished.
    Any morphism $u:X\to Y$ is part of some distinguished triangle $X\xrightarrow{u} Y \to Z \to TX$.
@@ -203,8 +204,9 @@ Observe that these categories have a shift functor $T$ given by $TX^\bullet = X^
    such that $(id_X, v,a)$ and $(u,id_Z,b)$ are morphisms of triangles.
    \end{enumerate}
 \end{definition}
+
 \begin{proposition}{\cite[Proposition 1.2.4. ]{dimca2004sheaves}}
- Let $\mathcal{A}$ be a abelian category. Then $K^*(\AA)$ and $D^*(\AA)$ are triangulated categories.
+ Let $\mathcal{A}$ be an abelian category. Then $K^*(\AA)$ and $D^*(\AA)$ are triangulated categories.
 \end{proposition}
 A triangle $X\to Y \to Z \to TX$ will also be denoted $X\to Y \to Z \xrightarrow{+1} X$ and $T^m X$ may be denoted with $X[m]$.
 Now the data of the final axiom can be organised as follows.
@@ -221,20 +223,23 @@ X \ar[rr]^{v \circ u} \ar[dr]_u & &
 }
 \end{equation*}
 \begin{definition}
- Let $\mathcal{D}$ be a triangulated category. A subcategory $\mathcal{C}$ of $\mathcal{D}$ is said to be stable under extensions if any distinguished triangle in $\mathcal{D}$ with two vertices in $\mathcal{C}$ also has its third vertex in $\mathcal{D}$.
+ Let $\mathcal{D}$ be a triangulated category.
+ A subcategory $\mathcal{C}$ of $\mathcal{D}$ is said to be {\it stable under extensions} if any distinguished triangle in $\mathcal{D}$ with two vertices in $\mathcal{C}$ also has its third vertex in $\mathcal{D}$.
 \end{definition}
 \begin{definition}
- Let $\mathcal{C}$ be a full additive subcategory of a triangulated category $\mathcal{D}$. One calls $\mathcal{C}$ is a triangulated subcategory if $\mathcal{C}$ is stable under extensions and $T\mathcal{C}\subseteq \mathcal{C}$.
+ Let $\mathcal{C}$ be a full additive subcategory of a triangulated category $\mathcal{D}$.
+ One calls $\mathcal{C}$ is a {\it triangulated subcategory} if $\mathcal{C}$ is stable under extensions and $T\mathcal{C}\subseteq \mathcal{C}$.
 \end{definition}
 
 \begin{definition}
- Let $\mathcal{D}$ be a triangulated category and $\AA$ a abelian category.
- An additive functor $F:\mathcal{D} \to \AA$ is a cohomological functor if for any distinguished triangle in $\mathcal{D}$
+ Let $\mathcal{D}$ be a triangulated category and $\AA$ an abelian category.
+ An additive functor $F:\mathcal{D} \to \AA$ is a {\it cohomological functor} if for any distinguished triangle in $\mathcal{D}$
  $$X \to Y \to Z\xrightarrow{+1} X $$
  the induced sequence $F(X) \to F(Y) \to F(Z) $
- is exact in $\AA$. If $F$ is a cohomological functor one sets $F^i = F\circ T^i$.
+ is exact in $\AA$.
+ If $F$ is a cohomological functor one sets $F^i = F\circ T^i$.
 
- The family of functors $F^i$ is conservative if for any distinguished triangle
+ The family of functors $F^i$ is {\it conservative} if for any distinguished triangle
  $$X \to Y \to Z \xrightarrow{+1} X$$
  the induced long sequence
  $$\cdots \to F^i(X) \to F^i(Y) \to F^i(Z) \to F^{i+1}(X) \to \cdots $$
@@ -243,15 +248,15 @@ X \ar[rr]^{v \circ u} \ar[dr]_u & &
 The key example for the above definition is given by the cohomological functor $H^0: K^*(\AA) \to \AA$ and the conservative system of functors $H^i$.
 \begin{definition}
  Let $\mathcal{D}, \mathcal{D}'$ be triangulated categories.
- A functor $F:\mathcal{D} \to \mathcal{D}'$ is called a functor of triangulated categories if it is compatible with the shift functor and transforms distinguished triangles in $\mathcal{D}$ into distinguished triangles of $\mathcal{D}'$.
+ A functor $F:\mathcal{D} \to \mathcal{D}'$ is called a {\it functor of triangulated categories} if it is compatible with the shift functor and transforms distinguished triangles in $\mathcal{D}$ into distinguished triangles of $\mathcal{D}'$.
 \end{definition}
-\section{Derived Functors}
+\section{Derived functors}
 Given abelian categories $\AA, \mathcal{B}$ and a functor of triangulated categories $F:K^*(\AA)\to K(\mathcal{B})$ one may wonder if there is a natural lift to the derived categories.
 \begin{definition}
- Let $F$ be as above. The right derived functor of $F$ is a initial couple $(R^*F,\xi_F)$ consisting of a functor of triangulated categories $R^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:p_B\circ F \to R^*F \circ p_\AA^*$.
- By initial it is meant that for any other such couple $(G,\zeta)$ there is a unique natural transformation $\eta: R^*F\to G$ such that $\zeta = (\eta \circ p_\AA^*)\circ \xi_{F}$.
+ Let $F$ be as above. The {\it right derived functor} of $F$ is an initial couple $(R^*F,\xi_F)$ consisting of a functor of triangulated categories $R^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:p_B\circ F \to R^*F \circ p_\AA^*$.
+ By initial it is meant that for any other such couple $(G,\zeta)$ there is an unique natural transformation $\eta: R^*F\to G$ such that $\zeta = (\eta \circ p_\AA^*)\circ \xi_{F}$.
 \end{definition}
-The dual notion is a left derived functor. This is a final couple $(L^*F,\xi_F)$ consisting of a functor of triangulated categories $L^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:  L^*F \circ p_\AA^* \to p_B\circ F$.
+The dual notion is a {\it left derived functor}. This is a final couple $(L^*F,\xi_F)$ consisting of a functor of triangulated categories $L^*F:D^*(\AA) \to D^*(\mathcal{B})$ and a natural transformation $\xi_F:  L^*F \circ p_\AA^* \to p_B\circ F$.
 It is clear that, if a derived functor exists, it is unique up to unique isomorphism.
 
 %One can show that the derived functor of $F:K(\AA)\to K(\mathcal{B})$ can be defined at a object $X\in K^+(\AA)$ if and only if the restriction $F^+:K^+(\AA) \to K(\mathcal{B})$ is defined at $X$ and the values are canonically isomorphic.
@@ -265,14 +270,14 @@ The following will be sufficient for our applications.
 By dualising, a similar theorem applies to $F:K^-(\AA)\to K(\mathcal{B})$ for the existence of $L^- F$ in categories with enough projectives.
 
 The main use of derived functors is to fix a lack of exactness in $F$.
-Recall from \cref{prop: SESYieldsTriangle} that a short-exact sequence in $C^+(\AA)$ induces a distinguished triangle in $D^+(\AA)$.
+Recall from \Cref{prop: SESYieldsTriangle} that a short-exact sequence in $C^+(\AA)$ induces a distinguished triangle in $D^+(\AA)$.
 Since $R^+F$ is a functor of triangulated categories it will transform this distinguished triangle into a distinguished triangle of $D(\mathcal{B})$.
-Further, there is a associated long exact sequence whose higher-order terms measure to what degree the original functor failed to be exact.
+Further, there is an associated long exact sequence whose higher-order terms measure to what degree the original functor failed to be exact.
 \begin{definition}
  Let $F:K^*(\AA) \to K(B)$ be a functor of triangulated categories such that $R^*F$ exists.
- For any $n\in \Z$ one defines $R^nF:\AA \to \mathcal{B}$ to be the composition
+ For any $n\in \Z$ the {\it $n$th right-derived functor} $R^nF:\AA \to \mathcal{B}$ is the composition
  $$\AA\xrightarrow{\iota} D^*(\AA) \xrightarrow{R^*F} D(\mathcal{B}) \xrightarrow{H^n} \mathcal{B} $$
- where $\iota$ sends a object to the chain complex with a single non-trivial term.
+ where $\iota$ sends an object to the chain complex with a single non-trivial term.
  Similarly, one defines $\mathbb{R}^nF:D^*(\AA)\to \mathcal{B}$ as the composition
  $$D^*(\AA) \xrightarrow{R^*F} D(\mathcal{B}) \xrightarrow{H^n} \mathcal{B}. $$
 \end{definition}
@@ -287,9 +292,9 @@ Further, there is a associated long exact sequence whose higher-order terms meas
 \begin{proof}
   This is immediate by $R^*F$ being a functor of triangulated categories and the fact that the cohomology $H^i$ forms a conservative system of functors.
 \end{proof}
-In the situation of \cref{thm: InjectivesAllowDerivedFunctor} the derived functor can be computed explicitly.
+In the situation of \Cref{thm: InjectivesAllowDerivedFunctor} the derived functor can be computed explicitly.
 Pick some object $X^\bullet$ in $D^+(\AA)$.
-By \cref{prop: DerivedCategoryInjectives} there is a quasi-isomorphism $X^\bullet\to I^\bullet$ for some complex of injective objects $I^\bullet$.
+By \Cref{prop: DerivedCategoryInjectives} there is a quasi-isomorphism $X^\bullet\to I^\bullet$ for some complex of injective objects $I^\bullet$.
 Then one has explicitly
 $$R^+F(X^\bullet) \cong p_\mathcal{B} \circ F(I^\bullet). $$
 Further, if $F$ is exact one has that $F(I^\bullet)$ is quasi-isomorphic to $F(X^\bullet)$ whence $R^+F(X^\bullet)$ is isomorphic to $p_\mathcal{B}\circ F(X^\bullet)$.
@@ -297,43 +302,44 @@ Further, if $F$ is exact one has that $F(I^\bullet)$ is quasi-isomorphic to $F(X
 In practice, it is often difficult to find a concrete injective resolution.
 \begin{definition}
  Let $F:\AA \to \mathcal{B}$ be a left exact functor.
- A object $X$ in $\AA$ is $F$-acyclic if $R^iF(X) = 0$ for all $i\geq 1$.
+ A object $X$ in $\AA$ is {\it $F$-acyclic} if $R^iF(X) = 0$ for all $i\geq 1$.
 \end{definition}
-Computation derived functors can also be done using $F$-acyclic resolutions.
+Computation of derived functors can also be done by using $F$-acyclic resolutions.
 One can show that injective objects are $F$-acyclic for any left-exact functor.
 Hence, this generalises the earlier computations.
 \begin{proposition}{\cite[Theorem 1.3.18.]{dimca2004sheaves}}\label{prop: GrothendieckIsomorphism}
   Let $F:\AA \to \mathcal{B}$ and $G:\mathcal{B}\to \mathcal{C}$ be two additive functors between abelian categories with enough injective objects. Suppose that $F$ is left-exact and that $G$ transforms injective objects into $F$-acyclic objects, then there is an isomorphism
-  $$R^+(F\circ G) \cong R^+F \circ R^+ G.$$
+  $$R^+(G\circ F) \cong R^+G \circ R^+ F.$$
 \end{proposition}
 The following theorem is known as the Grothendieck spectral sequence and will be used extensively in \cref{ch: ChapterRelHol}.
 \begin{theorem}{\cite[Theorem 1.3.19.]{dimca2004sheaves}}\label{thm: GrothendieckSpectral}
   Let $F,G$ be as in the previous proposition. Then, for any object $X$ of $\AA$, there is a spectral sequence
-  $$E_2^{pq} = R^pF(R^qG(X)) $$
-  converging to $R^{p+q}(F\circ G)(X).$
+  $$E_2^{pq} = R^pG(R^qF(X)) $$
+  converging to $R^{p+q}(G\circ F)(X).$
 \end{theorem}
 \begin{proof}
-  A modification of the proof is discussed in detail in \cref{prop: SpectralTorExt}.
+  A modification of the proof is discussed in detail in \Cref{prop: SpectralTorExt}.
 
   The main idea is to consider the double complex $F(I^\bullet)\to J^{\bullet\bullet}$ provided by the dual of the following lemma.
-  The total complex of $G(J^{\bullet\bullet})$ is equipped with two filtrations, a vertical and a horizontal filtration, comparing the spectral sequences from \cref{prop: FiltrationSpectral} yields the desired result.
+  The total complex of $G(J^{\bullet\bullet})$ is equipped with two filtrations, a vertical and a horizontal filtration, comparing the spectral sequences from \Cref{prop: FiltrationSpectral} yields the desired result.
 \end{proof}
 \begin{proposition}{\cite[Lemma 5.7.2.]{weibel1995introduction}}\label{prop: Cartan-Eilenberg}
-  Suppose $\AA$ admits enough projectives. Then, for any complex $X^\bullet$ there exists a lower half-plane double complex $P^{\bullet\bullet}$ of projective objects such that
+  Suppose $\AA$ admits enough projectives.
+  Then, for any complex $X^\bullet$ there exists a lower half-plane double complex $P^{\bullet\bullet}$ of projective objects such that
   \begin{enumerate}
     \item[(i)] There is a map $P^{0,\bullet}\to X^\bullet$ such that $P^{\bullet,q}\to X^{q}$ is a projective resolution for every $p$.
     \item[(ii)] If $X^q = 0$ the corresponding column $P^{\bullet,q}$ is zero.
     \item[(iii)] The horizontal cocycles, coboundaries and cohomology on $P^{\bullet,q}$ form projective resolutions for the $q$-th cocycles, coboundaries and cohomology of $X^\bullet$ respectively.
   \end{enumerate}
 \end{proposition}
-For later use on the structure of the Cartan-Eilenberg resolution we remark that the columns $P^{\bullet,q}$ are found as direct sums of projective resolutions for the boundaries and cohomology at level $q$ and $q+1$.
+For later use on the structure of the {\it Cartan-Eilenberg resolution} above we remark that the columns $P^{\bullet,q}$ are found as direct sums of projective resolutions for the boundaries and cohomology at level $q$ and $q+1$.
 
 We conclude this section by considering a few important examples of derived functors which will be used later on.
 
 Let $X$ be a topological space and consider a sheaf of rings $\mathcal{R}_X$ which need-not be commutative.
 The corresponding categories of complexes of left or right modules are denoted $C^{*,\ell}(\mathcal{R}_X)$ and $C^{*,r}(\mathcal{R}_X)$ respectively.
 Similarly, the category of complexes of bimodules is denoted $C^{*,\ell r}(\mathcal{R}_X)$.
-Using \cref{thm: InjectivesAllowDerivedFunctor} one can establish that the global sections functor $\Gamma(X,\blank)$ on $C^{+,*}(\mathcal{R}_X)$ has a derived functor $R^+\Gamma(X,\blank)$.
+Using \Cref{thm: InjectivesAllowDerivedFunctor} one can establish that the global sections functor $\Gamma(X,\blank)$ on $C^{+,*}(\mathcal{R}_X)$ has a derived functor $R^+\Gamma(X,\blank)$.
 The cohomology of a sheaf of modules is given by the functors $H^k(X,\blank) := R^k \Gamma(X,\blank)$ and the hypercohomology of a complex of modules is given by the functors $\mathbb{H}^k(X,\blank):= \mathbb{R}^k\Gamma(X,\blank)$.
 %The cohomology sheaf of a complex $\M^\bullet$ is the sheaf associated to the presheaf $U\mapsto \mathbb{H}^k(U,\M^\bullet)$ and is denoted $\H^k(\M^\bullet)$.
 %The cohomology sheaves of a module $\M$ are defined similarly and also denoted $\H^k(\M)$.
@@ -341,15 +347,15 @@ The cohomology of a sheaf of modules is given by the functors $H^k(X,\blank) := 
 Cohomology measures the failure of sections to be global.
 Correspondingly, acyclic objects are given by sheaves which have no such failure.
 \begin{definition}
- A sheaf of $\mathcal{R}_X$-modules $\F$ is called flabby if for any open $U\subseteq X$ the restriction morphism $\rho_U^X:\F(X)\to\F(U) $ is surjective.
+ A sheaf of $\mathcal{R}_X$-modules $\F$ is called {\it flabby} if for any open $U\subseteq X$ the restriction morphism $\rho_U^X:\F(X)\to\F(U) $ is surjective.
 \end{definition}
 \begin{proposition}{\cite[Proposition 2.1.8.]{dimca2004sheaves}}
  If $\F$ is a flabby sheaf of $\mathcal{R}_X$-modules then $\F$ is $\Gamma(X,\blank)$-acyclic.
 \end{proposition}
 \begin{definition}
-  Let $K$ be a field and $\mathcal{S}^\bullet$ is a sheaf of $K_X$-modules.
+  Let $K$ be a field and $\mathcal{S}^\bullet$ a sheaf of $K_X$-modules.
   Assume that all $\mathbb{H}^k(X,\mathcal{S}^\bullet)$ are finite dimensional $K$-vector spaces and that $\mathbb{H}^k(X,\mathcal{S}^\bullet) = 0$ for all but finitely many $k\in \mathbb{Z}$.
-  The Euler characteristic of $X$ with coefficients in $\mathcal{S}^\bullet$ is
+  The {\it Euler characteristic} of $X$ with coefficients in $\mathcal{S}^\bullet$ is
   $$\chi(X,\mathcal{S}^\bullet) = \sum_k (-1)^k \dim_K \mathbb{H}^k(X,\mathcal{S}^\bullet).$$
 \end{definition}
 %The hypercohomology of a sheaf complex can be computed using flabby resolutions.
@@ -360,7 +366,7 @@ Correspondingly, acyclic objects are given by sheaves which have no such failure
 %The total complex of $\F^{\bullet, \bullet}$ yields a flabby resolution of $\M^\bullet$.
 
 Let $f:Y\to X$ be a continuous map between topological spaces and suppose that $Y$ is equipped with some sheaf of rings $\mathcal{R}_Y$.
-The direct image of a sheaf $\mathcal{S}$ on $Y$ is the sheaf $f_*\mathcal{S}$ on $X$ defined by
+The {\it direct image} of a sheaf $\mathcal{S}$ on $Y$ is the sheaf $f_*\mathcal{S}$ on $X$ defined by
 $$(f_*\mathcal{S})(U) = \mathcal{S}(f^{-1}(U)).$$
 This induces a left-exact functor from the category of $\mathcal{R}_Y$-modules to the category of $f_*\mathcal{R}_Y$-modules.
 By the left-exactness the derived functor may be computed by injective resolutions.
@@ -388,7 +394,7 @@ $\Ex{\mathcal{R}_X}{n}(M^\bullet,N^\bullet) =  R^n\Hom_{\mathcal{R}_X}^\bullet(M
 \section{$t$-structures}
 A generalisation of positive and negatively supported complexes is given by the concept of a $t$-structure.
 \begin{definition}
- A $t$-structure on a triangulated category $\mathcal{D}$ consists of two strictly full subcategories $\mathcal{D}^{\leq 0}$ and $\mathcal{D}^{\geq 0}$ such that, setting $\mathcal{D}^{\leq n} := \mathcal{D}^{\leq 0}[-n]$ and $\mathcal{D}^{\geq n} := \mathcal{D}^{\geq 0} [-n]$, the following properties hold.
+ A {\it $t$-structure} on a triangulated category $\mathcal{D}$ consists of two strictly full subcategories $\mathcal{D}^{\leq 0}$ and $\mathcal{D}^{\geq 0}$ such that, setting $\mathcal{D}^{\leq n} := \mathcal{D}^{\leq 0}[-n]$ and $\mathcal{D}^{\geq n} := \mathcal{D}^{\geq 0} [-n]$, the following properties hold.
  \begin{enumerate}
    \item[(i)] It holds that $\mathcal{D}^{\leq 0}$ is a subcategory of $\mathcal{D}^{\leq 1}$ and $D^{\geq 1}$ is a subcategory of $\mathcal{D}^{\geq 0}$.
    \item[(ii)] For any objects $X$ in $\mathcal{D}^{\leq 0}$ and $Y$ of $\mathcal{D}^{\geq 1}$ it holds that $\operatorname{Hom}(X,Y) = 0$.
@@ -398,7 +404,7 @@ A generalisation of positive and negatively supported complexes is given by the 
  \end{enumerate}
 \end{definition}
 \begin{definition}
- Let $\mathcal{D}$ be a triangulated category with a $t$-structure. Then $\mathcal{C} = \mathcal{D}^{\leq 0} \cap \mathcal{D}^{\geq 0}$ is called the heart of the $t$-structure.
+ Let $\mathcal{D}$ be a triangulated category with a $t$-structure. Then $\mathcal{C} = \mathcal{D}^{\leq 0} \cap \mathcal{D}^{\geq 0}$ is called the {\it heart} of the $t$-structure.
 \end{definition}
 In the motivating case of $K^*(\AA)$ and $D^*(\AA)$ the heart of the $t$-structure recovers the original abelian category $\AA$.
 \begin{proposition}{\cite[Proposition 5.1.2.]{dimca2004sheaves}}\label{prop: HeartExtension}
@@ -407,7 +413,7 @@ In the motivating case of $K^*(\AA)$ and $D^*(\AA)$ the heart of the $t$-structu
 Observe that $D^*(\AA)$ comes equipped with truncation functors
 $\tau_{\leq m}:D^*(\AA)\to D^-(\AA)$ which sends a complex $X^\bullet$ to
 $$\tau_{\leq m}X^\bullet : \cdots \to X^{m-1} \to \ker d \to 0 \to 0 \to \cdots$$
-and similarly truncation functors $\tau_{\geq m}:D^*(\A)\to D^{+}(\A)$ are defined by
+and similarly truncation functors $\tau_{\geq m}:D^*(\AA)\to D^{+}(\AA)$ are defined by
 $$\tau_{\geq m}X^\bullet: \cdots \to 0 \to 0 \to \operatorname{coim} d \to X^{m+1}\to \cdots.$$
 This generalises to $t$-structures.
 \begin{proposition}{\cite[Proposition 5.1.4.]{dimca2004sheaves}}
@@ -416,10 +422,10 @@ This generalises to $t$-structures.
  Similarly, the inclusion of $\mathcal{D}^{\geq n}$ in $\mathcal{D}$ has a left adjoint $\tau_{\geq n}$.
 \end{proposition}
 Observe that in the example of $D^*(\AA)$ one has that $\tau_{\geq 0} \tau_{\leq 0} X^\bullet$ is the complex with a single entry $H^0(X^\bullet)$.
-This generalises to $t$-structures by viewing $\tH^0:= \tau_{\geq 0}\tau_{\leq 0}$ as a functor from $\mathcal{D}$ to it's heart $\mathcal{C}$.
+This generalises to $t$-structures by viewing $\tH^0:= \tau_{\geq 0}\tau_{\leq 0}$ as a functor from $\mathcal{D}$ to its heart $\mathcal{C}$.
 Further, let $\tH^i:=\ \tH^0 \circ T^i$.
 \begin{definition}
- A $t$-structure is said to be non-degenerated if $\cap \mathcal{D}^{\leq n} = \cap \mathcal{D}^{\geq n}= \operatorname{Null}$ where $\operatorname{Null}$ denotes the family of objects which are isomorphic to the zero object in $\mathcal{D}$.
+ A $t$-structure is said to be {\it non-degenerated} if $\cap \mathcal{D}^{\leq n} = \cap \mathcal{D}^{\geq n}= \operatorname{Null}$ where $\operatorname{Null}$ denotes the family of objects which are isomorphic to the zero object in $\mathcal{D}$.
 \end{definition}
 \begin{proposition}{\cite[Proposition 5.1.6.]{dimca2004sheaves}}
  Let $\mathcal{D}$ be a triangulated category with a $t$-structure. Then $\tH^0:\mathcal{D}\to \mathcal{C}$ is a cohomological functor.
@@ -432,13 +438,14 @@ Further, let $\tH^i:=\ \tH^0 \circ T^i$.
   Then $X\in \mathcal{D}^{\leq 0}$ if and only if $\tH^i(X) = 0$ for $i>0$. Similarly $X\in \mathcal{D}^{\geq 0}$ if and only if $\tH^i(X)= 0$ for $i<0$.
 \end{proposition}
 \begin{definition}
- Let $\mathcal{D}_1,\mathcal{D}_2$ be triangulated categories equipped with $t$-structures. A functor of triangulated categories $F:\mathcal{D}_1\to \mathcal{D}_2$ is called left or right $t$-exact if $F(\mathcal{D}_1^{\geq 0}) \subseteq \mathcal{D}_2^{\geq 0}$ or $F(\mathcal{D}_1^{\leq 0}) \subseteq \mathcal{D}_2^{\leq 0}$ respectively.
- The functor $F$ is called $t$-exact if it is left and right $t$-exact.
+ Let $\mathcal{D}_1,\mathcal{D}_2$ be triangulated categories equipped with $t$-structures. A functor of triangulated categories $F:\mathcal{D}_1\to \mathcal{D}_2$ is called {\it left or right $t$-exact} if $F(\mathcal{D}_1^{\geq 0}) \subseteq \mathcal{D}_2^{\geq 0}$ or $F(\mathcal{D}_1^{\leq 0}) \subseteq \mathcal{D}_2^{\leq 0}$ respectively.
+ The functor $F$ is called {\it $t$-exact} if it is left and right $t$-exact.
 \end{definition}
 \begin{definition}
  Let $\mathcal{D}_1,\mathcal{D}_2$ be triangulated categories equipped with $t$-structures and let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a functor of triangulated categories.
- The perverse functor $^pF$ associated to $F$ is the induced functor on the hearts $^pF = \tH^0 \circ F \circ j_1$ where $j_1$ denotes the inclusion functor $j_1:\mathcal{C}_1\to \mathcal{D}_1$.
+ The {\it perverse functor} $^pF$ associated to $F$ is the induced functor on the hearts $^pF = \tH^0 \circ F \circ j_1$ where $j_1$ denotes the inclusion functor $j_1:\mathcal{C}_1\to \mathcal{D}_1$.
 \end{definition}
 \begin{proposition}{\cite[Proposition 5.1.9.]{dimca2004sheaves}}\label{prop: FunctorHeart}
-  Let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a $t$-exact functor of triangulated categories. Then $F$ sends the heart $\mathcal{C}_1$ into the heart $\mathcal{C}_2$ and the induced functor $F:\mathcal{C}_1 \to \mathcal{C}_2$ is naturally isomorphic to $^pF$.
+  Let $F:\mathcal{D}_1 \to \mathcal{D}_2$ be a $t$-exact functor of triangulated categories.
+  Then $F$ sends the heart $\mathcal{C}_1$ into the heart $\mathcal{C}_2$ and the induced functor $F:\mathcal{C}_1 \to \mathcal{C}_2$ is naturally isomorphic to $^pF$.
 \end{proposition}

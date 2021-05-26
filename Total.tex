@@ -1,28 +1,44 @@
 
 \documentclass[12pt,a4paper,twoside]{book}
 \usepackage{DocumentPreamble}
+
+\newglossaryentry{pi}
+{
+  name={\ensuremath{\pi}},
+  description={ratio of circumference of circle to its
+               diameter},
+  sort=pi
+}
+
+\newglossaryentry{alpha}
+{
+  name={\ensuremath{\alpha}},
+  description={a random greek letter},
+  sort=alpha
+}
+
+
 %\usepackage{DarkMode}
-
-
 % Start of the actual document
 \begin{document}
 
 % FRONT MATTER
-
+\gls{alpha}
     \frontmatter
     \rmfamily
 
-    %\input{Preamble/Titlepage.tex} \cleardoublepage
+    \input{Preamble/Titlepage.tex} \cleardoublepage
     \pagestyle{headings}
 
-    %\input{Preamble/Copyright.tex} \cleardoublepage
+    \input{Preamble/Copyright.tex} \cleardoublepage
     \setcounter{page}{0}
     \pagenumbering{roman}
 
 
-  %  \input{Preamble/Preface.tex}\cleardoublepage
-  %  \input{Preamble/Summary.tex} \cleardoublepage
-  %  \printglossary[title={List of Symbols}] \cleardoublepage
+   \input{Preamble/Preface.tex}\cleardoublepage
+    \input{Preamble/Summary.tex} \cleardoublepage
+
+    \printglossary[title={List of Symbols}] \cleardoublepage
   %  \addcontentsline{toc}{chapter}{List of Figures}
   %  \listoffigures \cleardoublepage
   %  \addcontentsline{toc}{chapter}{List of Tables}
@@ -57,8 +73,8 @@
 %  \input{Backmatter/Appendix.tex}
 %\end{appendices}
 
-% Back side of book
-%\cleartoleftpage{} % Make sure the back page is at an even page number
-%\input{Backmatter/Back.tex}
+ Back side of book
+\cleartoleftpage{} % Make sure the back page is at an even page number
+\input{Backmatter/Back.tex}
 
 \end{document}
