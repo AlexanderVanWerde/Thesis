@@ -330,7 +330,7 @@ For later use on the structure of the Cartan-Eilenberg resolution we remark that
 
 We conclude this section by considering a few important examples of derived functors which will be used later on.
 
-Let $X$ be a topological space equipped with a sheaf of rings $\mathcal{R}_X$ which need-not be commutative.
+Let $X$ be a topological space and consider a sheaf of rings $\mathcal{R}_X$ which need-not be commutative.
 The corresponding categories of complexes of left or right modules are denoted $C^{*,\ell}(\mathcal{R}_X)$ and $C^{*,r}(\mathcal{R}_X)$ respectively.
 Similarly, the category of complexes of bimodules is denoted $C^{*,\ell r}(\mathcal{R}_X)$.
 Using \cref{thm: InjectivesAllowDerivedFunctor} one can establish that the global sections functor $\Gamma(X,\blank)$ on $C^{+,*}(\mathcal{R}_X)$ has a derived functor $R^+\Gamma(X,\blank)$.
@@ -346,6 +346,12 @@ Correspondingly, acyclic objects are given by sheaves which have no such failure
 \begin{proposition}{\cite[Proposition 2.1.8.]{dimca2004sheaves}}
  If $\F$ is a flabby sheaf of $\mathcal{R}_X$-modules then $\F$ is $\Gamma(X,\blank)$-acyclic.
 \end{proposition}
+\begin{definition}
+  Let $K$ be a field and $\mathcal{S}^\bullet$ is a sheaf of $K_X$-modules.
+  Assume that all $\mathbb{H}^k(X,\mathcal{S}^\bullet)$ are finite dimensional $K$-vector spaces and that $\mathbb{H}^k(X,\mathcal{S}^\bullet) = 0$ for all but finitely many $k\in \mathbb{Z}$.
+  The Euler characteristic of $X$ with coefficients in $\mathcal{S}^\bullet$ is
+  $$\chi(X,\mathcal{S}^\bullet) = \sum_k (-1)^k \dim_K \mathbb{H}^k(X,\mathcal{S}^\bullet).$$
+\end{definition}
 %The hypercohomology of a sheaf complex can be computed using flabby resolutions.
 %Concrete flabby resolutions may be found using the Godement resolution.
 %A sheaf $\M$ gives rise to a flabby sheaf $\F$ by the formal product of stalks.
@@ -353,23 +359,22 @@ Correspondingly, acyclic objects are given by sheaves which have no such failure
 %For a sheaf complex $\M^\bullet$ the flabby resolutions of the $\M^{j}$ produce a double complex $\F^{\bullet,\bullet}$.
 %The total complex of $\F^{\bullet, \bullet}$ yields a flabby resolution of $\M^\bullet$.
 
-Let $f:Y\to X$ be a continuous map between topological spaces.
+Let $f:Y\to X$ be a continuous map between topological spaces and suppose that $Y$ is equipped with some sheaf of rings $\mathcal{R}_Y$.
 The direct image of a sheaf $\mathcal{S}$ on $Y$ is the sheaf $f_*\mathcal{S}$ on $X$ defined by
-$$(f_*\mathcal{S})(U) = \mathcal{S}(f^{-1}(U)). $$
-Suppose that $Y,X$ are equipped with sheaves of rings $\mathcal{R}_Y, \mathcal{R}_X$ respectively and that $f_*\mathcal{R}_Y$ is a $\mathcal{R}_X$-algebra.
-Then the direct image yields a functor from the category of $\mathcal{R}_Y$-modules to the category of $\mathcal{R}_X$-modules.
-This is a left-exact functor so the derived functor may be computed by injective resolutions.
+$$(f_*\mathcal{S})(U) = \mathcal{S}(f^{-1}(U)).$$
+This induces a left-exact functor from the category of $\mathcal{R}_Y$-modules to the category of $f_*\mathcal{R}_Y$-modules.
+By the left-exactness the derived functor may be computed by injective resolutions.
 One can verify that flabby sheaves are $f_*$-acyclic so that flabby resolutions may also be used in the computations.
 
 A classical example of a non-exact functor is given by the tensor product.
 This may be considered as a bifunctor
-$$ \otimes_{\mathcal{R}_X} : C^{-,\ell}(\mathcal{R}_X)\times C^{-,r}(\mathcal{R}_X)\to C^{-,\ell r}(\mathcal{R}_X)$$
+$$ \otimes_{\mathcal{R}_X} : C^{-,r}(\mathcal{R}_X)\times C^{-,\ell}(\mathcal{R}_X)\to C^{-,\ell r}(\mathbb{Z}_{X})$$
 where
 $(\M^\bullet \otimes_{\mathcal{R}_X} \N^\bullet)^n = \oplus_{i + j = n} \M^i \otimes_{\mathcal{R}_X} \N^j $
 with differentials defined at $\M^i \otimes_{\mathcal{R}_X} \N^j$ by
 $d(m\otimes n) = dm \otimes n + (-1)^i m \otimes dn.$
 If it exists, the left-derived functor is denoted
-$$ \otimes_{\mathcal{R}_X}^L : D^{-,\ell}(\mathcal{R}_X)\times D^{-,r}(\mathcal{R}_X)\to D^{-,\ell r}(\mathcal{R}_X).$$
+$$ \otimes_{\mathcal{R}_X}^L : D^{-,\ell}(\mathcal{R}_X)\times D^{-,r}(\mathcal{R}_X)\to D^{-,\ell r}(\mathbb{Z}_X).$$
 This yields $\Tor$-sheaves
 $\Tr{\mathcal{R}_X}{k}(X^\bullet, Y^\bullet) = H^{-k}(X^\bullet\otimes_{\mathcal{R}_X}^L Y^\bullet).$
 
@@ -377,7 +382,7 @@ A similar procedure applies to the $\Hom_{\mathcal{R}_X}$-bifunctor which is def
 $\Hom_{\mathcal{R}_X}^n(\M^\bullet, \N^\bullet) \ab = \prod_{j\in Z} \Hom_{\mathcal{R}_X}(\M^j , \N^{n+j}) $
 with the differentials on $\Hom_{\mathcal{R}_X}^n(M^\bullet,N^\bullet)$ given by $d\varphi = d_N\circ \varphi - (-1)^n \varphi \circ d_M$.
 If the right-derived functor exists it is denoted
-$$R\Hom_{\mathcal{R}_X}^\bullet(\blank,\blank): D^{-,\ell}(\mathcal{R}_X)^{opp}\times D^{+,\ell r}(\mathcal{R}_X)\to D^{r}(\mathcal{R}_X).$$
+$$R\Hom_{\mathcal{R}_X}^\bullet(\blank,\blank): D^{-,\ell}(\mathcal{R}_X)^{opp}\times D^{+,\ell}(\mathcal{R}_X)\to D^{-,\ell r}(\mathbb{Z}_X).$$
 This yields the $\Ext$-sheaves
 $\Ex{\mathcal{R}_X}{n}(M^\bullet,N^\bullet) =  R^n\Hom_{\mathcal{R}_X}^\bullet(M^\bullet, N^\bullet).$
 \section{$t$-structures}
