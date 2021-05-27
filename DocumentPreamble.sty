@@ -226,16 +226,20 @@
 \usepackage[toc,page]{appendix}
 
 \usepackage[toc,acronym,nonumberlist]{glossaries}
-
 \usepackage[stylemods=longbooktabs]{glossaries-extra}
+\setglossarystyle{longragged}
+
+\renewenvironment{theglossary}%
+{\begin{longtable}[l]{2p{\glsdescwidth}}}%
+{\end{longtable}}
 \makeglossaries
 
 
 
 
 % settings for table of contents and section numbering
-\setcounter{secnumdepth}{1} % numbering to which sublevel?
-\setcounter{tocdepth}{1} % How many levels does the table of contents have?
+\setcounter{secnumdepth}{2} % numbering to which sublevel?
+\setcounter{tocdepth}{2} % How many levels does the table of contents have?
 
 \newcommand*\cleartoleftpage{%
   \clearpage

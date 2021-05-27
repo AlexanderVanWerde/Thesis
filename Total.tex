@@ -24,7 +24,9 @@
     \input{Preamble/Summary.tex} 
     \glsaddall
     \cleardoublepage
+    \renewcommand*{\arraystretch}{1.4}
     \printglossary[title={List of Symbols}] \cleardoublepage
+    \renewcommand*{\arraystretch}{1}
   %  \addcontentsline{toc}{chapter}{List of Figures}
   %  \listoffigures \cleardoublepage
   %  \addcontentsline{toc}{chapter}{List of Tables}
@@ -42,8 +44,8 @@
 \input{Chapters/ChapterCategory} \cleardoublepage
 \input{Chapters/ChapterDX} \cleardoublepage
 \input{Chapters/ChapterRelative}\cleardoublepage
-\input{Chapters/ChapterMoments}
-%\input{Chapters/Conclusions.tex} \cleardoublepage
+\input{Chapters/ChapterMoments}\cleardoublepage
+\input{Chapters/Conclusions.tex} \cleardoublepage
 
 % BACK MATTER
 

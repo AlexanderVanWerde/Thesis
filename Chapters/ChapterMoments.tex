@@ -5,7 +5,7 @@ These large tails cause pathological behaviour such as undefined expected value.
 
 This chapter is a proof-of-concept that it may be possible to use holonomicity to study the tails of random variables.
 It should be emphasised that it is not meant that holonomicity is always the best method to control the tails.
-In many cases the tails can be investigated by a direct study of the decay of the distribution function.
+In many cases the tails can be investigated by a direct study of the decay of the probability density function.
 Still, holonomicity may provide a useful criterion for theoretical investigations.
 By consideration of distribution functions our approach allows for an uniform treatment of discrete and continuous random variables.
 One could further hope that one can find algorithms for holonomic random variables by exploiting the algorithms which are available for holonomic distributions.
@@ -104,7 +104,7 @@ Many real-world functions are analytic but it requires an infinite amount of inf
 Polynomials only require a finite amount of information and can therefore be encoded in computers.
 However, not all real-world functions are polynomials.
 
-It was observed by \cite{zeilberger1990holonomic} that the class of holonomic functions provide good compromise.
+It was observed by \cite{zeilberger1990holonomic} that the class of holonomic functions provides a good compromise.
 Many real-world functions are holonomic and only a finite amount of information is required to encode the corresponding differential equations.
 \subsection{Weyl algebra}
 Let $K$ denote a field of characteristic zero.
@@ -143,7 +143,7 @@ One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the
 \end{lemma}
   \begin{proof}
     Consider a good filtration on $\M$ and equip $\M\otimes_{\C[s]}\C(s)$ with the induced filtration.
-    Since localisation is an exact functor it holds that $\grrel\M\otimes_{\C[s]}\C(s) \cong \gr(\M\otimes_{\C[s]}\C(s)) $.
+    Since localisation is an exact functor it holds that $\grrel\M\otimes_{\C[s]}\C(s) \cong \gr(\M\otimes_{\C[s]}\C(s)) $ as modules over $\gr\D_{\C(s)^n)}$.
 
     Suppose that $\Ch(\M\otimes_{\C[s]}\C(s))$ has dimension strictly greater than $n$ as a variety over $\C(s)$.
     Let $\mathfrak{m}$ be a maximal ideal of the coordinate ring of $\Ch (\M\otimes_{\C[s]}\C(s))$.
@@ -178,7 +178,7 @@ One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the
       Let $f$ and $a$ be a monovariate holonomic function and a monovariate algebraic functions over $K$ respectively.
       If $f\circ a$ is defined it is also holonomic over $K$.
     \end{theorem}
-    \subsection{Asymptotics of holonomic sequences}
+    \subsection{Asymptotics of holonomic sequences}\label{subsec: Asymptotic}
     This section is concerned with the asymptotics of monovariate sequences $u:\mathbb{Z}_{\geq 0}\to K$.
     The statement that $u(m) = O(b(m))$ for some positive sequence $b:\mathbb{Z}_{\geq 0}\to \mathbb{R}_{\geq 0}$ means that there exist $C,M\geq 0$ such that for all $m\geq M$ it holds that $\abs{u(m)}\leq Cb(m)$.
 
@@ -283,7 +283,7 @@ In the following result $K=\R$ or $K = \C$.
 \begin{example}
   Let $w_{s_1,s_2} = \chi_{[s_1,s_2]}(x)dx$ as distribution on $\mathbb{R}$.
   As in \Cref{ex: Indicator} it holds that $w_{s_1,s_2}\cdot (x-s_1)(x-s_2) \partial =0$ so
-  $$\alpha m_{\alpha +1}(w_{s_1,s_2}) = \alpha (s_1 + s_2)m_{\alpha}(w_{s_1,s_2}) - \alpha s_1 s_2 m_{\alpha}(w_{s_1,s_2})$$
+  $$\alpha m_{\alpha +1}(w_{s_1,s_2}) = \alpha (s_1 + s_2)m_{\alpha}(w_{s_1,s_2}) - \alpha s_1 s_2 m_{\alpha-1}(w_{s_1,s_2})$$
   for any $\alpha \geq 0$.
   This demonstrates the relevance of the factor $p_0$ in \Cref{cor: Recursion}, dividing both sides by $\alpha$ could yield a wrong result when $\alpha = 0$.
 \end{example}
@@ -324,7 +324,7 @@ Consider the following theorem as an example of the usefulness of these assumpti
   Here $\norm{A}$ denotes the operator norm of $A$.
 \end{theorem}
 \subsection{Tail conditions and holonomicity}
-The following examples demonstrate how the asymptotic results in \cref{sec: HolAlgorithm} may be used as an alternative approach to establish bounds on the tails of a real random variable $X$.
+The following examples demonstrate how the asymptotic results in \cref{subsec: Asymptotic} may be used as an alternative approach to establish bounds on the tails of a real random variable $X$.
 The idea is that, by the equivalent conditions of \Cref{thm: EquivalentLp}, it is sufficient to control the absolute moments $\mathbb{E}\abs{X}^k$.
 Note that it is not claimed that our method is the only approach.
 In many cases it is possible to prove the first condition of \Cref{thm: EquivalentLp} directly.
@@ -361,7 +361,7 @@ The following example demonstrates how the method can be applied in the presence
   Let $X$ come from a Weibull distribution with scale parameter $\lambda>0$ and shape $k = 1/2$.
   This means that the probability density of $X$ takes the form
   $$f_{X,\lambda}(x) = (2 \lambda \sqrt{x/\lambda})^{-1}\exp(-\sqrt{x/\lambda})\chi_{[0,\infty)}(x).$$
-  This density does not determine a distribution due to the pole at zero.
+  This density does not determine a distribution due to the singularity at zero.
   Instead consider the distribution
   $$w_\lambda = f_{X,\lambda}(x)\chi_{[1\infty)}(x)dx $$
   and note that $\mathbb{E}X^k \leq m_k(w_\lambda) + 1$ for all $k\geq 0$.
@@ -371,7 +371,6 @@ The following example demonstrates how the method can be applied in the presence
   Mathematica now produces the following asymptotic estimate
   $$\mathbb{E}X^k = O\left(4^k\lambda^k e^{-2k}k^{2k -5/2}\right).$$
   In particular, by the equivalent conditions in \Cref{thm: EquivalentLp} we get that there exists some positive constant $R_\lambda>0$ such that  $\mathbb{P}(X>t) \leq 2\exp(- \sqrt{t/R_\lambda}) $ for all $t>0$.
-  Further, by the part of \Cref{thm: EquivalentLp} stating that the $R_i$ differ by at most an absolute constant factor, it follows that  $R_{\lambda}\geq c4\lambda e^{-2}$ for some absolute constant $c>0$ provided by the theorem.
 \end{example}
 \begin{remark}
   If the random variable $X$ only takes a finite number of possible values then the associated distribution can be written as

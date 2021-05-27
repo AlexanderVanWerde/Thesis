@@ -70,9 +70,9 @@ Diagram chasing allows to construct higher-order differentials leading to the fo
 \end{sseqpage}
 
 \begin{definition}
-  A cohomology spectral sequence is said to be {\it bounded} if for each $n$ there are finitely many non-zero terms $E^{pq}_a$ with $p+q = n$.
+  A cohomology spectral sequence is said to be {\it bounded} if for each $n\in \mathbb{Z}$ there are finitely many non-zero terms $E^{pq}_a$ with $p+q = n$.
 \end{definition}
-In a bounded spectral sequence there is, for each choice of $p,q$, a value $r_0$ such that $E_{r}^{pq}= E_{r+1}^{pq}$ for all $r \geq r_0$. This stable value is denoted $E^{pq}_\infty$.
+In a bounded spectral sequence there is, for each choice of $p,q$, a value $r_0$ such that $E_{r}^{pq}\cong E_{r+1}^{pq}$ for all $r \geq r_0$. This stable value is denoted $E^{pq}_\infty$.
 \begin{definition}
   A bounded spectral sequence is said to {\it converge} to a family of objects $H^*$ if any $H^n$ admits a finite filtration
   $$0 = F^s H^n \subseteq \cdots F^p H^n \subseteq F^{p+1}H^n \subseteq \cdots \subseteq F^t H^n = H^n $$
@@ -302,7 +302,7 @@ Further, if $F$ is exact one has that $F(I^\bullet)$ is quasi-isomorphic to $F(X
 In practice, it is often difficult to find a concrete injective resolution.
 \begin{definition}
  Let $F:\AA \to \mathcal{B}$ be a left exact functor.
- A object $X$ in $\AA$ is {\it $F$-acyclic} if $R^iF(X) = 0$ for all $i\geq 1$.
+ An object $X$ in $\AA$ is {\it $F$-acyclic} if $R^iF(X) = 0$ for all $i\geq 1$.
 \end{definition}
 Computation of derived functors can also be done by using $F$-acyclic resolutions.
 One can show that injective objects are $F$-acyclic for any left-exact functor.
@@ -317,12 +317,9 @@ The following theorem is known as the Grothendieck spectral sequence and will be
   $$E_2^{pq} = R^pG(R^qF(X)) $$
   converging to $R^{p+q}(G\circ F)(X).$
 \end{theorem}
-\begin{proof}
-  A modification of the proof is discussed in detail in \Cref{prop: SpectralTorExt}.
-
+  A modification of the proof will be discussed in detail in \Cref{prop: SpectralTorExt}.
   The main idea is to consider the double complex $F(I^\bullet)\to J^{\bullet\bullet}$ provided by the dual of the following lemma.
-  The total complex of $G(J^{\bullet\bullet})$ is equipped with two filtrations, a vertical and a horizontal filtration, comparing the spectral sequences from \Cref{prop: FiltrationSpectral} yields the desired result.
-\end{proof}
+  The total complex of $G(J^{\bullet\bullet})$ is equipped with two filtrations, a vertical and a horizontal filtration, comparing the spectral sequences from \Cref{prop: FiltrationSpectral} then yields the desired result.
 \begin{proposition}{\cite[Lemma 5.7.2.]{weibel1995introduction}}\label{prop: Cartan-Eilenberg}
   Suppose $\AA$ admits enough projectives.
   Then, for any complex $X^\bullet$ there exists a lower half-plane double complex $P^{\bullet\bullet}$ of projective objects such that
