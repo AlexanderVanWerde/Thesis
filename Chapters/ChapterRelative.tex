@@ -531,19 +531,19 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   Let $s_0$ denote a new variable so that $\C[s]/L_{r-1}\cong \C[s_0]$. As in the proof of \Cref{lem: BernsteinSatoPolynomialUpstairs} we may pick local coordinates such that
   $$G^s = \prod_{j=1}^r u_j^{s_j} \prod_{i\in I} z_i^{\sum_{j=1}^r   \ord_{E_i}(g_j)s_j};\qquad \mu^*(dx) = v \prod_{i\in I} z_i^{k_i} dz$$
   where $u_j, v$ are local units and we may assume that $\{n+1,\ldots,n+r\}\subseteq I$.
-  For any $j=1,\ldots,n+r$ consider the action of $v^{-1}\partial_j v z_j$ on $G^s \mu^*(dx)$ and employ the isomorphism $\C[s]/L_{r-1}\cong \C[s_0]$.
-  This yields complex constants $B_i,C_i,b_i,c_i$ such that
+  For any $i=1,\ldots,n+r$ consider the action of $v^{-1}\partial_i v z_i$ on $G^s \mu^*(dx)$ and employ the isomorphism $\C[s]/L_{r-1}\cong \C[s_0]$.
+  This yields complex constants $B_j,C_j,b_j,c_j$ such that
   \begin{align*}
-    G^s \mu^*(dx) \cdot v^{-1}\partial_j vz_j &=((C_j s_0 + c_j) + z_j\sum_{i=1}^{r} B_i s_0 u_i^{-1}\partial_j(u_i) ) G^s \mu^*(dx)
+    G^s \mu^*(dx) \cdot v^{-1}\partial_i vz_i &=\bigl((C_i s_0 + c_i) + z_i\sum_{j=1}^{r} (B_j s_0 +b_j) u_j^{-1}\partial_i(u_j) \bigr) G^s \mu^*(dx)
   \end{align*}
   holds in $\M\otimes_{\C[s]}\C[s]/L_{r-1}$.
   Recall that the linear functions $\sum_{j=1}^r d_{ij}s_j$ with $i \in \{n+1,\ldots,n+r\}$ form a basis for the linear polynomials.
-  Since these occur as the exponents in the final factors of  $G^s\mu^*(dx)$ it may be assumed that there is at least one $C_{j}$ with $j>n$ which is non-zero.
+  Since these occur as the exponents in the final factors of  $G^s\mu^*(dx)$ it may be assumed that there is at least one $C_{i}$ with $i>n$ which is non-zero.
 
-  Set $h_j = C_j + z_j\sum_{i=1}^n B_iu_i^{-1}\partial_j(u_i)$ and $\xi_j= v^{-1}\partial_j vz_j - c_j$. Since $ z_j\sum_{i=1}^n B_iu_i^{-1}\partial_j(u_i) = 0$ for $j>n$ if follows the $h_{j}$ with $j>n$ are scalars and they are not all zero.
+  Set $h_i = C_i + z_i\sum_{j=1}^r B_ju_j^{-1}\partial_i(u_j)$ and $\xi_i= v^{-1}\partial_i vz_i - c_i - z_i\sum_{j=1}^{r} b_j u_j^{-1}\partial_i(u_j)$. Since $ z_i\sum_{j=1}^r B_ju_j^{-1}\partial_i(u_j) = 0$ for $i>n$ if follows the $h_{i}$ with $i>n$ are scalars and they are not all zero.
   By renumbering we may assume that $h_1$ is a non-zero scalar.
 
-  Now for any $j=2,\ldots,n+r$ the vector field $\xi_j h_1 - \xi_1 h_j$ annihilates $\M\otimes_{\C[s]}\C[s]/L_{r-1}$.
+  Now for any $i=2,\ldots,n+r$ the vector field $\xi_i h_1 - \xi_1 h_i$ annihilates $\M\otimes_{\C[s]}\C[s]/L_{r-1}$.
   In particular the corresponding section of $\gr \D_Y$ annihilates $\gr\M\otimes_{\C[s]}\C[s]/L_{r-1}$.
   This proves the desired bound on $\Ch \M\otimes_{\C[s]}\C[s]/L_{r-1}$.
 \end{proof}
@@ -553,16 +553,16 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
 \begin{proof}
   Pick local coordinates $z_1,\ldots, z_m$ on $Y$.
   For the sake of notational simplicity we apply the equivalence between left and right $\D_Y^{\C[s]}$-modules described in \cref{sec: RelHol}.
-  It then suffices to show that there exists a free resolution of length $\leq m$ for any left $\D_Y^{\C[s]}$-module of the form $\N:= \D_Y^{\C[s]}z_1^{p_1}\cdots z_n^{p_m}$ with $p_1,\ldots, p_m\in \C[s]$.
+  It then suffices to show that there exists a free resolution of length $\leq m$ for any left $\D_Y^{\C[s]}$-module of the form $\N:= \D_Y^{\C[s]}z_1^{p_1}\cdots z_m^{p_m}$ with $p_1,\ldots, p_m\in \C[s]$.
 
   Denote $e_i$ for the $i$-th basis vector of $(\D_X^{\C[s]})^m$.
   For any $k$ let $\wedge^k (\D_X^{\C[s]})^m$ be the left $\D_X^{\C[s]}$-module $\oplus_{1\leq i_1 < \cdots < i_k <n}\D_X^{\C[s]}$ whose generators are denoted by $e_{i_1}\wedge \cdots \wedge e_{i_q}$ in the conventional fashion.
   We claim that the desired free resolution for $\N$ is given by the Koszul complex $K^\bullet := \wedge^\bullet (\D_X^{\C[s]})^m$ whose differentials are defined by
-  $$d_q :K^q \to K^{q-1}:\lambda e_{i_1}\wedge \cdots \wedge e_{i_q} \mapsto \lambda \sum_{j} (-1)^{j-1} (x_{i_j} \partial_{i_j} - p_{i_j})e_{i_1}\wedge \cdots \hat{e}_{i_j} \cdots \wedge e_{i_q}.$$
+  $$d_q :K^q \to K^{q-1}:\lambda e_{i_1}\wedge \cdots \wedge e_{i_q} \mapsto \lambda \sum_{j} (-1)^{j-1} (z_{i_j} \partial_{i_j} - p_{i_j})e_{i_1}\wedge \cdots \hat{e}_{i_j} \cdots \wedge e_{i_q}.$$
 
   First observe that the obvious surjection from $H^0(K^\bullet)$ onto $\N$ is injective.
   Indeed, suppose we are given some differential operator $P$ which annihilates $z_1^{p_1}\cdots z_n^{p_m}$.
-  In local coordinates we may write $P = \sum c_{\alpha \beta} z^\alpha (x\partial - p)^\beta$ where $(z\partial - p)^\beta = \prod_i (z_i \partial_i - p_i)^{\beta_i}$.
+  In local coordinates we may write $P = \sum c_{\alpha \beta} z^\alpha (z\partial - p)^\beta$ where $(z\partial - p)^\beta = \prod_i (z_i \partial_i - p_i)^{\beta_i}$ with $\alpha \in \mathbb{Z}^m$ and $\beta \in \mathbb{Z}^{m}_{\geq 0}$.
   That $P$ annihilates $z_1^{p_1}\cdots z_n^{p_m}$ then means that $c_{\alpha 0}=0$ for any $\alpha$ which proves the injectivity.
 
   Observe that the elements $z_i \partial_i - p_i$ commute with each other.
@@ -704,7 +704,7 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   with $c \in \mathbb{Z}_{> 0 }$.
 \end{theorem}
 \begin{proof}
-  The Bernstein-Sato ideals $B_{(\IntJ{0}\M/\U)t^n}$ form an increasing sequence of ideals in the Noetherian ring $R$.
+  The Bernstein-Sato ideals $B_{(\IntJ{0}\M/\U)t^n}$ form an increasing sequence of ideals in the Noetherian ring $\C[s]$.
   Hence there must exist some $N\geq 1$ such that $B_{(\IntJ{0}\M/\U)t^n} = B_{(\IntJ{0}\M/\U)t^{n+1}}$ for all $n\geq N$.
 
   By \Cref{lem: GradeNPlusOne} the $\D_X^{\C[s]}$-module $\IntJ{0}\M/\U$ has grade greater than or equal to $m + 1$ so \Cref{rem: GradeIFFBernsteinIdeal} provides some non-zero $q(s_1,\ldots,s_r) \in B_{\M/\U}$.
@@ -717,12 +717,10 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
   Hence, we can pick some polynomial $r(s)$ which annihilates $(\IntJ{0}\M/\U)t^N$ but does not vanish on any codimension one component of $Z(B_{F,x}^a)$.
 
   Let $b(s)$ be the Bernstein-Sato polynomial for $\M/\M t$ provided by \Cref{lem: BernsteinSatoPolynomialUpstairs}.
-  Set $B := r(s)\prod_{j=0}^{N+1} b(s+ ja)$ then it follows that
-  $B\M\otimes_{\C[s]}R \subseteq (\U t)\otimes_{\C[s]}R$.
-  In particular, this means that $B\in B_{(\U/\U t)\otimes_{\C[s]}R}$.
+  Set $B := r(s)\prod_{j=0}^{N+1} b(s+ ja)$ then it follows that $B\M \subseteq (\U t)$.
+  In particular, this means that $B\in B_{\U/\U t}$.
 
-	Now recall from \Cref{lem: SurjectionUF} that we have a surjection $\U \to \D_X^{\C[s]}F^s \otimes_{\O_X}\omega_X$.
-	This remains a surjection after a tensor product with $R$ so that $B$ is in the Bernstein-Sato ideal of $((\D_X^{\C[s]}F^s \otimes_{\O_X}\omega_X)/(\D_X^{\C[s]}F^s \otimes_{\O_X}\omega_X)t ) \otimes_{\C[s]}R$.
+	Now recall from \Cref{lem: SurjectionUF} that we have a $\D_X\langle s,t\rangle$-linear surjection $\U \to \D_X^{\C[s]}F^s \otimes_{\O_X}\omega_X$.
 	This means that $Z(B_F^a)\subseteq Z(B)$ which yields the desired result.
 \end{proof}
 \subsection{Analytic case}
@@ -818,7 +816,7 @@ The proof of the following theorem is now analogous to a proof for $r=1$ in \cit
 Finally, we establish the real analogues for the results in \cref{sec: JumpingWall}.
 Let $X_\mathbb{R}$ be a real algebraic manifold and let $F = (f_1,\ldots,f_r)$ be a tuple of real algebraic functions on $X_{\mathbb{R}}$.
 Fix some $a\in \mathbb{Z}_{\geq 0}$ and set $f = \prod_{j=1}^r f_j$.
-The divisors corresponding to $f$ and $f_j$ are denoted $D$ and $D_j$ respectively.
+The Cartier divisors corresponding to $f$ and $f_j$ are denoted $D$ and $D_j$ respectively.
 Denote $\O_{X_\mathbb{R}}$ for the sheaf of real analytic functions on $X_\mathbb{R}$.
 
 The real Bernstein-Sato ideal $B_{\mathbb{R},F}^a$ consists of all polynomials $b(s)\in \mathbb{R}[s]$ such that

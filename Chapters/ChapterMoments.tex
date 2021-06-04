@@ -7,8 +7,8 @@ This chapter is a proof-of-concept that it may be possible to use holonomicity t
 It should be emphasised that it is not meant that holonomicity is always the best method to control the tails.
 In many cases the tails can be investigated by a direct study of the decay of the probability density function.
 Still, holonomicity may provide a useful criterion for theoretical investigations.
-By consideration of distribution functions our approach allows for an uniform treatment of discrete and continuous random variables.
-One could further hope that one can find algorithms for holonomic random variables by exploiting the algorithms which are available for holonomic distributions.
+By consideration of distributions our approach allows for an uniform treatment of discrete and continuous random variables.
+One could further hope that algorithms for holonomic random variables could be found by exploiting the algorithms which are available for holonomic distributions.
 
 The new results and methods established in this chapter are as follows, the terminology is explained in the following sections. 
 \begin{result}
@@ -39,7 +39,7 @@ The reader is referred to \cite[Chapter 4]{horvath2012topological} for some rela
 \begin{definition}
   The space of {\it functions with subpolynomial derivatives} $\mathcal{P}(\mathbb{R}^n)$ consists of all functions $f\in \mathcal{C}^\infty(\mathbb{R}^n)$ such that for any $\alpha\in \mathbb{Z}_{\geq 0}^n$ there exists some polynomial $p\in \mathbb{R}[x]$ with $\abs{\partial^\alpha f(x)}\leq \abs{p(x)}$ for all $x\in\mathbb{R}^n$.
   This space is equipped with the topology defined by the seminorms $$p_{g,\alpha}(f) = \sup_{x\in \mathbb{R}^n} \vert g(x)\partial^\alpha f(x)\vert ;\qquad \alpha\in \mathbb{Z}_{\geq 0}^n$$
-  where $g$ runs over all non-vanishing smooth functions with $\limsup_{x\to \infty} \abs{g(x)p(x)} = 0$ for any polynomial $p\in \mathbb{R}[x]$.
+  where $g$ runs over all smooth functions with $\limsup_{x\to \infty} \abs{g(x)p(x)} = 0$ for any polynomial $p\in \mathbb{R}[x]$.
 \end{definition}
 \begin{definition}\label{def: DistributionWithMoments}
   A {\it distribution with finite moments} is a continuous linear functional on $\mathcal{P}(\mathbb{R}^n)$.
@@ -55,7 +55,7 @@ The following lemma shows that this is indeed the case and that the element of $
    For the well-definedness it must be shown that $\rho(w)$ defines a continuous functional on $\mathcal{C}_c^\infty(\mathbb{R}^n)$ for any $w\in \mathcal{M}(\mathbb{R}^n)$.
    By the continuity of $w$ and the definition of the topology on $\mathcal{C}_c^\infty(\mathbb{R}^n)$ it is sufficient to show that for every open $V\subseteq \mathcal{P}(\mathbb{R}^n)$ and compact $K\subseteq \mathbb{R}^n$ it holds that $V\cap \mathcal{C}_c^\infty(K)$ is an open subset of $\mathcal{C}_c^\infty(K)$.
    Let $f\in V\cap \mathcal{C}_c^\infty(K)$, by definition of the topology on $\mathcal{M}(\mathbb{R}^n)$ there exist seminorms $p_{g_1,\alpha_1},\ldots,p_{g_k,\alpha_k}$ and $\delta >0$ such that for any $h\in\mathcal{P}(\mathbb{R}^n)$ it holds that $h\in V$ whenever $\abs{p_{g_j,\alpha_j}(f-h)}<\delta$ for all $j$.
-   Take $C_j>0$ such that $\abs{g_j(x)}>C$ for all $x\in K$ and conclude that the open set determined by the conditions $\abs{p_{K,\alpha_j}(f-h)}<C_j\delta$ defines an open neighbourhood of $f$ in $V\cap\mathcal{C}_c^\infty(K)$.
+   Take $C>0$ such that $\abs{g_j(x)}<C$ for all $x\in K$ and conclude that the open set determined by the conditions $\abs{p_{K,\alpha_j}(f-h)}<\delta/C$ defines an open neighbourhood of $f$ in $V\cap\mathcal{C}_c^\infty(K)$.
    Since $f$ was arbitrary this shows that $V\cap\mathcal{C}_c^\infty(K)$ is open.
 
    For the injectivity it must be shown that any $w\in \mathcal{M}(\R^n)$ is entirely determined by its values on $\mathcal{C}_c^\infty(\mathbb{R}^n)$.
@@ -155,10 +155,10 @@ One can go from relative holonomicity to holonomicity over $\C(s)$ by use of the
 \end{lemma}
   \begin{proof}
     Consider a good filtration on $\M$ and equip $\M\otimes_{\C[s]}\C(s)$ with the induced filtration.
-    Since localisation is an exact functor it holds that $\grrel\M\otimes_{\C[s]}\C(s) \cong \gr(\M\otimes_{\C[s]}\C(s)) $ as modules over $\gr\D_{\C(s)^n)}$.
+    Since localisation is an exact functor it holds that $\grrel\M\otimes_{\C[s]}\C(s) \cong \gr(\M\otimes_{\C[s]}\C(s)) $ as modules over $\gr\D_{\C(s)^n}$.
 
     Suppose that $\Ch(\M\otimes_{\C[s]}\C(s))$ has dimension strictly greater than $n$ as a variety over $\C(s)$.
-    Let $\mathfrak{m}$ be a maximal ideal of the coordinate ring of $\Ch (\M\otimes_{\C[s]}\C(s))$.
+    Pick a maximal ideal $\mathfrak{m}$ of the coordinate ring of $\Ch (\M\otimes_{\C[s]}\C(s))$ which is of maximal height.
     The maximal ideal $\mathfrak{m}$ corresponds to a prime ideal $\mathfrak{p}$ of the coordinate ring of $\Chrel\M$ which does not intersect $\C[s]\setminus\{0\}$.
     Moreover it follows from the assumption that  $\dim\Ch(\M\otimes_{\C[s]}\C(s))> n$ that $\mathfrak{p}$ has height $>n$.
 

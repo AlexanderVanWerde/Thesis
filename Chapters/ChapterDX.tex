@@ -517,13 +517,13 @@ Philosophically, the Riemann-Hilbert correspondence states that there is an inti
 The goal of this section is to investigate a particular instantiation of this connection, namely the connection between Bernstein-Sato polynomials and monodromy.
 
 
-Further, we include Kashiwara and Lichtin's proof for the estimation of the roots of the Bernstein-Sato polynomial.
+Further, we include Kashiwara's proof for the estimation of the roots of the Bernstein-Sato polynomial.
 This proof is an important framework for the generalisation in \cref{ch: ChapterRelHol}.
 
 We focus on the local analytic case.
 The algebraic case will be discussed in detail in the next chapter.
 Consider $\C^n$ as a complex manifold and take an analytic function germ $f:(\C^n,0)\to (\C,0)$ with  $f(x) = 0$.
-\subsection{Bernstein-Sato polynomials}
+\subsection{Bernstein-Sato polynomials}\label{sec: bspoly}
 \begin{definition}
   Let $s$ be a new variable.
   The {\it local Bernstein-Sato polynomial} $b_{f,0}(s)\in \C[s]$ is the monic polynomial of minimal degree such that there exists some differential operator $P(x,\partial,s)$ in $\D_{\C^n,0}\otimes_{\C}\C[s]$ with
@@ -546,9 +546,6 @@ This package was used in the computation of the following examples.
   The cusp singularity $f(x,y) = x^2 - y^3$ on $\C^2$ has local Bernstein-Sato polynomial
   $$b_{f,0}(s) = (s+5/6)(s+1)(s+7/6).$$
 \end{example}
-Note that in all these examples the set of roots $Z(b_{f,0})$ of the local Bernstein-Sato polynomial consists of negative rational numbers.
-This is a general fact due to \cite{kashiwara1976b}.
-The proof of this statement will be discussed in further on.
 \begin{proposition}\label{prop: TrivialRoot}
   Whenever $f$ is non-constant with $f(0)=0$ it holds that $-1\in Z(b_{f,0}).$
 \end{proposition}
@@ -610,8 +607,12 @@ The following theorem is due to Deligne.
 To describe the $\D$-theoretic counterpart of this constructible complex requires the technical notion of $V$-filtrations.
 The interested reader may find these concepts in \cite{budur2015bernstein}.
 \subsection{Estimation of $Z(b_{f,0})$}\label{sec: Estimation}
-The main idea employed in the estimation of $Z(b_{f,0})$ by \cite{kashiwara1976b} is that one can reduce to the monomial case of \Cref{ex: Monomial} by a resolution of singularities.
-Hereafter one can use the $\D$-module direct image functor to relate the result on the resolution to the desired result on the original space.
+Note that in all these examples in \cref{sec: bspoly} the set of roots $Z(b_{f,0})$ of the local Bernstein-Sato polynomial consists of negative rational numbers.
+This is a general fact due to \cite{kashiwara1976b}.
+
+The main idea employed in the estimation of $Z(b_{f,0})$ is that one can reduce to the monomial case of \Cref{ex: Monomial} using a resolution of singularities.
+Thereafter one can use the $\D$-module direct image functor to relate the result on the resolution to the desired result on the original space.
+
 Fix a small ball $B$ on which $f$ may be defined.
 \begin{definition}
   Let $D$ be a divisor on $B$.
@@ -635,7 +636,8 @@ Denote $k_E$ for the order of vanishing of the Jacobian $\operatorname{Jac}\mu$ 
 \begin{theorem}{\cite[Theorem 5]{lichtin1989poles}}\label{thm: LichtinEstimate}
   Every root of $b_{f,0}(s)$ is of the form $-(k_E + c)/\operatorname{mult}_{E}(g)$ with $c\in \mathbb{Z}_{>0}$.
 \end{theorem}
-We now provide the proof for this improved estimate following Lichtin and Kashiwara.
+We will now provide the proof for Kashiwara's estimate. 
+The proof for the improved estimate by Lichtin is similar and will be generalised in \cref{ch: ChapterRelHol}.
 \\
 
 One can ensure that multiplication by $s$ stays inside $\D_B f^s$ with the following trick.
@@ -653,7 +655,7 @@ Then, the theorem also follows for $f$ due to the following result.
   with coefficients $P_j$ in $\D_{B,0}$.
   Then
   $$x_{n+1}^N b_{\widetilde{f},0}(s) \widetilde{f}^s = \left(\sum_{j=1}^k (s + 1)^{j} \sum_\alpha Q_{\alpha} \partial_1^{\alpha_1}\cdots \partial_n^{\alpha_n} \right)\widetilde{f}^{s+1}$$
-  where the $P_j$ were expanded as polynomials in $\partial_1,\ldots,\partial_n$ with coefficients $Q_{\alpha}$ in $\O_{B,0}$.
+  with coefficients $Q_{\alpha}$ in $\O_{\widetilde{B},0}$.
 
   Observe that $\partial_1,\ldots, \partial_n$ act on the formal symbol $\widetilde{f}^{s+1}$ the same as they act on the formal symbol $f^{s+1}$.
   Expand the $Q_{\alpha}$ as power series in $x_1,\ldots,x_{n+1}$ and identify powers of $x_{n+1}$ on both sides for the desired functional equation.
@@ -665,53 +667,43 @@ Let $t$ be a new variable.
 The sheaf of rings $\D_B\langle s,t\rangle$ is found from $\D_B$ by adjoining $s$ and $t$ subject to $ts -st = 1$ where $s,t$ commute with $\D_B$.
 %The notation with the angle brackets is to emphasise that $s$ and $t$ do not commute with each other.
 One can view $\D_B f^s$ as a $\D_B\langle s,t\rangle$-module by the action $t P(s)f^s = P(s+1) f^{s+1}$ for any differential operator $P$ in $\D_B[s]$.
-In this notation the functional equation for $b_{f,0}$ means that $b_{f,0}\in \operatorname{Ann}_{\C[s]} (\D_B f^s / t \D_B f^s)_x$.
+In this notation the functional equation for $b_{f,0}$ means that $b_{f,0}$ is the monic generator of the prinicpal ideal $\operatorname{Ann}_{\C[s]} (\D_B f^s / t \D_B f^s)_x$.
 
-There is a $\O_{B}$-linear isomorphism between any left $\D_{B}$-module $\N$ and its right version $ \N \otimes_{\O_{B}}\omega_{B}$.
-Concretely, any section $u$ of $\N$ gives rise to the section $u^* := u dx$.
-Further, for any operator $P$ of $\D_B$ there is an adjoint $P^*$ such that
-$$(P\cdot u)^* =   u^* \cdot P^*$$
-for any section $u$ of $\N$.
-For a vector field $\xi := \sum_i\xi_i \partial_i$ comparison of the definitions shows that $\xi^* := -\sum_i\partial_i\xi_i$ satisfies this equality and this extends to $\D_B$ by iterating.
-By this procedure the functional equation $P f^{s+1} = b(s) f^s$ may equivalently be stated as the equation
-$$f^{s+1}dx \cdot P^* = b(s) f^s dx $$
-in $\D_{B,0} f^s \otimes_{\O_{B,0}}\omega_{B,0}$.
-The corresponding module $\M$ on $Y$ will be the submodule of $\D_{Y} g^s \otimes_{\O_Y}\omega_Y$ spanned by $g^s \mu^*(dx)$.
+The corresponding module on $Y$ is given by $\M = \D_{Y} g^s$.
 Observe that $\M$ can be equipped with a $\D_Y\langle s,t\rangle$-module structure as before.
 \begin{lemma}\label{lem: UpstairsB}
-  The polynomial $b(s) = \prod_{i} \prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}(g)s + k_i + j)$ annihilates $\M / t\M$ where $E_i$ runs over the irreducible components of $\mu^*D$.
+  The polynomial $b(s) = \prod_{i} \prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}(g)s + j)$ annihilates $\M / t\M$ where $E_i$ runs over the irreducible components of $\mu^*D$.
 \end{lemma}
 \begin{proof}
   This may be checked locally.
   If the chosen point is on none of divisors $E_i$ of $\mu^*D$ then $g$ is invertible so that $\M/t\M$ is trivial.
   Now suppose we are working near a point $y\in Y$ which is on $E_i$ if and only if $i\in I$ with $I$ non-empty.
   Then one can pick local coordinates $y_i$ such that
-  $$ g = \prod_{i\in I} y_i^{\mult_{E_i}(g)}; \qquad \mu^*(dx) =u \prod_{i\in I} y_i^{k_i}dy$$
-  where $u$ is a local unit.
-  Now set $P = u^{-1}(\prod_{i\in I}\partial_i^{\mult_{E_i}(g)})u$ to get
-  $$g^{s+1} \mu^*(dx)\cdot P^* = q(s) g^s \mu^*(dx)$$
-  where $q(s) = \prod_{i\in I}\prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}(g)s +  k_i + j ). $
+  $ g = \prod_{i\in I} y_i^{\mult_{E_i}(g)}.$
+  Now set $P = \prod_{i\in I}\partial_i^{\mult_{E_i}(g)}$ to get
+  $$P\cdot g^{s+1} = q(s) g^s $$
+  where $q(s) = \prod_{i\in I}\prod_{j=1}^{\mult_{E_i}(g)} (\mult_{E_i}(g)s + j ). $
 \end{proof}
 Observe that $s,t$ can be viewed as $\D_Y$-linear injective endomorphisms on $\M$.
 The associated the long exact sequence of direct images yields a $\D_B\langle s,t\rangle$-module structure on the direct image $\Int \M$ where the functorial nature of the direct image is used to ensure that $ts -st = 1$.
 Similarly, the polynomial $ b(s)$ provided by \Cref{lem: UpstairsB} annihilates $\Int\M/t\Int\M$.
 
-Consider the surjection $\D_Y\to \M$ induced by $1 \mapsto g^s \mu^*(dx)$.
+Consider the surjection $\D_Y\to \M$ induced by $1 \mapsto g^s$.
 The associated long exact sequence includes a morphism $\int^0\D_Y \to \Int\M$.
 Observe that $\int^0\D_Y = R^0 \mu_*(\D_{Y\to B})$ contains a global section corresponding to the section $1$ of $\D_{Y\to B}$.
-Let $u$ be the image of this section in $\Int\M$ and denote $\U$ for the right $\D_B\langle s,t\rangle$-module generated by $u$.
+Let $u$ be the image of this section in $\Int\M$ and denote $\U$ for the left $\D_B\langle s,t\rangle$-module generated by $u$.
 \begin{lemma}\label{lem: SurjectiveUf}
-  There is a surjective morphism of right $\D_B\langle s,t\rangle$-modules $\U \to \D_B f^s \otimes_{\O_B} \omega_B$ sending $u$ to $f^s dx$.
+  There is a surjective morphism of left $\D_B\langle s,t\rangle$-modules $\U \to \D_B f^s$ sending $u$ to $f^s dx$.
 \end{lemma}
 \begin{proof}
-  Pick some open set $V\subseteq B$. To show this yields a well-defined morphism of $\D_B$-modules it must be show that $(f^s dx)P = 0$ whenever $uP = 0$ in $\U(V)$.
+  Pick some open set $V\subseteq B$. To show this yields a well-defined morphism of $\D_B$-modules it must be show that $P \cdot f^s  = 0$ whenever $P\cdot u = 0$ in $\U(V)$.
 
   The resolution of singularities $Y\to B$ is an isomorphism on the complement of the divisor $D$ determined by $f$.
-  Hence, $\U$, $\Int \M$ and $\D_B f^s  \otimes_{\O_B}\omega_B$ are isomorphic outside of $D$.
-  It follows that the support of the coherent sheaf of $\O_V$-modules $\O_V (f^s dx) P $ lies in $D$.
-  The Nullstellen Satz now yields that $f^N (f^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
-  Note that $f$ is a non-zero divisor of $(\D_Bf^s\otimes_{\O_B} \omega_B)(V)$.
-  Therefore, $(f^s dx) P= 0$ on $V$ as desired.
+  Hence, $\U$, $\Int \M$ and $\D_B f^s$ are isomorphic outside of $D$.
+  It follows that the support of the coherent sheaf of $\O_V$-modules $\O_V (P\cdot f^s)$ lies in $D$.
+  The Nullstellen Satz now yields that $f^N (P\cdot f^s)    = 0$ for some sufficiently large $N\geq 0$.
+  Note that $f$ is a non-zero divisor of $\D_Bf^s$.
+  Therefore, $P\cdot f^s = 0$ on $V$ as desired.
 
   Finally, observe that $tu = fu$ so that this morphism of $\D_B$-modules also commutes with the actions by $t$ and $s$.
 \end{proof}
@@ -721,11 +713,9 @@ By \Cref{lem: SurjectiveUf} it remains to compare $\Int\M$ and $\U$.
   The quotient $\Int\M / \U$ is a holonomic $\D_B$-module.
 \end{lemma}
 \begin{proof}
-  By \Cref{prop: SESBehaviourChar} the characteristic variety of $\M$ is a subset of the characteristic variety of $\D_Yg^s \otimes_{\O_Y} \omega_Y$.
-  This has the same characteristic variety as $\D_Y g^s$ using the $\O_Y$-linear isomorphism between $\D_Yg^s$ and $\D_Yg^s \otimes_{\O_Y} \omega_Y$.
   By \Cref{prop: IsotropicAndDominate} it follows that $\Ch \M \subseteq W \cup \Lambda$ for some isotropic $\Lambda\subseteq T^*Y$ and an irreducible $(m+1)$-dimensional variety $W$ which dominates $Y$.
 
-  Observe that $\M$ is certainly $\mu$-good since it admits a global good filtration $F_i\M := F_i\D_Y \cdot g^s \mu^*(dx)$.
+  Observe that $\M$ is certainly $\mu$-good since it admits a global good filtration $F_i\M :=  F_i\D_Y\cdot g^s $.
   Hence, \Cref{thm: KashiwaraEstimate} is applicable and yields that
   $$\Ch \Int \M \subseteq \widetilde{\mu}\left((T^*\mu)^{-1} (\Lambda \cup W)\right).$$
   By \Cref{lem: IsotropicDirectImage} the set $\widetilde{\mu}((T^*\mu)^{-1}(\Lambda))$ is still isotropic and will not form any obstruction to $\Int\M/\U$ being holonomic.
@@ -734,27 +724,30 @@ By \Cref{lem: SurjectiveUf} it remains to compare $\Int\M$ and $\U$.
   Intersecting $\widetilde{\mu}((T^*\mu)^{-1}(W))$ with $D$ yields a $m$-dimensional variety whence the desired result follows.
 \end{proof}
 \begin{proposition}\label{prop: StableZero}
-  For sufficiently large $N$ it holds that $t^N (\Int \M)_0 / \U_0 = 0$.
+  Let $\N$ be a holonomic $\D_X$-module which is equipped with a $\D_X\langle s,t\rangle$-module structure. 
+  Then, for some sufficiently large positive integer $N$ it holds that $t^N \N_0 = 0$.
 \end{proposition}
 \begin{proof}
-  The sequence $t^n \Int\M / \U$ forms a decreasing sequence of holonomic $\D_B$-modules.
+  The sequence $t^n \N_0$ forms a decreasing sequence of holonomic $\D_B$-modules.
   By \Cref{prop: FiniteLength} the induced sequence of $\D_{B,0}$ modules in the stalk at $0$ must stabilise.
-  Let $N$ be sufficiently large such that $t^N(\Int\M)_0/\U_0$ attains the stable value.
+  Let $N$ be sufficiently large such that $t^N\N_0$ attains the stable value.
 
-  Applying \Cref{prop: HomAlgebraic} to the $\D_{B,0}$-linear endomorphism $s$ produces a non-zero polynomial $q(s)\in \C[s]$ which annihilates $t^N(\Int\M)_0/\U_0$.
+  Applying \Cref{prop: HomAlgebraic} to the $\D_{B,0}$-linear endomorphism $s$ produces a non-zero polynomial $q(s)\in \C[s]$ which annihilates $t^N\N_0$.
   Let $q(s)$ be of minimal degree with this property.
   Observe that $q(s+1)t = tq(s)$ so, using the stabilisation, it follows that
-  $$q(s+1)t^N(\Int\M)_0/\U_0 = t q(s) t^N(\Int\M)_0/\U_0 = 0.$$
-  This means that $q(s) - q(s+1)$ also annihilates $t^N(\Int\M)_0/\U_0$.
+  $$q(s+1)t^N\N_0 = t q(s) t^N\N_0 = 0.$$
+  This means that $q(s) - q(s+1)$ also annihilates $t^N\N_0$.
   By the minimality of the degree of $q(s)$ it follows that $q(s) - q(s+1)=0$ which is to say that $q(s)$ is a non-zero constant.
-  This means that $t^N(\Int\M)_0/\U_0 = 0 $ as desired.
+  This means that $t^N\N_0 = 0 $ as desired.
 \end{proof}
 Putting all these facts together yields the proof of \Cref{thm: LichtinEstimate}.
 \begin{proof}
-  Let $N$ be as in \Cref{prop: StableZero} and denote $b(s)$ for the polynomial provided by \Cref{lem: UpstairsB}.
-  Set $B(s) = b(s+N+1)b(s+N)\cdots b(s)$ and observe that $B(s)\M_0 \subseteq t^{N+1}\M_0 \subseteq t\U_0$.
-  In particular this means that $B(s) \in \operatorname{Ann}_{\C[s]} \U_0 / t\U_0$.
+  By \Cref{prop: StableZero} and \Cref{lem: QuotientHolonomic} there exists some $N>0$ with $t^N \M_0/\U_0 = 0$.
+  Denote $b(s)$ for the polynomial provided by \Cref{lem: UpstairsB}
+  and set $Q(s) = b(s+N+1)b(s+N)\cdots b(s)$. 
+  Then $Q(s)\M_0 \subseteq t^{N+1}\M_0 \subseteq t\U_0$.
+  In particular, this means that $Q(s) \in \operatorname{Ann}_{\C[s]} \U_0 / t\U_0$.
 
-  The $\D_B\langle s,t\rangle$-linear surjection $\U \to \D_B f^s \otimes_{\O_B} \omega_B$ from \Cref{lem: SurjectiveUf} now implies that $b_{f,0}(s)$ divides $B(s)$.
+  The $\D_B\langle s,t\rangle$-linear surjection $\U \to \D_B f^s$ from \Cref{lem: SurjectiveUf} now implies that $b_{f,0}(s)$ divides $Q(s)$.
   This yields the desired estimate for $Z(b_{f,0})$.
 \end{proof}
