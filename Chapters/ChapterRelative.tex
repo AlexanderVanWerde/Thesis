@@ -195,7 +195,7 @@ $$\D_X^R := \D_X \otimes_\C R.$$
 The order filtration $F_j \D_X$ on $\D_X$ extends to a filtration $F_j \D_X^R := F_j\D_X\otimes_\C R$ on $\D_X^R$.
 The graded objects for this filtration are denoted by $\grrel$.
 Denote $\pi_{T^*X}:T^*X \to X$ and $\pi_{\Spec R}: \Spec R \to \{\operatorname{pt}\}$ the projection maps onto $X$ and a point respectively.
-Recall from \cref{sec: SheafOfDiff} that $\gr\D_X \cong (\pi_{T^*X})_* \O_{T^*X}$, it follows that $\grrel\D_X^R \cong (\pi_{T^* X}\times \pi_{\Spec R})_*\O_{T^*X\times \Spec R}$ for .
+Recall from \cref{sec: SheafOfDiff} that $\gr\D_X \cong (\pi_{T^*X})_* \O_{T^*X}$, it follows that $\grrel\D_X^R \cong (\pi_{T^* X}\times \pi_{\Spec R})_*\O_{T^*X\times \Spec R}$.
 
 
 Since $\D_X^R$ is a sheaf of non-commutative rings, one should distinguish between left and right $\D_X^R$-modules.
@@ -347,9 +347,10 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
 
   Consider the double complex $\N\otimes_{\D_X^R}\mathscr{P}^{\bullet \bullet}$.
   The total cohomology of this double complex comes equipped with two filtrations one vertical and one horizontal.
-  These filtrations are bounded due to the bounds on $p$ so \Cref{prop: FiltrationSpectral} is applicable and yield two spectral sequences converging to the total cohomology.
+  These filtrations are bounded due to the bounds on $p$ so \Cref{prop: FiltrationSpectral} is applicable and yields two spectral sequences converging to the total cohomology.
   The first spectral sequence has
-  $$E_{2}^{pq} = H^p_h(H^q_v(\N \otimes_{\D_X^R}\mathscr{P}^{\bullet \bullet})).$$
+  $$E_{2}^{pq} = H^p_h(H^q_v(\N \otimes_{\D_X^R}\mathscr{P}^{\bullet \bullet}))$$
+  where $H_h,H_v$ denote the horizontal and vertical cohomology of the double complex respectively. 
   Observe that $\Hom_{\D_X^R}(\F^q, \D_X^R)$ is a free left module due to $\F^q$ being free of finite rank.
   In particular, these are acyclic for $(\N\otimes_{\D_X^R}\blank)$.
   Since $\mathscr{P}^{\bullet q}\to \Hom_{\D_X^R}(\F^q,\D_X^R)$ is a quasi-isomorphism it follows that $E_2^{pq}=0$ for any $p>0$ and $E_2^{0q} = H^{q} (\N\otimes_{\D_X^R}^LR\Hom_{\D_X^R}^p(\M,\D_X^R) )$.
@@ -649,14 +650,14 @@ Such results have been stated in terms of right $\D_X^R$-modules, which is the c
 \end{lemma}
 \begin{proof}
   This is analogous to the corresponding absolute result \Cref{lem: BernsteinTilde}.
-  It must be show that $(F^s dx)P = 0$ whenever $uP = 0$ for some differential operator $P$ over an open $U\subseteq X$.
+  It must be show that $(F^s dx)P = 0$ whenever $uP = 0$ for some differential operator $P$ over an open $V\subseteq X$.
 
   The resolution of singularities $Y\to X$ is an isomorphism on the complement of the divisor $D$ determined by $\prod f_i$.
   Hence, an isomorphism $\U \cong \IntJ{0} \M \cong  \D_X F^s  \otimes_{\O_X}\omega_X$ holds outside of $D$.
-  It follows that the support of the coherent sheaf of $\O_U$-modules $\O_U (F^s dx) P $ lies in $D$.
+  It follows that the support of the coherent sheaf of $\O_V$-modules $\O_V (F^s dx) P $ lies in $D$.
   The Nullstellen Satz now yields that $(\prod f_i)^N (F^s dx) P  = 0$ for some sufficiently large $N\geq 0$.
-  Note that $\prod f_i$ is a non-zero divisor of $(\D_X F^s\otimes_{\O_X} \omega_X)(U)$.
-  Therefore, $(f^s dx) P= 0$ on $U$ as desired.
+  Note that $\prod f_i$ is a non-zero divisor of $(\D_X F^s\otimes_{\O_X} \omega_X)(V)$.
+  Therefore, $(f^s dx) P= 0$ on $V$ as desired.
 \end{proof}
 \begin{lemma}\label{lem: GradeNPlusOne}
   The relative holonomic $\D_X^{\C[s]}$-module $\IntJ{0}\M/\U$ has grade $j(\IntJ{0}\M/\U)\geq m+1$.
