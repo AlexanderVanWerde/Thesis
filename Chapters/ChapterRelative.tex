@@ -4,16 +4,38 @@ Introduce new variables $s = (s_1,\ldots, s_r)$ and fix a tuple of natural numbe
 The monovariate Bernstein-Sato polynomial in \cref{sec: MonodromyBS} is generalised by the {\it Bernstein-Sato ideal} $B_F^{a}$ which consists of all polynomials $b(s)\in \C[s]$ such that
 $$b(s) F^s \in \D_{\C^n}[s]F^{s+a}$$
 where $F^s = f_1^{s_1}\cdots f_r^{s_r}$.
-The main purpose of this chapter is to generalise the estimate by Lichtin and Kashiwara given in \cref{sec: MonodromyBS} to the zero locus $Z(B_F^a)$.
 
+The main purpose of this chapter is to generalise the estimate by Lichtin and Kashiwara given in \cref{sec: MonodromyBS} to the zero locus $Z(B_F^a)$.
+This proves an upper bound on the Bernstein-Sato zero locus. 
+Lower bounds on the Bernstein-Sato zero locus are also provided. 
+The new results established in this chapter are as follows, the terminology is explained in \cref{sec: BSIdeal}.
+\begin{result}
+ Every irreducible component of $Z(B_F^a)$ of codimension $1$ is a hyperplane of the form
+  $$\ord_{E}(f_1)s_1 + \cdots + \ord_{E}(f_r)s_r + k_E + c=0 $$
+with $c\in\bZ_{>0}$ and $E$ an irreducible component of $\mu^*D$.
+\end{result}
+ \begin{result}
+  Let $E$ be an irreducible component of $D$.
+  Then $\sum_{j=1}^r \ord_{E}(f_j)s_j + c = 0$ determines an irreducible component of $Z(B_F^a)$ for $c = 1,\ldots, \sum_{j=1}^{r}\ord_{E}(f_j)a_j$.
+  The same result holds for analytic function germs $F:(\C^n,0)\to (\C^r,0)$. 
+ \end{result}
+ \begin{result}
+     Suppose that $\sum_{j=1}^r \ord_E(f_j)s_j = k_E + c$ determines a facet of a jumping wall which intersects $\KLT_{a}(F)$.
+    Then $\sum_{j=1}^r \ord_E(f_j)s_j + k_E + c = 0$ determines a component of $Z(B_F^a)$. The same result holds in for real algebraic manifolds if jumping walls and $\KLT_a(F)$ are replaced by their real versions. 
+ \end{result}
+ \begin{result}
+     Suppose that $\sum_{j=1}^r \ord_E(f_j)s_j = k_E + 1$ determines a face of $\LCT(F)$. If $a_j\neq 0$ and $\ord_{E}(f_j)\neq 0$ for some $j$, then $\sum_j \ord_{E}(f_j)s_j +k_E + 1=0$ determines a component of $Z(B_F^a)$.
+     The same result holds for real algebraic manifolds if $\LCT(F)$ is replaced by its real version. 
+ \end{result}
 \Cref{sec: BSIdeal} provides an introduction to Bernstein-Sato zero loci and the available results on their estimation.
 It turns out that the $\D_X$-modules encoding the Bernstein-Sato relations are no longer holonomic due to the new variables $s_i$.
 This is essentially the problem which has been surmounted in \cite{budur2020zeroI} and \cite{budur2020zeroII} in order to prove a monodromy-based interpretation of $Z(B_F^a)$.
 We adapt the technique from these papers to suit our goal.
 The corresponding notions are introduced in \cref{sec: DXS}.
 The proof for the generalisation of Lichtin's estimate is given in \cref{sec: UpperBound}.
-This establishes an upper bound on the Bernstein-Sato zero locus.
-A number of lower bounds on the Bernstein-Sato zero locus are given in \cref{sec: LowerBound}.
+The lower bounds on the Bernstein-Sato zero locus are proved in \cref{sec: LowerBound}.
+
+
 \section{Bernstein-Sato ideal}\label{sec: BSIdeal}
 Let $X$ be a smooth affine complex variety and consider a morphism $F:X\to \C^r$.
 As in \Cref{ex: fs} let $\D_X[s]F^{s+a}$ be the $\sD_X[s]$-submodule of the free $\bC[x,f^{-1},s]$-module $\bC[x,f^{-1},s]F^{s+a}$ obtained by applying formally the operators in $\sD_X[s]$ to the symbol $F^{s+a}$ by using the usual derivation rules, where $f=f_1\ldots f_r$.
@@ -110,12 +132,6 @@ Further, we generalise the fact that the jumping numbers of $f$ in $[0,\lct(f)+1
 For any $\lambda\in \mathbb{R}_{\geq 0}^r$ the {\it mixed multiplier ideal sheaf} of $F^\lambda$ is given by
 $$\mathcal{J}(F^\lambda) = \mu_*\O_Y(K_{Y/X} - \lfloor \sum_{j=1}^r \lambda_j \mu^* D_j \rfloor)$$
 where $D_i$ denotes the divisor determined by $f_i$ and $\lfloor \blank \rfloor$ is the round-down of an $\mathbb{R}$-divisor.
-Associated to $\lambda$ is the {\it region} $$\mathcal{R}_F(\lambda):= \{\lambda'\in \mathbb{R}_{\geq 0}^r:\mathcal{J}(F^{\lambda}) \subseteq \mathcal{J}(F^{\lambda'})\}.$$
-
-The jumping numbers from the case $r=1$ are generalised by the {\it jumping wall} associated to $\lambda$ which is the intersection of the boundary of $\mathcal{R}_F(\lambda)$ with $\mathbb{R}_{>0}^r$.
-By the definition of mixed multiplier ideals the facets of the jumping wall are cut out by hyperplanes of the form
-$\sum_{j=1}^r\ord_E(f_j)s_j = k_E + c$
-with $c\in \mathbb{Z}_{>0}$ and $E$ an irreducible component of $\mu^*D$.
 \begin{example}
   For any $i=1,\ldots,r$ let $f_i(x,y) = \prod_{j=1}^{n_1} \ell_{ij}$ for linear polynomials $\ell_{ij}$ which go through the origin.
   Suppose that the $\ell_{ij}$ all have different zero loci.
@@ -123,12 +139,19 @@ with $c\in \mathbb{Z}_{>0}$ and $E$ an irreducible component of $\mu^*D$.
   Denote $E_{\ell_{ij}}$ for the divisor determined by $\ell_{ij}$.
   Then the global sections of $\mathcal{J}(F^s)$ are the polynomials $h\in \C[x,y]$ such that for all $i,j$
   $$\ord_{E_{\ell_{ij}}} h\geq \lfloor s_i \rfloor;\qquad \ord_{E_{e}} h \geq \lfloor n_1s_1 + n_2s_2 - 1 \rfloor. $$
-  \begin{figure}[h!]
+\end{example}
+
+Associated to $\lambda$ is the {\it region} $$\mathcal{R}_F(\lambda):= \{\lambda'\in \mathbb{R}_{\geq 0}^r:\mathcal{J}(F^{\lambda}) \subseteq \mathcal{J}(F^{\lambda'})\}.$$
+The jumping numbers from the case $r=1$ are generalised by the {\it jumping wall} associated to $\lambda$ which is the intersection of the boundary of $\mathcal{R}_F(\lambda)$ with $\mathbb{R}_{>0}^r$.
+By the definition of mixed multiplier ideals the facets of the jumping wall are cut out by hyperplanes of the form
+$\sum_{j=1}^r\ord_E(f_j)s_j = k_E + c$
+with $c\in \mathbb{Z}_{>0}$ and $E$ an irreducible component of $\mu^*D$.
+\begin{figure}\label{fig: Jumping}
     \centering
     \includegraphics[width = 0.5\textwidth]{Figures/LargeJumps}
     \caption{The jumping walls and a region $\mathcal{R}_F(\lambda)$ for $f_1(x,y) =xy$ and $f_2(x,y)=(x+y)(x-y)$.}
   \end{figure}
-\end{example}
+
 The log-canonical threshold is generalised by the {\it $\LCT$-polytope}
 $$ \LCT(F) :=  \bigcap_{E}\{\lambda\in \mathbb{R}_{\geq 0}^r : \sum_{j=1}^r \ord_E(f_j)\lambda_j \leq k_E + 1\}$$
 where $E$ runs over the irreducible components of $\mu^*D$.

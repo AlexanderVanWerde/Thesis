@@ -19,7 +19,7 @@ Observe that $\D_X$ is a sheaf of non-commutative rings.
 Given local coordinates $x_1,\ldots, x_n$ on $X$ it holds that
 $$\partial_i x_j - x_j\partial_i = \delta_{ij} $$
 where $\partial_i= \frac{d}{dx_i}$ and $\delta$ denotes the Kronecker delta.
-\begin{lemma}{\cite[Proposition 1.4.6., Theorem 4.1.2]{hotta2007d}}
+\begin{lemma}{\cite[Proposition 1.4.6., Theorem 4.1.2]{hotta2007d}}\label{lem: Noetherian}
   For any $x\in X$ the stalk $\D_{X,x}$ is left and right Noetherian. Moreover, in the algebraic case $\D_X$ is a left and right Noetherian sheaf of rings.
 \end{lemma}
 Giving a left $\D_X$-module is equivalent to giving a $\O_X$-module $\M$ with $\Theta_X$-action such that
@@ -271,7 +271,8 @@ The main technical ingredient in the proof is the Rees module associated to a fi
     Let $\rho$ be a new variable. The {\it Rees sheaf of rings} $\Rees\D_Y$ is defined as the subsheaf $\oplus_{j\geq 0} F_j \D_Y \rho^j $ of $\D_Y \otimes_\C \C[\rho]$.
     Similarly, any filtered $\D_Y$-module $\M$ gives rise to a $\Rees\D_Y$-module $\Rrel\M := \oplus_{j\geq 0} F_j \M \rho^j$.
 \end{definition}
-Given a coherent $\D_Y$-module $\M$ with a good filtration it follows that $\Rrel\M$ is a coherent $\Rees\D_Y$-module.% similarly to \Cref{prop: CoherentAndGoodFiltration}.
+Similarly to \Cref{lem: Noetherian} it can be established that $\Rees \D_Y$ is a left and right Noetherian sheaf of rings. 
+Given a coherent $\D_Y$-module $\M$ with a good filtration holds that $\Rrel\M$ is a coherent $\Rees\D_Y$-module.% similarly to \Cref{prop: CoherentAndGoodFiltration}.
 The following isomorphisms of filtered modules on $Y$ are essential.
 They mean that the Rees module can be viewed as a parametrisation of various relevant modules.
 $$\frac{\Rrel\M}{(\rho-1)\Rrel\M} \cong \M; \qquad \frac{\Rrel\M}{\rho\Rrel\M} \cong \gr \M;\qquad \frac{\Rrel\M}{\rho^\ell\Rrel\M} \cong  \grl\M.$$
@@ -347,48 +348,30 @@ From now on we equip $\IntJ{j} \M$ with the good filtration inherited from the R
 \end{proof}
 The main remaining task is to relate these results to the desired case of $\ell = 1$.
 \begin{definition}
-  For any $\ell \geq 1$ the {\it $G$-filtration} on a $\Rees\D_Y$-module $\mathcal{M}$ is defined by the decreasing sequence $G_j \mathcal{M} := \rho^{j}\mathcal{M}$.
+  For any $\ell \geq 1$ the {\it $G$-filtration} on a $\grl\D_Y$-module $\mathcal{M}$ is defined by $G_{j} \mathcal{M} := \rho^{\ell - j-1}\mathcal{M}$ for $j=0,\ldots, \ell-1$.
 \end{definition}
-Due to the decreasing nature of the filtration the graded parts now have to be defined as $\gr^G_j\mathcal{M}:= G_j\mathcal{M}/G_{j+1}\M$.
-Observe that $G_j\grl\M = \oplus_k F_{k-j}\M /F_{k-\ell}\M$ for any filtered $\D_Y$-module $\M$.
-Hence, the following lemma is immediate.
+The following lemma is immediate.
 \begin{lemma}\label{lem: GradedGGradedLYieldsGraded}
   For any filtered $\D_Y$-module $\M$ and $\ell \geq 1$ there is an isomorphism
   $$\gr^G_j \grl \M \cong \gr\M$$
   for any $j= 0,\ldots, \ell - 1$.
 \end{lemma}
-\begin{lemma}\label{lem: grGCommutes}
-  Consider a $\Rees\D_Y$-module $\mathcal{M}$.
-  Then one has an isomorphism $\gr^G\int\mathcal{M} \cong \int\gr^G\mathcal{M}$ in $\D^{b,r}(\gr\D_X)$.
-\end{lemma}
-\begin{proof}
-  Observe that the free resolution for $\Rees \D_{Y\to X}$ following from \Cref{rem: Spencer} can be made to respect the $G$-filtrations.
-  It follows that $\gr^G(\mathcal{M}\otimes^L_{\Rees\D_Y} \Rees\D_{Y\to X}) \cong \gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X}\gr\D_X$.
-  Similarly, a $\mu_*$-acyclic resolution can be found using the Godement resolution whose terms are essentially direct sums over stalks and hence respect the $G$-filtration.
-  We conclude that
-   $$\gr^GR\mu_*(\mathcal{M}\otimes^L_{\Rees\D_Y} \Rees\D_{Y\to X})  \cong R\mu_*(\gr^G\mathcal{M}\otimes^L_{\mu^{-1}\O_X}\gr\D_X)$$
-  which is the desired isomorphism.
-
-  %Let $\F^\bullet$ be a bimodule resolution for $\Rrel\D_{Y\to X}$ by locally free left $\Rees \D_Y$-modules.
-  %There is a $G$-filtration on this complex given by $\rho^j(\mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet) = (\rho^j\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$.
-  %By the flatness of locally free sheaves and the short exact sequence $0\to \oplus_j \rho^j \mathcal{M} \to \oplus_j \rho^{j-1}\mathcal{M} \to \gr^G \mathcal{M} \to 0$ it follows that $\gr^G(\mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet) \cong (\gr^G\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$.
-  %Similarly to the arguments in the proof of \Cref{lem: ReesAndOtherDirectImagesAgree} the complex of $\gr^G\D_Y$-modules  $(\gr^G\mathcal{M})\otimes_{\Rees\D_Y} \F^\bullet$ can be viewed as a representative of $(\gr^G\mathcal{M})\otimes^L_{\mu^{-1}\O_X}\gr\D_X$.
-
-  %Denote $\mathcal{G}(\blank)$ for the functor which takes a sheaf complex and returns its Godement resolution.
-  %Flabby sheaves are acyclic for $\mu_*$ so the Godement resolution may be used to compute $R\mu_*$.
-  %Moreover, since the terms of a Godement resolution are essentially direct sums of formal products of stalks, it is immediate that $\rho^i \mathcal{G}(\mathcal{N}^\bullet) = \mathcal{G}(\rho^i\mathcal{N}^\bullet)$ and that $\gr^G\mathcal{G}(\mathcal{N}^\bullet) =\mathcal{G}(\gr^G\mathcal{N}^\bullet)$ for any complex of right $\mu^{-1}\Rees\D_X$-modules $\mathcal{N}^\bullet$.
-  %Applying $\mu_*$ to these equalities and setting $\mathcal{N}^\bullet = \mathcal{M}\otimes_{\Rees\D_Y} \F^\bullet$ yields the desired result.
-\end{proof}
 \begin{proposition}\label{prop: SuppGrrelIntInclusion}
-  For a filtered $\D_Y$-module $\M$ with a good filtration it holds that  $$\supp \gr\IntJ{j}\M \subseteq \supp \int^j \gr\M.$$
+  For a filtered $\D_Y$-module $\M$ with a good filtration it holds that  $$\supp \gr\IntJ{j}\M \subseteq \supp \int \gr\M.$$
 \end{proposition}
 \begin{proof}
-  Let $\ell\geq 0$ be sufficiently large so that \Cref{lem: EllLargeSubquotent} holds, that is to say that $\grl\IntJ{j} \M$ is a subquotient of $\int^j \grl \M$.
-  By \Cref{lem: GradedGGradedLYieldsGraded} it holds that $\gr^G\grl \IntJ{j} \M \cong (\gr\IntJ{j}\M)^\ell$.
-  Morover, by \Cref{lem: EllLargeSubquotent} $\grl \IntJ{j} \M$ is a subquotient of $\int^{j} \grl\M$.
-  This shows that $\supp\gr\int\M \subseteq \supp \gr^G\int\grl \M$.
-  Finally, observe that $\supp \gr^G\int\grl \M = \supp \int \gr \M$ since, by \Cref{lem: grGCommutes}, $\gr^G\int\grl \M \cong \int\gr^G\grl\M\cong \int (\gr\M)^\ell$.
-  This concludes the proof.
+  Let $\ell\geq 1$ be sufficiently large so that \Cref{lem: EllLargeSubquotent} holds, that is to say that $\grl\IntJ{j} \M$ is a subquotient of $\int^j \grl \M$.
+  By \Cref{lem: GradedGGradedLYieldsGraded} it holds that $\supp \gr^G \grl\int^j\M = \supp \gr \IntJ{j}\M$. 
+  In combination this implies that $\supp\gr\IntJ{j}\M \subseteq \supp \gr^G\int^j\grl \M$.
+  
+  
+   Associated to the $G$-filtration is a spectral sequence with $E_1^{pq}$-term $\int^{p+q} \gr^G_p \grl \M$ which converges to $\int \grl \M$ \cite[Section 62.8]{stacks-project}. 
+   In fact, because the $G$-filtration on $\int \grl \M$ is finite, it can be shown that $E_\infty^{pq} \cong \gr^G_p \int^{p+q}\grl \M$.
+    This establishes that 
+    $$\supp \gr^G \int^{p+q} \grl \M \subseteq \supp \int\gr^G\grl\M$$
+    for all $p,q$. 
+    Observe that $\gr^G \grl \M \cong (\gr\M)^\ell $ by \Cref{lem: GradedGGradedLYieldsGraded}
+    to conclude the proof. 
 \end{proof}
 \begin{theorem}\label{thm: KashiwaraEstimate}
     Let $\M$ be a coherent $\D_Y$-module. Then, for any $j\geq 0$, we have
@@ -397,6 +380,10 @@ Hence, the following lemma is immediate.
 \begin{proof}
   This is immediate from \Cref{lem: GrKashiwara} and \Cref{prop: SuppGrrelIntInclusion}.
 \end{proof}
+
+\begin{lemma}{\cite[Proposition 4.9.]{kashiwara1976b}}\label{lem: IsotropicDirectImage}
+  Let $\mu:Y\to X$ be a proper morphism and $V\subseteq T^*Y$ an isotropic subvariety. Then $\widetilde{\mu}((T^*\mu)^{-1}(\Ch \M) )$ is also isotropic.
+\end{lemma}
 \begin{corollary}\label{cor: RelHolConserved}
   Let $\M$ be a holonomic $\D_Y$-module.
   Then, for any $j\geq 0$ the direct image $\IntJ{j}\M$ is a holonomic $\D_X$-module.
@@ -404,9 +391,6 @@ Hence, the following lemma is immediate.
 \begin{proof}
   This follows from \Cref{thm: KashiwaraEstimate} and \Cref{lem: IsotropicDirectImage}.
 \end{proof}
-\begin{lemma}{\cite[Proposition 4.9.]{kashiwara1976b}}\label{lem: IsotropicDirectImage}
-  Let $\mu:Y\to X$ be a proper morphism and $V\subseteq T^*Y$ an isotropic subvariety. Then $\widetilde{\mu}((T^*\mu)^{-1}(\Ch \M) )$ is also isotropic.
-\end{lemma}
 \subsection{Regular singularities}
 Let $X=\C$ considered as a complex manifold and consider an ordinary differential operator
 $P(x,\partial) = \sum_{k=0}^m a_k(x)\partial^k.$

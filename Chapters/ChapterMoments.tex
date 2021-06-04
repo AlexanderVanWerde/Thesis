@@ -10,6 +10,18 @@ Still, holonomicity may provide a useful criterion for theoretical investigation
 By consideration of distribution functions our approach allows for an uniform treatment of discrete and continuous random variables.
 One could further hope that one can find algorithms for holonomic random variables by exploiting the algorithms which are available for holonomic distributions.
 
+The new results and methods established in this chapter are as follows, the terminology is explained in the following sections. 
+\begin{result}
+  Let $w_s$ be a parameter-dependent distribution with finite moments and suppose that $w_s$ is holonomic over $K(s)$.
+  Then there exists $p_0\in K[s,\alpha]^\times$ and $\beta_1,\ldots,\beta_k\in \mathbb{Z}_{\geq 0}^n$ such that for any $\alpha \in \mathbb{Z}_{\geq 0}^n$ there exists $p_1,\ldots,p_k \in K[s,\alpha]$ with
+  $$p_0(s,\alpha) m_{\alpha}(w_s) = p_1(s,\alpha) m_{\beta_1}(w_s)+ \cdots + p_k(s,\alpha) m_{\beta_k}(w_s)$$
+  where $m_\alpha(w_s)$ denotes the $\alpha$th moment of $w_s$.
+\end{result}
+\begin{result}
+    Let $X$ be a real random variable. Suppose that the probability measure of $X$ may be viewed as a holonomic distribution with finite moments. Then there is an algorithmic procedure to determine $p>0$ such that there exists a constant $R>0$ which satisfies the tail bound 
+    $$\mathbb{P}(\abs{X}>t) \leq 2\exp(-t^p/R^p)$$
+    for all $t\geq 0$. 
+\end{result}
 Preliminaries with on the theory of distributions are provided in \cref{sec: Distributions}.
 An introduction to the literature on holonomic functions is provided in \cref{sec: HolAlgorithm}.
 We demonstrate how the holonomic toolbox may be applied to probabilistic problems in \cref{sec: HolonomicRV}.
@@ -324,19 +336,27 @@ Consider the following theorem as an example of the usefulness of these assumpti
   Here $\norm{A}$ denotes the operator norm of $A$.
 \end{theorem}
 \subsection{Tail conditions and holonomicity}
-The following examples demonstrate how the asymptotic results in \cref{subsec: Asymptotic} may be used as an alternative approach to establish bounds on the tails of a real random variable $X$.
-The idea is that, by the equivalent conditions of \Cref{thm: EquivalentLp}, it is sufficient to control the absolute moments $\mathbb{E}\abs{X}^k$.
+The goal of this section is to demonstrate how holonomicity may be used to as an alternative approach to establish bounds on the tails of a real random variable $X$.
 Note that it is not claimed that our method is the only approach.
 In many cases it is possible to prove the first condition of \Cref{thm: EquivalentLp} directly.
-
-The computations were done in the Mathematica package by \cite{kauers2011mathematica} which provides an implementation for \Cref{thm: Birkhoff} due to \cite{birkhoff1933analytic}.
+\begin{theorem}
+    Let $X$ be a positive real variable. Suppose that the probability measure of $X$ determines a holonomic distribution with finite moments $w_X$. 
+    Then there exist constants $p,R>0$ such that for all $t>0$ 
+    $$\mathbb{P}(X>t)\leq 2\exp(-t^p/R^p).$$
+\end{theorem}
+\begin{proof}
+    By \cref{thm: EquivalentLp} it is sufficient to establish a bound on the growth rate of $\mathbb{E}X^k = m_k(w_X)$. 
+    Note that $m_k(w_X)$ determines a monovariate holonomic sequence, hence the desired bound is established by \Cref{thm: Birkhoff}.
+\end{proof}
+This theorem shows that holonomic random variables always admit tail bounds. 
+The following examples demonstrate how computations in the Mathematica package by \cite{kauers2011mathematica} allow one to determine $p$ in an algorithmic fashion.
 \begin{example}
   Let $X=\abs{Y}$ with $Y$ coming from a Gaussian distribution with mean $0$ and standard deviation $\sigma$.
   The distribution of $X$ is equal to
   $$w = \frac{2}{\sqrt{2\pi}}\exp\left(-\frac{x^2}{2\sigma^2}\right)\chi_{[0,\infty)}(x)dx.$$
   This distribution is annihilated by the differential operator $x(\partial + x/\sigma^2).$
   The corresponding recursion for the moments $\mathbb{E}X^k = m_k(w)$ is then
-  $$\mathbb{E}X^{k+1}= \sigma^2 k\mathbb{E}^{k-1} $$
+  $$\mathbb{E}X^{k+1}= \sigma^2 k\mathbb{E}X^{k-1} $$
   for all $k\geq 1$.
   Using this recursion in Mathematica yields that
   $$\mathbb{E}\abs{Y}^{k} = O\left(e^{-k/2}k^{k/2}\sigma^k\right) $$
@@ -378,4 +398,17 @@ The following example demonstrates how the method can be applied in the presence
   for $c_i\in (0,1)$ and $x_i\in \mathbb{R}$.
   It follows that the corresponding sequence of moments is $\mathbb{R}$-recurrent.
   Recall from the discussion preceding \Cref{thm: KRecurrent} that in this case the moments have an explicit formula and that the corresponding asymptotics are well-understood.
+\end{remark}
+\begin{remark}
+  In real-world situations one does not always have access to an exact description of the distribution function but only access to a finite number of observations. 
+  If the sample is sufficiently large the moments may appear to approximate exact constants, for instance rational numbers or fundamental constants such as $\pi$. 
+  Such a situation is most likely to occur in cases where the problem has mathematical structure. 
+  For instance, in computer simulations of some process. 
+  
+  Let us remark that Mathematica has a function to determine fundamental constants based on a good approximation. 
+  Now suppose that a large but finite number of moments have been determined exactly. 
+  Then one can fit a recursion relation for these moments by use of guessing methods for holonomic sequences, see \cite[Section 4]{kauers2013holonomic}.
+  
+  This allows one to determine the asymptotics of the sequence by use of the method described above. 
+  Moreover, the recursion in the moments allows one to determine a differential equation which is satisfied the holonomic probability distribution.
 \end{remark}
